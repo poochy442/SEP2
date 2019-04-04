@@ -4,11 +4,19 @@ public class StockItem {
 
     private String name; //TODO: add ID
     private int quantity, price;
+    private boolean canExpire;
+    private Date expiryDate;
 
-    public StockItem(String name, int quantity, int price) {
+    public StockItem(String name, int quantity, int price, boolean canExpire, Date expiryDate) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this.canExpire = canExpire;
+        if(!canExpire){
+            expiryDate = new Date(1,1,1111);
+        } else {
+            expiryDate = expiryDate;
+        }
     }
 
     public int getQuantity() {
