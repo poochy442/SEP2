@@ -2,12 +2,12 @@ package model;
 
 public class Employee {
 
-    private String firstName, lastName;
-    // TODO: add ID
+    private String firstName, lastName, id;
 
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -24,6 +24,14 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
