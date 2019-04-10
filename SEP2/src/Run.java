@@ -2,8 +2,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import model.DataModel;
 import model.IDataModel;
-import view.ViewHandler;
-import viewmodel.ViewModelProvider;
+import view.warehouse.ViewHandler;
+import viewmodel.warehouse.ViewModelProvider;
 
 public class Run extends Application {
 

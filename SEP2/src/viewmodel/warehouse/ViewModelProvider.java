@@ -1,5 +1,6 @@
 package viewmodel.warehouse;
 
+import javafx.stage.Stage;
 import model.IDataModel;
 import view.warehouse.ViewHandler;
 import viewmodel.warehouse.employee.EmployeeAddVM;
@@ -10,6 +11,7 @@ import viewmodel.warehouse.main.MainVM;
 
 public class ViewModelProvider {
     private IDataModel dataModel;
+    private ViewHandler viewHandler;
     private MainVM mainVM;
     private InventoryMainVM inventoryMainVM;
     private InventoryAddVM inventoryAddVM;
@@ -19,6 +21,12 @@ public class ViewModelProvider {
 
     public ViewModelProvider(IDataModel dataModel) {
         this.dataModel = dataModel;
+        viewHandler = new ViewHandler(new Stage(), this);
+        mainVM = new MainVM(dataModel, viewHandler);
+        inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
+        inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
+        employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
+        employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
     }
 
     public MainVM getMainVM() {

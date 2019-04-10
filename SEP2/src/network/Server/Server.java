@@ -6,19 +6,16 @@ import java.net.Socket;
 
 public class Server {
 
-    private ServerSocket welcomeSocket;
-    private ServerReceiver serverReceiver;
+    private static int PORT = 5678;
 
+    public static void main(String[] args) throws IOException {
 
-    public Server(int PORT) throws IOException {
-        welcomeSocket = new ServerSocket(PORT);
+        ServerSocket welcomeSocket = new ServerSocket(PORT);
         System.out.println("Starting server...");
-    }
 
-    public void execute() throws IOException {
         while (true) {
             Socket socket = welcomeSocket.accept();
-            serverReceiver = new ServerReceiver(socket);
+            ServerReceiver serverReceiver = new ServerReceiver(socket);
             Thread t1 = new Thread(serverReceiver);
             t1.start();
         }

@@ -33,4 +33,12 @@ public class EmployeeList {
         }
     }
 
+    public Employee get(int index){
+        return employeeList.get(index);
+    }
+
+    public int size(){
+        return employeeList.size();
+    }
+
 }

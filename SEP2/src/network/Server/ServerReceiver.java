@@ -27,24 +27,35 @@ public class ServerReceiver implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true){
+        while (true) {
             try {
-                Packet packet = (Packet) in.readObject();
+                Object incoming = in.readObject();
+                if(incoming == null){
+                    continue;
+                }
+                Packet packet = (Packet) incoming;
                 String json = packet.getJson();
-                switch (packet.getOperation()){
+                switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
                         EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        // TODO: Add to view / DB and send to other client
+                        System.out.println("EmployeeList received");
+                        System.out.println(employeeList);
+                        System.out.println();
+                        // TODO: change to view event
+                        break;
                     case Packet.StockOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        // TODO: Add to view / DB and send to other clients
+                        System.out.println("StockItemList received");
+                        System.out.println(stockItemList);
+                        System.out.println();
+                        // TODO: Change to view event
+                        break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-
 
 
 }
