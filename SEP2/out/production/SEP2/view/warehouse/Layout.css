@@ -1,0 +1,6 @@
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover {
+-fx-background-color: #58CBC6 !important;
+}
+
+
+

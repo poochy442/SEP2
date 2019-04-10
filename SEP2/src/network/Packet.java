@@ -1,6 +1,8 @@
 package network;
 
-public class Packet {
+import java.io.Serializable;
+
+public class Packet implements Serializable {
 
     private String operation, Json;
     public static final String EmployeeOperation = "Employees", StockOperation = "StockItems";

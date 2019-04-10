@@ -1,7 +1,9 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.ViewHandler;
-import viewmodel.ViewModelProvider;
+import model.DataModel;
+import model.IDataModel;
+import view.warehouse.ViewHandler;
+import viewmodel.warehouse.ViewModelProvider;
 
 public class Run extends Application {
 
@@ -12,8 +14,9 @@ public class Run extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ViewModelProvider mvp = new ViewModelProvider();
-        ViewHandler vh = new ViewHandler(stage, mvp);
+        IDataModel im = new DataModel();
+        ViewModelProvider vmp = new ViewModelProvider(im);
+        ViewHandler vh = new ViewHandler(stage, vmp);
         vh.start();
 
     }

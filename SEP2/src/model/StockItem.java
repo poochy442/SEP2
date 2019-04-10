@@ -2,13 +2,14 @@ package model;
 
 public class StockItem {
 
-    private String name; //TODO: add ID
+    private String name, id;
     private int quantity, price;
     private boolean canExpire;
     private Date expiryDate;
 
-    public StockItem(String name, int quantity, int price, boolean canExpire, Date expiryDate) {
+    public StockItem(String name, String id, int quantity, int price, boolean canExpire, Date expiryDate) {
         this.name = name;
+        this.id = id;
         this.quantity = quantity;
         this.price = price;
         this.canExpire = canExpire;

@@ -42,4 +42,12 @@ public class StockItemList {
         return count;
     }
 
+    public StockItem get(int index){
+        return stockItemList.get(index);
+    }
+
+    public int size(){
+        return stockItemList.size();
+    }
+
 }

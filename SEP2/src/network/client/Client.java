@@ -1,32 +1,53 @@
 package network.client;
 
+import com.google.gson.Gson;
+import model.Employee;
+import model.EmployeeList;
+import network.Packet;
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
 
-public class Client implements IClient{
+public class Client implements Runnable {
 
-//    private Model model;
+    private final int PORT = 5678;
+    private String HOST;
 
-    private ClientSender clientSender;
+    public Client(String HOST) {
+        this.HOST = HOST;
+    }
 
-    public Client ()
-    {
-//        this.model = model;
+    @Override
+    public void run() {
+        Socket socket = null;
+        try {
+            socket = new Socket(HOST, PORT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        ClientSender client = new ClientSender(socket);
 
-            try {
-                Socket socket = new Socket("localhost", 1234);
-                ClientSender clientSender = new ClientSender(new ObjectOutputStream(socket.getOutputStream()), this);
+        Thread t1 = new Thread(client);
+        t1.start();
 
-                Thread t = new Thread(clientSender);
-                t.start();
-                System.out.println("Sending Thread Openning");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        // TODO: start view, instead of scanner
 
+        Scanner input = new Scanner(System.in);
 
+        System.out.println("Insert 3 names:");
+
+        EmployeeList empList = new EmployeeList();
+        for(int i = 0; i < 3; i++){
+            empList.add(new Employee(input.next(), "lastname", "" + i));
+        }
+
+        Gson gson = new Gson();
+        String json = gson.toJson(empList);
+
+        Packet packet = new Packet(Packet.EmployeeOperation, json);
+        client.addToQueue(packet);
 
     }
 }
