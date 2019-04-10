@@ -1,32 +1,30 @@
 package network.client;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class Client implements IClient{
+public class Client implements Runnable{
 
-//    private Model model;
+    private final int PORT = 5678;
+    private String HOST;
 
-    private ClientSender clientSender;
-
-    public Client ()
+    public Client(String HOST)
     {
-//        this.model = model;
+        this.HOST = HOST;
+    }
 
+    @Override
+    public void run() {
+        Socket socket = null;
+        try {
+            socket = new Socket(HOST, PORT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            try {
-                Socket socket = new Socket("localhost", 1234);
-                ClientSender clientSender = new ClientSender(new ObjectOutputStream(socket.getOutputStream()), this);
+        Thread client = new Thread(new ClientSender(socket));
+        client.start();
 
-                Thread t = new Thread(clientSender);
-                t.start();
-                System.out.println("Sending Thread Openning");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
-
+        // TODO: start view
     }
 }

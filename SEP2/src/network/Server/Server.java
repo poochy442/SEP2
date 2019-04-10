@@ -8,13 +8,11 @@ public class Server {
 
     private ServerSocket welcomeSocket;
     private ServerReceiver serverReceiver;
-//    private Model model;
 
 
     public Server(int PORT) throws IOException {
-
         welcomeSocket = new ServerSocket(PORT);
-
+        System.out.println("Starting server...");
     }
 
     public void execute() throws IOException {
@@ -23,8 +21,6 @@ public class Server {
             serverReceiver = new ServerReceiver(socket);
             Thread t1 = new Thread(serverReceiver);
             t1.start();
-
-
         }
     }
 }
