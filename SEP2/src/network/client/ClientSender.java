@@ -1,7 +1,10 @@
 package network.client;
 
+import com.google.gson.Gson;
+import model.*;
 import network.Packet;
 
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -12,10 +15,32 @@ public class ClientSender implements Runnable {
 
     private Socket socket;
     private Queue<Packet> queue;
+    private IDataModel dataModel;
 
-    public ClientSender(Socket socket) {
+    public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
+        this.dataModel = dataModel;
+        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
+        dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
         queue = new LinkedList<>();
+    }
+
+    private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {
+        StockItemList stockItemList = new StockItemList();
+        stockItemList.add((StockItem) propertyChangeEvent.getNewValue());
+        Gson gson = new Gson();
+        String json = gson.toJson(stockItemList);
+        Packet packet = new Packet(Packet.StockOperation, json);
+        addToQueue(packet);
+    }
+
+    private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
+        EmployeeList employeeList = new EmployeeList();
+        employeeList.add((Employee) propertyChangeEvent.getNewValue());
+        Gson gson = new Gson();
+        String json = gson.toJson(employeeList);
+        Packet packet = new Packet(Packet.EmployeeOperation, json);
+        addToQueue(packet);
     }
 
     @Override
@@ -44,6 +69,7 @@ public class ClientSender implements Runnable {
 
     public void addToQueue(Packet packet){
         queue.add(packet);
+
     }
 
 }
