@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sep2Project.view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView">
    <children>
       <TableView fx:id="stockItemTable" layoutX="10.0" layoutY="10.0" prefHeight="650.0">
          <columns>
