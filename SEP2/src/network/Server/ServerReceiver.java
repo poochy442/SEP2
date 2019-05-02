@@ -2,6 +2,7 @@ package network.Server;
 
 import com.google.gson.Gson;
 import model.EmployeeList;
+import model.Request;
 import model.StockItemList;
 import network.Packet;
 
@@ -31,6 +32,7 @@ public class ServerReceiver implements Runnable {
             try {
                 Object incoming = in.readObject();
                 if(incoming == null){
+                    Thread.sleep(5000);
                     continue;
                 }
                 Packet packet = (Packet) incoming;
@@ -49,6 +51,14 @@ public class ServerReceiver implements Runnable {
                         System.out.println(stockItemList);
                         System.out.println();
                         // TODO: Change to view event
+                        break;
+                    case Packet.RequestOperation:
+                        Request request = (Request) gson.fromJson(json, Request.class);
+                        System.out.println("Request received");
+                        System.out.println(request);
+                        System.out.println();
+                        // TODO: Add alert to view, accept/decline request
+                        // Use getStockItem and GetQuantity to send the correct amounts to view
                         break;
                 }
             } catch (Exception e) {
