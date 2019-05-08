@@ -1,5 +1,19 @@
-.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover {
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #editEmployeeButton:hover, #removeEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #editItemStockButton:hover, #removeItemStockButton:hover {
 -fx-background-color: #58CBC6 !important;
+}
+
+#close:hover, #minimize:hover, #settings:hover, #help:hover {
+    -fx-scale-x: 1.15;
+    -fx-scale-y: 1.15;
+}
+
+.column-header{
+    -fx-background-color:  #58CBC6;
+    -fx-border-color: white;
+}
+
+#homeButton:hover, #inventoryButton:hover, #employeeButton:hover {
+    -fx-text-fill: white;
 }
 
 

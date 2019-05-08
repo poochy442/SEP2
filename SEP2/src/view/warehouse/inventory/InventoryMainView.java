@@ -70,7 +70,7 @@ public class InventoryMainView {
     }
 
     @FXML
-    void onHomeClicked(ActionEvent event) {
+    void onDashboardClicked(ActionEvent event) {
         inventoryMainVM.openMainView();
     }
 
@@ -83,5 +83,20 @@ public class InventoryMainView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML
+    void onRemoveItemStockClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEditItemStockClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onInventoryClicked(ActionEvent event) {
+
     }
 }

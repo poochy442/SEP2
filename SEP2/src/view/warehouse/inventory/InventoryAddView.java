@@ -69,4 +69,19 @@ public class InventoryAddView {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    @FXML
+    void onEmployeeClicked(ActionEvent event) {
+        inventoryAddVM.openEmployeeView();
+    }
+
+    @FXML
+    void onDashboardClicked(ActionEvent event) {
+        inventoryAddVM.openMainView();
+    }
+
+    @FXML
+    void onInventoryClicked(ActionEvent event) {
+        inventoryAddVM.openInventoryView();
+    }
 }

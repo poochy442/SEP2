@@ -97,4 +97,19 @@ public class InventoryAddVM {
     public ObjectProperty<LocalDate> getExpiryDate() {
         return expiryDate;
     }
+
+    public void openMainView()
+    {
+        viewHandler.openMainView();
+    }
+
+    public void openInventoryView()
+    {
+        viewHandler.openInventoryMainView();
+    }
+
+    public void openEmployeeView()
+    {
+        viewHandler.openEmployeeMainView();
+    }
 }
