@@ -4,11 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView">
    <children>
-      <TableView fx:id="stockItemTable" layoutX="10.0" layoutY="10.0" prefHeight="650.0">
+      <TableView fx:id="stockItemTable" layoutX="41.0" layoutY="75.0" prefHeight="650.0">
          <columns>
             <TableColumn fx:id="nameCol" prefWidth="188.0" style="-fx-text-align: center;" text="Name" />
             <TableColumn fx:id="iDCol" minWidth="0.0" prefWidth="188.0" text="ID" />
@@ -24,5 +28,23 @@
       <Button layoutX="91.0" layoutY="719.0" mnemonicParsing="false" onAction="#onHomeClicked" text="Open Dashboard " />
       <Button layoutX="932.0" layoutY="719.0" mnemonicParsing="false" onAction="#onEmployeeWHClicked" text="Open warehouse employee list" />
       <Label layoutX="431.0" layoutY="723.0" text="You are in warehouse system" />
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="53.0" layoutY="15.0" text="Warehouse Management Tool">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6;">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../warehouse/pictures/inventory.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
