@@ -3,11 +3,12 @@ package model;
 public class Request {
 
     StockItem requestItem;
-    int quantity;
+    int quantity, currentQty;
 
-    public Request(StockItem requestItem, int quantity){
+    public Request(StockItem requestItem, int quantity, int currentQty){
         this.requestItem = requestItem;
         this.quantity = quantity;
+        this.currentQty = currentQty;
     }
 
     public StockItem getRequestItem() {
@@ -16,5 +17,9 @@ public class Request {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getCurrentQty() {
+        return currentQty;
     }
 }
