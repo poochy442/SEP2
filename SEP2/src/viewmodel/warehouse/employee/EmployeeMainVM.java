@@ -3,6 +3,7 @@ package viewmodel.warehouse.employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
+import model.EmployeeList;
 import model.IDataModel;
 import view.warehouse.ViewHandler;
 
@@ -19,6 +20,17 @@ public class EmployeeMainVM {
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeToClient);
+        dataModel.addListener("EmployeeQuery",this::newEmployeeListListener);
+    }
+
+    private void newEmployeeListListener(PropertyChangeEvent propertyChangeEvent) {
+        EmployeeList employeeList = (EmployeeList)propertyChangeEvent.getNewValue();
+
+        for (int i=0;i<employeeList.size();i++)
+        {
+            employees.add(employeeList.get(i));
+            System.out.println(employeeList.get(i).toString());
+        }
     }
 
     private void addEmployeeToClient(PropertyChangeEvent evt) {

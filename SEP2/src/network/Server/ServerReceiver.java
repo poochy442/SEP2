@@ -1,11 +1,12 @@
 package network.Server;
 
 import com.google.gson.Gson;
+import jdbc.DataBaseModel;
 import model.EmployeeList;
+import model.IDataModel;
 import model.Request;
 import model.StockItemList;
 import network.Packet;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -13,9 +14,15 @@ import java.net.Socket;
 public class ServerReceiver implements Runnable {
 
     private Socket socket;
+    private DataBaseModel dataBaseModel;
+    private IDataModel dataModel;
 
-    public ServerReceiver(Socket socket) {
+    public ServerReceiver(Socket socket, DataBaseModel dataBaseModel, IDataModel dataModel) {
         this.socket = socket;
+        this.dataBaseModel=dataBaseModel;
+        this.dataModel=dataModel;
+
+
     }
 
     @Override
@@ -49,7 +56,6 @@ public class ServerReceiver implements Runnable {
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
                         System.out.println("StockItemList received");
                         System.out.println(stockItemList);
-                        System.out.println();
                         // TODO: Change to view event
                         break;
                     case Packet.RequestOperation:
@@ -59,6 +65,9 @@ public class ServerReceiver implements Runnable {
                         System.out.println();
                         // TODO: Add alert to view, accept/decline request
                         // Use getStockItem and GetQuantity to send the correct amounts to view
+                        break;
+                    case Packet.EmployeeQuery:
+                        dataBaseModel.employeeQuery();
                         break;
                 }
             } catch (Exception e) {

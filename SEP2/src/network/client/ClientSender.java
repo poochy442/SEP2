@@ -20,10 +20,20 @@ public class ClientSender implements Runnable {
     public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
         this.dataModel = dataModel;
+        dataModel.addListener("Refresh",this::refresh);
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
-        dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
+        dataModel.addListener("ItemToDB", this::addStockItemListener);
+
         // TODO: Add Request Listener
         queue = new LinkedList<>();
+    }
+
+    private void refresh(PropertyChangeEvent propertyChangeEvent) {
+        propertyChangeEvent.getNewValue();
+        System.out.println("ClientSender:refresh() added to queue");
+        Packet p = new Packet(Packet.EmployeeQuery,null);
+        addToQueue(p);
+
     }
 
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {

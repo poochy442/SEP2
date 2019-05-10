@@ -6,17 +6,15 @@ import java.beans.PropertyChangeSupport;
 public class DataModel implements IDataModel {
     private EmployeeList employeeList;
     private StockItemList stockItemList;
-    private PropertyChangeSupport changeSupport;
 
 
     public DataModel() {
         employeeList = new EmployeeList();
-        Employee wow = new Employee("dave", "le", "280071");
-        Employee row = new Employee("idiot", "wow", "fuck");
+        Employee wow = new Employee("dave", "le", "280071","WH" );
+        Employee row = new Employee("idiot", "wow", "fuck","WH" );
         employeeList.add(wow);
         employeeList.add(wow);
         employeeList.add(row);
-        changeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
     }
 
@@ -36,7 +34,6 @@ public class DataModel implements IDataModel {
     @Override
     public void addEmployeeToServer(Employee e) {
         employeeList.add(e);
-
     }
 
     @Override
@@ -45,9 +42,9 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void addItemToClient(StockItem i) {
-        stockItemList.add(i);
-        propertyChangeSupport.firePropertyChange("NewItemAddedFromClient", null, i);
+    public void storeItemInDB(StockItem i) {
+        //stockItemList.add(i);
+        propertyChangeSupport.firePropertyChange("ItemToDB", null, i);
     }
 
     @Override
@@ -58,6 +55,13 @@ public class DataModel implements IDataModel {
 
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
+        propertyChangeSupport.firePropertyChange("EmployeeQuery",null,employeeList);
+    }
+
+    @Override
+    public void refresh() {
+        propertyChangeSupport.firePropertyChange("Refresh",1,2);
+        System.out.println("DataModel:refresh()");
     }
 
     public StockItemList getStockItemList() {

@@ -50,10 +50,13 @@ public class ClientReceiver implements Runnable {
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
                         for(int i = 0; i < stockItemList.size(); i++){
-                            dataModel.addItemToClient(stockItemList.get(i));
+                            dataModel.storeItemInDB(stockItemList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
+                    case Packet.EmployeeQuery:
+                        EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
+                        dataModel.setEmployeeList(employeeList1);
                 }
             } catch (Exception e){
                 e.printStackTrace();
