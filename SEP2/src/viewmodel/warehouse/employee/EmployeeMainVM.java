@@ -18,7 +18,6 @@ public class EmployeeMainVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeToClient);
         dataModel.addListener("NewEmployeeList", this::newEmployeeListListener);
         dataModel.addListener("RefreshEmployeeList",this::newEmployeeListListener);
     }
@@ -28,7 +27,6 @@ public class EmployeeMainVM {
         employees = FXCollections.observableArrayList();
         for (int i = 0; i < employeeList.size(); i++) {
             employees.add(employeeList.get(i));
-            System.out.println(employeeList.get(i).toString());
         }
     }
 
@@ -52,7 +50,7 @@ public class EmployeeMainVM {
         viewHandler.openEmployeeAddView();
     }
 
-    public void refresshView() {
+    public void refreshView() {
         dataModel.refreshEmployeeList();
     }
 }

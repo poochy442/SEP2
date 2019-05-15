@@ -44,7 +44,7 @@ public class ServerSender implements Runnable {
         while(true){
             while(queue.isEmpty()){
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,4 +60,6 @@ public class ServerSender implements Runnable {
     public void addToQueue(Packet packet){
         queue.add(packet);
     }
+
+
 }

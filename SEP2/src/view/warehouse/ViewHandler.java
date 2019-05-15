@@ -21,8 +21,7 @@ public class ViewHandler {
     private ViewModelProvider viewModelProvider;
     private Rectangle2D screenSize;
 
-    public ViewHandler(Stage stage, ViewModelProvider vmp)
-    {
+    public ViewHandler(Stage stage, ViewModelProvider vmp) {
         primaryStage = stage;
         primaryStage.setMaximized(true);
         primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -35,17 +34,14 @@ public class ViewHandler {
         openMainView();
     }
 
-    public void openMainView()
-    {
+    public void openMainView() {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("main/Main.fxml"));
         Parent root = null;
-        try{
+        try {
             root = loader.load();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         MainView view = loader.getController();
@@ -57,17 +53,14 @@ public class ViewHandler {
         primaryStage.show();
     }
 
-    public void openEmployeeMainView()
-    {
+    public void openEmployeeMainView() {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("employee/EmployeeMain.fxml"));
         Parent root = null;
-        try{
+        try {
             root = loader.load();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         EmployeeMainView view = loader.getController();
@@ -79,17 +72,14 @@ public class ViewHandler {
         primaryStage.show();
     }
 
-    public void openInventoryMainView()
-    {
+    public void openInventoryMainView() {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("inventory/InventoryMain.fxml"));
         Parent root = null;
-        try{
+        try {
             root = loader.load();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         InventoryMainView view = loader.getController();
@@ -106,11 +96,9 @@ public class ViewHandler {
 
         loader.setLocation(getClass().getResource("employee/EmployeeAdd.fxml"));
         Parent root = null;
-        try{
+        try {
             root = loader.load();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         EmployeeAddView view = loader.getController();
@@ -127,11 +115,9 @@ public class ViewHandler {
 
         loader.setLocation(getClass().getResource("inventory/InventoryAdd.fxml"));
         Parent root = null;
-        try{
+        try {
             root = loader.load();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         InventoryAddView view = loader.getController();

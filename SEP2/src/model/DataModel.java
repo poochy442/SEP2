@@ -54,7 +54,7 @@ public class DataModel implements IDataModel {
 
     @Override
     public void refreshEmployeeList() {
-        setEmployeeList(employeeList);
+        propertyChangeSupport.firePropertyChange("EmployeeQuery",null,null);
 
     }
 

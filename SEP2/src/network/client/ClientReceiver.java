@@ -34,7 +34,7 @@ public class ClientReceiver implements Runnable {
             try {
                 Object incoming = in.readObject();
                 if (incoming == null) {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                     continue;
                 }
                 Packet packet = (Packet) incoming;

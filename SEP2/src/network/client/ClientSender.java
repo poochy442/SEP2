@@ -20,7 +20,7 @@ public class ClientSender implements Runnable {
     public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
         this.dataModel = dataModel;
-        dataModel.addListener("Refresh",this::refresh);
+        dataModel.addListener("EmployeeQuery",this::EmployeeQuery);
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
         dataModel.addListener("ItemToDB", this::addStockItemListener);
 
@@ -28,9 +28,7 @@ public class ClientSender implements Runnable {
         queue = new LinkedList<>();
     }
 
-    private void refresh(PropertyChangeEvent propertyChangeEvent) {
-        propertyChangeEvent.getNewValue();
-        System.out.println("ClientSender:refreshEmployeeList() added to queue");
+    private void EmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
         Packet p = new Packet(Packet.EmployeeQuery,null);
         addToQueue(p);
 
@@ -74,7 +72,7 @@ public class ClientSender implements Runnable {
         while(true){
             if(queue.isEmpty()){
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

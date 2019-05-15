@@ -41,7 +41,7 @@ public class EmployeeMainView {
 
     public void init(EmployeeMainVM employeeMainVM) {
         this.employeeMainVM = employeeMainVM;
-        employeeMainVM.refresshView();
+        employeeMainVM.refreshView();
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
