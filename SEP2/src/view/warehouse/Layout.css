@@ -1,4 +1,4 @@
-.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #editEmployeeButton:hover, #removeEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #editItemStockButton:hover, #removeItemStockButton:hover {
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #editEmployeeButton:hover, #removeEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #editItemStockButton:hover, #removeItemStockButton:hover, #productRequestButton:hover, #sendRequestButton:hover {
 -fx-background-color: #58CBC6 !important;
 }
 

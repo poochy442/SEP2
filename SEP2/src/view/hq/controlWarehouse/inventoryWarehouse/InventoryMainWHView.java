@@ -34,6 +34,12 @@ public class InventoryMainWHView {
     private TableColumn<LocalDate, StockItem> expiryDateCol;
 
     @FXML
+    private TableColumn<Integer, StockItem> minStockCol;
+
+    @FXML
+    private TableColumn<Integer, StockItem> maxStockCol;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private InventoryWHVM inventoryWHVM;
@@ -53,6 +59,8 @@ public class InventoryMainWHView {
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
+        minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
+        maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
     }
 
     @FXML

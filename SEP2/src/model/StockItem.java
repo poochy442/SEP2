@@ -3,11 +3,11 @@ package model;
 public class StockItem {
 
     private String name, id;
-    private int quantity, price;
+    private int quantity, price, minStock, maxStock;
     private boolean canExpire;
     private Date expiryDate;
 
-    public StockItem(String name, String id, int quantity, int price, boolean canExpire, Date expiryDate) {
+    public StockItem(String name, String id, int quantity, int price, boolean canExpire, Date expiryDate, int minStock, int maxStock) {
         this.name = name;
         this.id = id;
         this.quantity = quantity;
@@ -18,6 +18,8 @@ public class StockItem {
         } else {
             expiryDate = expiryDate;
         }
+        this.minStock = minStock;
+        this.maxStock = maxStock;
     }
 
     public int getQuantity() {
@@ -42,5 +44,23 @@ public class StockItem {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getId() {return id;}
+
+    public int getMinStock() {
+        return minStock;
+    }
+
+    public int getMaxStock() {
+        return maxStock;
+    }
+
+    public boolean isCanExpire() {
+        return canExpire;
+    }
+
+    public Date getExpiryDate() {
+        return expiryDate;
     }
 }

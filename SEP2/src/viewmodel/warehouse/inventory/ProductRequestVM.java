@@ -6,43 +6,36 @@ import model.IDataModel;
 import model.StockItem;
 import view.warehouse.ViewHandler;
 
-import java.beans.PropertyChangeEvent;
+import javax.swing.*;
 
-public class InventoryMainVM {
+public class ProductRequestVM {
     private IDataModel dataModel;
     private ObservableList<StockItem> stockItems;
     private ViewHandler viewHandler;
 
-    public InventoryMainVM(IDataModel dataModel, ViewHandler viewHandler) {
+    public ProductRequestVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("NewItemAddedFromClient", this::addStockItemToClient);
-    }
-
-    private void addStockItemToClient(PropertyChangeEvent evt) {
-        stockItems.add((StockItem) evt.getNewValue());
+       // dataModel.addListener();  //TODO: Finish2
     }
 
     public ObservableList<StockItem> getStockItems() {
         return stockItems;
     }
 
-
     public void openMainView() {
         viewHandler.openMainView();
-    }
-
-    public void openInventoryAddView() {
-        viewHandler.openInventoryAddView();
     }
 
     public void openEmployeeMainView() {
         viewHandler.openEmployeeMainView();
     }
 
-    public void openProductRequestView() { viewHandler.openProductRequestView();
+    public void openInventoryMainView() {viewHandler.openInventoryMainView();
     }
 
-    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
+    public void sendProductRequest() {
+
+    }
 }

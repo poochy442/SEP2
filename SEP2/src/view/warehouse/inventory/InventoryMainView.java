@@ -3,7 +3,9 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -38,17 +40,24 @@ public class InventoryMainView {
     private TableColumn<LocalDate, StockItem> expiryDateCol; //TODO: expiryDateCol is weird
 
     @FXML
+    private TableColumn<Integer, StockItem> minStockCol;
+
+    @FXML
+    private TableColumn<Integer, StockItem> maxStockCol;
+
+    @FXML
+    private Label experimentLabel;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private InventoryMainVM inventoryMainVM;
 
-    public InventoryMainView()
-    {
+    public InventoryMainView() {
 
     }
 
-    public void init(InventoryMainVM inventoryMainVM)
-    {
+    public void init(InventoryMainVM inventoryMainVM) {
         this.inventoryMainVM = inventoryMainVM;
         stockItemTable.setItems(inventoryMainVM.getStockItems());
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -57,7 +66,21 @@ public class InventoryMainView {
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
+        minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
+        maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
+
+        stockItemTable.setRowFactory( tv -> {  //TODO: Move to ProductRequest
+            TableRow<StockItem> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    StockItem rowData = row.getItem();
+                    experimentLabel.setText("hello");
+                }
+            });
+            return row ;
+        });
     }
+
 
     @FXML
     void onAddItemStockClicked(ActionEvent event) {
@@ -98,5 +121,10 @@ public class InventoryMainView {
     @FXML
     void onInventoryClicked(ActionEvent event) {
 
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        inventoryMainVM.openProductRequestView();
     }
 }

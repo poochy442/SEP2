@@ -148,12 +148,14 @@
                   <TableColumn fx:id="priceCol" prefWidth="188.0" text="Price" />
                   <TableColumn fx:id="canExpireCol" prefWidth="188.0" text="Expiry threat" />
                   <TableColumn fx:id="expiryDateCol" prefWidth="188.0" text="Expiry date" />
+                  <TableColumn fx:id="minStockCol" prefWidth="188.0" text="Min stock" />
+                  <TableColumn fx:id="maxStockCol" prefWidth="188.0" text="Max stock" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <BorderPane.margin>
-                  <Insets top="24.0" />
+                  <Insets top="54.0" />
                </BorderPane.margin>
             </TableView>
          </center>
@@ -161,7 +163,7 @@
             <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" />
-                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="395.0">
+                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="662.0">
                      <children>
                         <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
                            <cursor>
@@ -174,6 +176,11 @@
                            </cursor>
                         </Button>
                         <Button fx:id="removeItemStockButton" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="productRequestButton" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#onProductRequestClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Make product request">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -202,6 +209,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+            <Label fx:id="experimentLabel" layoutX="150.0" layoutY="80.0" text="Label" />
          </children>
       </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">

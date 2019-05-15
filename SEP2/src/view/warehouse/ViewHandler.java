@@ -11,6 +11,7 @@ import view.warehouse.employee.EmployeeAddView;
 import view.warehouse.employee.EmployeeMainView;
 import view.warehouse.inventory.InventoryAddView;
 import view.warehouse.inventory.InventoryMainView;
+import view.warehouse.inventory.ProductRequestView;
 import view.warehouse.main.MainView;
 import viewmodel.warehouse.ViewModelProvider;
 
@@ -137,6 +138,27 @@ public class ViewHandler {
         InventoryAddView view = loader.getController();
         view.init(viewModelProvider.getInventoryAddVM());
         primaryStage.setTitle("Add stock item");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openProductRequestView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("inventory/ProductRequest.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        ProductRequestView view = loader.getController();
+        view.init(viewModelProvider.getProductRequestVM());
+        primaryStage.setTitle("Product request");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

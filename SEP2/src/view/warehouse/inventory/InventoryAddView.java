@@ -30,6 +30,12 @@ public class InventoryAddView {
     private DatePicker datePicker;
 
     @FXML
+    private TextField minStockField;
+
+    @FXML
+    private TextField maxStockField;
+
+    @FXML
     private AnchorPane anchorPane;
     private InventoryAddVM inventoryAddVM;
 
@@ -47,6 +53,8 @@ public class InventoryAddView {
         iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
         canExpireField.textProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
         datePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
+        minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());
+        maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
 
     }
     @FXML

@@ -1,5 +1,5 @@
 .menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #editEmployeeButton:hover, #removeEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #editItemStockButton:hover, #removeItemStockButton:hover {
--fx-background-color: #B579CF !important;
+-fx-background-color: #58CBC6 !important;
 }
 
 #close:hover, #minimize:hover, #settings:hover, #help:hover {
@@ -8,7 +8,7 @@
 }
 
 .column-header{
-    -fx-background-color: #B579CF;
+    -fx-background-color:  #58CBC6;
     -fx-border-color: white;
 }
 

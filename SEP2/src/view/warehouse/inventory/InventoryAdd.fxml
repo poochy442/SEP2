@@ -16,28 +16,32 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1264.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.InventoryAddView">
    <children>
-      <Pane layoutX="431.0" layoutY="172.0" prefHeight="333.0" prefWidth="420.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="200.0">
+      <Pane layoutX="431.0" layoutY="172.0" prefHeight="455.0" prefWidth="508.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="200.0">
          <children>
-            <TextField fx:id="nameField" layoutX="121.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="iDField" layoutX="121.0" layoutY="50.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="quantityField" layoutX="121.0" layoutY="100.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="priceField" layoutX="121.0" layoutY="150.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <Label layoutY="150.0" text="Price" />
-            <TextField fx:id="canExpireField" layoutX="121.0" layoutY="200.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <DatePicker fx:id="datePicker" layoutX="121.0" layoutY="250.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 5px;" />
-            <Button fx:id="addButton" layoutX="64.0" layoutY="300.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
+            <TextField fx:id="nameField" layoutX="120.0" layoutY="10.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
+            <TextField fx:id="iDField" layoutX="120.0" layoutY="60.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
+            <TextField fx:id="quantityField" layoutX="120.0" layoutY="110.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
+            <TextField fx:id="priceField" layoutX="120.0" layoutY="160.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
+            <Label layoutY="160.0" text="Price" />
+            <TextField fx:id="canExpireField" layoutX="120.0" layoutY="210.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
+            <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="260.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 5px;" />
+            <Button fx:id="addButton" layoutX="66.0" layoutY="414.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="backButton" layoutX="302.0" layoutY="300.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK">
+            <Button fx:id="backButton" layoutX="304.0" layoutY="414.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label layoutY="4.0" prefWidth="169.0" text="Name" />
-            <Label layoutY="48.0" prefHeight="17.0" prefWidth="45.0" text="ID" />
-            <Label layoutY="98.0" text="Quantity" />
-            <Label layoutY="195.0" text="Can it expire" />
-            <Label layoutX="-2.0" layoutY="235.0" text="Expiry date" />
+            <Label layoutY="10.0" prefWidth="169.0" text="Name" />
+            <Label layoutY="60.0" prefHeight="17.0" prefWidth="45.0" text="ID" />
+            <Label layoutY="110.0" text="Quantity" />
+            <Label layoutY="210.0" text="Can it expire" />
+            <Label layoutY="260.0" text="Expiry date" />
+            <TextField fx:id="minStockField" layoutX="120.0" layoutY="310.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
+            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="360.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
+            <Label layoutY="310.0" text="Min stock" />
+            <Label layoutY="360.0" text="Max stock" />
          </children>
       </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

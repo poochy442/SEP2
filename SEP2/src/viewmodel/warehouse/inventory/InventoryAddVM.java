@@ -1,9 +1,6 @@
 package viewmodel.warehouse.inventory;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import model.Date;
 import model.IDataModel;
 import model.StockItem;
@@ -19,6 +16,8 @@ public class InventoryAddVM {
     private StringProperty canExpire;
     private ObjectProperty<LocalDate> expiryDate;
     private Date date;
+    private StringProperty minStock;
+    private StringProperty maxStock;
 
     private IDataModel dataModel;
     private ViewHandler viewHandler;
@@ -33,6 +32,8 @@ public class InventoryAddVM {
         id = new SimpleStringProperty();
         canExpire = new SimpleStringProperty();
         expiryDate = new SimpleObjectProperty<>();
+        minStock = new SimpleStringProperty();
+        maxStock = new SimpleStringProperty();
 
         date = new Date(0,0,0);
     }
@@ -49,7 +50,7 @@ public class InventoryAddVM {
     public void addStockItem()
     {
         dateConverter();
-        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), Boolean.parseBoolean(canExpire.getValue()), date); // Here it is important
+        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), Boolean.parseBoolean(canExpire.getValue()), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
         dataModel.addItemToClient(si);
         System.out.println(Boolean.parseBoolean(canExpire.getValue()));
         System.out.println("Day: " + date.getDay());
@@ -65,6 +66,8 @@ public class InventoryAddVM {
         id.setValue("");
         canExpire.setValue("");
         expiryDate.setValue(null);
+        minStock.setValue("");
+        maxStock.setValue("");
 
     }
 
@@ -111,5 +114,14 @@ public class InventoryAddVM {
     public void openEmployeeView()
     {
         viewHandler.openEmployeeMainView();
+    }
+
+    public StringProperty minStockProperty() {
+        return minStock;
+    }
+
+    public StringProperty maxStockProperty()
+    {
+        return  maxStock;
     }
 }
