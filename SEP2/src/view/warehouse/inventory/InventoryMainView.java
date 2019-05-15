@@ -3,9 +3,7 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +12,7 @@ import javafx.stage.Stage;
 import model.StockItem;
 import viewmodel.warehouse.inventory.InventoryMainVM;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class InventoryMainView {
 
@@ -34,19 +32,16 @@ public class InventoryMainView {
     private TableColumn<String, StockItem> iDCol;
 
     @FXML
-    private TableColumn<Boolean, StockItem> canExpireCol; // TODO: canExpireCol is weird
+    private TableColumn<Boolean, StockItem> canExpireCol;
 
     @FXML
-    private TableColumn<LocalDate, StockItem> expiryDateCol; //TODO: expiryDateCol is weird
+    private TableColumn<Date, StockItem> expiryDateCol; //TODO: expiryDateCol change format
 
     @FXML
     private TableColumn<Integer, StockItem> minStockCol;
 
     @FXML
     private TableColumn<Integer, StockItem> maxStockCol;
-
-    @FXML
-    private Label experimentLabel;
 
     @FXML
     private AnchorPane anchorPane;
@@ -64,23 +59,10 @@ public class InventoryMainView {
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
+        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire"));
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
-
-        stockItemTable.setRowFactory( tv -> {
-            TableRow<StockItem> row = new TableRow<>();
-            if(row.getItem().getQuantity() < row.getItem().getMinStock())
-            {
-                row.setStyle("fx-background-color: yellow");
-            }
-            else if(row.getItem().getQuantity() > row.getItem().getMaxStock())
-            {
-                row.setStyle("fx-background-color: blue");
-            }
-            return row ;
-        });
     }
 
 

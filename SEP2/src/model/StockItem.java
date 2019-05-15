@@ -1,5 +1,8 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class StockItem {
 
     private String name, id;
@@ -13,11 +16,7 @@ public class StockItem {
         this.quantity = quantity;
         this.price = price;
         this.canExpire = canExpire;
-        if(!canExpire){
-            expiryDate = new Date(1,1,1111);
-        } else {
-            expiryDate = expiryDate;
-        }
+        this.expiryDate = expiryDate;
         this.minStock = minStock;
         this.maxStock = maxStock;
     }
@@ -61,6 +60,8 @@ public class StockItem {
     }
 
     public Date getExpiryDate() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd"); //TODO: Change format
+        df.format(this.expiryDate);
         return expiryDate;
     }
 }
