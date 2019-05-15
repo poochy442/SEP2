@@ -14,20 +14,19 @@ public class EmployeeMainVM {
     private ObservableList<Employee> employees;
     private ViewHandler viewHandler;
 
-    public EmployeeMainVM(IDataModel dataModel, ViewHandler viewHandler)
-    {
+    public EmployeeMainVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeToClient);
-        dataModel.addListener("EmployeeQuery",this::newEmployeeListListener);
+        dataModel.addListener("NewEmployeeList", this::newEmployeeListListener);
+        dataModel.addListener("RefreshEmployeeList",this::newEmployeeListListener);
     }
 
     private void newEmployeeListListener(PropertyChangeEvent propertyChangeEvent) {
-        EmployeeList employeeList = (EmployeeList)propertyChangeEvent.getNewValue();
-
-        for (int i=0;i<employeeList.size();i++)
-        {
+        EmployeeList employeeList = (EmployeeList) propertyChangeEvent.getNewValue();
+        employees = FXCollections.observableArrayList();
+        for (int i = 0; i < employeeList.size(); i++) {
             employees.add(employeeList.get(i));
             System.out.println(employeeList.get(i).toString());
         }
@@ -37,23 +36,23 @@ public class EmployeeMainVM {
         employees.add((Employee) evt.getNewValue());
     }
 
-    public ObservableList<Employee> getEmployees()
-    {
+    public ObservableList<Employee> getEmployees() {
         return employees;
     }
 
-    public void openMainView()
-    {
+    public void openMainView() {
         viewHandler.openMainView();
     }
 
-    public void openInventoryView()
-    {
+    public void openInventoryView() {
         viewHandler.openInventoryMainView();
     }
 
-    public void openEmployeeAddView()
-    {
+    public void openEmployeeAddView() {
         viewHandler.openEmployeeAddView();
+    }
+
+    public void refresshView() {
+        dataModel.refreshEmployeeList();
     }
 }

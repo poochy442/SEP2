@@ -30,7 +30,7 @@ public class ClientSender implements Runnable {
 
     private void refresh(PropertyChangeEvent propertyChangeEvent) {
         propertyChangeEvent.getNewValue();
-        System.out.println("ClientSender:refresh() added to queue");
+        System.out.println("ClientSender:refreshEmployeeList() added to queue");
         Packet p = new Packet(Packet.EmployeeQuery,null);
         addToQueue(p);
 
@@ -46,12 +46,12 @@ public class ClientSender implements Runnable {
     }
 
     private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
-        EmployeeList employeeList = new EmployeeList();
-        employeeList.add((Employee) propertyChangeEvent.getNewValue());
+        Employee employe =(Employee)propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(employeeList);
+        String json = gson.toJson(employe);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
         addToQueue(packet);
+
     }
 
     public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
@@ -60,6 +60,7 @@ public class ClientSender implements Runnable {
         String json = gson.toJson(request);
         Packet packet = new Packet(Packet.RequestOperation, json);
         addToQueue(packet);
+
     }
 
     @Override

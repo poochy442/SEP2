@@ -35,18 +35,17 @@ public class EmployeeMainView {
 
     private EmployeeMainVM employeeMainVM;
 
-    public EmployeeMainView()
-    {
+    public EmployeeMainView() {
 
     }
 
-    public void init(EmployeeMainVM employeeMainVM)
-    {
+    public void init(EmployeeMainVM employeeMainVM) {
         this.employeeMainVM = employeeMainVM;
-        employeeTable.setItems(employeeMainVM.getEmployees());
+        employeeMainVM.refresshView();
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        employeeTable.setItems(employeeMainVM.getEmployees());
 
     }
 
@@ -72,7 +71,7 @@ public class EmployeeMainView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 }

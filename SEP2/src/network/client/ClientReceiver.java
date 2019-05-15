@@ -43,7 +43,7 @@ public class ClientReceiver implements Runnable {
                     case Packet.EmployeeResponseOperation:
                         EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
                         for(int i = 0; i < employeeList.size(); i++){
-                            dataModel.addEmployeeToClient(employeeList.get(i));
+                            dataModel.addEmployeeToDB(employeeList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;

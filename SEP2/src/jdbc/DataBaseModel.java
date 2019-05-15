@@ -169,6 +169,7 @@ public class DataBaseModel {
             employeeStatement.setString(4, employee.getLastName());
             employeeStatement.setString(5, employee.getId());
             employeeStatement.executeUpdate();
+            employeeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -202,6 +203,7 @@ public class DataBaseModel {
             }
             resultSet.close();
             departmentQueryStatement.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

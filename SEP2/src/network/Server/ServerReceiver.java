@@ -2,10 +2,7 @@ package network.Server;
 
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
-import model.EmployeeList;
-import model.IDataModel;
-import model.Request;
-import model.StockItemList;
+import model.*;
 import network.Packet;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -46,10 +43,10 @@ public class ServerReceiver implements Runnable {
                 String json = packet.getJson();
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
-                        EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
+                        Employee employe = (Employee) gson.fromJson(json, Employee.class);
                         System.out.println("EmployeeList received");
-                        System.out.println(employeeList);
-                        System.out.println();
+                        System.out.println(employe);
+                        dataBaseModel.addEmployeeToDataBase(employe);
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:

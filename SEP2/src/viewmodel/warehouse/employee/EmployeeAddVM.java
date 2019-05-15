@@ -26,13 +26,13 @@ public class EmployeeAddVM {
     public void addEmployee()
     {
         Employee e = new Employee(firstName.getValue(), lastName.getValue(), ID.getValue(), "WH");
-        dataModel.addEmployeeToClient(e);
+        dataModel.addEmployeeToDB(e);
         //dataModel.addEmployeeToServer(e);
         firstName.setValue("");
         lastName.setValue("");
         ID.setValue("");
         //TODO TESTING VIEW
-        dataModel.refresh();
+        dataModel.refreshEmployeeList();
     }
 
     public void goBack()

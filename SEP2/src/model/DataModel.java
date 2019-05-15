@@ -10,11 +10,6 @@ public class DataModel implements IDataModel {
 
     public DataModel() {
         employeeList = new EmployeeList();
-        Employee wow = new Employee("dave", "le", "280071","WH" );
-        Employee row = new Employee("idiot", "wow", "fuck","WH" );
-        employeeList.add(wow);
-        employeeList.add(wow);
-        employeeList.add(row);
         stockItemList = new StockItemList();
     }
 
@@ -26,8 +21,7 @@ public class DataModel implements IDataModel {
 
 
     @Override
-    public void addEmployeeToClient(Employee e) {
-        employeeList.add(e);
+    public void addEmployeeToDB(Employee e) {
         propertyChangeSupport.firePropertyChange("NewEmployeeAddedFromClient", null, e);
     }
 
@@ -55,13 +49,13 @@ public class DataModel implements IDataModel {
 
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
-        propertyChangeSupport.firePropertyChange("EmployeeQuery",null,employeeList);
+        propertyChangeSupport.firePropertyChange("NewEmployeeList",null,employeeList);
     }
 
     @Override
-    public void refresh() {
-        propertyChangeSupport.firePropertyChange("Refresh",1,2);
-        System.out.println("DataModel:refresh()");
+    public void refreshEmployeeList() {
+        setEmployeeList(employeeList);
+
     }
 
     public StockItemList getStockItemList() {

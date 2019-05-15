@@ -27,7 +27,7 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     {
         Employee e = new Employee(firstName.getValue(), lastName.getValue(), ID.getValue(), "HQ");
         //TODO CHANGE TO DB SETTINGS
-        dataModel.addEmployeeToClient(e);
+        dataModel.addEmployeeToDB(e);
         //dataModel.addEmployeeToServer(e);
         firstName.setValue("");
         lastName.setValue("");
