@@ -2,46 +2,39 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="768.0" prefWidth="1264.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.InventoryAddView">
+<AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.InventoryAddView">
    <children>
-      <Pane layoutX="431.0" layoutY="172.0" prefHeight="455.0" prefWidth="508.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="200.0">
+      <Pane layoutX="315.0" layoutY="175.0" prefHeight="287.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="200.0">
          <children>
-            <TextField fx:id="nameField" layoutX="120.0" layoutY="10.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="iDField" layoutX="120.0" layoutY="60.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="quantityField" layoutX="120.0" layoutY="110.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
-            <TextField fx:id="priceField" layoutX="120.0" layoutY="160.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <Label layoutY="160.0" text="Price" />
-            <TextField fx:id="canExpireField" layoutX="120.0" layoutY="210.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="260.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 5px;" />
-            <Button fx:id="addButton" layoutX="66.0" layoutY="414.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="backButton" layoutX="304.0" layoutY="414.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Label layoutY="10.0" prefWidth="169.0" text="Name" />
-            <Label layoutY="60.0" prefHeight="17.0" prefWidth="45.0" text="ID" />
-            <Label layoutY="110.0" text="Quantity" />
-            <Label layoutY="210.0" text="Can it expire" />
-            <Label layoutY="260.0" text="Expiry date" />
-            <TextField fx:id="minStockField" layoutX="120.0" layoutY="310.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="360.0" prefHeight="25.0" prefWidth="293.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px;" />
-            <Label layoutY="310.0" text="Min stock" />
-            <Label layoutY="360.0" text="Max stock" />
+            <TextField fx:id="nameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="iDField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" prefHeight="17.0" prefWidth="77.0" text="Item Name" />
+            <Label layoutY="105.0" prefHeight="17.0" prefWidth="45.0" text="ID/Code" />
+            <Label layoutY="155.0" text="Category" />
+            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="200.0" prefHeight="50.0" prefWidth="225.0" />
+            <ChoiceBox fx:id="categoryField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="217.0" text="Description" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Basic" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -51,7 +44,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6;">
+            <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -62,7 +55,7 @@
             </Pane>
          </children>
       </Pane>
-      <MenuBar layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      <MenuBar layoutY="50.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -199,10 +192,65 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="551.0" layoutY="132.0" text="Add item stock">
+      <Label layoutX="315.0" layoutY="108.0" text="Product info" AnchorPane.leftAnchor="315.0">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
+      <Pane layoutX="745.0" layoutY="475.0" prefHeight="193.0" prefWidth="355.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="550.0">
+         <children>
+            <Label layoutY="115.0" />
+            <TextField fx:id="minStockField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="105.0" text="Min stock" />
+            <Label layoutY="155.0" text="Max stock" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Inventory" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="quantityField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" text="Quantity" />
+         </children>
+      </Pane>
+      <Button fx:id="addButton" layoutX="577.0" layoutY="750.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="backButton" layoutX="854.0" layoutY="750.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
+         <children>
+            <CheckBox fx:id="canExpireCheck" layoutY="55.0" mnemonicParsing="false" text="Can it expire?" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Expiration" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="105.0" text="Expiry date" />
+         </children>
+      </Pane>
+      <Pane layoutX="745.0" layoutY="175.0" prefHeight="200.0" prefWidth="380.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="136.0" text="Cost and Price" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="priceField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" text="Cost" />
+            <Label layoutY="105.0" text="Normal price" />
+            <Label layoutX="304.0" layoutY="150.0" text="Markup" />
+            <TextField disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutX="353.0" layoutY="55.0" text="kr." />
+            <Label layoutX="353.0" layoutY="105.0" text="kr." />
+         </children>
+      </Pane>
+      <HBox layoutX="259.0" layoutY="75.0" prefHeight="182.0" prefWidth="413.0" />
    </children>
 </AnchorPane>

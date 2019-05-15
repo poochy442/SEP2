@@ -16,5 +16,28 @@
     -fx-text-fill: white;
 }
 
+.text-field, .choice-box, .date-picker {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #2C363B;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #2C363B !important;
+}
+
+.date-picker .text-field {
+    -fx-border-color: transparent;
+}
+
+.date-picker {
+    -fx-border-radius: 5px;
+}
+
+
 
 

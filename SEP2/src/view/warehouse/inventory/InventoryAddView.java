@@ -3,6 +3,7 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -24,7 +25,7 @@ public class InventoryAddView {
     private TextField iDField;
 
     @FXML
-    private TextField canExpireField;
+    private CheckBox canExpireCheck;
 
     @FXML
     private DatePicker datePicker;
@@ -51,7 +52,7 @@ public class InventoryAddView {
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
         iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
-        canExpireField.textProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
+        canExpireCheck.textProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
         datePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
         minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());
         maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
