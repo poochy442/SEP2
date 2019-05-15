@@ -14,7 +14,7 @@ public class MainView {
     private AnchorPane anchorPane;
 
     @FXML
-    void onEmployeeHQClicked(ActionEvent event) {
+    void onEmployeeClicked(ActionEvent event) {
         mainVM.openEmployeeMainHQView();
     }
 
@@ -26,6 +26,11 @@ public class MainView {
     @FXML
     void onInventoryWHClicked(ActionEvent event) {
         mainVM.openInventoryWHView();
+    }
+
+    @FXML
+    void onDashboardClicked(ActionEvent event) {
+        mainVM.openMainView();
     }
 
     public MainView()

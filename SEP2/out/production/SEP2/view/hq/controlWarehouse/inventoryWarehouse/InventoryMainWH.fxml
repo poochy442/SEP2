@@ -28,7 +28,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #B579CF;">
+                  <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #B579CF;">
                      <children>
                         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -138,17 +138,17 @@
                <children>
                   <Pane layoutX="309.0" prefHeight="76.0" prefWidth="395.0">
                      <children>
-                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
+                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #B579CF; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit item stock">
+                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="removeItemStockButton" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
+                        <Button fx:id="removeItemStockButton" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -211,7 +211,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <TextField layoutX="10.0" prefHeight="25.0" prefWidth="196.0" promptText="Search" style="-fx-background-radius: 0; -fx-background-color: transparent;" />
+                  <TextField layoutX="10.0" prefHeight="25.0" prefWidth="196.0" promptText="Search" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent;" />
                </children>
             </Pane>
          </children>

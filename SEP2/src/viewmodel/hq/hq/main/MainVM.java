@@ -25,4 +25,7 @@ public class MainVM {
     {
         viewHandler.openEmployeeWHView();
     }
+
+    public void openMainView() {viewHandler.openMainView();
+    }
 }

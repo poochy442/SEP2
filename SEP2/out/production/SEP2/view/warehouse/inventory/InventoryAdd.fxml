@@ -14,7 +14,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -44,7 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6; -fx-background-radius: 5px;">
+            <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6;">
                <children>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -252,6 +251,5 @@
             <Label layoutX="353.0" layoutY="105.0" text="kr." />
          </children>
       </Pane>
-      <HBox layoutX="259.0" layoutY="75.0" prefHeight="182.0" prefWidth="413.0" />
    </children>
 </AnchorPane>
