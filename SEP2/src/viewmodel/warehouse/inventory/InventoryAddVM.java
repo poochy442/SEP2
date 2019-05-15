@@ -1,9 +1,6 @@
 package viewmodel.warehouse.inventory;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import model.IDataModel;
 import model.StockItem;
 import view.warehouse.ViewHandler;
@@ -18,7 +15,7 @@ public class InventoryAddVM {
     private StringProperty quantity;
     private StringProperty price;
     private StringProperty id;
-    private StringProperty canExpire;
+    private BooleanProperty canExpire;
     private ObjectProperty<LocalDate> expiryDate;
     private Date date;
     private StringProperty minStock;
@@ -35,7 +32,7 @@ public class InventoryAddVM {
         quantity = new SimpleStringProperty();
         price = new SimpleStringProperty();
         id = new SimpleStringProperty();
-        canExpire = new SimpleStringProperty();
+        canExpire = new SimpleBooleanProperty();
         expiryDate = new SimpleObjectProperty<>();
         minStock = new SimpleStringProperty();
         maxStock = new SimpleStringProperty();
@@ -59,7 +56,7 @@ public class InventoryAddVM {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), Boolean.parseBoolean(canExpire.getValue()), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
+        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
         dataModel.addItemToClient(si);
 //        dataModel.addItemToServer(si);
 
@@ -68,7 +65,7 @@ public class InventoryAddVM {
         quantity.setValue("");
         price.setValue("");
         id.setValue("");
-        canExpire.setValue("");
+        canExpire.set(false);
         expiryDate.setValue(null);
         minStock.setValue("");
         maxStock.setValue("");
@@ -97,7 +94,7 @@ public class InventoryAddVM {
         return id;
     }
 
-    public StringProperty canExpireProperty() {
+    public BooleanProperty canExpireProperty() {
         return canExpire;
     }
 

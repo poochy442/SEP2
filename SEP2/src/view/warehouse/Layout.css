@@ -1,5 +1,16 @@
-.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #editEmployeeButton:hover, #removeEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #editItemStockButton:hover, #removeItemStockButton:hover, #productRequestButton:hover, #sendRequestButton:hover {
--fx-background-color: #58CBC6 !important;
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #productRequestButton:hover, #sendRequestButton:hover {
+    -fx-background-color: #58CBC6 !important;
+    -fx-text-fill: white;
+}
+
+#editEmployeeButton:hover, #editItemStockButton:hover {
+    -fx-background-color: #FACD06 !important;
+    -fx-text-fill: white;
+}
+
+#removeEmployeeButton:hover, #removeItemStockButton:hover {
+    -fx-background-color: #DD4B39 !important;
+    -fx-text-fill: white;
 }
 
 #close:hover, #minimize:hover, #settings:hover, #help:hover {
@@ -8,7 +19,7 @@
 }
 
 .column-header{
-    -fx-background-color:  #58CBC6;
+    -fx-background-color: #58CBC6;
     -fx-border-color: white;
 }
 
@@ -34,8 +45,9 @@
     -fx-border-color: transparent;
 }
 
-.date-picker {
+.date-picker, #actualPicture {
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
 
 

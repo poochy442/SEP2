@@ -14,7 +14,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -28,7 +27,7 @@
             <Label layoutY="105.0" prefHeight="17.0" prefWidth="45.0" text="ID/Code" />
             <Label layoutY="155.0" text="Category" />
             <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="200.0" prefHeight="50.0" prefWidth="225.0" />
-            <ChoiceBox fx:id="categoryField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="217.0" text="Description" />
             <Label prefHeight="30.0" prefWidth="91.0" text="Basic" textFill="#58cbc6">
                <font>
@@ -44,7 +43,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6; -fx-background-radius: 5px;">
+            <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6;">
                <children>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -225,14 +224,15 @@
       </Button>
       <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
          <children>
-            <CheckBox fx:id="canExpireCheck" layoutY="55.0" mnemonicParsing="false" text="Can it expire?" />
+            <CheckBox fx:id="canExpireCheck" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
             <Label prefHeight="30.0" prefWidth="91.0" text="Expiration" textFill="#58cbc6">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <DatePicker fx:id="datePicker" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="105.0" text="Expiry date" />
+            <Label layoutX="21.0" layoutY="55.0" text="Expirable item?" />
          </children>
       </Pane>
       <Pane layoutX="745.0" layoutY="175.0" prefHeight="200.0" prefWidth="380.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0">
@@ -251,6 +251,5 @@
             <Label layoutX="353.0" layoutY="105.0" text="kr." />
          </children>
       </Pane>
-      <HBox layoutX="259.0" layoutY="75.0" prefHeight="182.0" prefWidth="413.0" />
    </children>
 </AnchorPane>
