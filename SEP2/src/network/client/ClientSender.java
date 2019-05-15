@@ -22,6 +22,7 @@ public class ClientSender implements Runnable {
         this.dataModel = dataModel;
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
         dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
+        // TODO: Add ProductRequest Listener
         queue = new LinkedList<>();
     }
 
@@ -40,6 +41,14 @@ public class ClientSender implements Runnable {
         Gson gson = new Gson();
         String json = gson.toJson(employeeList);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
+        addToQueue(packet);
+    }
+
+    public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
+        ProductRequest productRequest = (ProductRequest) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(productRequest);
+        Packet packet = new Packet(Packet.RequestOperation, json);
         addToQueue(packet);
     }
 
@@ -69,7 +78,6 @@ public class ClientSender implements Runnable {
 
     public void addToQueue(Packet packet){
         queue.add(packet);
-
     }
 
 }

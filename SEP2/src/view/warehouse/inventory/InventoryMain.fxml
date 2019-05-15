@@ -180,7 +180,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="productRequestButton" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#onProductRequestClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Make product request">
+                        <Button fx:id="productRequestButton" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#onProductRequestClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Make product productRequest">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

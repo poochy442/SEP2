@@ -69,14 +69,16 @@ public class InventoryMainView {
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
 
-        stockItemTable.setRowFactory( tv -> {  //TODO: Move to ProductRequest
+        stockItemTable.setRowFactory( tv -> {
             TableRow<StockItem> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
-                    StockItem rowData = row.getItem();
-                    experimentLabel.setText("hello");
-                }
-            });
+            if(row.getItem().getQuantity() < row.getItem().getMinStock())
+            {
+                row.setStyle("fx-background-color: yellow");
+            }
+            else if(row.getItem().getQuantity() > row.getItem().getMaxStock())
+            {
+                row.setStyle("fx-background-color: blue");
+            }
             return row ;
         });
     }
