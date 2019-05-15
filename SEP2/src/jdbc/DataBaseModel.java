@@ -2,6 +2,7 @@ package jdbc;
 
 import model.Employee;
 import model.EmployeeList;
+import model.StockItem;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -260,6 +261,9 @@ public class DataBaseModel {
     }
 
 
+    public void addItemToDataBase(StockItem stockItem) {
+        //TODO
+    }
 }
 
 

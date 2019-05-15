@@ -22,7 +22,7 @@ public class DataModel implements IDataModel {
 
     @Override
     public void addEmployeeToDB(Employee e) {
-        propertyChangeSupport.firePropertyChange("NewEmployeeAddedFromClient", null, e);
+        propertyChangeSupport.firePropertyChange("EmployeeToDB", null, e);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void storeItemInDB(StockItem i) {
+    public void addItemToDB(StockItem i) {
         //stockItemList.add(i);
         propertyChangeSupport.firePropertyChange("ItemToDB", null, i);
     }

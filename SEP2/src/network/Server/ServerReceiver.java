@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import jdbc.DataBaseModel;
 import model.*;
 import network.Packet;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -16,8 +17,8 @@ public class ServerReceiver implements Runnable {
 
     public ServerReceiver(Socket socket, DataBaseModel dataBaseModel, IDataModel dataModel) {
         this.socket = socket;
-        this.dataBaseModel=dataBaseModel;
-        this.dataModel=dataModel;
+        this.dataBaseModel = dataBaseModel;
+        this.dataModel = dataModel;
 
 
     }
@@ -35,7 +36,7 @@ public class ServerReceiver implements Runnable {
         while (true) {
             try {
                 Object incoming = in.readObject();
-                if(incoming == null){
+                if (incoming == null) {
                     Thread.sleep(1000);
                     continue;
                 }
@@ -50,10 +51,9 @@ public class ServerReceiver implements Runnable {
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:
-                        StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        System.out.println("StockItemList received");
-                        System.out.println(stockItemList);
-                        // TODO: Change to view event
+                        StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
+                        dataBaseModel.addItemToDataBase(stockItem);
+                        //TODO CREATE METHOD TO ADD TO DB IN DATABASEMDOEL
                         break;
                     case Packet.RequestOperation:
                         Request request = (Request) gson.fromJson(json, Request.class);

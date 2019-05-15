@@ -21,8 +21,9 @@ public class ClientSender implements Runnable {
         this.socket = socket;
         this.dataModel = dataModel;
         dataModel.addListener("EmployeeQuery",this::EmployeeQuery);
-        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
+        dataModel.addListener("EmployeeToDB", this::addEmployeeListener);
         dataModel.addListener("ItemToDB", this::addStockItemListener);
+
 
         // TODO: Add Request Listener
         queue = new LinkedList<>();

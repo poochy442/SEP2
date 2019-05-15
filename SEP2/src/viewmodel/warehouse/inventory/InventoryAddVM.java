@@ -50,7 +50,7 @@ public class InventoryAddVM {
     {
         dateConverter();
         StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), Boolean.parseBoolean(canExpire.getValue()), date); // Here it is important
-        dataModel.storeItemInDB(si);
+        dataModel.addItemToDB(si);
         System.out.println(Boolean.parseBoolean(canExpire.getValue()));
         System.out.println("Day: " + date.getDay());
         System.out.println("Month: " + date.getMonth());

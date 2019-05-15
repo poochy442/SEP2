@@ -50,7 +50,7 @@ public class ClientReceiver implements Runnable {
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
                         for(int i = 0; i < stockItemList.size(); i++){
-                            dataModel.storeItemInDB(stockItemList.get(i));
+                            dataModel.addItemToDB(stockItemList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
