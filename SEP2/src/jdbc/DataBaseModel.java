@@ -33,7 +33,7 @@ public class DataBaseModel {
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:5433/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String pw = "";
         connection = null;
