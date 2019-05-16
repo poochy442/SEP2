@@ -11,11 +11,6 @@ public class DataModel implements IDataModel {
 
     public DataModel() {
         employeeList = new EmployeeList();
-        Employee wow = new Employee("dave", "le", "280071");
-        Employee row = new Employee("idiot", "wow", "fuck");
-        employeeList.add(wow);
-        employeeList.add(wow);
-        employeeList.add(row);
         changeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
     }

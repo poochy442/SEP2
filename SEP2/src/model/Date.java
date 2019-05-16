@@ -96,4 +96,14 @@ public class Date {
         }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Date)){
+            return false;
+        }
+        Date other = (Date) obj;
+        return day == other.getDay() &&
+                month == other.getMonth() &&
+                year == other.getYear();
+    }
 }

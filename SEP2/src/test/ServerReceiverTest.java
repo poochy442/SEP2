@@ -34,7 +34,7 @@ public class ServerReceiverTest {
     }
 
     @Test
-    public void run() throws IOException {
+    public void run() throws IOException, InterruptedException {
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         Gson gson = new Gson();
         Employee e = new Employee("kenneth", "jensen", "1");
@@ -43,5 +43,6 @@ public class ServerReceiverTest {
         String json = gson.toJson(employeeList);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
         out.writeObject(packet);
+        Thread.sleep(500);
     }
 }
