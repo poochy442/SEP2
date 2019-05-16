@@ -60,4 +60,25 @@ public class EmployeeAddHQView {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    @FXML
+    void onDashboardClicked(ActionEvent event) {
+        employeeAddHQVM.openMainView();
+    }
+
+    @FXML
+    void onEmployeeClicked(ActionEvent event) {
+        employeeAddHQVM.openEmployeeMainHQ();
+    }
+
+    @FXML
+    void onRetailerClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onWarehouseClicked(MouseEvent event) {
+        employeeAddHQVM.openInventoryWHView();
+    }
+
 }

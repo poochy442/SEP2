@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import view.hq.controlWarehouse.employeeWarehouse.EmployeeMainWHView;
 import view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView;
 import view.hq.hq.employeeHQ.EmployeeAddHQView;
@@ -24,14 +25,14 @@ public class ViewHandler {
     {
         primaryStage = stage;
         primaryStage.setMaximized(true);
-//      primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         screenSize = Screen.getPrimary().getVisualBounds();
         viewModelProvider = vmp;
         viewModelProvider.instantiateViewModels(this);
     }
 
     public void start() {
-        openMainView();
+        openMainHQView();
     }
 
     public void openEmployeeMainHQView() {
@@ -119,7 +120,7 @@ public class ViewHandler {
         primaryStage.show();
     }
 
-    public void openMainView()
+    public void openMainHQView()
     {
         FXMLLoader loader = new FXMLLoader();
 

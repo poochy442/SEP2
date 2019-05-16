@@ -66,7 +66,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="70.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
+            <Pane layoutY="70.0" onMouseClicked="#onWarehouseClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="13.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -78,7 +78,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="120.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: 5px;">
+            <Pane layoutY="120.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

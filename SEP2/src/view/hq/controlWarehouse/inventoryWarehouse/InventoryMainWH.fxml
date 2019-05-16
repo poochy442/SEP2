@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.InventoryMainView">
+<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -248,7 +248,7 @@
       </MenuBar>
       <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: #2B2B2B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <Pane layoutY="20.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
+            <Pane layoutY="20.0" onMouseClicked="#onHQClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -272,7 +272,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="120.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: 5px;">
+            <Pane layoutY="120.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -30,10 +30,14 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
     }
 
     public void openMainView() {
+        viewHandler.openMainHQView();
     }
 
     public void openEmployeeAddView()
     {
         viewHandler.openEmployeeAddHQView();
+    }
+
+    public void openInventoryMainWHView() { viewHandler.openInventoryWHView();
     }
 }

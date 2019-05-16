@@ -10,22 +10,13 @@ import viewmodel.hq.hq.main.MainVM;
 
 public class MainView {
     private MainVM mainVM;
+
     @FXML
     private AnchorPane anchorPane;
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
         mainVM.openEmployeeMainHQView();
-    }
-
-    @FXML
-    void onEmployeeWHClicked(ActionEvent event) {
-        mainVM.openEmployeeWHView();
-    }
-
-    @FXML
-    void onInventoryWHClicked(ActionEvent event) {
-        mainVM.openInventoryWHView();
     }
 
     @FXML
@@ -53,4 +44,16 @@ public class MainView {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+
+    @FXML
+    void onRetailerClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onWarehouseClicked(MouseEvent event) {
+        mainVM.openInventoryWHView();
+    }
+
 }
