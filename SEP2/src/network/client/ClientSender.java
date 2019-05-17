@@ -36,10 +36,9 @@ public class ClientSender implements Runnable {
     }
 
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {
-        StockItemList stockItemList = new StockItemList();
-        stockItemList.add((StockItem) propertyChangeEvent.getNewValue());
+        StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(stockItemList);
+        String json = gson.toJson(stockItem);
         Packet packet = new Packet(Packet.StockOperation, json);
         addToQueue(packet);
     }

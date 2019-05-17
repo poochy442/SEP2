@@ -45,15 +45,15 @@ public class ServerReceiver implements Runnable {
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
                         Employee employe = (Employee) gson.fromJson(json, Employee.class);
-                        System.out.println("EmployeeList received");
-                        System.out.println(employe);
-                        dataBaseModel.addEmployeeToDataBase(employe);
+                        System.out.println("ServerReceiver:employeStoredToDB" + dataBaseModel.addEmployeeToDataBase(employe));
+                        ;
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
-                        dataBaseModel.addItemToDataBase(stockItem);
-                        //TODO CREATE METHOD TO ADD TO DB IN DATABASEMDOEL
+                        System.out.println("ServerReceiver: itemstoredToDB=" + dataBaseModel.addItemToDataBase(stockItem));
+
+
                         break;
                     case Packet.RequestOperation:
                         Request request = (Request) gson.fromJson(json, Request.class);

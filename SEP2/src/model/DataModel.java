@@ -11,9 +11,11 @@ public class DataModel implements IDataModel {
     public DataModel() {
         employeeList = new EmployeeList();
         stockItemList = new StockItemList();
+
     }
 
     PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
 
     public EmployeeList getEmployeeList() {
         return employeeList;
@@ -21,7 +23,8 @@ public class DataModel implements IDataModel {
 
 
     @Override
-    public void addEmployeeToDB(Employee e) {
+    public void addEmployee(Employee e) {
+        employeeList.add(e);
         propertyChangeSupport.firePropertyChange("EmployeeToDB", null, e);
     }
 
@@ -37,7 +40,7 @@ public class DataModel implements IDataModel {
 
     @Override
     public void addItemToDB(StockItem i) {
-        //stockItemList.add(i);
+        stockItemList.add(i);
         propertyChangeSupport.firePropertyChange("ItemToDB", null, i);
     }
 
@@ -65,6 +68,18 @@ public class DataModel implements IDataModel {
     public void setStockItemList(StockItemList stockItemList) {
         this.stockItemList = stockItemList;
     }
+
+    public boolean controllPkEmployee(String PK)
+    {
+        for (int i= 0;i< employeeList.size();i++)
+        {
+            if (employeeList.get(i).getId().equals(PK))
+                return false;
+        }
+         return true;
+    }
+
+
 
 
 }

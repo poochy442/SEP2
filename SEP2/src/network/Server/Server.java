@@ -19,13 +19,14 @@ public class Server {
         IDataModel dataModel = new DataModel();
         DataBaseModel dataBaseModel = new DataBaseModel();
 
+
         while (true) {
             Socket socket = welcomeSocket.accept();
+            System.out.println(socket);
             ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel,dataModel);
             ServerSender serverSender = new ServerSender(socket,dataBaseModel);
             Thread t1 = new Thread(serverReceiver);
             Thread t2 = new Thread(serverSender);
-
             t1.start();
             t2.start();
         }

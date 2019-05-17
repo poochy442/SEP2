@@ -43,4 +43,13 @@ public class StockItem {
     public void setPrice(int price) {
         this.price = price;
     }
+    public String getID()
+    {
+        return id;
+    }
+    public Date getExpriyDate()
+    {
+        return expiryDate;
+    }
+
 }

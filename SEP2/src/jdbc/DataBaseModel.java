@@ -14,12 +14,14 @@ public class DataBaseModel {
     PreparedStatement departmentStatement;
     PreparedStatement employeeStatement;
     PreparedStatement employeeQuery;
+    PreparedStatement stockItemStatement;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
         setConnection();
         departmentStatement = prepareDepartmentStatement();
         employeeStatement = prepareEmployeeStatement();
+        stockItemStatement = prepareStockItemStatement();
         changeSupport = new PropertyChangeSupport(this);
 
 
@@ -34,7 +36,7 @@ public class DataBaseModel {
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:5433/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String pw = "123321";
         connection = null;
@@ -162,7 +164,7 @@ public class DataBaseModel {
     }
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
-    public void addEmployeeToDataBase(Employee employee) {
+    public boolean addEmployeeToDataBase(Employee employee) {
         try {
             employeeStatement.setString(1, employee.getId());
             employeeStatement.setString(2, employee.getDepartmentid());
@@ -170,9 +172,14 @@ public class DataBaseModel {
             employeeStatement.setString(4, employee.getLastName());
             employeeStatement.setString(5, employee.getId());
             employeeStatement.executeUpdate();
-            employeeQuery();
+            return true;
+            
+            //todo notify OTHER client
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
+
+
         }
 
     }
@@ -261,8 +268,42 @@ public class DataBaseModel {
     }
 
 
-    public void addItemToDataBase(StockItem stockItem) {
-        //TODO
+    //Uses a prepared statement and 2 String to add 1 row to the department table
+    public boolean addItemToDataBase(StockItem stockItem) {
+        try {
+            java.sql.Date sqlDate = new java.sql.Date(1989,3,5);
+            System.out.println(stockItem.toString());
+            stockItemStatement.setString(1, stockItem.getID());
+            stockItemStatement.setString(2, stockItem.getName());
+            stockItemStatement.setInt(3, stockItem.getQuantity());
+            stockItemStatement.setInt(4, stockItem.getPrice());
+            stockItemStatement.setDate(5,  sqlDate);
+            stockItemStatement.setString(6, stockItem.getID());
+            stockItemStatement.executeUpdate();
+            return true;
+
+            //todo notify OTHER client
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+
+        }
+
+    }
+    public PreparedStatement prepareStockItemStatement() {
+        String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate) " +
+                "SELECT * FROM (SELECT ?,?,?,?,?) AS tmp " +
+                "WHERE NOT EXISTS (SELECT id FROM \"Sep2\".stockitem " +
+                "WHERE id = ?) LIMIT 1;";
+        PreparedStatement stockItemStatement = null;
+
+        try {
+            stockItemStatement = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stockItemStatement;
     }
 }
 
