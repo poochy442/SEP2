@@ -3,6 +3,7 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +19,12 @@ public class InventoryMainView {
 
     @FXML
     private TableView<StockItem> stockItemTable;
+
+    @FXML
+    private TableView<StockItem> stockItemTableError;
+
+    @FXML
+    private Label errorLabel;
 
     @FXML
     private TableColumn<String, StockItem> nameCol;
@@ -94,7 +101,20 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
-
+        if(stockItemTableError.isVisible())
+        {
+            stockItemTableError.setPrefHeight(0);
+            stockItemTableError.setVisible(false);
+            errorLabel.setVisible(false);
+            errorLabel.setPrefHeight(0);
+        }
+        else
+        {
+            stockItemTableError.setPrefHeight(600);
+            stockItemTableError.setVisible(true);
+            errorLabel.setVisible((true));
+            errorLabel.setPrefHeight(17);
+        }
     }
 
     @FXML
