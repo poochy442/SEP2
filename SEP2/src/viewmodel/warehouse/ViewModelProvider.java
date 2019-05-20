@@ -7,6 +7,7 @@ import viewmodel.warehouse.employee.EmployeeAddVM;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 import viewmodel.warehouse.inventory.InventoryAddVM;
 import viewmodel.warehouse.inventory.InventoryMainVM;
+import viewmodel.warehouse.inventory.ProductRequestVM;
 import viewmodel.warehouse.main.MainVM;
 
 public class ViewModelProvider {
@@ -17,6 +18,7 @@ public class ViewModelProvider {
     private InventoryAddVM inventoryAddVM;
     private EmployeeMainVM employeeMainVM;
     private EmployeeAddVM employeeAddVM;
+    private ProductRequestVM productRequestVM;
 
 
     public ViewModelProvider(IDataModel dataModel) {
@@ -27,6 +29,7 @@ public class ViewModelProvider {
         inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
+        productRequestVM = new ProductRequestVM(dataModel, viewHandler);
     }
 
     public MainVM getMainVM() {
@@ -49,12 +52,15 @@ public class ViewModelProvider {
         return inventoryAddVM;
     }
 
+    public ProductRequestVM getProductRequestVM() {return productRequestVM;}
+
     public void instantiateViewModels(ViewHandler viewHandler) {
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
         mainVM = new MainVM(dataModel, viewHandler);
         inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
         inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
+        productRequestVM = new ProductRequestVM(dataModel, viewHandler);
     }
 
 

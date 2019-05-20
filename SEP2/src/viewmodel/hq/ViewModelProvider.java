@@ -46,7 +46,7 @@ public class ViewModelProvider {
         employeeAddHQVM = new EmployeeAddHQVM(dataModel, viewHandler);
         employeeMainHQVM = new EmployeeMainHQVM(dataModel, viewHandler);
         mainVM = new MainVM(dataModel, viewHandler);
-        inventoryWHVM = new InventoryWHVM(viewHandler);
-        employeeWHVM = new EmployeeWHVM(viewHandler);
+        inventoryWHVM = new InventoryWHVM(dataModel,viewHandler);
+        employeeWHVM = new EmployeeWHVM(dataModel,viewHandler);
     }
 }

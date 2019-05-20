@@ -2,7 +2,7 @@ package network.Server;
 
 import com.google.gson.Gson;
 import model.EmployeeList;
-import model.Request;
+import model.ProductRequest;
 import model.StockItemList;
 import network.Packet;
 
@@ -53,11 +53,11 @@ public class ServerReceiver implements Runnable {
                         // TODO: Change to view event
                         break;
                     case Packet.RequestOperation:
-                        Request request = (Request) gson.fromJson(json, Request.class);
-                        System.out.println("Request received");
-                        System.out.println(request);
+                        ProductRequest productRequest = (ProductRequest) gson.fromJson(json, ProductRequest.class);
+                        System.out.println("ProductRequest received");
+                        System.out.println(productRequest);
                         System.out.println();
-                        // TODO: Add alert to view, accept/decline request
+                        // TODO: Add alert to view, accept/decline productRequest
                         // Use getStockItem and GetQuantity to send the correct amounts to view
                         break;
                 }

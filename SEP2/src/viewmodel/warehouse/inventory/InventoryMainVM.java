@@ -7,6 +7,7 @@ import model.StockItem;
 import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
+import java.text.SimpleDateFormat;
 
 public class InventoryMainVM {
     private IDataModel dataModel;
@@ -25,6 +26,11 @@ public class InventoryMainVM {
     }
 
     public ObservableList<StockItem> getStockItems() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd"); //TODO: Change format
+        for(int i = 0; i < stockItems.size(); i++)
+        {
+            df.format(stockItems.get(i).getExpiryDate());
+        }
         return stockItems;
     }
 
@@ -40,4 +46,9 @@ public class InventoryMainVM {
     public void openEmployeeMainView() {
         viewHandler.openEmployeeMainView();
     }
+
+    public void openProductRequestView() { viewHandler.openProductRequestView();
+    }
+
+    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
 }

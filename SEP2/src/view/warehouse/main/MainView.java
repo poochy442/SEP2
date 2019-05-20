@@ -33,6 +33,11 @@ public class MainView {
     }
 
     @FXML
+    void onDashboardClicked(ActionEvent event) {
+
+    }
+
+    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }

@@ -49,11 +49,6 @@ public class EmployeeMainHQView {
     }
 
     @FXML
-    void onHomeClicked(ActionEvent event) {
-        employeeMainHQVM.openMainView();
-    }
-
-    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }
@@ -62,5 +57,36 @@ public class EmployeeMainHQView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML
+    void onDashboardClicked(ActionEvent event) {
+        employeeMainHQVM.openMainView();
+    }
+
+    @FXML
+    void onEditEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onRemoveEmployeeClicked(ActionEvent event) {
+
+    }
+
+
+    @FXML
+    void onRetailerClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onWarehouseClicked(MouseEvent event) {
+        employeeMainHQVM.openInventoryMainWHView();
     }
 }

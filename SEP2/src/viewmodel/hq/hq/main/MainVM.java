@@ -21,8 +21,6 @@ public class MainVM {
         viewHandler.openInventoryWHView();
     }
 
-    public void openEmployeeWHView()
-    {
-        viewHandler.openEmployeeWHView();
+    public void openMainView() {viewHandler.openMainHQView();
     }
 }

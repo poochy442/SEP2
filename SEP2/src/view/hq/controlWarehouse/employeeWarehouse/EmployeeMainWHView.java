@@ -45,13 +45,8 @@ public class EmployeeMainWHView {
     }
 
     @FXML
-    void onHomeClicked(ActionEvent event) {
-        employeeWHVM.openMainView();
-    }
+    void onAddEmployeeClicked(ActionEvent event) {
 
-    @FXML
-    void onInventoryWHClicked(ActionEvent event) {
-        employeeWHVM.openInventoryWHView();
     }
 
     @FXML
@@ -60,8 +55,43 @@ public class EmployeeMainWHView {
     }
 
     @FXML
+    void onDashboardClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEditEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEmployeeClicked(ActionEvent event) {
+        employeeWHVM.openEmployeeMainWHView();
+    }
+
+    @FXML
+    void onHQClicked(MouseEvent event) {
+        employeeWHVM.openMainHQView();
+    }
+
+    @FXML
+    void onInventoryClicked(ActionEvent event) {
+        employeeWHVM.openInventoryWHView();
+    }
+
+    @FXML
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML
+    void onRemoveEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onRetailerClicked(MouseEvent event) {
+
     }
 }

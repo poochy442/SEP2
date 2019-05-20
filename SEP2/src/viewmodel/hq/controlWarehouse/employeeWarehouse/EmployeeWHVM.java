@@ -3,15 +3,18 @@ package viewmodel.hq.controlWarehouse.employeeWarehouse;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Employee;
+import model.IDataModel;
 import view.hq.ViewHandler;
 
 public class EmployeeWHVM { //This class is to display employeeList from warehouse
     private ObservableList<Employee> employees;
     private ViewHandler viewHandler;
+    private IDataModel dataModel;
 
-    public EmployeeWHVM(ViewHandler viewHandler)
+    public EmployeeWHVM(IDataModel dataModel, ViewHandler viewHandler)
     {
         this.viewHandler = viewHandler;
+        this.dataModel = dataModel;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
     }
 
@@ -20,9 +23,9 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
         return employees;
     }
 
-    public void openMainView()
+    public void openMainHQView()
     {
-        viewHandler.openMainView();
+        viewHandler.openMainHQView();
     }
 
     public void openInventoryWHView()
@@ -31,4 +34,6 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
     }
 
 
+    public void openEmployeeMainWHView() {viewHandler.openEmployeeWHView();
+    }
 }

@@ -49,4 +49,14 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     public StringProperty IDProperty() {
         return ID;
     }
+
+    public void openMainView() { viewHandler.openMainHQView();
+    }
+
+    public void openEmployeeMainHQ() {
+        viewHandler.openEmployeeMainHQView();
+    }
+
+    public void openInventoryWHView() { viewHandler.openInventoryWHView();
+    }
 }

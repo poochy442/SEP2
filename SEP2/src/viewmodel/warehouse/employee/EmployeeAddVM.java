@@ -38,6 +38,21 @@ public class EmployeeAddVM {
         viewHandler.openEmployeeMainView();
     }
 
+    public void openMainView()
+    {
+        viewHandler.openMainView();
+    }
+
+    public void openInventoryView()
+    {
+        viewHandler.openInventoryMainView();
+    }
+
+    public void openEmployeeView()
+    {
+        viewHandler.openEmployeeMainView();
+    }
+
     public StringProperty firstNameProperty() {
         return firstName;
     }
@@ -49,4 +64,6 @@ public class EmployeeAddVM {
     public StringProperty IDProperty() {
         return ID;
     }
+
+
 }

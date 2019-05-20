@@ -75,4 +75,19 @@ public class EmployeeMainView {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    @FXML
+    void onRemoveEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEmployeeClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEditEmployeeClicked(ActionEvent event) {
+
+    }
 }
