@@ -43,30 +43,13 @@ public class StockItem {
     public void setPrice(int price) {
         this.price = price;
     }
-
-    public String getId() {
+    public String getID()
+    {
         return id;
     }
-
-    public boolean CanExpire() {
-        return canExpire;
-    }
-
-    public Date getExpiryDate() {
+    public Date getExpriyDate()
+    {
         return expiryDate;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if(!(obj instanceof StockItem)){
-            return false;
-        }
-        StockItem other = (StockItem) obj;
-        return name == other.getName() &&
-                id == other.getId() &&
-                quantity == other.getQuantity() &&
-                price == other.getPrice() &&
-                canExpire == other.CanExpire() &&
-                expiryDate == other.getExpiryDate();
-    }
 }

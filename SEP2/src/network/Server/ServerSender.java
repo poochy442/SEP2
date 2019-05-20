@@ -1,20 +1,36 @@
 package network.Server;
 
+import com.google.gson.Gson;
+import jdbc.DataBaseModel;
+import model.EmployeeList;
 import network.Packet;
 
+import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class ServerSender implements Runnable {
 
     private Socket socket;
     private Queue<Packet> queue;
+    private DataBaseModel dataBaseModel;
 
-    public ServerSender(Socket socket) {
+    public ServerSender(Socket socket,DataBaseModel dataBaseModel) {
         this.socket = socket;
-        // TODO: Add listener for the Response
+        this.dataBaseModel=dataBaseModel;
+        queue = new LinkedList<>();
+        dataBaseModel.addListener("EmployeeQuery",this::employeeListQueryListener);
+    }
+
+    private void employeeListQueryListener(PropertyChangeEvent propertyChangeEvent) {
+        Gson gson = new Gson();
+        EmployeeList employeeList =((EmployeeList) propertyChangeEvent.getNewValue());
+        String json = gson.toJson(employeeList);
+        Packet packet = new Packet(Packet.EmployeeQuery, json);
+        addToQueue(packet);
     }
 
     @Override
@@ -26,9 +42,9 @@ public class ServerSender implements Runnable {
             e.printStackTrace();
         }
         while(true){
-            if(queue.isEmpty()){
+            while(queue.isEmpty()){
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -44,4 +60,6 @@ public class ServerSender implements Runnable {
     public void addToQueue(Packet packet){
         queue.add(packet);
     }
+
+
 }

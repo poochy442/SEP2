@@ -20,36 +20,45 @@ public class ClientSender implements Runnable {
     public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
         this.dataModel = dataModel;
-        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
-        dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
-        // TODO: Add ProductRequest Listener
+        dataModel.addListener("EmployeeQuery",this::EmployeeQuery);
+        dataModel.addListener("EmployeeToDB", this::addEmployeeListener);
+        dataModel.addListener("ItemToDB", this::addStockItemListener);
+
+
+        // TODO: Add Request Listener
         queue = new LinkedList<>();
     }
 
+    private void EmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p = new Packet(Packet.EmployeeQuery,null);
+        addToQueue(p);
+
+    }
+
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {
-        StockItemList stockItemList = new StockItemList();
-        stockItemList.add((StockItem) propertyChangeEvent.getNewValue());
+        StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(stockItemList);
+        String json = gson.toJson(stockItem);
         Packet packet = new Packet(Packet.StockOperation, json);
         addToQueue(packet);
     }
 
     private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
-        EmployeeList employeeList = new EmployeeList();
-        employeeList.add((Employee) propertyChangeEvent.getNewValue());
+        Employee employe =(Employee)propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(employeeList);
+        String json = gson.toJson(employe);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
         addToQueue(packet);
+
     }
 
     public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
-        ProductRequest productRequest = (ProductRequest) propertyChangeEvent.getNewValue();
+        Request request = (Request) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(productRequest);
+        String json = gson.toJson(request);
         Packet packet = new Packet(Packet.RequestOperation, json);
         addToQueue(packet);
+
     }
 
     @Override
@@ -63,7 +72,7 @@ public class ClientSender implements Runnable {
         while(true){
             if(queue.isEmpty()){
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -28,9 +28,12 @@ public class Client implements Runnable {
         }
 
         ClientSender client = new ClientSender(socket, dataModel);
+        ClientReceiver clientReceiver = new ClientReceiver(socket,dataModel);
 
         Thread t1 = new Thread(client);
+        Thread t2 = new Thread(clientReceiver);
         t1.start();
+        t2.start();
 
         // TODO: start view, instead of scanner
 
