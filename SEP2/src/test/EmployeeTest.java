@@ -1,5 +1,6 @@
 package test;
 
+
 import model.Employee;
 import org.junit.Assert;
 
@@ -18,13 +19,13 @@ public class EmployeeTest {
 
     @org.junit.Test
     public void getFirstName() {
-        Assert.assertEquals(e.getFirstName(), "kenneth");
+        Assert.assertEquals("kenneth", e.getFirstName());
     }
 
     @org.junit.Test
     public void setFirstName() {
         e.setFirstName("John");
-        Assert.assertEquals(e.getFirstName(), "John");
+        Assert.assertEquals("John", e.getFirstName());
     }
 
     @org.junit.Test

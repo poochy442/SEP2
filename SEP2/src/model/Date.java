@@ -2,6 +2,7 @@ package model;
 
 public class Date {
 
+    public boolean isLeapYear;
     private int day, month, year;
     public static final String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
@@ -105,5 +106,10 @@ public class Date {
         return day == other.getDay() &&
                 month == other.getMonth() &&
                 year == other.getYear();
+    }
+
+    public String toString(){
+        return day + "/" + month + "/" + year;
+
     }
 }
