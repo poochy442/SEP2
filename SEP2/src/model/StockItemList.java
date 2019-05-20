@@ -50,4 +50,20 @@ public class StockItemList {
         return stockItemList.size();
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof StockItemList)){
+            return false;
+        }
+        StockItemList other = (StockItemList) obj;
+        if(size() != other.size()){
+            return false;
+        }
+        for(int i = 0; i < size(); i++){
+            if(!(get(i).equals(other.get(i)))){
+                return false;
+            }
+        }
+        return true;
+    }
 }
