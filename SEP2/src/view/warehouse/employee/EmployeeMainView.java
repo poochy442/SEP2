@@ -3,7 +3,6 @@ package view.warehouse.employee;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -14,9 +13,6 @@ import model.Employee;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 
 public class EmployeeMainView {
-
-    @FXML
-    private Label nameLabel;
 
     @FXML
     private TableView<Employee> employeeTable;
@@ -51,6 +47,17 @@ public class EmployeeMainView {
     }
 
     @FXML
+    void onCloseClicked(MouseEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void onMinimizeClicked(MouseEvent event) {
+        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
     void onDashboardClicked(ActionEvent event) {
         employeeMainVM.openMainView();
     }
@@ -63,17 +70,6 @@ public class EmployeeMainView {
     @FXML
     void onAddEmployeeClicked(ActionEvent event) {
         employeeMainVM.openEmployeeAddView();
-    }
-
-    @FXML
-    void onCloseClicked(MouseEvent event) {
-        Platform.exit();
-    }
-
-    @FXML
-    void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
-        stage.setIconified(true);
     }
 
     @FXML

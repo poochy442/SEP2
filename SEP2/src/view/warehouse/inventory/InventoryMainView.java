@@ -3,7 +3,6 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -43,9 +42,6 @@ public class InventoryMainView {
 
     @FXML
     private TableColumn<Integer, StockItem> maxStockCol;
-
-    @FXML
-    private Label experimentLabel;
 
     @FXML
     private AnchorPane anchorPane;

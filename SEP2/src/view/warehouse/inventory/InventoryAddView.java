@@ -25,10 +25,10 @@ public class InventoryAddView {
     private TextField iDField;
 
     @FXML
-    private CheckBox canExpireCheck;
+    private CheckBox canExpireCheckBox;
 
     @FXML
-    private DatePicker datePicker;
+    private DatePicker expiryDatePicker;
 
     @FXML
     private TextField minStockField;
@@ -52,8 +52,8 @@ public class InventoryAddView {
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
         iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
-        canExpireCheck.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
-        datePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
+        canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
+        expiryDatePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
         minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());
         maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
 
@@ -97,14 +97,14 @@ public class InventoryAddView {
     @FXML
     void canExpireClicked(ActionEvent event)
     {
-        if(canExpireCheck.isSelected())
+        if(canExpireCheckBox.isSelected())
         {
-            datePicker.setDisable(false);
+            expiryDatePicker.setDisable(false);
         }
         else
         {
-            datePicker.setDisable(true);
-            datePicker.setValue(null);
+            expiryDatePicker.setDisable(true);
+            expiryDatePicker.setValue(null);
         }
     }
 }
