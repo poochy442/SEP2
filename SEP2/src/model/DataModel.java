@@ -31,7 +31,6 @@ public class DataModel implements IDataModel {
     @Override
     public void addEmployeeToServer(Employee e) {
         employeeList.add(e);
-
     }
 
     @Override
@@ -53,6 +52,7 @@ public class DataModel implements IDataModel {
 
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
+        propertyChangeSupport.firePropertyChange("NewEmployeeList",null,employeeList);
     }
 
     public StockItemList getStockItemList() {
@@ -63,5 +63,16 @@ public class DataModel implements IDataModel {
         this.stockItemList = stockItemList;
     }
 
+    @Override
+    public void refreshEmployeeList() {
+        propertyChangeSupport.firePropertyChange("EmployeeQuery", null, null);
+    }
 
+    public boolean controlPkEmployee(String PK) {
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (employeeList.get(i).getId().equals(PK))
+                return false;
+        }
+        return true;
+    }
 }

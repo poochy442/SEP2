@@ -2,12 +2,13 @@ package model;
 
 public class Employee {
 
-    private String firstName, lastName, id;
+    private String firstName, lastName, id, departmentID;
 
-    public Employee(String firstName, String lastName, String id) {
+    public Employee(String firstName, String lastName, String id, String departmentID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
+        this.departmentID = departmentID;
     }
 
     public String getFirstName() {
@@ -44,5 +45,12 @@ public class Employee {
                 && other.lastName.equals(this.lastName);
     }
 
-    //TODO: add toString
+    @Override
+    public String toString() {
+        return "First name: " + firstName + ", Last name: " + lastName + ", ID: " + id + ", department ID: " + departmentID;
+    }
+
+    public String getDepartmentID() {
+        return departmentID;
+    }
 }
