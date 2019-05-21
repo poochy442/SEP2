@@ -13,18 +13,12 @@ import javafx.stage.Stage;
 import model.StockItem;
 import viewmodel.warehouse.inventory.InventoryMainVM;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class InventoryMainView {
 
     @FXML
     private TableView<StockItem> stockItemTable;
-
-    @FXML
-    private TableView<StockItem> stockItemTableError;
-
-    @FXML
-    private Label errorLabel;
 
     @FXML
     private TableColumn<String, StockItem> nameCol;
@@ -39,16 +33,19 @@ public class InventoryMainView {
     private TableColumn<String, StockItem> iDCol;
 
     @FXML
-    private TableColumn<Boolean, StockItem> canExpireCol;
+    private TableColumn<Boolean, StockItem> canExpireCol; // TODO: canExpireCol is weird
 
     @FXML
-    private TableColumn<Date, StockItem> expiryDateCol; //TODO: expiryDateCol change format
+    private TableColumn<LocalDate, StockItem> expiryDateCol; //TODO: expiryDateCol is weird
 
     @FXML
     private TableColumn<Integer, StockItem> minStockCol;
 
     @FXML
     private TableColumn<Integer, StockItem> maxStockCol;
+
+    @FXML
+    private Label experimentLabel;
 
     @FXML
     private AnchorPane anchorPane;
@@ -66,7 +63,7 @@ public class InventoryMainView {
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire"));
+        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
@@ -101,20 +98,7 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
-        if(stockItemTableError.isVisible())
-        {
-            stockItemTableError.setPrefHeight(0);
-            stockItemTableError.setVisible(false);
-            errorLabel.setVisible(false);
-            errorLabel.setPrefHeight(0);
-        }
-        else
-        {
-            stockItemTableError.setPrefHeight(600);
-            stockItemTableError.setVisible(true);
-            errorLabel.setVisible((true));
-            errorLabel.setPrefHeight(17);
-        }
+
     }
 
     @FXML
