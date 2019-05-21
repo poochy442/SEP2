@@ -1,9 +1,6 @@
 package jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class DataBase {
 
@@ -14,13 +11,9 @@ public class DataBase {
         dataBaseModel.createDepartmentTable();
         dataBaseModel.createEmployeeTable();
         dataBaseModel.createStockItemTable();
-
         PreparedStatement departmentStatement = dataBaseModel.prepareDepartmentStatement();
         dataBaseModel.addDepartmentToDataBase("WH2","Warehouse");
         dataBaseModel.addDepartmentToDataBase("WH5","Warehouse");
-
         dataBaseModel.departmentQuery();
-
-
     }
 }
