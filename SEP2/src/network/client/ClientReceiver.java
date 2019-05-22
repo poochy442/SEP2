@@ -43,14 +43,14 @@ public class ClientReceiver implements Runnable {
                     case Packet.EmployeeResponseOperation:
                         EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
                         for (int i = 0; i < employeeList.size(); i++) {
-                            dataModel.addEmployeeToClient(employeeList.get(i));
+                            dataModel.addEmployeeFromServer(employeeList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
                         for (int i = 0; i < stockItemList.size(); i++) {
-                            dataModel.addItemToClient(stockItemList.get(i));
+                            dataModel.addItemFromServer(stockItemList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
@@ -58,14 +58,14 @@ public class ClientReceiver implements Runnable {
                         EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
                         for (int i=0;i<employeeList1.size();i++)
                         {
-                            dataModel.addEmployeeToClient(employeeList1.get(i));
+                            dataModel.addEmployeeFromServer(employeeList1.get(i));
                         }
                         break;
                     case Packet.ItemQuery:
                         StockItemList stockItemList1 = (StockItemList) gson.fromJson(json, StockItemList.class);
                         for (int i=0;i<stockItemList1.size();i++)
                         {
-                            dataModel.addItemToClient(stockItemList1.get(i));
+                            dataModel.addItemFromServer(stockItemList1.get(i));
                         }
 
                 }

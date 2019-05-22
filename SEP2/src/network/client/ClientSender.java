@@ -20,8 +20,8 @@ public class ClientSender implements Runnable {
     public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
         this.dataModel = dataModel;
-        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
-        dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
+        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeListener);
+        dataModel.addListener("NewItemFromUser", this::addStockItemListener);
         dataModel.addListener("EmployeeQuery",this::triggerEmployeeQuery);
        dataModel.addListener("ItemQuery",this::triggerItemQuery);
         queue = new LinkedList<>();
@@ -45,6 +45,7 @@ public class ClientSender implements Runnable {
         Gson gson = new Gson();
         String json = gson.toJson(stockItemList);
         Packet packet = new Packet(Packet.StockOperation, json);
+        System.out.println("ClientSender: addStockItemListener StockItemOperation");
         addToQueue(packet);
     }
 
@@ -53,6 +54,7 @@ public class ClientSender implements Runnable {
         Gson gson = new Gson();
         String json = gson.toJson(employe);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
+        System.out.println("ClientSender: addEmployeListener EmployeeOperation");
         addToQueue(packet);
 
     }

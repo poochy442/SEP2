@@ -3,11 +3,11 @@ package model;
 import java.beans.PropertyChangeListener;
 
 public interface IDataModel {
-    void addEmployeeToClient (Employee e);
-    void addEmployeeToServer (Employee e);
+    void addEmployeeFromUser(Employee e);
+    void addEmployeeFromServer(Employee e);
     void addListener(String evt, PropertyChangeListener listener);
-    void addItemToClient (StockItem i);
-    void addItemToServer (StockItem i);
+    void addItemFromServer(StockItem i);
+    void addItemFromUser(StockItem i);
     EmployeeList getEmployeeList();
     void setEmployeeList(EmployeeList employeeList);
     void loadEmployeeListFromDB();

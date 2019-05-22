@@ -24,7 +24,7 @@ public class DataBaseModel {
         departmentStatement = prepareDepartmentStatement();
         employeeStatement = prepareEmployeeStatement();
         stockitemQuery = prepareItemQuery();
-        stockItemStatement = prepareInsertNewStockItemStatement();
+        stockItemStatement = prepareStockItemStatement();
         changeSupport = new PropertyChangeSupport(this);
 
 
@@ -311,11 +311,17 @@ public class DataBaseModel {
         return employeeQuery;
     }
 
+    private static java.sql.Date getCurrentDate() {
+        java.util.Date today = new java.util.Date();
+        return new java.sql.Date(today.getTime());
+    }
+
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
     public boolean addItemToDataBase(StockItem stockItem) {
         try {
-            java.sql.Date sqlDate = new java.sql.Date(1989, 3, 5);
+            java.sql.Date sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
+
             System.out.println(stockItem.toString());
             stockItemStatement.setString(1, stockItem.getId());
             stockItemStatement.setString(2, stockItem.getName());
@@ -326,7 +332,8 @@ public class DataBaseModel {
             stockItemStatement.executeUpdate();
             return true;
 
-            //todo notify OTHER client
+            //todo adding Date format is not correct
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -336,9 +343,9 @@ public class DataBaseModel {
 
     }
 
-    public PreparedStatement prepareInsertNewStockItemStatement() {
+    public PreparedStatement prepareStockItemStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate) " +
-                "SELECT * FROM (SELECT ?,?,?,?,?) AS tmp " +
+                "SELECT * FROM (SELECT ?,?,?,?,? :: DATE) AS tmp " +
                 "WHERE NOT EXISTS (SELECT id FROM \"Sep2\".stockitem " +
                 "WHERE id = ?) LIMIT 1;";
         PreparedStatement stockItemStatement = null;
@@ -350,6 +357,7 @@ public class DataBaseModel {
         }
         return stockItemStatement;
     }
+
 
     public PreparedStatement prepareItemQuery() {
         String preparedStatement = "SELECT * FROM \"Sep2\".stockitem;";

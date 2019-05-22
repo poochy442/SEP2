@@ -22,7 +22,8 @@ public class EmployeeMainVM {
         {
             employees.add(dataModel.getEmployeeList().get(i));
         }
-        dataModel.addListener("NewEmployeeAddedToClient", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromServer",this::addEmployeeToClient);
     }
 
     private void addEmployeeToClient(PropertyChangeEvent evt) {

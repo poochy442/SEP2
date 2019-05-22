@@ -46,7 +46,7 @@ public class DataModelTest {
         {
             dataModel.getEmployeeList().remove(i);
         }
-        dataModel.addEmployeeToClient(e);
+        dataModel.addEmployeeFromUser(e);
         boolean biggerSize = false;
         if(dataModel.getEmployeeList().size() > 0)
         {
@@ -61,7 +61,7 @@ public class DataModelTest {
         {
             dataModel.getEmployeeList().remove(i);
         }
-        dataModel.addEmployeeToServer(e);
+        dataModel.addEmployeeFromServer(e);
         boolean biggerSize = false;
         if(dataModel.getEmployeeList().size() > 0)
         {
@@ -80,7 +80,7 @@ public class DataModelTest {
         for(int i = 0; i < dataModel.getStockItemList().size(); i++) {
             dataModel.getStockItemList().remove(i);
         }
-        dataModel.addItemToClient(i);
+        dataModel.addItemFromServer(i);
         Assert.assertNotNull(dataModel.getStockItemList());
     }
 
@@ -89,7 +89,7 @@ public class DataModelTest {
         for(int i = 0; i < dataModel.getStockItemList().size(); i++) {
             dataModel.getStockItemList().remove(i);
         }
-        dataModel.addItemToServer(i);
+        dataModel.addItemFromUser(i);
         Assert.assertNotNull(dataModel.getStockItemList());
     }
 

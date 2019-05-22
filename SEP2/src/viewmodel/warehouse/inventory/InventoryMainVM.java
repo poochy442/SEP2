@@ -18,7 +18,8 @@ public class InventoryMainVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("NewItemAddedFromClient", this::addStockItemToClient);
+        dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
+        dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
     }
 
     private void addStockItemToClient(PropertyChangeEvent evt) {

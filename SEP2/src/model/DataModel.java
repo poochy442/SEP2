@@ -22,18 +22,17 @@ public class DataModel implements IDataModel {
 
 
     @Override
-    public void addEmployeeToClient(Employee e) {
+    public void addEmployeeFromUser(Employee e) {
         employeeList.add(e);
-        propertyChangeSupport.firePropertyChange("NewEmployeeAddedToClient", null, e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeFromUser",null,e);
 
 
     }
 
     @Override
-    public void addEmployeeToServer(Employee e) {
+    public void addEmployeeFromServer(Employee e) {
         employeeList.add(e);
-        propertyChangeSupport.firePropertyChange("NewEmployeeAddedFromClient", null, e);
-        propertyChangeSupport.firePropertyChange("NewEmployeeAddedToClient", null, e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeFromServer", null, e);
 
     }
 
@@ -43,14 +42,15 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void addItemToClient(StockItem i) {
+    public void addItemFromServer(StockItem i) {
         stockItemList.add(i);
-        propertyChangeSupport.firePropertyChange("NewItemAddedFromClient", null, i);
+        propertyChangeSupport.firePropertyChange("NewItemFromServer",null,i);
     }
 
     @Override
-    public void addItemToServer(StockItem i) {
+    public void addItemFromUser(StockItem i) {
         stockItemList.add(i);
+        propertyChangeSupport.firePropertyChange("NewItemFromUser", null, i);
 
     }
 

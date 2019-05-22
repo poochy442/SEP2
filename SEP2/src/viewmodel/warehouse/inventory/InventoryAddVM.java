@@ -56,10 +56,7 @@ public class InventoryAddVM {
             e.printStackTrace();
         }
         StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
-        dataModel.addItemToClient(si);
-//        dataModel.addItemToServer(si);
-
-        //To delete data from view
+        dataModel.addItemFromUser(si);
         name.setValue("");
         quantity.setValue("");
         price.setValue("");
