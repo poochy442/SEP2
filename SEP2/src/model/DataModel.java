@@ -13,8 +13,6 @@ public class DataModel implements IDataModel {
         employeeList = new EmployeeList();
         propertyChangeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
-
-
     }
 
 
@@ -26,12 +24,17 @@ public class DataModel implements IDataModel {
     @Override
     public void addEmployeeToClient(Employee e) {
         employeeList.add(e);
-        propertyChangeSupport.firePropertyChange("NewEmployeeAddedFromClient", null, e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeAddedToClient", null, e);
+
+
     }
 
     @Override
     public void addEmployeeToServer(Employee e) {
         employeeList.add(e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeAddedFromClient", null, e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeAddedToClient", null, e);
+
     }
 
     @Override
@@ -67,6 +70,9 @@ public class DataModel implements IDataModel {
 
     public void setStockItemList(StockItemList stockItemList) {
         this.stockItemList = stockItemList;
+        System.out.println("DataModel: ItemList Received from server and stored");
+
+        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList);
     }
 
     @Override
@@ -74,6 +80,13 @@ public class DataModel implements IDataModel {
     propertyChangeSupport.firePropertyChange("EmployeeQuery",0,2);
         System.out.println("DataModel refresh Employee list query");
     }
+
+    @Override
+    public void loadItemListFromDB() {
+        propertyChangeSupport.firePropertyChange("ItemQuery",0,2);
+        System.out.println("DataModel refresh Item list query");
+    }
+
 
     public boolean controlPkEmployee(String PK) {
         for (int i = 0; i < employeeList.size(); i++) {

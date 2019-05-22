@@ -64,7 +64,8 @@ public class ServerReceiver implements Runnable {
                         dataBaseModel.employeeQuery();
                         break;
                     case Packet.ItemQuery:
-                        dataBaseModel.employeeQuery();
+                        dataBaseModel.itemQuery();
+                        System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
                 }
             } catch (Exception e) {

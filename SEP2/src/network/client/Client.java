@@ -31,6 +31,7 @@ public class Client implements Runnable {
         Thread t1 = new Thread(clientSender);
         t1.start();
         dataModel.loadEmployeeListFromDB();
+        dataModel.loadItemListFromDB();
         System.out.println("Client Refresh employee list");
         ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel);
         Thread t2 = new Thread(clientReceiver);

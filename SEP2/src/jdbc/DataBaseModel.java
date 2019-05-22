@@ -3,6 +3,7 @@ package jdbc;
 import model.Employee;
 import model.EmployeeList;
 import model.StockItem;
+import model.StockItemList;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -15,13 +16,15 @@ public class DataBaseModel {
     PreparedStatement employeeStatement;
     PreparedStatement employeeQuery;
     PreparedStatement stockItemStatement;
+    PreparedStatement stockitemQuery;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
         setConnection();
         departmentStatement = prepareDepartmentStatement();
         employeeStatement = prepareEmployeeStatement();
-        stockItemStatement = prepareStockItemStatement();
+        stockitemQuery = prepareItemQuery();
+        stockItemStatement = prepareInsertNewStockItemStatement();
         changeSupport = new PropertyChangeSupport(this);
 
 
@@ -36,7 +39,7 @@ public class DataBaseModel {
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
-        String url ="jdbc:postgresql://localhost:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String pw = "123321";
         connection = null;
@@ -208,6 +211,7 @@ public class DataBaseModel {
                 String departmentName = row[1].toString();
 
                 System.out.println("DepartmentID: " + departmentID + " Department Name: " + departmentName);
+                //todo create department object instead sysout
             }
             resultSet.close();
             departmentQueryStatement.close();
@@ -250,8 +254,47 @@ public class DataBaseModel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        changeSupport.firePropertyChange("EmployeeQuery",null,employeeList);
+        changeSupport.firePropertyChange("EmployeeQuery", null, employeeList);
         System.out.println("DataBaseModel: Employee query fired");
+
+
+    }
+
+    public void itemQuery() {
+        ArrayList<Object[]> results = new ArrayList<>();
+        StockItemList stockItemList = new StockItemList();
+        try {
+
+            ResultSet resultSet = prepareItemQuery().executeQuery();
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+            }
+
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String itemID = row[0].toString();
+                String itemName = row[1].toString();
+                int qty = (int) row[2];
+                int price = (int) row[3];
+                java.util.Date sqlDate = (java.sql.Date) row[4];
+                java.util.Date date = new java.util.Date(sqlDate.getDay(), sqlDate.getMonth(), sqlDate.getYear());
+
+                StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100);
+                stockItemList.add(stockItem);
+            }
+            resultSet.close();
+            prepareItemQuery().close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        changeSupport.firePropertyChange("ItemQuery", null, stockItemList);
+        System.out.println("DataBaseModel: ItemQueryFired query fired");
 
 
     }
@@ -272,13 +315,13 @@ public class DataBaseModel {
     //Uses a prepared statement and 2 String to add 1 row to the department table
     public boolean addItemToDataBase(StockItem stockItem) {
         try {
-            java.sql.Date sqlDate = new java.sql.Date(1989,3,5);
+            java.sql.Date sqlDate = new java.sql.Date(1989, 3, 5);
             System.out.println(stockItem.toString());
             stockItemStatement.setString(1, stockItem.getId());
             stockItemStatement.setString(2, stockItem.getName());
             stockItemStatement.setInt(3, stockItem.getQuantity());
             stockItemStatement.setInt(4, stockItem.getPrice());
-            stockItemStatement.setDate(5,  sqlDate);
+            stockItemStatement.setDate(5, sqlDate);
             stockItemStatement.setString(6, stockItem.getId());
             stockItemStatement.executeUpdate();
             return true;
@@ -292,7 +335,8 @@ public class DataBaseModel {
         }
 
     }
-    public PreparedStatement prepareStockItemStatement() {
+
+    public PreparedStatement prepareInsertNewStockItemStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate) " +
                 "SELECT * FROM (SELECT ?,?,?,?,?) AS tmp " +
                 "WHERE NOT EXISTS (SELECT id FROM \"Sep2\".stockitem " +
@@ -305,5 +349,17 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         return stockItemStatement;
+    }
+
+    public PreparedStatement prepareItemQuery() {
+        String preparedStatement = "SELECT * FROM \"Sep2\".stockitem;";
+
+
+        try {
+            stockitemQuery = connection.prepareStatement(preparedStatement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return stockitemQuery;
     }
 }

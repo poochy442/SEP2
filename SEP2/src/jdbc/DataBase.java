@@ -11,6 +11,7 @@ public class DataBase {
         dataBaseModel.createDepartmentTable();
         dataBaseModel.createEmployeeTable();
         dataBaseModel.createStockItemTable();
+        dataBaseModel.itemQuery();
         PreparedStatement departmentStatement = dataBaseModel.prepareDepartmentStatement();
         dataBaseModel.addDepartmentToDataBase("WH2","Warehouse");
         dataBaseModel.addDepartmentToDataBase("WH5","Warehouse");

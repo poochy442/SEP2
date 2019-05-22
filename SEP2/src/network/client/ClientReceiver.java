@@ -30,38 +30,47 @@ public class ClientReceiver implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true){
+        while (true) {
             try {
                 Object incoming = in.readObject();
                 if (incoming == null) {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                     continue;
                 }
                 Packet packet = (Packet) incoming;
                 String json = packet.getJson();
-                switch(packet.getOperation()){
+                switch (packet.getOperation()) {
                     case Packet.EmployeeResponseOperation:
                         EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        for(int i = 0; i < employeeList.size(); i++){
+                        for (int i = 0; i < employeeList.size(); i++) {
                             dataModel.addEmployeeToClient(employeeList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        for(int i = 0; i < stockItemList.size(); i++){
+                        for (int i = 0; i < stockItemList.size(); i++) {
                             dataModel.addItemToClient(stockItemList.get(i));
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
                     case Packet.EmployeeQuery:
                         EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        dataModel.setEmployeeList(employeeList1);
-
+                        for (int i=0;i<employeeList1.size();i++)
+                        {
+                            dataModel.addEmployeeToClient(employeeList1.get(i));
+                        }
+                        break;
+                    case Packet.ItemQuery:
+                        StockItemList stockItemList1 = (StockItemList) gson.fromJson(json, StockItemList.class);
+                        for (int i=0;i<stockItemList1.size();i++)
+                        {
+                            dataModel.addItemToClient(stockItemList1.get(i));
+                        }
 
                 }
 
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

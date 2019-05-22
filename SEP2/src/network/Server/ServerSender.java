@@ -3,6 +3,7 @@ package network.Server;
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
 import model.EmployeeList;
+import model.StockItemList;
 import network.Packet;
 
 import java.beans.PropertyChangeEvent;
@@ -23,7 +24,21 @@ public class ServerSender implements Runnable {
         this.dataBaseModel=dataBaseModel;
         queue= new LinkedList<>();
         dataBaseModel.addListener("EmployeeQuery",this::sendEmployeeList);
+        dataBaseModel.addListener("ItemQuery",this::sendItemList);
         // TODO: Add listener for the Response
+    }
+
+    private void sendItemList(PropertyChangeEvent propertyChangeEvent) {
+        Gson gson = new Gson();
+        StockItemList stockItemList =((StockItemList) propertyChangeEvent.getNewValue());
+        String json = gson.toJson(stockItemList);
+        Packet packet = new Packet(Packet.ItemQuery, json);
+        addToQueue(packet);
+        for (int i=0;i<stockItemList.size();i++)
+        {
+            System.out.println(stockItemList.get(i).getName());
+        }
+        System.out.println("ServerSender: StockItemListPacket sent");
     }
 
     private void sendEmployeeList(PropertyChangeEvent propertyChangeEvent) {
@@ -46,7 +61,7 @@ public class ServerSender implements Runnable {
         while(true){
             if(queue.isEmpty()){
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
