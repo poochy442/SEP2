@@ -6,16 +6,17 @@ import java.beans.PropertyChangeSupport;
 public class DataModel implements IDataModel {
     private EmployeeList employeeList;
     private StockItemList stockItemList;
-    private PropertyChangeSupport changeSupport;
+    private PropertyChangeSupport propertyChangeSupport;
 
 
     public DataModel() {
         employeeList = new EmployeeList();
-        changeSupport = new PropertyChangeSupport(this);
+        propertyChangeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
+
+
     }
 
-    PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     public EmployeeList getEmployeeList() {
         return employeeList;
@@ -52,7 +53,12 @@ public class DataModel implements IDataModel {
 
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
-        propertyChangeSupport.firePropertyChange("NewEmployeeList",null,employeeList);
+        for (int i=0;i<employeeList.size();i++)
+        {
+            System.out.println("DataModel "+employeeList.get(i).getFirstName());
+        }
+
+        propertyChangeSupport.firePropertyChange("NewEmployeeList", null, employeeList);
     }
 
     public StockItemList getStockItemList() {
@@ -64,8 +70,9 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void refreshEmployeeList() {
-        propertyChangeSupport.firePropertyChange("EmployeeQuery", null, null);
+    public void loadEmployeeListFromDB() {
+    propertyChangeSupport.firePropertyChange("EmployeeQuery",0,2);
+        System.out.println("DataModel refresh Employee list query");
     }
 
     public boolean controlPkEmployee(String PK) {

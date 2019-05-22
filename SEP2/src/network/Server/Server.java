@@ -19,8 +19,11 @@ public class Server {
             Socket socket = welcomeSocket.accept();
             DataBaseModel dataBaseModel = new DataBaseModel();
             ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel);
+            ServerSender serverSender = new ServerSender(socket,dataBaseModel);
+            Thread t2 = new Thread(serverSender);
             Thread t1 = new Thread(serverReceiver);
             t1.start();
+            t2.start();
         }
     }
 }

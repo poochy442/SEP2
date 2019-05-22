@@ -251,6 +251,7 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         changeSupport.firePropertyChange("EmployeeQuery",null,employeeList);
+        System.out.println("DataBaseModel: Employee query fired");
 
 
     }

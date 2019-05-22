@@ -27,27 +27,13 @@ public class Client implements Runnable {
             e.printStackTrace();
         }
 
-        ClientSender client = new ClientSender(socket, dataModel);
-
-        Thread t1 = new Thread(client);
+        ClientSender clientSender = new ClientSender(socket, dataModel);
+        Thread t1 = new Thread(clientSender);
         t1.start();
-
-        // TODO: start view, instead of scanner
-
-//        Scanner input = new Scanner(System.in);
-//
-//        System.out.println("Insert 3 names:");
-//
-//        EmployeeList empList = new EmployeeList();
-//        for(int i = 0; i < 3; i++){
-//            empList.add(new Employee(input.next(), "lastname", "" + i));
-//        }
-//
-//        Gson gson = new Gson();
-//        String json = gson.toJson(empList);
-//
-//        Packet packet = new Packet(Packet.EmployeeOperation, json);
-//        client.addToQueue(packet);
-
+        dataModel.loadEmployeeListFromDB();
+        System.out.println("Client Refresh employee list");
+        ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel);
+        Thread t2 = new Thread(clientReceiver);
+        t2.start();
     }
 }
