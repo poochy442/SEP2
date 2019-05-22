@@ -36,7 +36,7 @@ public class DataBaseModel {
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String url ="jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String pw = "123321";
         connection = null;
@@ -251,6 +251,7 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         changeSupport.firePropertyChange("EmployeeQuery",null,employeeList);
+        System.out.println("DataBaseModel: Employee query fired");
 
 
     }

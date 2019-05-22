@@ -22,8 +22,21 @@ public class ClientSender implements Runnable {
         this.dataModel = dataModel;
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeListener);
         dataModel.addListener("NewItemAddedFromClient", this::addStockItemListener);
-        // TODO: Add ProductRequest Listener
+        dataModel.addListener("EmployeeQuery",this::triggerEmployeeQuery);
+       dataModel.addListener("ItemQuery",this::triggerItemQuery);
         queue = new LinkedList<>();
+    }
+
+    private void triggerItemQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p = new Packet(Packet.ItemQuery,null);
+        System.out.println("ClientSenderTriggerItemQuery");
+        addToQueue(p);
+    }
+
+    private void triggerEmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p = new Packet(Packet.EmployeeQuery,null);
+        System.out.println("ClientSenderEmployeeItemQuery");
+        addToQueue(p);
     }
 
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {

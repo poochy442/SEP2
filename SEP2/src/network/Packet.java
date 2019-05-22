@@ -9,7 +9,8 @@ public class Packet implements Serializable {
             StockOperation = "StockItems",
             RequestOperation = "ProductRequest",
             EmployeeResponseOperation = "EmployeeResponse",
-            StockResponseOperation = "StockResponse";
+            StockResponseOperation = "StockResponse", EmployeeQuery = "EmployeeQuery",
+           ItemQuery ="ItemQuery";
 
     public Packet(String operation, String json) {
         this.operation = operation;

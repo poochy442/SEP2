@@ -2,9 +2,7 @@ package network.Server;
 
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
-import model.Employee;
-import model.ProductRequest;
-import model.StockItemList;
+import model.*;
 import network.Packet;
 
 import java.io.IOException;
@@ -14,11 +12,12 @@ import java.net.Socket;
 public class ServerReceiver implements Runnable {
 
     private Socket socket;
-    DataBaseModel dataBaseModel;
+    private DataBaseModel dataBaseModel;
+    private IDataModel dataModel;
 
     public ServerReceiver(Socket socket, DataBaseModel dataBaseModel) {
         this.socket = socket;
-        this.dataBaseModel=dataBaseModel;
+        this.dataBaseModel = dataBaseModel;
     }
 
     @Override
@@ -34,8 +33,8 @@ public class ServerReceiver implements Runnable {
         while (true) {
             try {
                 Object incoming = in.readObject();
-                if(incoming == null){
-                    Thread.sleep(5000);
+                if (incoming == null) {
+                    Thread.sleep(1000);
                     continue;
                 }
                 Packet packet = (Packet) incoming;
@@ -43,24 +42,29 @@ public class ServerReceiver implements Runnable {
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
                         Employee employe = (Employee) gson.fromJson(json, Employee.class);
-
                         System.out.println("ServerReceiver:employeStoredToDB" + dataBaseModel.addEmployeeToDataBase(employe));
+                        ;
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:
-                        StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        System.out.println("StockItemList received");
-                        System.out.println(stockItemList);
-                        System.out.println();
-                        // TODO: Change to view event
+                        StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
+                        System.out.println("ServerReceiver: itemstoredToDB=" + dataBaseModel.addItemToDataBase(stockItem));
+
+
                         break;
                     case Packet.RequestOperation:
-                        ProductRequest productRequest = (ProductRequest) gson.fromJson(json, ProductRequest.class);
-                        System.out.println("ProductRequest received");
-                        System.out.println(productRequest);
+                        ProductRequest request = (ProductRequest) gson.fromJson(json, ProductRequest.class);
+                        System.out.println("Request received");
+                        System.out.println(request);
                         System.out.println();
-                        // TODO: Add alert to view, accept/decline productRequest
+                        // TODO: Add alert to view, accept/decline request
                         // Use getStockItem and GetQuantity to send the correct amounts to view
+                        break;
+                    case Packet.EmployeeQuery:
+                        dataBaseModel.employeeQuery();
+                        break;
+                    case Packet.ItemQuery:
+                        dataBaseModel.employeeQuery();
                         break;
                 }
             } catch (Exception e) {

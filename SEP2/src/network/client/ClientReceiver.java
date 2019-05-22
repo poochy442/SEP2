@@ -54,7 +54,13 @@ public class ClientReceiver implements Runnable {
                         }
                         // TODO: Fix back/forth firing of responses
                         break;
+                    case Packet.EmployeeQuery:
+                        EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
+                        dataModel.setEmployeeList(employeeList1);
+
+
                 }
+
             } catch (Exception e){
                 e.printStackTrace();
             }

@@ -20,7 +20,6 @@ public class InventoryAddVM {
     private Date date;
     private StringProperty minStock;
     private StringProperty maxStock;
-
     private IDataModel dataModel;
     private ViewHandler viewHandler;
 
