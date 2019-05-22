@@ -1,0 +1,12 @@
+Use case diagram sprint 3 include switch view and extend users?
+
+use cases descriptions should we specify where it gets stored?
+
+all sequene diagrams? all activity diagrams? all test cases???
+
+
+
+
+
+
+
