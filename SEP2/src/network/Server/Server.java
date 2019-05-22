@@ -1,5 +1,7 @@
 package network.Server;
 
+import jdbc.DataBaseModel;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,7 +17,8 @@ public class Server {
 
         while (true) {
             Socket socket = welcomeSocket.accept();
-            ServerReceiver serverReceiver = new ServerReceiver(socket);
+            DataBaseModel dataBaseModel = new DataBaseModel();
+            ServerReceiver serverReceiver = new ServerReceiver(socket, dataBaseModel);
             Thread t1 = new Thread(serverReceiver);
             t1.start();
         }

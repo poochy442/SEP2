@@ -18,6 +18,10 @@ public class InventoryMainVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        for(int i =0; i < dataModel.getStockItemList().size(); i++)
+        {
+            stockItems.add(dataModel.getStockItemList().get(i));
+        }
         dataModel.addListener("NewItemAddedFromClient", this::addStockItemToClient);
     }
 

@@ -18,6 +18,10 @@ public class EmployeeMainVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        for(int i = 0; i < dataModel.getEmployeeList().size(); i++)
+        {
+            employees.add(dataModel.getEmployeeList().get(i));
+        }
         dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeToClient);
     }
 

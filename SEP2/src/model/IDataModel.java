@@ -9,6 +9,7 @@ public interface IDataModel {
     void addItemToClient (StockItem i);
     void addItemToServer (StockItem i);
     EmployeeList getEmployeeList();
+    StockItemList getStockItemList();
     void setEmployeeList(EmployeeList employeeList);
     void refreshEmployeeList();
 }
