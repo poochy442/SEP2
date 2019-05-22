@@ -1,7 +1,8 @@
 package network.Server;
 
 import com.google.gson.Gson;
-import model.EmployeeList;
+import jdbc.DataBaseModel;
+import model.Employee;
 import model.ProductRequest;
 import model.StockItemList;
 import network.Packet;
@@ -13,9 +14,11 @@ import java.net.Socket;
 public class ServerReceiver implements Runnable {
 
     private Socket socket;
+    DataBaseModel dataBaseModel;
 
-    public ServerReceiver(Socket socket) {
+    public ServerReceiver(Socket socket, DataBaseModel dataBaseModel) {
         this.socket = socket;
+        this.dataBaseModel=dataBaseModel;
     }
 
     @Override
@@ -39,10 +42,9 @@ public class ServerReceiver implements Runnable {
                 String json = packet.getJson();
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
-                        EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        System.out.println("EmployeeList received");
-                        System.out.println(employeeList);
-                        System.out.println();
+                        Employee employe = (Employee) gson.fromJson(json, Employee.class);
+
+                        System.out.println("ServerReceiver:employeStoredToDB" + dataBaseModel.addEmployeeToDataBase(employe));
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:

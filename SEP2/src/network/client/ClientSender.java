@@ -36,12 +36,12 @@ public class ClientSender implements Runnable {
     }
 
     private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
-        EmployeeList employeeList = new EmployeeList();
-        employeeList.add((Employee) propertyChangeEvent.getNewValue());
+        Employee employe =(Employee)propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(employeeList);
+        String json = gson.toJson(employe);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
         addToQueue(packet);
+
     }
 
     public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
