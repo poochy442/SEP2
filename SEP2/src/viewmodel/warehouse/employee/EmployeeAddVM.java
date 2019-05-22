@@ -25,7 +25,7 @@ public class EmployeeAddVM {
 
     public void addEmployee()
     {
-        Employee e = new Employee(firstName.getValue(), lastName.getValue(), ID.getValue());
+        Employee e = new Employee(firstName.getValue(), lastName.getValue(), ID.getValue(),"WH");
         dataModel.addEmployeeToClient(e);
         //dataModel.addEmployeeToServer(e);
         firstName.setValue("");

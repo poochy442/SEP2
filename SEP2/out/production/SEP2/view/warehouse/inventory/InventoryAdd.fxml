@@ -224,13 +224,13 @@
       </Button>
       <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
          <children>
-            <CheckBox fx:id="canExpireCheck" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
+            <CheckBox fx:id="canExpireCheckBox" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
             <Label prefHeight="30.0" prefWidth="91.0" text="Expiration" textFill="#58cbc6">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <DatePicker fx:id="datePicker" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <DatePicker fx:id="expiryDatePicker" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="105.0" text="Expiry date" />
             <Label layoutX="21.0" layoutY="55.0" text="Expirable item?" />
          </children>
