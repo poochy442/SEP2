@@ -3,7 +3,6 @@ package view.hq.hq.employeeHQ;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,9 +18,6 @@ public class EmployeeAddHQView {
 
     @FXML
     private TextField iDField;
-
-    @FXML
-    private Label nameLabel;
 
     @FXML
     private AnchorPane anchorPane;

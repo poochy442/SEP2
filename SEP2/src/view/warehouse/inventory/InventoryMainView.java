@@ -94,17 +94,14 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
-
     }
 
     @FXML
     void onEditItemStockClicked(ActionEvent event) {
-
     }
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-
     }
 
     @FXML
