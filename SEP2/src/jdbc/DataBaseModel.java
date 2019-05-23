@@ -453,7 +453,7 @@ public class DataBaseModel {
 
     }
     public PreparedStatement prepareInsertItemListRequest() {
-        String preparedSql = "INSERT INTO \"Sep2\".requesteditemlist (requestID,itemID,quantity) " +
+        String preparedSql = "INSERT INTO \"Sep2\".itemRequest (requestID,itemID,quantity) " +
                 "SELECT * FROM (SELECT ?,?,?) AS tmp ";
         itemListInsertStatement = null;
 
