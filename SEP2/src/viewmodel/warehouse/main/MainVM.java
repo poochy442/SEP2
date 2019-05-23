@@ -21,4 +21,9 @@ public class MainVM {
     {
         viewHandler.openInventoryMainView();
     }
+
+    public void openRequestMainView()
+    {
+        viewHandler.openProductRequestView();
+    }
 }

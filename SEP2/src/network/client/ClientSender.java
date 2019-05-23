@@ -24,6 +24,7 @@ public class ClientSender implements Runnable {
         dataModel.addListener("NewItemFromUser", this::addStockItemListener);
         dataModel.addListener("EmployeeQuery",this::triggerEmployeeQuery);
        dataModel.addListener("ItemQuery",this::triggerItemQuery);
+       dataModel.addListener("SendProductRequest",this::addRequestListener);
         queue = new LinkedList<>();
     }
 
@@ -60,9 +61,9 @@ public class ClientSender implements Runnable {
     }
 
     public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
-        ProductRequest productRequest = (ProductRequest) propertyChangeEvent.getNewValue();
+        ProductRequestList productRequestList = (ProductRequestList) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(productRequest);
+        String json = gson.toJson(productRequestList);
         Packet packet = new Packet(Packet.RequestOperation, json);
         addToQueue(packet);
     }

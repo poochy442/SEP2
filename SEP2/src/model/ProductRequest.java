@@ -1,25 +1,27 @@
 package model;
 
 public class ProductRequest {
+    private int quantity;
+    private String productId;
+    private StockItem stockItem;
 
-    StockItem requestItem;
-    int quantity, currentQty;
-
-    public ProductRequest(StockItem requestItem, int quantity, int currentQty){
-        this.requestItem = requestItem;
+    public ProductRequest(StockItem stockItem,int quantity) {
+        this.productId=stockItem.getId();
         this.quantity = quantity;
-        this.currentQty = currentQty;
+        this.stockItem=stockItem;
     }
 
-    public StockItem getRequestItem() {
-        return requestItem;
-    }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public int getCurrentQty() {
-        return currentQty;
+    public String getProductId() {
+        return productId;
+    }
+
+    public StockItem getStockItem ()
+    {
+        return stockItem;
     }
 }

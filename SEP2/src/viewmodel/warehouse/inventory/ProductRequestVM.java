@@ -3,6 +3,8 @@ package viewmodel.warehouse.inventory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
+import model.ProductRequest;
+import model.ProductRequestList;
 import model.StockItem;
 import view.warehouse.ViewHandler;
 
@@ -17,7 +19,7 @@ public class ProductRequestVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-       // dataModel.addListener();  //TODO: Finish2
+        // dataModel.addListener();  //TODO: Finish2
     }
 
     public ObservableList<StockItem> getStockItems() {
@@ -32,10 +34,12 @@ public class ProductRequestVM {
         viewHandler.openEmployeeMainView();
     }
 
-    public void openInventoryMainView() {viewHandler.openInventoryMainView();
+    public void openInventoryMainView() {
+        viewHandler.openInventoryMainView();
     }
 
     public void sendProductRequest() {
 
+        dataModel.sendProductRequest();
     }
 }

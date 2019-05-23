@@ -2,17 +2,20 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Date;
 
 public class DataModel implements IDataModel {
     private EmployeeList employeeList;
     private StockItemList stockItemList;
     private PropertyChangeSupport propertyChangeSupport;
+    private ProductRequestList productRequestList;
 
 
     public DataModel() {
         employeeList = new EmployeeList();
         propertyChangeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
+        productRequestList = new ProductRequestList();
     }
 
 
@@ -24,7 +27,7 @@ public class DataModel implements IDataModel {
     @Override
     public void addEmployeeFromUser(Employee e) {
         employeeList.add(e);
-        propertyChangeSupport.firePropertyChange("NewEmployeeFromUser",null,e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeFromUser", null, e);
 
 
     }
@@ -44,7 +47,7 @@ public class DataModel implements IDataModel {
     @Override
     public void addItemFromServer(StockItem i) {
         stockItemList.add(i);
-        propertyChangeSupport.firePropertyChange("NewItemFromServer",null,i);
+        propertyChangeSupport.firePropertyChange("NewItemFromServer", null, i);
     }
 
     @Override
@@ -56,9 +59,8 @@ public class DataModel implements IDataModel {
 
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
-        for (int i=0;i<employeeList.size();i++)
-        {
-            System.out.println("DataModel "+employeeList.get(i).getFirstName());
+        for (int i = 0; i < employeeList.size(); i++) {
+            System.out.println("DataModel " + employeeList.get(i).getFirstName());
         }
 
         propertyChangeSupport.firePropertyChange("NewEmployeeList", null, employeeList);
@@ -76,14 +78,21 @@ public class DataModel implements IDataModel {
     }
 
     @Override
+    public void sendProductRequest() {
+        StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5);
+        productRequestList.addRequestToList(new ProductRequest(stockItem, 22));
+        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequestList);
+    }
+
+    @Override
     public void loadEmployeeListFromDB() {
-    propertyChangeSupport.firePropertyChange("EmployeeQuery",0,2);
+        propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, 2);
         System.out.println("DataModel refresh Employee list query");
     }
 
     @Override
     public void loadItemListFromDB() {
-        propertyChangeSupport.firePropertyChange("ItemQuery",0,2);
+        propertyChangeSupport.firePropertyChange("ItemQuery", 0, 2);
         System.out.println("DataModel refresh Item list query");
     }
 

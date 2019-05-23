@@ -53,12 +53,11 @@ public class ServerReceiver implements Runnable {
 
                         break;
                     case Packet.RequestOperation:
-                        ProductRequest request = (ProductRequest) gson.fromJson(json, ProductRequest.class);
-                        System.out.println("Request received");
-                        System.out.println(request);
-                        System.out.println();
-                        // TODO: Add alert to view, accept/decline request
-                        // Use getStockItem and GetQuantity to send the correct amounts to view
+                        ProductRequestList productRequestList = gson.fromJson(json, ProductRequestList.class);
+                        System.out.println("ServerReceiver: ProductRequestList received");
+                        System.out.println("ServerReceiver "+productRequestList);
+                        int requestID=dataBaseModel.addRequestToDataBase("WH");
+                        dataBaseModel.addRequestItemsToDataBase(productRequestList,requestID);
                         break;
                     case Packet.EmployeeQuery:
                         dataBaseModel.employeeQuery();

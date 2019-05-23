@@ -17,9 +17,8 @@ public class MainView {
 
     }
 
-    public void init (MainVM mainVM)
-    {
-       this.mainVM=mainVM;
+    public void init(MainVM mainVM) {
+        this.mainVM = mainVM;
     }
 
     @FXML
@@ -28,8 +27,14 @@ public class MainView {
     }
 
     @FXML
-    void onInventoryClicked(ActionEvent event) { mainVM.openInventoryMainView();
+    void onInventoryClicked(ActionEvent event) {
+        mainVM.openInventoryMainView();
 
+    }
+
+    @FXML
+    void onRequestClicked(ActionEvent event) {
+        mainVM.openRequestMainView();
     }
 
     @FXML
@@ -44,7 +49,7 @@ public class MainView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 }

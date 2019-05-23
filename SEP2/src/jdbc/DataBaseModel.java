@@ -1,9 +1,6 @@
 package jdbc;
 
-import model.Employee;
-import model.EmployeeList;
-import model.StockItem;
-import model.StockItemList;
+import model.*;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -12,19 +9,23 @@ import java.util.ArrayList;
 
 public class DataBaseModel {
     Connection connection;
-    PreparedStatement departmentStatement;
-    PreparedStatement employeeStatement;
+    PreparedStatement departmentInsertStatement;
+    PreparedStatement employeeInsertStatement;
     PreparedStatement employeeQuery;
-    PreparedStatement stockItemStatement;
+    PreparedStatement stockItemInsertStatement;
     PreparedStatement stockitemQuery;
+    PreparedStatement requestInsertStatement;
+    PreparedStatement itemListInsertStatement;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
         setConnection();
-        departmentStatement = prepareDepartmentStatement();
-        employeeStatement = prepareEmployeeStatement();
+        departmentInsertStatement = prepareDepartmentStatement();
+        employeeInsertStatement = prepareEmployeeStatement();
         stockitemQuery = prepareItemQuery();
-        stockItemStatement = prepareStockItemStatement();
+        stockItemInsertStatement = prepareStockItemStatement();
+        requestInsertStatement = prepareInsertRequest();
+        itemListInsertStatement= prepareInsertItemListRequest();
         changeSupport = new PropertyChangeSupport(this);
 
 
@@ -156,10 +157,10 @@ public class DataBaseModel {
     //Uses a prepared statement and 2 String to add 1 row to the department table
     public void addDepartmentToDataBase(String departmentID, String departmentName) {
         try {
-            departmentStatement.setString(1, departmentID);
-            departmentStatement.setString(2, departmentName);
-            departmentStatement.setString(3, departmentID);
-            departmentStatement.executeUpdate();
+            departmentInsertStatement.setString(1, departmentID);
+            departmentInsertStatement.setString(2, departmentName);
+            departmentInsertStatement.setString(3, departmentID);
+            departmentInsertStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -169,12 +170,12 @@ public class DataBaseModel {
     //Uses a prepared statement and 2 String to add 1 row to the department table
     public boolean addEmployeeToDataBase(Employee employee) {
         try {
-            employeeStatement.setString(1, employee.getId());
-            employeeStatement.setString(2, employee.getDepartmentID());
-            employeeStatement.setString(3, employee.getFirstName());
-            employeeStatement.setString(4, employee.getLastName());
-            employeeStatement.setString(5, employee.getId());
-            employeeStatement.executeUpdate();
+            employeeInsertStatement.setString(1, employee.getId());
+            employeeInsertStatement.setString(2, employee.getDepartmentID());
+            employeeInsertStatement.setString(3, employee.getFirstName());
+            employeeInsertStatement.setString(4, employee.getLastName());
+            employeeInsertStatement.setString(5, employee.getId());
+            employeeInsertStatement.executeUpdate();
             return true;
 
             //todo notify OTHER client
@@ -323,13 +324,13 @@ public class DataBaseModel {
             java.sql.Date sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
 
             System.out.println(stockItem.toString());
-            stockItemStatement.setString(1, stockItem.getId());
-            stockItemStatement.setString(2, stockItem.getName());
-            stockItemStatement.setInt(3, stockItem.getQuantity());
-            stockItemStatement.setInt(4, stockItem.getPrice());
-            stockItemStatement.setDate(5, sqlDate);
-            stockItemStatement.setString(6, stockItem.getId());
-            stockItemStatement.executeUpdate();
+            stockItemInsertStatement.setString(1, stockItem.getId());
+            stockItemInsertStatement.setString(2, stockItem.getName());
+            stockItemInsertStatement.setInt(3, stockItem.getQuantity());
+            stockItemInsertStatement.setInt(4, stockItem.getPrice());
+            stockItemInsertStatement.setDate(5, sqlDate);
+            stockItemInsertStatement.setString(6, stockItem.getId());
+            stockItemInsertStatement.executeUpdate();
             return true;
 
             //todo adding Date format is not correct
@@ -369,5 +370,98 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         return stockitemQuery;
+    }
+
+
+    public PreparedStatement prepareInsertRequest() {
+        String preparedSql = "INSERT INTO \"Sep2\".request (requestID,requestedFrom,status) " +
+                "SELECT * FROM (SELECT ?,?,?) AS tmp " +
+                "WHERE NOT EXISTS (SELECT requestID FROM \"Sep2\".request " +
+                "WHERE requestID = ?) LIMIT 1;";
+        requestInsertStatement = null;
+
+        try {
+            requestInsertStatement = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return requestInsertStatement;
+    }
+
+    public int addRequestToDataBase(String requestedFrom) {
+        try {
+            int count = requestCountQuery();
+            requestInsertStatement.setString(1, "" + count);
+            requestInsertStatement.setString(2, requestedFrom);
+            requestInsertStatement.setString(3, "In Progress");
+            requestInsertStatement.setString(4,""+count);
+            requestInsertStatement.executeUpdate();
+            return count;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+
+
+        }
+
+    }
+
+    public int requestCountQuery() {
+
+        int count = 1;
+        try {
+            String requestCount = "SELECT * FROM \"Sep2\".request;";
+            PreparedStatement requestCountStatement = connection.prepareStatement(requestCount);
+            ResultSet resultSet = requestCountStatement.executeQuery();
+            while (resultSet.next()) {
+                count++;
+
+            }
+            resultSet.close();
+            requestCountStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(count);
+        return count;
+    }
+
+    public boolean addRequestItemsToDataBase(ProductRequestList productRequestList,int requestID) {
+        try {
+            for (int i=0;i<productRequestList.getSize();i++)
+            {
+                ProductRequest productRequest = productRequestList.getProductRequest(i);
+                itemListInsertStatement.setString(1, ""+requestID);
+                itemListInsertStatement.setString(2, productRequest.getProductId());
+                itemListInsertStatement.setInt(3, productRequest.getQuantity());
+                itemListInsertStatement.executeUpdate();
+            }
+
+            return true;
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+
+        }
+        //
+
+    }
+    public PreparedStatement prepareInsertItemListRequest() {
+        String preparedSql = "INSERT INTO \"Sep2\".requesteditemlist (requestID,itemID,quantity) " +
+                "SELECT * FROM (SELECT ?,?,?) AS tmp ";
+        itemListInsertStatement = null;
+
+        try {
+            itemListInsertStatement = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return itemListInsertStatement;
     }
 }

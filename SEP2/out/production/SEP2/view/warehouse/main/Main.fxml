@@ -79,7 +79,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Operations" textFill="#dddddd">
+            <Button onAction="#onRequestClicked" layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Requests" textFill="#dddddd">
                <font>
                   <Font size="15.0" />
                </font>

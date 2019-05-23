@@ -1,5 +1,7 @@
 package jdbc;
 
+import model.ProductRequest;
+import model.ProductRequestList;
 import model.StockItem;
 
 import java.sql.Date;
@@ -18,8 +20,15 @@ public class DataBase {
         StockItem stockItem = new StockItem("Bonano","5554",3,3,true,date,3,10);
         System.out.println(dataBaseModel.addItemToDataBase(stockItem));
         PreparedStatement departmentStatement = dataBaseModel.prepareDepartmentStatement();
-        dataBaseModel.addDepartmentToDataBase("WH2","Warehouse");
-        dataBaseModel.addDepartmentToDataBase("WH5","Warehouse");
         dataBaseModel.departmentQuery();
+        dataBaseModel.addRequestToDataBase("WH");
+        ProductRequestList productRequestList = new ProductRequestList();
+        StockItem stockItem1= new StockItem("banana","333",3,3,true,date,3,10);
+        ProductRequest p1 = new ProductRequest(stockItem,5);
+        ProductRequest p2 = new ProductRequest(stockItem1,10);
+        productRequestList.addRequestToList(p1);
+        productRequestList.addRequestToList(p2);
+        System.out.println(dataBaseModel.addRequestItemsToDataBase(productRequestList,1));
+        System.out.println(productRequestList.getSize());
     }
 }
