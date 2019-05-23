@@ -25,7 +25,7 @@ public class DataBaseModel {
         stockitemQuery = prepareItemQuery();
         stockItemInsertStatement = prepareStockItemStatement();
         requestInsertStatement = prepareInsertRequest();
-        itemListInsertStatement= prepareInsertItemListRequest();
+        itemListInsertStatement = prepareInsertItemListRequest();
         changeSupport = new PropertyChangeSupport(this);
 
 
@@ -394,7 +394,7 @@ public class DataBaseModel {
             requestInsertStatement.setString(1, "" + count);
             requestInsertStatement.setString(2, requestedFrom);
             requestInsertStatement.setString(3, "In Progress");
-            requestInsertStatement.setString(4,""+count);
+            requestInsertStatement.setString(4, "" + count);
             requestInsertStatement.executeUpdate();
             return count;
 
@@ -428,19 +428,17 @@ public class DataBaseModel {
         return count;
     }
 
-    public boolean addRequestItemsToDataBase(ProductRequestList productRequestList,int requestID) {
+    public boolean addRequestItemsToDataBase(ProductRequestList productRequestList, int requestID) {
         try {
-            for (int i=0;i<productRequestList.getSize();i++)
-            {
+            for (int i = 0; i < productRequestList.getSize(); i++) {
                 ProductRequest productRequest = productRequestList.getProductRequest(i);
-                itemListInsertStatement.setString(1, ""+requestID);
+                itemListInsertStatement.setString(1, "" + requestID);
                 itemListInsertStatement.setString(2, productRequest.getProductId());
                 itemListInsertStatement.setInt(3, productRequest.getQuantity());
                 itemListInsertStatement.executeUpdate();
             }
 
             return true;
-
 
 
         } catch (SQLException e) {
@@ -452,6 +450,7 @@ public class DataBaseModel {
         //
 
     }
+
     public PreparedStatement prepareInsertItemListRequest() {
         String preparedSql = "INSERT INTO \"Sep2\".itemRequest (requestID,itemID,quantity) " +
                 "SELECT * FROM (SELECT ?,?,?) AS tmp ";
