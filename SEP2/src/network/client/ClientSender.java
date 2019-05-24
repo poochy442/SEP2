@@ -25,7 +25,16 @@ public class ClientSender implements Runnable {
         dataModel.addListener("EmployeeQuery",this::triggerEmployeeQuery);
        dataModel.addListener("ItemQuery",this::triggerItemQuery);
        dataModel.addListener("SendProductRequest",this::addRequestListener);
+       dataModel.addListener("DeleteItemFromWH",this::deleteItemFromWH);
         queue = new LinkedList<>();
+    }
+
+    private void deleteItemFromWH(PropertyChangeEvent propertyChangeEvent) {
+        StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(stockItem);
+        Packet p1 = new Packet(Packet.DeleteItemFromWH,json);
+        addToQueue(p1);
     }
 
     private void triggerItemQuery(PropertyChangeEvent propertyChangeEvent) {

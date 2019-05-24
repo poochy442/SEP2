@@ -94,6 +94,7 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
+        inventoryMainVM.deleteStockItem();
 
     }
 

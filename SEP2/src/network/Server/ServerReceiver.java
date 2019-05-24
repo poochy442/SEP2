@@ -48,7 +48,7 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
-                        System.out.println("ServerReceiver: itemstoredToDB=" + dataBaseModel.addItemToDataBase(stockItem));
+                        System.out.println("ServerReceiver: itemstoredToDB=" + dataBaseModel.addItemToDataBase(stockItem,"WH"));
 
 
                         break;
@@ -66,6 +66,9 @@ public class ServerReceiver implements Runnable {
                         dataBaseModel.itemQuery();
                         System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
+                    case Packet.DeleteItemFromWH:
+                        StockItem stockItem1 = gson.fromJson(json,StockItem.class);
+                        dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(),"WH");
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -10,7 +10,8 @@ public class Packet implements Serializable {
             RequestOperation = "ProductRequest",
             EmployeeResponseOperation = "EmployeeResponse",
             StockResponseOperation = "StockResponse", EmployeeQuery = "EmployeeQuery",
-           ItemQuery ="ItemQuery";
+           ItemQuery ="ItemQuery",
+    DeleteItemFromWH="DeleteItemFromWH";
 
     public Packet(String operation, String json) {
         this.operation = operation;

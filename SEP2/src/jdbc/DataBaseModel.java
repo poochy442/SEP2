@@ -1,7 +1,6 @@
 package jdbc;
 
 import model.*;
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.*;
@@ -16,17 +15,19 @@ public class DataBaseModel {
     PreparedStatement stockitemQuery;
     PreparedStatement requestInsertStatement;
     PreparedStatement itemListInsertStatement;
+    PreparedStatement deleteItemByIDandDep;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
         setConnection();
         departmentInsertStatement = prepareDepartmentStatement();
         employeeInsertStatement = prepareEmployeeStatement();
-        stockitemQuery = prepareItemQuery();
+        stockitemQuery = prepareWHItemQuery();
         stockItemInsertStatement = prepareStockItemStatement();
         requestInsertStatement = prepareInsertRequest();
         itemListInsertStatement = prepareInsertItemListRequest();
         changeSupport = new PropertyChangeSupport(this);
+        deleteItemByIDandDep = prepareDeleteItemFromWH();
 
 
     }
@@ -266,7 +267,7 @@ public class DataBaseModel {
         StockItemList stockItemList = new StockItemList();
         try {
 
-            ResultSet resultSet = prepareItemQuery().executeQuery();
+            ResultSet resultSet = prepareWHItemQuery().executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
                 for (int i = 0; i < row.length; i++) {
@@ -289,7 +290,7 @@ public class DataBaseModel {
                 stockItemList.add(stockItem);
             }
             resultSet.close();
-            prepareItemQuery().close();
+            prepareWHItemQuery().close();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -319,7 +320,7 @@ public class DataBaseModel {
 
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
-    public boolean addItemToDataBase(StockItem stockItem) {
+    public boolean addItemToDataBase(StockItem stockItem, String department) {
         try {
             java.sql.Date sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
 
@@ -329,7 +330,10 @@ public class DataBaseModel {
             stockItemInsertStatement.setInt(3, stockItem.getQuantity());
             stockItemInsertStatement.setInt(4, stockItem.getPrice());
             stockItemInsertStatement.setDate(5, sqlDate);
-            stockItemInsertStatement.setString(6, stockItem.getId());
+            stockItemInsertStatement.setString(6, department);
+            stockItemInsertStatement.setString(7, stockItem.getId());
+            stockItemInsertStatement.setString(8, department);
+
             stockItemInsertStatement.executeUpdate();
             return true;
 
@@ -345,10 +349,10 @@ public class DataBaseModel {
     }
 
     public PreparedStatement prepareStockItemStatement() {
-        String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate) " +
-                "SELECT * FROM (SELECT ?,?,?,?,? :: DATE) AS tmp " +
-                "WHERE NOT EXISTS (SELECT id FROM \"Sep2\".stockitem " +
-                "WHERE id = ?) LIMIT 1;";
+        String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate,location) " +
+                "SELECT * FROM (SELECT ?,?,?,?,? :: DATE,?) AS tmp "+
+        "WHERE NOT EXISTS (SELECT id,location FROM \"Sep2\".stockitem " +
+                "WHERE id = ? and location = ?) LIMIT 1;";
         PreparedStatement stockItemStatement = null;
 
         try {
@@ -360,8 +364,8 @@ public class DataBaseModel {
     }
 
 
-    public PreparedStatement prepareItemQuery() {
-        String preparedStatement = "SELECT * FROM \"Sep2\".stockitem;";
+    public PreparedStatement prepareWHItemQuery() {
+        String preparedStatement = "SELECT * FROM \"Sep2\".stockitem where location='WH' ;";
 
 
         try {
@@ -453,7 +457,8 @@ public class DataBaseModel {
 
     public PreparedStatement prepareInsertItemListRequest() {
         String preparedSql = "INSERT INTO \"Sep2\".itemRequest (requestID,itemID,quantity) " +
-                "SELECT * FROM (SELECT ?,?,?) AS tmp ";
+                "SELECT * FROM (SELECT ?,?,?) AS tmp ;";
+
         itemListInsertStatement = null;
 
         try {
@@ -462,5 +467,23 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         return itemListInsertStatement;
+    }
+
+    public void deleteItemByIdAndDepartment(String id,String department) {
+
+    }
+
+    public PreparedStatement prepareDeleteItemFromWH() {
+        String preparedSql = "DELETE FROM \"Sep2\".stockitem (id,name,quantity,price,expiryDate,location) " +
+                "where id = ? and location = ?;";
+
+        deleteItemByIDandDep = null;
+
+        try {
+            deleteItemByIDandDep = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deleteItemByIDandDep;
     }
 }

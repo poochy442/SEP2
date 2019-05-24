@@ -17,13 +17,13 @@ public class DataBase {
         dataBaseModel.createEmployeeTable();
         dataBaseModel.createStockItemTable();
         Date date = new Date(1,1,1);
-        StockItem stockItem = new StockItem("Bonano","5554",3,3,true,date,3,10);
-        System.out.println(dataBaseModel.addItemToDataBase(stockItem));
+        StockItem stockItem = new StockItem("Bonano","eeee",3,3,true,date,3,10);
+        System.out.println(dataBaseModel.addItemToDataBase(stockItem,"WH"));
         PreparedStatement departmentStatement = dataBaseModel.prepareDepartmentStatement();
         dataBaseModel.departmentQuery();
         dataBaseModel.addRequestToDataBase("WH");
         ProductRequestList productRequestList = new ProductRequestList();
-        StockItem stockItem1= new StockItem("banana","333",3,3,true,date,3,10);
+        StockItem stockItem1= new StockItem("banana","rrrr",3,3,true,date,3,10);
         ProductRequest p1 = new ProductRequest(stockItem,5);
         ProductRequest p2 = new ProductRequest(stockItem1,10);
         productRequestList.addRequestToList(p1);

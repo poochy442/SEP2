@@ -51,5 +51,9 @@ public class InventoryMainVM {
     public void openProductRequestView() { viewHandler.openProductRequestView();
     }
 
+    public void deleteStockItem(StockItem stockItem) {
+        dataModel.deleteStockItem(stockItem);
+    }
+
     //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
 }

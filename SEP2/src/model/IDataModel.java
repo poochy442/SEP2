@@ -16,4 +16,6 @@ public interface IDataModel {
     void setStockItemList(StockItemList stockItemList1);
 
     void sendProductRequest();
+
+    void deleteStockItem(StockItem stockItem);
 }

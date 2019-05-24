@@ -85,6 +85,19 @@ public class DataModel implements IDataModel {
     }
 
     @Override
+    public void deleteStockItem(StockItem stockItem) {
+        for (int i=0;i<stockItemList.size();i++)
+        {
+            if (stockItem.getId().equals(stockItemList.get(i).getId()))
+            {
+                stockItemList.remove(i);
+            }
+
+        }
+        propertyChangeSupport.firePropertyChange("DeleteStockItemFromDB",null,stockItem);
+    }
+
+    @Override
     public void loadEmployeeListFromDB() {
         propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, 2);
         System.out.println("DataModel refresh Employee list query");

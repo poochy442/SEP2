@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBaseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBaseModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerReceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/IDataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IDataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/network/client/ClientSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/client/ClientSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" afterDir="false" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,32 +78,122 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
+        <entry file="file://$PROJECT_DIR$/src/network/client/ClientSender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/RunApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="289">
+              <caret line="35" column="54" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="54" />
               <folding>
-                <element signature="e#113#114#0" expanded="true" />
-                <element signature="e#158#159#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/network/client/ClientReceiver.java">
+        <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="510">
+              <caret line="70" column="91" selection-start-line="70" selection-start-column="91" selection-end-line="70" selection-end-column="91" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+              <folding>
+                <element signature="method#addListener#0;class#DataBaseModel#0" />
+                <element signature="method#setConnection#0;class#DataBaseModel#0" />
+                <element signature="e#1624#1671#0" />
+                <element signature="e#1705#1749#0" />
+                <element signature="e#1762#1842#0" />
+                <element signature="e#1866#1910#0" />
+                <element signature="method#createEmployeeTable#0;class#DataBaseModel#0" />
+                <element signature="e#2420#2531#0" />
+                <element signature="e#2555#2599#0" />
+                <element signature="method#createDepartmentTable#0;class#DataBaseModel#0" />
+                <element signature="e#2922#3033#0" />
+                <element signature="e#3074#3118#0" />
+                <element signature="method#createSep2Schema#0;class#DataBaseModel#0" />
+                <element signature="e#3238#3349#0" />
+                <element signature="e#3373#3417#0" />
+                <element signature="method#createStockItemTable#0;class#DataBaseModel#0" />
+                <element signature="e#3836#3947#0" />
+                <element signature="e#3971#4015#0" />
+                <element signature="method#prepareEmployeeStatement#0;class#DataBaseModel#0" />
+                <element signature="e#4556#4641#0" />
+                <element signature="e#4665#4709#0" />
+                <element signature="method#prepareDepartmentStatement#0;class#DataBaseModel#0" />
+                <element signature="e#5275#5362#0" />
+                <element signature="e#5386#5430#0" />
+                <element signature="method#addDepartmentToDataBase#0;class#DataBaseModel#0" />
+                <element signature="e#5654#5920#0" />
+                <element signature="e#5944#5988#0" />
+                <element signature="method#addEmployeeToDataBase#0;class#DataBaseModel#0" />
+                <element signature="e#6153#6645#0" />
+                <element signature="e#6669#6741#0" />
+                <element signature="method#departmentQuery#0;class#DataBaseModel#0" />
+                <element signature="e#6923#7976#0" />
+                <element signature="e#7217#7483#1" />
+                <element signature="e#7357#7433#1" />
+                <element signature="e#7537#7888#1" />
+                <element signature="e#8000#8044#0" />
+                <element signature="method#employeeQuery#0;class#DataBaseModel#0" />
+                <element signature="e#8212#9141#0" />
+                <element signature="e#8325#8590#1" />
+                <element signature="e#8465#8541#1" />
+                <element signature="e#8645#9054#1" />
+                <element signature="e#9165#9209#0" />
+                <element signature="method#itemQuery#0;class#DataBaseModel#0" />
+                <element signature="e#9523#10617#0" />
+                <element signature="e#9634#9899#1" />
+                <element signature="e#9774#9850#1" />
+                <element signature="e#9954#10533#1" />
+                <element signature="e#10641#10685#0" />
+                <element signature="method#prepareEmployeeQuery#0;class#DataBaseModel#0" />
+                <element signature="e#10983#11070#0" />
+                <element signature="e#11094#11138#0" />
+                <element signature="method#getCurrentDate#0;class#DataBaseModel#0" />
+                <element signature="method#addItemToDataBase#0;class#DataBaseModel#0" />
+                <element signature="e#11513#12419#0" />
+                <element signature="e#12443#12515#0" />
+                <element signature="e#12962#13048#0" />
+                <element signature="e#13072#13116#0" />
+                <element signature="method#prepareWHItemQuery#0;class#DataBaseModel#0" />
+                <element signature="e#13319#13407#0" />
+                <element signature="e#13431#13475#0" />
+                <element signature="method#prepareInsertRequest#0;class#DataBaseModel#0" />
+                <element signature="e#13901#13991#0" />
+                <element signature="e#14015#14059#0" />
+                <element signature="method#addRequestToDataBase#0;class#DataBaseModel#0" />
+                <element signature="e#14178#14563#0" />
+                <element signature="e#14587#14655#0" />
+                <element signature="method#requestCountQuery#0;class#DataBaseModel#0" />
+                <element signature="e#14737#15140#0" />
+                <element signature="e#15014#15055#1" />
+                <element signature="e#15164#15208#0" />
+                <element signature="method#addRequestItemsToDataBase#0;class#DataBaseModel#0" />
+                <element signature="e#15386#15890#0" />
+                <element signature="e#15455#15852#1" />
+                <element signature="e#15914#15986#0" />
+                <element signature="e#16274#16365#0" />
+                <element signature="e#16389#16433#0" />
+                <element signature="method#deleteItemByIDandDepartment#0;class#DataBaseModel#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/Packet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -106,9 +210,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>init</find>
-      <find>employeeQuery</find>
-      <find>addlistener</find>
       <find>property</find>
       <find>date</find>
       <find>stockitemquer</find>
@@ -126,8 +227,6 @@
       <find>addrequ</find>
       <find>insertRequest</find>
       <find>insertReques</find>
-      <find>additem</find>
-      <find>insert</find>
       <find>count</find>
       <find>prepareinsert</find>
       <find>itemListInsertStatement</find>
@@ -136,6 +235,11 @@
       <find>sendprodu</find>
       <find>insertrequest</find>
       <find>itemrequest</find>
+      <find>insert</find>
+      <find>additem</find>
+      <find>insertitem</find>
+      <find>remove</find>
+      <find>stockitem</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -174,17 +278,14 @@
         <option value="$PROJECT_DIR$/src/readersWriters/ReadWrite.java" />
         <option value="$PROJECT_DIR$/src/readersWriters/ReadWriteSafe.java" />
         <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java" />
-        <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeAddHQVM.java" />
         <option value="$PROJECT_DIR$/src/view/warehouse/employee/EmployeeMainView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/warehouse/ViewModelProvider.java" />
-        <option value="$PROJECT_DIR$/src/network/Packet.java" />
         <option value="$PROJECT_DIR$/src/Run.java" />
         <option value="$PROJECT_DIR$/src/network/Server/Server.java" />
         <option value="$PROJECT_DIR$/src/network/client/Client.java" />
         <option value="$PROJECT_DIR$/src/network/Server/ServerSender.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryAddVM.java" />
-        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeMainVM.java" />
         <option value="$PROJECT_DIR$/src/network/client/ClientReceiver.java" />
@@ -192,19 +293,22 @@
         <option value="$PROJECT_DIR$/src/view/warehouse/main/Main.fxml" />
         <option value="$PROJECT_DIR$/src/view/warehouse/main/MainView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/ProductRequestVM.java" />
-        <option value="$PROJECT_DIR$/src/model/IDataModel.java" />
-        <option value="$PROJECT_DIR$/src/network/client/ClientSender.java" />
         <option value="$PROJECT_DIR$/src/model/ProductRequest.java" />
         <option value="$PROJECT_DIR$/src/model/ProductRequestList.java" />
         <option value="$PROJECT_DIR$/src/jdbc/DataBase.java" />
-        <option value="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" />
+        <option value="$PROJECT_DIR$/src/model/IDataModel.java" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" />
         <option value="$PROJECT_DIR$/src/model/DataModel.java" />
+        <option value="$PROJECT_DIR$/src/network/Packet.java" />
+        <option value="$PROJECT_DIR$/src/network/client/ClientSender.java" />
+        <option value="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" />
         <option value="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1614" />
@@ -232,6 +336,12 @@
               <item name="SEP2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -253,7 +363,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558634950440" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558692255575" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaLibraries/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -418,8 +528,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.RunApplication" />
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.DataBase" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.RunApplicationHQ" />
         <item itemvalue="Application.RunHQ" />
       </list>
@@ -452,10 +562,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1721" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.29424307" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.29801324" />
       <window_info id="Structure" order="1" weight="0.25266525" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -468,7 +578,7 @@
       <window_info id="Learn" order="10" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21724138" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2138158" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,7 +589,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.35287356" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.43092105" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="bottom" id="Console" order="15" />
       <window_info anchor="bottom" id="DB Execution Console" order="16" />
@@ -540,27 +650,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMain.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3384">
-          <caret line="188" column="17" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/readersWriters/ReadWrite.java" />
     <entry file="file://$PROJECT_DIR$/src/readersWriters/ReadWriteSafe.java" />
     <entry file="file://$PROJECT_DIR$/src/model/StockItemList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -607,13 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Packet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -628,21 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="543">
           <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1298#1299#0" expanded="true" />
-            <element signature="e#1340#1341#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/IDataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/ProductRequestView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
@@ -843,46 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="59" column="51" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/client/ClientSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="83" column="68" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/ProductRequestList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -896,29 +922,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
+    <entry file="file://$PROJECT_DIR$/src/network/client/ClientReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="453" column="29" selection-start-line="453" selection-start-column="29" selection-end-line="453" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/client/ClientReceiver.java">
+    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="493">
+          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/IDataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="54" column="45" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+          <folding>
+            <element signature="e#1698#1699#0" expanded="true" />
+            <element signature="e#1722#1723#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="96" column="38" lean-forward="true" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMain.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="188" column="17" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RunApplication.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -927,6 +986,142 @@
           <folding>
             <element signature="e#113#114#0" expanded="true" />
             <element signature="e#158#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="96" column="71" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="71" />
+          <folding>
+            <element signature="method#DataModel#0;class#DataModel#0" />
+            <element signature="method#addEmployeeFromUser#0;class#DataModel#0" />
+            <element signature="method#addEmployeeFromServer#0;class#DataModel#0" />
+            <element signature="method#addListener#0;class#DataModel#0" />
+            <element signature="method#addItemFromServer#0;class#DataModel#0" />
+            <element signature="method#addItemFromUser#0;class#DataModel#0" />
+            <element signature="method#setEmployeeList#0;class#DataModel#0" />
+            <element signature="e#1735#1829#1" />
+            <element signature="method#setStockItemList#0;class#DataModel#0" />
+            <element signature="method#sendProductRequest#0;class#DataModel#0" />
+            <element signature="method#loadEmployeeListFromDB#0;class#DataModel#0" />
+            <element signature="method#loadItemListFromDB#0;class#DataModel#0" />
+            <element signature="method#controlPkEmployee#0;class#DataModel#0" />
+            <element signature="e#3147#3244#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/client/ClientSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="70" column="91" selection-start-line="70" selection-start-column="91" selection-end-line="70" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding>
+            <element signature="method#addListener#0;class#DataBaseModel#0" />
+            <element signature="method#setConnection#0;class#DataBaseModel#0" />
+            <element signature="e#1624#1671#0" />
+            <element signature="e#1705#1749#0" />
+            <element signature="e#1762#1842#0" />
+            <element signature="e#1866#1910#0" />
+            <element signature="method#createEmployeeTable#0;class#DataBaseModel#0" />
+            <element signature="e#2420#2531#0" />
+            <element signature="e#2555#2599#0" />
+            <element signature="method#createDepartmentTable#0;class#DataBaseModel#0" />
+            <element signature="e#2922#3033#0" />
+            <element signature="e#3074#3118#0" />
+            <element signature="method#createSep2Schema#0;class#DataBaseModel#0" />
+            <element signature="e#3238#3349#0" />
+            <element signature="e#3373#3417#0" />
+            <element signature="method#createStockItemTable#0;class#DataBaseModel#0" />
+            <element signature="e#3836#3947#0" />
+            <element signature="e#3971#4015#0" />
+            <element signature="method#prepareEmployeeStatement#0;class#DataBaseModel#0" />
+            <element signature="e#4556#4641#0" />
+            <element signature="e#4665#4709#0" />
+            <element signature="method#prepareDepartmentStatement#0;class#DataBaseModel#0" />
+            <element signature="e#5275#5362#0" />
+            <element signature="e#5386#5430#0" />
+            <element signature="method#addDepartmentToDataBase#0;class#DataBaseModel#0" />
+            <element signature="e#5654#5920#0" />
+            <element signature="e#5944#5988#0" />
+            <element signature="method#addEmployeeToDataBase#0;class#DataBaseModel#0" />
+            <element signature="e#6153#6645#0" />
+            <element signature="e#6669#6741#0" />
+            <element signature="method#departmentQuery#0;class#DataBaseModel#0" />
+            <element signature="e#6923#7976#0" />
+            <element signature="e#7217#7483#1" />
+            <element signature="e#7357#7433#1" />
+            <element signature="e#7537#7888#1" />
+            <element signature="e#8000#8044#0" />
+            <element signature="method#employeeQuery#0;class#DataBaseModel#0" />
+            <element signature="e#8212#9141#0" />
+            <element signature="e#8325#8590#1" />
+            <element signature="e#8465#8541#1" />
+            <element signature="e#8645#9054#1" />
+            <element signature="e#9165#9209#0" />
+            <element signature="method#itemQuery#0;class#DataBaseModel#0" />
+            <element signature="e#9523#10617#0" />
+            <element signature="e#9634#9899#1" />
+            <element signature="e#9774#9850#1" />
+            <element signature="e#9954#10533#1" />
+            <element signature="e#10641#10685#0" />
+            <element signature="method#prepareEmployeeQuery#0;class#DataBaseModel#0" />
+            <element signature="e#10983#11070#0" />
+            <element signature="e#11094#11138#0" />
+            <element signature="method#getCurrentDate#0;class#DataBaseModel#0" />
+            <element signature="method#addItemToDataBase#0;class#DataBaseModel#0" />
+            <element signature="e#11513#12419#0" />
+            <element signature="e#12443#12515#0" />
+            <element signature="e#12962#13048#0" />
+            <element signature="e#13072#13116#0" />
+            <element signature="method#prepareWHItemQuery#0;class#DataBaseModel#0" />
+            <element signature="e#13319#13407#0" />
+            <element signature="e#13431#13475#0" />
+            <element signature="method#prepareInsertRequest#0;class#DataBaseModel#0" />
+            <element signature="e#13901#13991#0" />
+            <element signature="e#14015#14059#0" />
+            <element signature="method#addRequestToDataBase#0;class#DataBaseModel#0" />
+            <element signature="e#14178#14563#0" />
+            <element signature="e#14587#14655#0" />
+            <element signature="method#requestCountQuery#0;class#DataBaseModel#0" />
+            <element signature="e#14737#15140#0" />
+            <element signature="e#15014#15055#1" />
+            <element signature="e#15164#15208#0" />
+            <element signature="method#addRequestItemsToDataBase#0;class#DataBaseModel#0" />
+            <element signature="e#15386#15890#0" />
+            <element signature="e#15455#15852#1" />
+            <element signature="e#15914#15986#0" />
+            <element signature="e#16274#16365#0" />
+            <element signature="e#16389#16433#0" />
+            <element signature="method#deleteItemByIDandDepartment#0;class#DataBaseModel#0" />
           </folding>
         </state>
       </provider>
