@@ -9,6 +9,7 @@ public class ProductRequest {
         this.productId=stockItem.getId();
         this.quantity = quantity;
         this.stockItem=stockItem;
+
     }
 
 

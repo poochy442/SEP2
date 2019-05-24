@@ -69,6 +69,11 @@ public class ServerReceiver implements Runnable {
                     case Packet.DeleteItemFromWH:
                         StockItem stockItem1 = gson.fromJson(json,StockItem.class);
                         dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(),"WH");
+                        break;
+                    case Packet.DeleteItemFromHQ:
+                    StockItem stockItem2 = gson.fromJson(json,StockItem.class);
+                    dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(),"WH");
+                    break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -1,6 +1,7 @@
 package jdbc;
 
 import model.*;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.*;
@@ -350,8 +351,8 @@ public class DataBaseModel {
 
     public PreparedStatement prepareStockItemStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate,location) " +
-                "SELECT * FROM (SELECT ?,?,?,?,? :: DATE,?) AS tmp "+
-        "WHERE NOT EXISTS (SELECT id,location FROM \"Sep2\".stockitem " +
+                "SELECT * FROM (SELECT ?,?,?,?,? :: DATE,?) AS tmp " +
+                "WHERE NOT EXISTS (SELECT id,location FROM \"Sep2\".stockitem " +
                 "WHERE id = ? and location = ?) LIMIT 1;";
         PreparedStatement stockItemStatement = null;
 
@@ -451,7 +452,7 @@ public class DataBaseModel {
 
 
         }
-        //
+
 
     }
 
@@ -469,13 +470,30 @@ public class DataBaseModel {
         return itemListInsertStatement;
     }
 
-    public void deleteItemByIdAndDepartment(String id,String department) {
+    public boolean deleteItemByIdAndDepartment(String id, String department) {
+        try {
+
+
+            deleteItemByIDandDep.setString(1, id);
+            deleteItemByIDandDep.setString(2, department);
+            deleteItemByIDandDep.executeUpdate();
+
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+
+        }
 
     }
 
     public PreparedStatement prepareDeleteItemFromWH() {
-        String preparedSql = "DELETE FROM \"Sep2\".stockitem (id,name,quantity,price,expiryDate,location) " +
-                "where id = ? and location = ?;";
+        String preparedSql = "DELETE FROM \"Sep2\".stockitem " +
+                "where id = ? and location = ? ;";
 
         deleteItemByIDandDep = null;
 

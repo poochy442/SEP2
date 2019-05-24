@@ -94,7 +94,9 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
-        inventoryMainVM.deleteStockItem();
+
+        //todo give it a stock item o delete the rest is done
+//        inventoryMainVM.deleteStockItemWH();
 
     }
 

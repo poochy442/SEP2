@@ -52,7 +52,7 @@ public class InventoryMainVM {
     }
 
     public void deleteStockItem(StockItem stockItem) {
-        dataModel.deleteStockItem(stockItem);
+        dataModel.deleteStockItemWH(stockItem);
     }
 
     //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation

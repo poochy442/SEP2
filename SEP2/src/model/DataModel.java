@@ -85,7 +85,7 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void deleteStockItem(StockItem stockItem) {
+    public void deleteStockItemWH(StockItem stockItem) {
         for (int i=0;i<stockItemList.size();i++)
         {
             if (stockItem.getId().equals(stockItemList.get(i).getId()))
@@ -95,6 +95,11 @@ public class DataModel implements IDataModel {
 
         }
         propertyChangeSupport.firePropertyChange("DeleteStockItemFromDB",null,stockItem);
+    }
+
+    @Override
+    public void deleteStockItemHQ(StockItem stockItem) {
+
     }
 
     @Override
