@@ -28,6 +28,9 @@ public class EmployeeMainWHView {
     private TableColumn<String, Employee> iDCol;
 
     @FXML
+    private TableColumn<String, Employee> departmentIDCol;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private EmployeeWHVM employeeWHVM;
@@ -43,6 +46,7 @@ public class EmployeeMainWHView {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        departmentIDCol.setCellValueFactory(new PropertyValueFactory<>("departmentID"));
     }
 
     @FXML

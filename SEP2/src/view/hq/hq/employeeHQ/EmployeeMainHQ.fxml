@@ -130,6 +130,7 @@
                   <TableColumn fx:id="firstNameCol" minWidth="0.0" prefWidth="313.3" text="First name" />
                   <TableColumn fx:id="lastNameCol" prefWidth="313.3" text="Last name" />
                   <TableColumn fx:id="iDCol" prefWidth="313.3" text="ID" />
+                  <TableColumn fx:id="departmentIDCol" prefWidth="313.3" text="Department ID" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

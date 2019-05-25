@@ -28,6 +28,8 @@ public class EmployeeMainView {
     @FXML
     private TableColumn<String, Employee> iDCol;
 
+    @FXML TableColumn<String, Employee> departmentIDCol;
+
     @FXML
     private AnchorPane anchorPane;
 
@@ -47,7 +49,7 @@ public class EmployeeMainView {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-
+        departmentIDCol.setCellValueFactory(new PropertyValueFactory<>("departmentID"));
     }
 
     @FXML

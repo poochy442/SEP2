@@ -97,7 +97,7 @@ public class DataModel implements IDataModel {
     @Override
     public void removeEmployeeWH(Employee e) {
         employeeList.remove(e);
-        propertyChangeSupport.firePropertyChange("???", e, null);
+        propertyChangeSupport.firePropertyChange("???", e, null); //TODO: Do we need 2 types of remove? If not, remove it and rename just to removeEmployee/removeStockItem
     }
 
     @Override

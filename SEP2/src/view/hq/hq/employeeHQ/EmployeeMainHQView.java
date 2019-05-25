@@ -28,6 +28,9 @@ public class EmployeeMainHQView {
     private TableColumn<String, Employee> iDCol;
 
     @FXML
+    private TableColumn<String, Employee> departmentIDCol;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private EmployeeMainHQVM employeeMainHQVM;
@@ -44,6 +47,7 @@ public class EmployeeMainHQView {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        departmentIDCol.setCellValueFactory(new PropertyValueFactory<>("departmentID"));
     }
 
     @FXML
