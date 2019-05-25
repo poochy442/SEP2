@@ -3,6 +3,7 @@ package view.warehouse.employee;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +20,12 @@ public class EmployeeAddView {
 
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private Label errorFirstNameLabel;
+
+    @FXML
+    private Label errorLastNameLabel;
 
     private EmployeeAddVM employeeAddVM;
 
@@ -37,8 +44,29 @@ public class EmployeeAddView {
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        employeeAddVM.addEmployee();
-        employeeAddVM.confirmation();
+        if(!employeeAddVM.validateFirstName())
+        {
+            errorFirstNameLabel.setVisible(true);
+        }
+        else
+        {
+            errorFirstNameLabel.setVisible(false);
+        }
+
+        if(!employeeAddVM.validateLastName())
+        {
+            errorLastNameLabel.setVisible(true);
+        }
+        else
+        {
+            errorLastNameLabel.setVisible(false);
+        }
+
+        if(employeeAddVM.validateFirstName() && employeeAddVM.validateLastName() && firstNameField.textProperty() != null && lastNameField.textProperty() != null)
+        {
+            employeeAddVM.addEmployee();
+            employeeAddVM.confirmation();
+        }
     }
 
     @FXML

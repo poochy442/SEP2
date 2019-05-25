@@ -62,4 +62,12 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
         alert.showAndWait();
 
     }
+
+    public boolean validateFirstName() {
+        return dataModel.onlyLetters(firstName.getValue());
+    }
+
+    public boolean validateLastName() {
+        return  dataModel.onlyLetters(lastName.getValue());
+    }
 }

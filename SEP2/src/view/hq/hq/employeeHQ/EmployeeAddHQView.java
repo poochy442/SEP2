@@ -17,6 +17,11 @@ public class EmployeeAddHQView {
     @FXML
     private TextField lastNameField;
 
+    @FXML
+    private Label errorFirstNameLabel;
+
+    @FXML
+    private Label errorLastNameLabel;
 
     @FXML
     private Label nameLabel;
@@ -39,8 +44,29 @@ public class EmployeeAddHQView {
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        employeeAddHQVM.addEmployee();
-        employeeAddHQVM.confirmation();
+        if(!employeeAddHQVM.validateFirstName())
+        {
+            errorFirstNameLabel.setVisible(true);
+        }
+        else
+        {
+            errorFirstNameLabel.setVisible(false);
+        }
+
+        if(!employeeAddHQVM.validateLastName())
+        {
+            errorLastNameLabel.setVisible(true);
+        }
+        else
+        {
+            errorLastNameLabel.setVisible(false);
+        }
+
+        if(employeeAddHQVM.validateFirstName() && employeeAddHQVM.validateLastName() && firstNameField.textProperty() != null && lastNameField.textProperty() != null)
+        {
+            employeeAddHQVM.addEmployee();
+            employeeAddHQVM.confirmation();
+        }
     }
 
     @FXML

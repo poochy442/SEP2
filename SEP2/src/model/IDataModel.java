@@ -20,4 +20,6 @@ public interface IDataModel {
     void removeEmployeeHQ(Employee e);
     String getIDEmployee();
     String getIDStockItem();
+    boolean onlyLetters(String word);
+    boolean onlyNumbers(String word);
 }

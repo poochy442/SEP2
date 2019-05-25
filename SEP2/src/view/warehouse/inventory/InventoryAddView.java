@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +36,19 @@ public class InventoryAddView {
 
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private Label errorPriceLabel;
+
+    @FXML
+    private Label errorQuantityLabel;
+
+    @FXML
+    private Label errorMinStockLabel;
+
+    @FXML
+    private Label errorMaxStockLabel;
+
     private InventoryAddVM inventoryAddVM;
 
     public InventoryAddView()
@@ -56,8 +70,56 @@ public class InventoryAddView {
     }
     @FXML
     void onAddClicked(ActionEvent event) {
-        inventoryAddVM.addStockItem();
-        inventoryAddVM.confirmation();
+        boolean one, two, three, four = false;
+        if(!inventoryAddVM.onlyNumbersPrice())
+        {
+            errorPriceLabel.setVisible(true);
+            one = false;
+        }
+        else
+        {
+            errorPriceLabel.setVisible(false);
+            one = true;
+        }
+
+        if(!inventoryAddVM.onlyNumbersQuantity())
+        {
+            errorQuantityLabel.setVisible(true);
+            two = false;
+        }
+        else
+        {
+            errorQuantityLabel.setVisible(false);
+            two = true;
+        }
+
+        if(!inventoryAddVM.onlyNumbersMaxStock())
+        {
+            errorMaxStockLabel.setVisible(true);
+            three = false;
+        }
+        else
+        {
+            errorMaxStockLabel.setVisible(false);
+            three = true;
+        }
+
+        if(!inventoryAddVM.onlyNumbersMinStock())
+        {
+            errorMinStockLabel.setVisible(true);
+            four = false;
+        }
+        else
+        {
+            errorMinStockLabel.setVisible(false);
+            four = true;
+        }
+
+        if(one && two && three && four)
+        {
+            inventoryAddVM.addStockItem();
+            inventoryAddVM.confirmation();
+        }
     }
 
     @FXML

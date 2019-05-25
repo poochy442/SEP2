@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.employee.EmployeeAddView">
+<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.employee.EmployeeAddView">
    <children>
-      <Pane layoutX="94.0" layoutY="56.0" prefHeight="385.0" prefWidth="472.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="150.0">
+      <Pane layoutX="94.0" layoutY="56.0" prefHeight="385.0" prefWidth="568.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="150.0">
          <children>
             <Label layoutY="4.0" text="First name" />
             <Label layoutX="1.0" layoutY="56.0" text="Last name" />
@@ -29,6 +29,8 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Label fx:id="errorFirstNameLabel" layoutX="399.0" layoutY="4.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorLastNameLabel" layoutX="399.0" layoutY="56.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
          </children>
       </Pane>
       <Pane layoutY="50.0" prefHeight="785.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">

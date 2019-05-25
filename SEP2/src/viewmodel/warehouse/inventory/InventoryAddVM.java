@@ -124,4 +124,23 @@ public class InventoryAddVM {
         alert.setContentText("Press ok to continue");
         alert.showAndWait();
     }
+
+    public boolean onlyNumbersQuantity() {
+        return dataModel.onlyNumbers(quantity.getValue());
+    }
+
+    public boolean onlyNumbersPrice()
+    {
+        return dataModel.onlyNumbers(price.getValue());
+    }
+
+    public boolean onlyNumbersMinStock()
+    {
+        return dataModel.onlyNumbers(minStock.getValue());
+    }
+
+    public boolean onlyNumbersMaxStock()
+    {
+        return dataModel.onlyNumbers(maxStock.getValue());
+    }
 }

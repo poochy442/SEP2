@@ -47,4 +47,5 @@ public class Counter {
         String finalID = new String(new char[6]).replace('\0', fill) + id;
         return finalID;
     }
+    //TODO: U can modify here how ID for employee and stock item should look like
 }

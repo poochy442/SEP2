@@ -67,4 +67,12 @@ public class EmployeeAddVM {
         alert.setContentText("Press ok to continue");
         alert.showAndWait();
     }
+
+    public boolean validateFirstName() {
+        return dataModel.onlyLetters(firstName.getValue());
+    }
+
+    public boolean validateLastName() {
+        return  dataModel.onlyLetters(lastName.getValue());
+    }
 }

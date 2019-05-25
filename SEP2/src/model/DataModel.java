@@ -11,7 +11,6 @@ public class DataModel implements IDataModel {
     private ProductRequestList productRequestList;
     private Counter counter;
 
-
     public DataModel() {
         employeeList = new EmployeeList();
         propertyChangeSupport = new PropertyChangeSupport(this);
@@ -118,6 +117,20 @@ public class DataModel implements IDataModel {
     public String getIDStockItem() {
         String id = counter.getIDStockItem();
         return id;
+    }
+
+    @Override
+    public boolean onlyLetters(String word) {
+        Validation validation = new Validation();
+        boolean onlyLetters = validation.onlyLetters(word);
+        return onlyLetters;
+    }
+
+    @Override
+    public boolean onlyNumbers(String word) {
+        Validation validation = new Validation();
+        boolean onlyNumbers = validation.onlyNumbers(word);
+        return onlyNumbers;
     }
 
     @Override
