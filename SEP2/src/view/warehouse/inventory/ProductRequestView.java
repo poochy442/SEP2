@@ -4,28 +4,28 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.ProductRequest;
 import model.StockItem;
 import viewmodel.warehouse.inventory.ProductRequestVM;
 
 public class ProductRequestView {
 
     @FXML
-    private TableView<StockItem> productRequestTable;
+    private TableView<ProductRequest> productRequestTable;
 
     @FXML
-    private TableColumn<String, StockItem> nameCol;
+    private TableColumn<StockItem, ProductRequest> nameCol;
 
     @FXML
-    private TableColumn<String, StockItem> iDCol;
+    private TableColumn<String, ProductRequest> iDCol;
 
     @FXML
-    private TableColumn<Integer, StockItem> quantityCol;
+    private TableColumn<Integer, ProductRequest> quantityCol;
 
     @FXML
     private AnchorPane anchorPane;
@@ -40,20 +40,9 @@ public class ProductRequestView {
 
     public void init(ProductRequestVM productRequestVM) {
         this.productRequestVM = productRequestVM;
-      //  productRequestTable.setItems(productRequestVM.getStockItems()); //TODO: Finish
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productRequestTable.setItems(productRequestVM.getProductRequests());
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("stockItem"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-
-        productRequestTable.setRowFactory( tv -> {
-            TableRow<StockItem> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
-
-                }
-            });
-            return row ;
-        });
     }
 
     @FXML

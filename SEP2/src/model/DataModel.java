@@ -80,8 +80,9 @@ public class DataModel implements IDataModel {
     @Override
     public void sendProductRequest() {
         StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5);
-        productRequestList.addRequestToList(new ProductRequest(stockItem, 22));
-        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequestList);
+        ProductRequest productRequest = new ProductRequest(stockItem, 22);
+        productRequestList.addRequestToList(productRequest);
+        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequest);
     }
 
     @Override

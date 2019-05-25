@@ -52,8 +52,8 @@ public class InventoryAddView {
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
         iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
-        canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
-        expiryDatePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
+        canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty());
+        expiryDatePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate());
         minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());
         maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
 

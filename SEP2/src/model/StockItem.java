@@ -1,6 +1,5 @@
 package model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class StockItem {
@@ -60,8 +59,6 @@ public class StockItem {
     }
 
     public Date getExpiryDate() {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd"); //TODO: Change format
-        df.format(this.expiryDate);
         return expiryDate;
     }
 }

@@ -7,7 +7,6 @@ import model.StockItem;
 import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
-import java.text.SimpleDateFormat;
 
 public class InventoryMainVM {
     private IDataModel dataModel;
@@ -27,11 +26,6 @@ public class InventoryMainVM {
     }
 
     public ObservableList<StockItem> getStockItems() {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd"); //TODO: Change format
-        for(int i = 0; i < stockItems.size(); i++)
-        {
-            df.format(stockItems.get(i).getExpiryDate());
-        }
         return stockItems;
     }
 

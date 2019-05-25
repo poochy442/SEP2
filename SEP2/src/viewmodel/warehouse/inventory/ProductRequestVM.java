@@ -4,26 +4,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
-import model.ProductRequestList;
-import model.StockItem;
 import view.warehouse.ViewHandler;
 
-import javax.swing.*;
+import java.beans.PropertyChangeEvent;
 
 public class ProductRequestVM {
     private IDataModel dataModel;
-    private ObservableList<StockItem> stockItems;
+    private ObservableList<ProductRequest> productRequests;
     private ViewHandler viewHandler;
 
     public ProductRequestVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
-        stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        // dataModel.addListener();  //TODO: Finish2
+        productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("SendProductRequest", this::sendProductRequest);
     }
 
-    public ObservableList<StockItem> getStockItems() {
-        return stockItems;
+    private void sendProductRequest(PropertyChangeEvent evt) {
+        productRequests.add((ProductRequest) evt.getNewValue());
+    }
+
+    public ObservableList<ProductRequest> getProductRequests() {
+        return productRequests;
     }
 
     public void openMainView() {

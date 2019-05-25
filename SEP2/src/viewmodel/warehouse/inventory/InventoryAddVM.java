@@ -41,11 +41,19 @@ public class InventoryAddVM {
 
     public void dateConverter() throws ParseException // Here it is important
     {
-        LocalDate localDate = expiryDate.get();
-        int day = localDate.getDayOfMonth();
-        int month = localDate.getMonthValue();
-        int year = localDate.getYear();
-        date = new SimpleDateFormat("MM/dd/yyyy").parse(""+month+"/"+day+"/"+year);
+        if(expiryDate.get() != null)
+        {
+            LocalDate localDate = expiryDate.get();
+            int day = localDate.getDayOfMonth();
+            int month = localDate.getMonthValue();
+            int year = localDate.getYear();
+            date = new SimpleDateFormat("MM/dd/yyyy").parse(""+month+"/"+day+"/"+year);
+        }
+        else
+        {
+            date = null;
+        }
+
     }
 
     public void addStockItem()
@@ -57,6 +65,8 @@ public class InventoryAddVM {
         }
         StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
         dataModel.addItemFromUser(si);
+
+        //Resetting fields in view
         name.setValue("");
         quantity.setValue("");
         price.setValue("");

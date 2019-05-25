@@ -60,8 +60,8 @@ public class InventoryMainWHView {
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
-        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
+        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire"));
+        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
     }
