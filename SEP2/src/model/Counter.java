@@ -24,27 +24,27 @@ public class Counter {
 
     public String getIDEmployee()
     {
-        int width = 6;
         char fill = '0';
-        int id = 0;
+        int id = -1;
         for(int i = 0; i < dataModel.getEmployeeList().size(); i++)
         {
-            id = i++;
+            id = i;
         }
-        String finalID = new String(new char[width - id]).replace('\0', fill) + id;
+        id++;
+        String finalID = new String(new char[6]).replace('\0', fill) + id;
         return finalID;
     }
 
     public String getIDStockItem()
     {
-        int width = 6;
         char fill = '0';
-        int id = 0;
+        int id = -1;
         for(int i = 0; i < dataModel.getStockItemList().size(); i++)
         {
-            id = i++;
+            id = i;
         }
-        String finalID = new String(new char[width - id]).replace('\0', fill) + id;
+        id++;
+        String finalID = new String(new char[6]).replace('\0', fill) + id;
         return finalID;
     }
 }

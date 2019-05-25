@@ -22,9 +22,6 @@ public class InventoryAddView {
     private TextField priceField;
 
     @FXML
-    private TextField iDField;
-
-    @FXML
     private CheckBox canExpireCheckBox;
 
     @FXML
@@ -51,7 +48,6 @@ public class InventoryAddView {
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
-        iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
         canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty());
         expiryDatePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate());
         minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());

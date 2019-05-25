@@ -105,10 +105,8 @@
                <children>
                   <Label layoutX="127.0" layoutY="96.0" text="First name" />
                   <Label layoutX="128.0" layoutY="148.0" text="Last name" />
-                  <Label layoutX="127.0" layoutY="202.0" text="ID" />
                   <TextField fx:id="firstNameField" layoutX="217.0" layoutY="93.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
                   <TextField fx:id="lastNameField" layoutX="217.0" layoutY="144.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-color: white; -fx-border-radius: 40px; -fx-background-radius: 40px;" />
-                  <TextField fx:id="iDField" layoutX="217.0" layoutY="198.0" prefHeight="25.0" prefWidth="293.0" style="-fx-border-color: #2C363B; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-background-color: white;" />
                   <Button fx:id="addButton" layoutX="197.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #B579CF; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
                      <cursor>
                         <Cursor fx:constant="HAND" />

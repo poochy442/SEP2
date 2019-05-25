@@ -15,7 +15,6 @@ public class InventoryAddVM {
     private StringProperty name;
     private StringProperty quantity;
     private StringProperty price;
-    private StringProperty id;
     private BooleanProperty canExpire;
     private ObjectProperty<LocalDate> expiryDate;
     private Date date;
@@ -30,7 +29,6 @@ public class InventoryAddVM {
         name = new SimpleStringProperty();
         quantity = new SimpleStringProperty();
         price = new SimpleStringProperty();
-        id = new SimpleStringProperty();
         canExpire = new SimpleBooleanProperty();
         expiryDate = new SimpleObjectProperty<>();
         minStock = new SimpleStringProperty();
@@ -59,14 +57,13 @@ public class InventoryAddVM {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
+        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
         dataModel.addItemFromUser(si);
 
         //Resetting fields in view
         name.setValue("");
         quantity.setValue("");
         price.setValue("");
-        id.setValue("");
         canExpire.set(false);
         expiryDate.setValue(null);
         minStock.setValue("");
@@ -89,10 +86,6 @@ public class InventoryAddVM {
 
     public StringProperty priceProperty() {
         return price;
-    }
-
-    public StringProperty IDProperty() {
-        return id;
     }
 
     public BooleanProperty canExpireProperty() {

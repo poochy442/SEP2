@@ -187,13 +187,11 @@
                </font>
             </Label>
             <TextField fx:id="nameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
-            <TextField fx:id="iDField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="55.0" prefHeight="17.0" prefWidth="77.0" text="Item Name" />
-            <Label layoutY="105.0" prefHeight="17.0" prefWidth="45.0" text="ID/Code" />
-            <Label layoutY="155.0" text="Category" />
-            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="200.0" prefHeight="50.0" prefWidth="225.0" />
-            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
-            <Label layoutY="217.0" text="Description" />
+            <Label layoutY="105.0" text="Category" />
+            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="150.0" prefHeight="50.0" prefWidth="225.0" />
+            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="167.0" text="Description" />
          </children>
       </Pane>
       <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">

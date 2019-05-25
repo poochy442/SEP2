@@ -18,7 +18,7 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList();
-        dataModel.addListener("NewEmployeeAddedFromClient", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
     }
 
     private void addEmployeeToClient(PropertyChangeEvent evt) {

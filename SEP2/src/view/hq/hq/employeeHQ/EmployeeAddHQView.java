@@ -17,8 +17,6 @@ public class EmployeeAddHQView {
     @FXML
     private TextField lastNameField;
 
-    @FXML
-    private TextField iDField;
 
     @FXML
     private Label nameLabel;
@@ -37,7 +35,6 @@ public class EmployeeAddHQView {
         this.employeeAddHQVM = employeeAddHQVM;
         firstNameField.textProperty().bindBidirectional(employeeAddHQVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddHQVM.lastNameProperty());
-        iDField.textProperty().bindBidirectional(employeeAddHQVM.IDProperty());
     }
 
     @FXML

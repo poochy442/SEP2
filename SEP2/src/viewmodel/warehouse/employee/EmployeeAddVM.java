@@ -10,7 +10,6 @@ import view.warehouse.ViewHandler;
 public class EmployeeAddVM {
     private StringProperty firstName;
     private StringProperty lastName;
-    private StringProperty ID;
 
     private IDataModel dataModel;
     private ViewHandler viewHandler;
@@ -21,17 +20,15 @@ public class EmployeeAddVM {
         this.viewHandler = viewHandler;
         firstName = new SimpleStringProperty();
         lastName = new SimpleStringProperty();
-        ID = new SimpleStringProperty();
     }
 
     public void addEmployee()
     {
-        Employee e = new Employee(firstName.getValue(), lastName.getValue(), ID.getValue(),"WH");
+        Employee e = new Employee(firstName.getValue(), lastName.getValue(), dataModel.getIDEmployee(),"WH");
         dataModel.addEmployeeFromUser(e);
         //dataModel.addEmployeeFromServer(e);
         firstName.setValue("");
         lastName.setValue("");
-        ID.setValue("");
     }
 
     public void goBack()
@@ -60,10 +57,6 @@ public class EmployeeAddVM {
 
     public StringProperty lastNameProperty() {
         return lastName;
-    }
-
-    public StringProperty IDProperty() {
-        return ID;
     }
 
 

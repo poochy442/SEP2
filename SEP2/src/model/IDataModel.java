@@ -18,4 +18,6 @@ public interface IDataModel {
     void removeStockItemHQ(StockItem stockItem);
     void removeEmployeeWH(Employee e);
     void removeEmployeeHQ(Employee e);
+    String getIDEmployee();
+    String getIDStockItem();
 }

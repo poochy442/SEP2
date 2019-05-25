@@ -9,6 +9,7 @@ public class DataModel implements IDataModel {
     private StockItemList stockItemList;
     private PropertyChangeSupport propertyChangeSupport;
     private ProductRequestList productRequestList;
+    private Counter counter;
 
 
     public DataModel() {
@@ -16,6 +17,7 @@ public class DataModel implements IDataModel {
         propertyChangeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
         productRequestList = new ProductRequestList();
+        counter = new Counter(this);
     }
 
 
@@ -104,6 +106,18 @@ public class DataModel implements IDataModel {
     public void removeEmployeeHQ(Employee e) {
         employeeList.remove(e);
         propertyChangeSupport.firePropertyChange("???", e, null);
+    }
+
+    @Override
+    public String getIDEmployee() {
+        String id = counter.getIDEmployee();
+        return id;
+    }
+
+    @Override
+    public String getIDStockItem() {
+        String id = counter.getIDStockItem();
+        return id;
     }
 
     @Override
