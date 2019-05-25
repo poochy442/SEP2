@@ -43,6 +43,7 @@ public class EmployeeAddHQView {
     @FXML
     void onAddClicked(ActionEvent event) {
         employeeAddHQVM.addEmployee();
+        employeeAddHQVM.confirmation();
     }
 
     @FXML

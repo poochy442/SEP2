@@ -40,4 +40,7 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
 
     public void openInventoryMainWHView() { viewHandler.openInventoryWHView();
     }
+
+    public void removeEmployee(Employee e) {dataModel.removeEmployeeHQ(e);
+    }
 }

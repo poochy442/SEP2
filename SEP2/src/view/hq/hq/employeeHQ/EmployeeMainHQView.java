@@ -3,6 +3,8 @@ package view.hq.hq.employeeHQ;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,6 +31,7 @@ public class EmployeeMainHQView {
     private AnchorPane anchorPane;
 
     private EmployeeMainHQVM employeeMainHQVM;
+    private Employee selectedEmployee;
 
     public EmployeeMainHQView() {
 
@@ -76,7 +79,18 @@ public class EmployeeMainHQView {
 
     @FXML
     void onRemoveEmployeeClicked(ActionEvent event) {
+        selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
 
+        if(alert.getResult() == ButtonType.YES) {
+            Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+            employeeTable.getItems().remove(selectedEmployee);
+            employeeMainHQVM.removeEmployee(selectedEmployee);
+        }
     }
 
 

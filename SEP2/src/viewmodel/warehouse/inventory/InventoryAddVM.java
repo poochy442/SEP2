@@ -1,6 +1,7 @@
 package viewmodel.warehouse.inventory;
 
 import javafx.beans.property.*;
+import javafx.scene.control.Alert;
 import model.IDataModel;
 import model.StockItem;
 import view.warehouse.ViewHandler;
@@ -23,8 +24,7 @@ public class InventoryAddVM {
     private IDataModel dataModel;
     private ViewHandler viewHandler;
 
-    public InventoryAddVM(IDataModel dataModel, ViewHandler viewHandler)
-    {
+    public InventoryAddVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         name = new SimpleStringProperty();
@@ -36,28 +36,24 @@ public class InventoryAddVM {
         minStock = new SimpleStringProperty();
         maxStock = new SimpleStringProperty();
 
-        date = new Date(0,0,0);
+        date = new Date(0, 0, 0);
     }
 
     public void dateConverter() throws ParseException // Here it is important
     {
-        if(expiryDate.get() != null)
-        {
+        if (expiryDate.get() != null) {
             LocalDate localDate = expiryDate.get();
             int day = localDate.getDayOfMonth();
             int month = localDate.getMonthValue();
             int year = localDate.getYear();
-            date = new SimpleDateFormat("MM/dd/yyyy").parse(""+month+"/"+day+"/"+year);
-        }
-        else
-        {
+            date = new SimpleDateFormat("MM/dd/yyyy").parse("" + month + "/" + day + "/" + year);
+        } else {
             date = null;
         }
 
     }
 
-    public void addStockItem()
-    {
+    public void addStockItem() {
         try {
             dateConverter();
         } catch (ParseException e) {
@@ -79,8 +75,7 @@ public class InventoryAddVM {
     }
 
 
-    public void goBack()
-    {
+    public void goBack() {
         viewHandler.openInventoryMainView();
     }
 
@@ -108,18 +103,15 @@ public class InventoryAddVM {
         return expiryDate;
     }
 
-    public void openMainView()
-    {
+    public void openMainView() {
         viewHandler.openMainView();
     }
 
-    public void openInventoryView()
-    {
+    public void openInventoryView() {
         viewHandler.openInventoryMainView();
     }
 
-    public void openEmployeeView()
-    {
+    public void openEmployeeView() {
         viewHandler.openEmployeeMainView();
     }
 
@@ -127,8 +119,16 @@ public class InventoryAddVM {
         return minStock;
     }
 
-    public StringProperty maxStockProperty()
-    {
-        return  maxStock;
+    public StringProperty maxStockProperty() {
+        return maxStock;
+    }
+
+
+    public void confirmation() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Employee has been added");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
     }
 }

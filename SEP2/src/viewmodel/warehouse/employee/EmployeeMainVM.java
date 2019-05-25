@@ -49,4 +49,8 @@ public class EmployeeMainVM {
     {
         viewHandler.openEmployeeAddView();
     }
+
+    public void removeEmployee(Employee e) {
+        dataModel.removeEmployeeWH(e);
+    }
 }

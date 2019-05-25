@@ -3,6 +3,8 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -47,6 +49,8 @@ public class InventoryMainView {
     private AnchorPane anchorPane;
 
     private InventoryMainVM inventoryMainVM;
+
+    private StockItem selectedItem;
 
     public InventoryMainView() {
 
@@ -94,10 +98,17 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
 
-        //todo give it a stock item o delete the rest is done
-//        inventoryMainVM.deleteStockItemWH();
-
+        if (alert.getResult() == ButtonType.YES) {
+            stockItemTable.getItems().remove(selectedItem);
+            inventoryMainVM.removeStockItem(selectedItem);
+        }
     }
 
     @FXML

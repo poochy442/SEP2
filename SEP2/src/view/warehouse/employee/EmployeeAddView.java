@@ -36,13 +36,14 @@ public class EmployeeAddView {
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddVM.lastNameProperty());
         iDField.textProperty().bindBidirectional(employeeAddVM.IDProperty());
-
+        
     }
 
 
     @FXML
     void onAddClicked(ActionEvent event) {
         employeeAddVM.addEmployee();
+        employeeAddVM.confirmation();
     }
 
     @FXML

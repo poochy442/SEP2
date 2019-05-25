@@ -35,4 +35,8 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
 
     public void openInventoryMainWHView() {
     }
+
+    public void removeStockItem(StockItem stockItem) {
+        dataModel.removeStockItemHQ(stockItem);
+    }
 }

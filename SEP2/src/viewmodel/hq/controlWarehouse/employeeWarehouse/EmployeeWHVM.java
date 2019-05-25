@@ -36,4 +36,8 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
 
     public void openEmployeeMainWHView() {viewHandler.openEmployeeWHView();
     }
+
+    public void removeEmployee(Employee e) {
+        dataModel.removeEmployeeHQ(e);
+    }
 }

@@ -3,6 +3,8 @@ package view.hq.controlWarehouse.employeeWarehouse;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,14 +31,13 @@ public class EmployeeMainWHView {
     private AnchorPane anchorPane;
 
     private EmployeeWHVM employeeWHVM;
+    private Employee selectedEmployee;
 
-    public EmployeeMainWHView()
-    {
+    public EmployeeMainWHView() {
 
     }
 
-    public void init(EmployeeWHVM employeeWHVM)
-    {
+    public void init(EmployeeWHVM employeeWHVM) {
         this.employeeWHVM = employeeWHVM;
         employeeTable.setItems(employeeWHVM.getEmployees());
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
@@ -81,13 +82,24 @@ public class EmployeeMainWHView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
     void onRemoveEmployeeClicked(ActionEvent event) {
+        selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
 
+        if(alert.getResult() == ButtonType.YES) {
+            Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+            employeeTable.getItems().remove(selectedEmployee);
+            employeeWHVM.removeEmployee(selectedEmployee);
+        }
     }
 
     @FXML

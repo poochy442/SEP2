@@ -61,6 +61,7 @@ public class InventoryAddView {
     @FXML
     void onAddClicked(ActionEvent event) {
         inventoryAddVM.addStockItem();
+        inventoryAddVM.confirmation();
     }
 
     @FXML
@@ -105,6 +106,6 @@ public class InventoryAddView {
         {
             expiryDatePicker.setDisable(true);
             expiryDatePicker.setValue(null);
-        }
+        } //TODO: Violating MVVM pattern?
     }
 }

@@ -2,6 +2,7 @@ package viewmodel.warehouse.employee;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Alert;
 import model.Employee;
 import model.IDataModel;
 import view.warehouse.ViewHandler;
@@ -66,4 +67,11 @@ public class EmployeeAddVM {
     }
 
 
+    public void confirmation() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Employee has been added");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
+    }
 }

@@ -19,23 +19,6 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.InventoryAddView">
    <children>
-      <Pane layoutX="315.0" layoutY="175.0" prefHeight="287.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="200.0">
-         <children>
-            <TextField fx:id="nameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
-            <TextField fx:id="iDField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
-            <Label layoutY="55.0" prefHeight="17.0" prefWidth="77.0" text="Item Name" />
-            <Label layoutY="105.0" prefHeight="17.0" prefWidth="45.0" text="ID/Code" />
-            <Label layoutY="155.0" text="Category" />
-            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="200.0" prefHeight="50.0" prefWidth="225.0" />
-            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
-            <Label layoutY="217.0" text="Description" />
-            <Label prefHeight="30.0" prefWidth="91.0" text="Basic" textFill="#58cbc6">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="53.0" layoutY="15.0" text="Warehouse Management Tool">
@@ -196,32 +179,23 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Pane layoutX="745.0" layoutY="475.0" prefHeight="193.0" prefWidth="355.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="550.0">
+      <Pane layoutX="315.0" layoutY="175.0" prefHeight="287.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="200.0">
          <children>
-            <Label layoutY="115.0" />
-            <TextField fx:id="minStockField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
-            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
-            <Label layoutY="105.0" text="Min stock" />
-            <Label layoutY="155.0" text="Max stock" />
-            <Label prefHeight="30.0" prefWidth="91.0" text="Inventory" textFill="#58cbc6">
+            <Label prefHeight="30.0" prefWidth="91.0" text="Basic" textFill="#58cbc6">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="quantityField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
-            <Label layoutY="55.0" text="Quantity" />
+            <TextField fx:id="nameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="iDField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" prefHeight="17.0" prefWidth="77.0" text="Item Name" />
+            <Label layoutY="105.0" prefHeight="17.0" prefWidth="45.0" text="ID/Code" />
+            <Label layoutY="155.0" text="Category" />
+            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="200.0" prefHeight="50.0" prefWidth="225.0" />
+            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="217.0" text="Description" />
          </children>
       </Pane>
-      <Button fx:id="addButton" layoutX="577.0" layoutY="750.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" AnchorPane.topAnchor="800.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="backButton" layoutX="854.0" layoutY="750.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK" AnchorPane.topAnchor="800.0">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
          <children>
             <CheckBox fx:id="canExpireCheckBox" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
@@ -251,5 +225,31 @@
             <Label layoutX="353.0" layoutY="105.0" text="kr." />
          </children>
       </Pane>
+      <Pane layoutX="745.0" layoutY="475.0" prefHeight="193.0" prefWidth="355.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="550.0">
+         <children>
+            <Label layoutY="115.0" />
+            <TextField fx:id="quantityField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="minStockField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="105.0" text="Min stock" />
+            <Label layoutY="155.0" text="Max stock" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Inventory" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutY="55.0" text="Quantity" />
+         </children>
+      </Pane>
+      <Button fx:id="addButton" layoutX="577.0" layoutY="750.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="backButton" layoutX="854.0" layoutY="750.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

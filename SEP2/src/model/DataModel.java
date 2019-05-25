@@ -28,15 +28,12 @@ public class DataModel implements IDataModel {
     public void addEmployeeFromUser(Employee e) {
         employeeList.add(e);
         propertyChangeSupport.firePropertyChange("NewEmployeeFromUser", null, e);
-
-
     }
 
     @Override
     public void addEmployeeFromServer(Employee e) {
         employeeList.add(e);
         propertyChangeSupport.firePropertyChange("NewEmployeeFromServer", null, e);
-
     }
 
     @Override
@@ -86,21 +83,27 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void deleteStockItemWH(StockItem stockItem) {
-        for (int i=0;i<stockItemList.size();i++)
-        {
-            if (stockItem.getId().equals(stockItemList.get(i).getId()))
-            {
-                stockItemList.remove(i);
-            }
-
-        }
-        propertyChangeSupport.firePropertyChange("DeleteStockItemFromDB",null,stockItem);
+    public void removeStockItemWH(StockItem stockItem) {
+        stockItemList.remove(stockItem);
+        propertyChangeSupport.firePropertyChange("DeleteStockItemFromDB",null,stockItem); //TODO: Isnt it other way round? old value is stockitem and new value is null
     }
 
     @Override
-    public void deleteStockItemHQ(StockItem stockItem) {
+    public void removeStockItemHQ(StockItem stockItem) {
+        stockItemList.remove(stockItem);
+        propertyChangeSupport.firePropertyChange("???", stockItem, null );
+    }
 
+    @Override
+    public void removeEmployeeWH(Employee e) {
+        employeeList.remove(e);
+        propertyChangeSupport.firePropertyChange("???", e, null);
+    }
+
+    @Override
+    public void removeEmployeeHQ(Employee e) {
+        employeeList.remove(e);
+        propertyChangeSupport.firePropertyChange("???", e, null);
     }
 
     @Override

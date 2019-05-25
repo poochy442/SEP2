@@ -12,11 +12,10 @@ public interface IDataModel {
     void setEmployeeList(EmployeeList employeeList);
     void loadEmployeeListFromDB();
     void loadItemListFromDB();
-
     void setStockItemList(StockItemList stockItemList1);
-
     void sendProductRequest();
-
-    void deleteStockItemWH(StockItem stockItem);
-    void deleteStockItemHQ(StockItem stockItem);
+    void removeStockItemWH(StockItem stockItem);
+    void removeStockItemHQ(StockItem stockItem);
+    void removeEmployeeWH(Employee e);
+    void removeEmployeeHQ(Employee e);
 }
