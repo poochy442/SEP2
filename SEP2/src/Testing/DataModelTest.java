@@ -118,6 +118,6 @@ public class DataModelTest {
         stockItemList.add(i);
         stockItemList.add(i);
         dataModel.setStockItemList(stockItemList);
-        Assert.assertEquals(stockItemList.size(), dataModel.getEmployeeList().size());
+        Assert.assertEquals(stockItemList.size(), dataModel.getStockItemList().size());
     }
 }
