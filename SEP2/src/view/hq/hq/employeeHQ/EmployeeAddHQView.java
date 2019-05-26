@@ -21,7 +21,13 @@ public class EmployeeAddHQView {
     private Label errorFirstNameLabel;
 
     @FXML
+    private Label emptyFirstNameLabel;
+
+    @FXML
     private Label errorLastNameLabel;
+
+    @FXML
+    private Label emptyLastNameLabel;
 
     @FXML
     private Label nameLabel;
@@ -35,8 +41,7 @@ public class EmployeeAddHQView {
 
     }
 
-    public void init(EmployeeAddHQVM employeeAddHQVM)
-    {
+    public void init(EmployeeAddHQVM employeeAddHQVM) {
         this.employeeAddHQVM = employeeAddHQVM;
         firstNameField.textProperty().bindBidirectional(employeeAddHQVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddHQVM.lastNameProperty());
@@ -44,26 +49,7 @@ public class EmployeeAddHQView {
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        if(!employeeAddHQVM.validateFirstName())
-        {
-            errorFirstNameLabel.setVisible(true);
-        }
-        else
-        {
-            errorFirstNameLabel.setVisible(false);
-        }
-
-        if(!employeeAddHQVM.validateLastName())
-        {
-            errorLastNameLabel.setVisible(true);
-        }
-        else
-        {
-            errorLastNameLabel.setVisible(false);
-        }
-
-        if(employeeAddHQVM.validateFirstName() && employeeAddHQVM.validateLastName() && firstNameField.textProperty() != null && lastNameField.textProperty() != null)
-        {
+        if(isEverythingValid()) {
             employeeAddHQVM.addEmployee();
             employeeAddHQVM.confirmation();
         }
@@ -81,7 +67,7 @@ public class EmployeeAddHQView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
@@ -103,6 +89,49 @@ public class EmployeeAddHQView {
     @FXML
     void onWarehouseClicked(MouseEvent event) {
         employeeAddHQVM.openInventoryWHView();
+    }
+
+    private boolean isEverythingValid() {
+        boolean emptyFirstName, emptyLastName, validFirstName, validLastName = false;
+
+        if (firstNameField.textProperty().getValue().isEmpty()) {
+            emptyFirstName = true;
+            emptyFirstNameLabel.setVisible(true);
+        } else {
+            emptyFirstName = false;
+            emptyFirstNameLabel.setVisible(false);
+        }
+
+        if (lastNameField.textProperty().getValue().isEmpty()) {
+            emptyLastName = true;
+            emptyLastNameLabel.setVisible(true);
+        } else {
+            emptyLastName = false;
+            emptyLastNameLabel.setVisible(false);
+        }
+
+        if (!employeeAddHQVM.validateFirstName()) {
+            errorFirstNameLabel.setText("Only letters are allowed");
+            errorFirstNameLabel.setVisible(true);
+            validFirstName = false;
+        } else {
+            errorFirstNameLabel.setVisible(false);
+            validFirstName = true;
+        }
+
+        if (!employeeAddHQVM.validateLastName()) {
+            errorLastNameLabel.setText("Only letters are allowed");
+            errorLastNameLabel.setVisible(true);
+            validLastName = false;
+        } else {
+            errorLastNameLabel.setVisible(false);
+            validLastName = true;
+        }
+
+        if (!emptyFirstName && !emptyLastName && validFirstName && validLastName) {
+            return true;
+        }
+        return false;
     }
 
 }

@@ -38,6 +38,9 @@ public class InventoryAddView {
     private AnchorPane anchorPane;
 
     @FXML
+    private Label emptyNameLabel;
+
+    @FXML
     private Label errorPriceLabel;
 
     @FXML
@@ -49,15 +52,16 @@ public class InventoryAddView {
     @FXML
     private Label errorMaxStockLabel;
 
+    @FXML
+    private Label errorExpiryDateLabel;
+
     private InventoryAddVM inventoryAddVM;
 
-    public InventoryAddView()
-    {
+    public InventoryAddView() {
 
     }
 
-    public void init(InventoryAddVM inventoryAddVM)
-    {
+    public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
@@ -68,54 +72,10 @@ public class InventoryAddView {
         maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
 
     }
+
     @FXML
     void onAddClicked(ActionEvent event) {
-        boolean one, two, three, four = false;
-        if(!inventoryAddVM.onlyNumbersPrice())
-        {
-            errorPriceLabel.setVisible(true);
-            one = false;
-        }
-        else
-        {
-            errorPriceLabel.setVisible(false);
-            one = true;
-        }
-
-        if(!inventoryAddVM.onlyNumbersQuantity())
-        {
-            errorQuantityLabel.setVisible(true);
-            two = false;
-        }
-        else
-        {
-            errorQuantityLabel.setVisible(false);
-            two = true;
-        }
-
-        if(!inventoryAddVM.onlyNumbersMaxStock())
-        {
-            errorMaxStockLabel.setVisible(true);
-            three = false;
-        }
-        else
-        {
-            errorMaxStockLabel.setVisible(false);
-            three = true;
-        }
-
-        if(!inventoryAddVM.onlyNumbersMinStock())
-        {
-            errorMinStockLabel.setVisible(true);
-            four = false;
-        }
-        else
-        {
-            errorMinStockLabel.setVisible(false);
-            four = true;
-        }
-
-        if(one && two && three && four)
+        if(isEverythingValid())
         {
             inventoryAddVM.addStockItem();
             inventoryAddVM.confirmation();
@@ -134,7 +94,7 @@ public class InventoryAddView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
@@ -154,16 +114,74 @@ public class InventoryAddView {
     }
 
     @FXML
-    void canExpireClicked(ActionEvent event)
-    {
-        if(canExpireCheckBox.isSelected())
-        {
+    void canExpireClicked(ActionEvent event) {
+        if (canExpireCheckBox.isSelected()) {
             expiryDatePicker.setDisable(false);
-        }
-        else
-        {
+        } else {
             expiryDatePicker.setDisable(true);
             expiryDatePicker.setValue(null);
         } //TODO: Violating MVVM pattern?
+    }
+
+    private boolean isEverythingValid() {
+        boolean emptyName, validExpiryDate, validPrice, validQuantity, validMinStock, validMaxStock = false;
+
+        inventoryAddVM.executeEmpty();
+        validExpiryDate = inventoryAddVM.validDate();
+
+        if (nameField.textProperty().getValue().isEmpty()) {
+            emptyName = true;
+            emptyNameLabel.setVisible(true);
+        } else {
+            emptyName = false;
+            emptyNameLabel.setVisible(false);
+        }
+
+        if(validExpiryDate)
+        {
+            errorExpiryDateLabel.setVisible(false);
+        }
+        else
+        {
+            errorExpiryDateLabel.setVisible(true);
+        }
+
+        if (!inventoryAddVM.onlyNumbersPrice()) {
+            errorPriceLabel.setVisible(true);
+            validPrice = false;
+        } else {
+            errorPriceLabel.setVisible(false);
+            validPrice = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersQuantity()) {
+            errorQuantityLabel.setVisible(true);
+            validQuantity = false;
+        } else {
+            errorQuantityLabel.setVisible(false);
+            validQuantity = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersMaxStock()) {
+            errorMaxStockLabel.setVisible(true);
+            validMaxStock = false;
+        } else {
+            errorMaxStockLabel.setVisible(false);
+            validMaxStock = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersMinStock()) {
+            errorMinStockLabel.setVisible(true);
+            validMinStock = false;
+        } else {
+            errorMinStockLabel.setVisible(false);
+            validMinStock = true;
+        }
+
+        if (validPrice && validQuantity && validMaxStock && validMinStock && !emptyName && validExpiryDate)
+        {
+            return true;
+        }
+        return false;
     }
 }

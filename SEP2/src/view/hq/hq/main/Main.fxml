@@ -14,25 +14,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.hq.main.MainView">
    <children>
-      <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;">
-         <children>
-            <Label layoutX="53.0" layoutY="15.0" text="HQ Management Tool">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #B579CF;">
-               <children>
-                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../pictures/home.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <Pane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="804.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="50.0" prefWidth="804.0" style="-fx-background-color: #F7FAFB;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="close" fitHeight="14.0" fitWidth="14.0" layoutX="765.0" layoutY="15.0" onMouseClicked="#onCloseClicked" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -50,6 +32,24 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
+         </children>
+      </Pane>
+      <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;">
+         <children>
+            <Label layoutX="53.0" layoutY="15.0" text="HQ Management Tool">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #B579CF;">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../pictures/home.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: #2B2B2B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">

@@ -192,9 +192,10 @@
             <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="150.0" prefHeight="50.0" prefWidth="225.0" />
             <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="167.0" text="Description" />
+            <Label fx:id="emptyNameLabel" layoutX="355.0" layoutY="55.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
          </children>
       </Pane>
-      <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="355.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
+      <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="529.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
          <children>
             <CheckBox fx:id="canExpireCheckBox" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
             <Label prefHeight="30.0" prefWidth="91.0" text="Expiration" textFill="#58cbc6">
@@ -205,6 +206,7 @@
             <DatePicker fx:id="expiryDatePicker" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
             <Label layoutY="105.0" text="Expiry date" />
             <Label layoutX="21.0" layoutY="55.0" text="Expirable item?" />
+            <Label fx:id="errorExpiryDateLabel" layoutX="355.0" layoutY="105.0" text="You need to choose expiry date" textFill="#dd4b39" visible="false" />
          </children>
       </Pane>
       <Pane layoutX="745.0" layoutY="175.0" prefHeight="200.0" prefWidth="475.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0">

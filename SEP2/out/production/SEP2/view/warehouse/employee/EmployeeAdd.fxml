@@ -15,12 +15,12 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.employee.EmployeeAddView">
    <children>
-      <Pane layoutX="94.0" layoutY="56.0" prefHeight="385.0" prefWidth="568.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="150.0">
+      <Pane layoutX="396.0" layoutY="208.0" prefHeight="385.0" prefWidth="568.0" AnchorPane.leftAnchor="396.0" AnchorPane.topAnchor="208.0">
          <children>
-            <Label layoutY="4.0" text="First name" />
-            <Label layoutX="1.0" layoutY="56.0" text="Last name" />
-            <TextField fx:id="firstNameField" layoutX="90.0" layoutY="1.0" prefHeight="25.0" prefWidth="293.0" />
-            <TextField fx:id="lastNameField" layoutX="90.0" layoutY="52.0" prefHeight="25.0" prefWidth="293.0" />
+            <Label layoutY="5.0" text="First name" />
+            <Label layoutX="1.0" layoutY="55.0" text="Last name" />
+            <TextField fx:id="firstNameField" layoutX="120.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="lastNameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
             <Button fx:id="addButton" layoutX="70.0" layoutY="180.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -29,8 +29,10 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Label fx:id="errorFirstNameLabel" layoutX="399.0" layoutY="4.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
-            <Label fx:id="errorLastNameLabel" layoutX="399.0" layoutY="56.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorFirstNameLabel" layoutX="355.0" layoutY="5.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="emptyFirstNameLabel" layoutX="355.0" layoutY="5.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorLastNameLabel" layoutX="355.0" layoutY="55.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="emptyLastNameLabel" layoutX="355.0" layoutY="55.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
          </children>
       </Pane>
       <Pane layoutY="50.0" prefHeight="785.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
@@ -158,7 +160,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="562.0" layoutY="100.0" text="Add employee">
+      <Label layoutX="526.0" layoutY="100.0" text="Add employee">
          <font>
             <Font size="23.0" />
          </font>

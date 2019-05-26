@@ -123,7 +123,9 @@
                      </font>
                   </Label>
                   <Label fx:id="errorFirstNameLabel" layoutX="526.0" layoutY="96.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+                  <Label fx:id="emptyFirstNameLabel" layoutX="526.0" layoutY="96.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
                   <Label fx:id="errorLastNameLabel" layoutX="526.0" layoutY="148.0" text="Only letters are allowed" textFill="#dd4b39" visible="false" />
+                  <Label fx:id="emptyLastNameLabel" layoutX="526.0" layoutY="148.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
                </children>
                <BorderPane.margin>
                   <Insets left="20.0" top="50.0" />

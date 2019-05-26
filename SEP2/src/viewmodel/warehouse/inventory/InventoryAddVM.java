@@ -37,7 +37,7 @@ public class InventoryAddVM {
         date = new Date(0, 0, 0);
     }
 
-    public void dateConverter() throws ParseException // Here it is important
+    public void dateConverter() throws ParseException
     {
         if (expiryDate.get() != null) {
             LocalDate localDate = expiryDate.get();
@@ -142,5 +142,37 @@ public class InventoryAddVM {
     public boolean onlyNumbersMaxStock()
     {
         return dataModel.onlyNumbers(maxStock.getValue());
+    }
+
+    public void executeEmpty()
+    {
+        if(quantity.getValue().isEmpty() || quantity.getValue() == null)
+        {
+            quantity.setValue("0");
+        }
+
+        if(price.getValue().isEmpty() || price.getValue() == null)
+        {
+            price.setValue("0");
+        }
+
+        if(minStock.getValue().isEmpty() || minStock.getValue() == null)
+        {
+            minStock.setValue("0");
+        }
+
+        if(maxStock.getValue().isEmpty() || maxStock.getValue() == null)
+        {
+            maxStock.setValue("0");
+        }
+    }
+
+    public boolean validDate()
+    {
+        if(canExpire.getValue() && expiryDate.get() == null)
+        {
+            return false;
+        }
+        return true;
     }
 }
