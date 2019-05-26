@@ -93,13 +93,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="114" column="49" lean-forward="true" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
+            <state relative-caret-position="1728">
+              <caret line="114" column="49" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
               <folding>
+                <element signature="e#1395#1396#0" expanded="true" />
                 <element signature="e#1435#1436#0" expanded="true" />
+                <element signature="e#1490#1491#0" expanded="true" />
                 <element signature="e#1521#1522#0" expanded="true" />
+                <element signature="e#1744#1745#0" expanded="true" />
                 <element signature="e#1790#1791#0" expanded="true" />
+                <element signature="e#1849#1850#0" expanded="true" />
                 <element signature="e#1901#1902#0" expanded="true" />
+                <element signature="e#2025#2026#0" expanded="true" />
                 <element signature="e#2078#2079#0" expanded="true" />
               </folding>
             </state>
@@ -109,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeAddHQVM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="846">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="e#1954#1955#0" expanded="true" />
                 <element signature="e#2020#2021#0" expanded="true" />
@@ -128,7 +133,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="738">
               <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
               <folding>
                 <element signature="e#1819#1820#0" expanded="true" />
@@ -143,14 +148,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAddView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="52" column="41" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+            <state relative-caret-position="792">
+              <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
                 <element signature="e#1371#1372#0" expanded="true" />
+                <element signature="e#1426#1427#0" expanded="true" />
                 <element signature="e#1457#1458#0" expanded="true" />
+                <element signature="e#1680#1681#0" expanded="true" />
                 <element signature="e#1724#1725#0" expanded="true" />
+                <element signature="e#1783#1784#0" expanded="true" />
                 <element signature="e#1831#1832#0" expanded="true" />
+                <element signature="e#1891#1892#0" expanded="true" />
                 <element signature="e#1940#1941#0" expanded="true" />
               </folding>
             </state>
@@ -169,7 +179,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/hq/Layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
+            <state relative-caret-position="372">
               <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
             </state>
           </provider>
@@ -177,22 +187,25 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/hq/hq/main/Main.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1223">
-              <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+            <state relative-caret-position="2628">
+              <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
               <folding>
+                <element signature="e#2217#2218#0" expanded="true" />
                 <element signature="e#2256#2257#0" expanded="true" />
+                <element signature="e#2311#2312#0" expanded="true" />
                 <element signature="e#2342#2343#0" expanded="true" />
+                <element signature="e#2564#2565#0" expanded="true" />
                 <element signature="e#2613#2614#0" expanded="true" />
+                <element signature="e#2673#2674#0" expanded="true" />
                 <element signature="e#2718#2719#0" expanded="true" />
+                <element signature="e#2778#2779#0" expanded="true" />
                 <element signature="e#2828#2829#0" expanded="true" />
               </folding>
             </state>
@@ -324,8 +337,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -742,7 +755,7 @@
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.3232" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.32693332" />
       <window_info id="Structure" order="1" weight="0.25266525" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -1112,45 +1125,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAdd.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1223">
-          <caret line="166" column="34" lean-forward="true" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
-          <folding>
-            <element signature="e#2256#2257#0" expanded="true" />
-            <element signature="e#2342#2343#0" expanded="true" />
-            <element signature="e#2613#2614#0" expanded="true" />
-            <element signature="e#2718#2719#0" expanded="true" />
-            <element signature="e#2828#2829#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAdd.fxml">
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RunApplicationHQ.java">
+    <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="1728">
+          <caret line="114" column="49" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
+          <folding>
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1490#1491#0" expanded="true" />
+            <element signature="e#1521#1522#0" expanded="true" />
+            <element signature="e#1744#1745#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+            <element signature="e#1849#1850#0" expanded="true" />
+            <element signature="e#1901#1902#0" expanded="true" />
+            <element signature="e#2025#2026#0" expanded="true" />
+            <element signature="e#2078#2079#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hq/hq/main/Main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72" />
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeAddHQVM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="846">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="e#1954#1955#0" expanded="true" />
             <element signature="e#2020#2021#0" expanded="true" />
@@ -1158,9 +1159,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAdd.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="738">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
           <folding>
             <element signature="e#1819#1820#0" expanded="true" />
@@ -1173,36 +1178,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAddView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="52" column="41" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
+        <state relative-caret-position="792">
+          <caret line="52" column="41" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1371#1372#0" expanded="true" />
+            <element signature="e#1426#1427#0" expanded="true" />
             <element signature="e#1457#1458#0" expanded="true" />
+            <element signature="e#1680#1681#0" expanded="true" />
             <element signature="e#1724#1725#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
             <element signature="e#1831#1832#0" expanded="true" />
+            <element signature="e#1891#1892#0" expanded="true" />
             <element signature="e#1940#1941#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java">
+    <entry file="file://$PROJECT_DIR$/src/RunApplicationHQ.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="114" column="49" lean-forward="true" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hq/hq/main/Main.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2628">
+          <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
           <folding>
-            <element signature="e#1435#1436#0" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1790#1791#0" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#2078#2079#0" expanded="true" />
+            <element signature="e#2217#2218#0" expanded="true" />
+            <element signature="e#2256#2257#0" expanded="true" />
+            <element signature="e#2311#2312#0" expanded="true" />
+            <element signature="e#2342#2343#0" expanded="true" />
+            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#2613#2614#0" expanded="true" />
+            <element signature="e#2673#2674#0" expanded="true" />
+            <element signature="e#2718#2719#0" expanded="true" />
+            <element signature="e#2778#2779#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hq/Layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="372">
           <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
         </state>
       </provider>
