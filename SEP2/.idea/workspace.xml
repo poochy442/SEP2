@@ -2,26 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/Testing/DataModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/Testing/DataModelTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBaseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/jdbc/DataBaseModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/IDataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/IDataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/ProductRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/ProductRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/Packet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/Packet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/EmployeeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/EmployeeList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/StockItemList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/StockItemList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/Validation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/Validation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/Server/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerReceiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/Server/ServerSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/client/ClientReceiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/client/ClientReceiver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/network/client/ClientSender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/network/client/ClientSender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/employeeWarehouse/EmployeeMainWHView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/employeeWarehouse/EmployeeMainWHView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/inventoryWarehouse/InventoryMainWHView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/inventoryWarehouse/InventoryMainWHView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/hq/employeeHQ/EmployeeMainHQView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/hq/employeeHQ/EmployeeMainHQView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/employee/EmployeeMainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/employee/EmployeeMainView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/inventory/InventoryAddView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/inventory/InventoryAddView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/inventory/InventoryMainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/inventory/InventoryMainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IDataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IDataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Packet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryMainVM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/employee/EmployeeMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/employee/EmployeeMainVM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryAddVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryAddVM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/DataModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Testing/DataModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/EmployeeMainVMTest.java" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,129 +89,7 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQ.fxml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-576">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAdd.fxml">
-          <provider selected="true" editor-type-id="text-editor" />
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeAddHQVM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
-              <folding>
-                <element signature="e#1955#1956#0" expanded="true" />
-                <element signature="e#2021#2022#0" expanded="true" />
-                <element signature="e#2062#2063#0" expanded="true" />
-                <element signature="e#2128#2129#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="76" selection-end-column="5" />
-              <folding>
-                <element signature="e#1819#1820#0" expanded="true" />
-                <element signature="e#1885#1886#0" expanded="true" />
-                <element signature="e#1926#1927#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAddView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="68" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1824#1825#0" expanded="true" />
-                <element signature="e#1910#1911#0" expanded="true" />
-                <element signature="e#2176#2177#0" expanded="true" />
-                <element signature="e#2283#2284#0" expanded="true" />
-                <element signature="e#2392#2393#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryAddVM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
-              <folding>
-                <element signature="e#3643#3644#0" expanded="true" />
-                <element signature="e#3674#3675#0" expanded="true" />
-                <element signature="e#3761#3762#0" expanded="true" />
-                <element signature="e#3826#3827#0" expanded="true" />
-                <element signature="e#3874#3875#0" expanded="true" />
-                <element signature="e#3939#3940#0" expanded="true" />
-                <element signature="e#3987#3988#0" expanded="true" />
-                <element signature="e#4052#4053#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/IDataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="133" column="5" lean-forward="true" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="953">
-              <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
-              <folding>
-                <element signature="e#3227#3228#0" expanded="true" />
-                <element signature="e#3313#3314#0" expanded="true" />
-                <element signature="e#3583#3584#0" expanded="true" />
-                <element signature="e#3688#3689#0" expanded="true" />
-                <element signature="e#3798#3799#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -260,8 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeMainHQ.fxml" />
-        <option value="$PROJECT_DIR$/src/view/hq/hq/main/MainView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/hq/hq/main/MainVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/hq/ViewModelProvider.java" />
         <option value="$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQ.fxml" />
@@ -311,6 +193,8 @@
         <option value="$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeAddHQVM.java" />
         <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java" />
+        <option value="$PROJECT_DIR$/src/Testing/DataModelTest.java" />
+        <option value="$PROJECT_DIR$/src/Testing/EmployeeMainVMTest.java" />
       </list>
     </option>
   </component>
@@ -348,165 +232,13 @@
               <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEP2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEP2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="network" type="462c0819:PsiDirectoryNode" />
-              <item name="Server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="controlWarehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="controlWarehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="employeeWarehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="controlWarehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="inventoryWarehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="employeeHQ" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="hq" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="Testing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -528,7 +260,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558697239477" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558874401417" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaLibraries/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -559,7 +291,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunApplication">
+  <component name="RunManager" selected="JUnit.EmployeeMainVMTest.getEmployees">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -574,20 +306,6 @@
     </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DataBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jdbc.DataBase" />
-      <module name="SEP2" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jdbc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -608,46 +326,104 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunApplication" />
-      <module name="SEP2" />
+    <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunApplicationHQ" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunApplicationHQ" />
+    <configuration name="EmployeeListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SEP2" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RunHQ" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunHQ" />
-      <module name="SEP2" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="network.Server.Server" />
-      <module name="SEP2" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="network.Server.*" />
+          <option name="PATTERN" value="Testing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.EmployeeListTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
+    <configuration name="EmployeeMainVMTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.EmployeeMainVMTest" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeMainVMTest.getEmployees" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.EmployeeMainVMTest" />
+      <option name="METHOD_NAME" value="getEmployees" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.EmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerReceiverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Testing" />
+      <option name="MAIN_CLASS_NAME" value="Testing.ServerReceiverTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -685,19 +461,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.RunApplication" />
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.RunApplicationHQ" />
-      <item itemvalue="Application.RunHQ" />
-      <item itemvalue="Application.DataBase" />
+      <item itemvalue="JUnit.EmployeeListTest" />
+      <item itemvalue="JUnit.EmployeeMainVMTest" />
+      <item itemvalue="JUnit.EmployeeTest" />
+      <item itemvalue="JUnit.ServerReceiverTest" />
+      <item itemvalue="JUnit.EmployeeMainVMTest.getEmployees" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunApplication" />
-        <item itemvalue="Application.RunApplicationHQ" />
-        <item itemvalue="Application.DataBase" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.RunHQ" />
+        <item itemvalue="JUnit.EmployeeMainVMTest.getEmployees" />
+        <item itemvalue="JUnit.ServerReceiverTest" />
+        <item itemvalue="JUnit.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeMainVMTest" />
+        <item itemvalue="JUnit.EmployeeListTest" />
       </list>
     </recent_temporary>
   </component>
@@ -715,6 +491,29 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="DataModelTest - 2019.05.26 at 14h 12m 56s.xml">
+      <configuration name="DataModelTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataModelTest - 2019.05.26 at 14h 13m 59s.xml">
+      <configuration name="DataModelTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeListTest - 2019.05.26 at 14h 14m 47s.xml">
+      <configuration name="EmployeeListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeMainVMTest - 2019.05.26 at 14h 14m 52s.xml">
+      <configuration name="EmployeeMainVMTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest - 2019.05.26 at 14h 14m 56s.xml">
+      <configuration name="EmployeeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ServerReceiverTest - 2019.05.26 at 14h 15m 01s.xml">
+      <configuration name="ServerReceiverTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeMainVMTest_getEmployees - 2019.05.26 at 14h 24m 27s.xml">
+      <configuration name="EmployeeMainVMTest.getEmployees" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
@@ -728,10 +527,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.31946668" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.29744136" />
       <window_info id="Structure" order="1" weight="0.25266525" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -744,18 +542,18 @@
       <window_info id="Learn" order="10" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32087913" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32047158" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.17692308" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32857144" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3279743" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.24285714" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.24222937" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="bottom" id="Console" order="15" />
       <window_info anchor="bottom" id="DB Execution Console" order="16" />
@@ -782,90 +580,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Run.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/main/Main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/main/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="37" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-          <folding>
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/main/MainVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#430#431#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/ViewHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="149" column="75" selection-start-line="149" selection-start-column="61" selection-end-line="149" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/ProductRequest.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="233" selection-start-line="18" selection-start-column="233" selection-end-line="18" selection-end-column="233" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/EmployeeList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/network/Server/ServerSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -996,12 +710,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hq/controlWarehouse/employeeWarehouse/EmployeeMainWH.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hq/controlWarehouse/inventoryWarehouse/InventoryMainWH.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RunApplicationHQ.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1017,17 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/controlWarehouse/employeeWarehouse/EmployeeWHVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding>
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1131#1132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/hq/employee/EmployeeMainHQVM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1035,24 +738,6 @@
           <folding>
             <element signature="e#802#803#0" expanded="true" />
             <element signature="e#861#862#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeMainVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/RunApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#113#114#0" expanded="true" />
-            <element signature="e#158#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1079,23 +764,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMain.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="188" column="17" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAdd.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Counter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="47" column="23" lean-forward="true" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="23" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Validation.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1108,13 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="133" column="5" lean-forward="true" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1151,12 +822,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQ.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAdd.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/hq/hq/employeeHQ/EmployeeAddHQView.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1202,6 +873,115 @@
             <element signature="e#3688#3689#0" expanded="true" />
             <element signature="e#3798#3799#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/hq/controlWarehouse/employeeWarehouse/EmployeeWHVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding>
+            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="88" column="92" selection-start-line="88" selection-start-column="92" selection-end-line="88" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/DataModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="120" column="87" lean-forward="true" selection-start-line="120" selection-start-column="87" selection-end-line="120" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/EmployeeListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/EmployeeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/ServerReceiverTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Run.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/ViewHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/hq/ViewHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeMainVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="80" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RunApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="38" lean-forward="true" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding>
+            <element signature="e#113#114#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/ViewModelProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/EmployeeMainVMTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Counter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>
