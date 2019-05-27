@@ -118,6 +118,14 @@ public class InventoryMainHQView {
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");

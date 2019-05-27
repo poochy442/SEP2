@@ -106,13 +106,21 @@ public class EmployeeMainHQView {
     @FXML
     void onRemoveEmployeeClicked(ActionEvent event) {
         selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
-        alert.setContentText("Press ok to continue");
-        alert.showAndWait();
+        if(selectedEmployee == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No employee has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        confirmingAlert.setTitle("Confirmation");
+        confirmingAlert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
+        confirmingAlert.setContentText("Press ok to continue");
+        confirmingAlert.showAndWait();
 
-        if(alert.getResult() == ButtonType.YES) {
+        if(confirmingAlert.getResult() == ButtonType.YES) {
             Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
             employeeTable.getItems().remove(selectedEmployee);
             employeeMainHQVM.removeEmployee(selectedEmployee);

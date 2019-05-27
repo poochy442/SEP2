@@ -97,6 +97,14 @@ public class EmployeeMainView {
     @FXML
     void onRemoveEmployeeClicked(ActionEvent event) {
         selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+        if(selectedEmployee == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No employee has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
