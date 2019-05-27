@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.hq.employeeHQ.EmployeeMainHQView">
+<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.hq.hq.inventoryHQ.InventoryMainHQView">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -32,7 +32,7 @@
                      <children>
                         <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../pictures/businessman.png" />
+                              <Image url="@../../pictures/inventory.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -56,7 +56,7 @@
                         <Image url="@../../pictures/home.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="employeeButton" layoutY="176.0" mnemonicParsing="false" onAction="#onEmployeeClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #B579CF;" text="Employee" textFill="WHITE">
+                  <Button fx:id="employeeButton" layoutY="176.0" mnemonicParsing="false" onAction="#onEmployeeClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Employee" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -93,7 +93,7 @@
                         <Image url="@../../pictures/businessman.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="inventoryButton" layoutY="126.0" mnemonicParsing="false" onAction="#onInventoryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Inventory" textFill="#dddddd">
+                  <Button fx:id="inventoryButton" layoutY="126.0" mnemonicParsing="false" onAction="#onInventoryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #B579CF;" text="Inventory" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -115,19 +115,19 @@
          <bottom>
             <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="309.0" prefHeight="76.0" prefWidth="369.0">
+                  <Pane layoutX="309.0" prefHeight="76.0" prefWidth="662.0">
                      <children>
-                        <Button fx:id="addEmployeeButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #B579CF; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add employee">
+                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #B579CF; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="editEmployeeButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit employee">
+                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="removeEmployeeButton" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove employee">
+                        <Button fx:id="removeItemStockButton" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -138,18 +138,23 @@
             </Pane>
          </bottom>
          <center>
-            <TableView fx:id="employeeTable" fixedCellSize="0.0" prefHeight="650.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="stockItemTable" prefHeight="800.0" prefWidth="941.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="firstNameCol" minWidth="0.0" prefWidth="313.3" text="First name" />
-                  <TableColumn fx:id="lastNameCol" prefWidth="313.3" text="Last name" />
-                  <TableColumn fx:id="iDCol" prefWidth="313.3" text="ID" />
-                  <TableColumn fx:id="departmentIDCol" prefWidth="313.3" text="Department ID" />
+                  <TableColumn fx:id="nameCol" prefWidth="188.0" styleClass="column-1" text="Name" />
+                  <TableColumn fx:id="iDCol" minWidth="0.0" prefWidth="188.0" text="ID" />
+                  <TableColumn fx:id="quantityCol" prefWidth="188.0" text="Quantity" />
+                  <TableColumn fx:id="priceCol" prefWidth="188.0" text="Price" />
+                  <TableColumn fx:id="canExpireCol" prefWidth="188.0" text="Expiry threat" />
+                  <TableColumn fx:id="expiryDateCol" prefWidth="188.0" text="Expiry date" />
+                  <TableColumn fx:id="minStockCol" prefWidth="188.0" text="Min stock" />
+                  <TableColumn fx:id="maxStockCol" prefWidth="188.0" text="Max stock" />
+                  <TableColumn fx:id="locationCol" prefWidth="188.0" text="Location" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <BorderPane.margin>
-                  <Insets top="25.0" />
+                  <Insets top="24.0" />
                </BorderPane.margin>
             </TableView>
          </center>

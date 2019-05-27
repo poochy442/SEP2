@@ -98,6 +98,12 @@ public class EmployeeMainHQView {
     }
 
     @FXML
+    void onInventoryClicked(ActionEvent event)
+    {
+        employeeMainHQVM.openInventoryMainHQView();
+    }
+
+    @FXML
     void onRemoveEmployeeClicked(ActionEvent event) {
         selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);

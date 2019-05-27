@@ -54,13 +54,13 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
      */
     public void openInventoryWHView()
     {
-        viewHandler.openInventoryWHView();
+        viewHandler.openInventoryMainWHView();
     }
 
     /**
      * This method opens the main Warehouse Employee view.
      */
-    public void openEmployeeMainWHView() {viewHandler.openEmployeeWHView();
+    public void openEmployeeMainWHView() {viewHandler.openEmployeeMainWHView();
     }
 
     /**

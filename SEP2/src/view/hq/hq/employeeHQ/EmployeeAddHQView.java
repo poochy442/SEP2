@@ -103,6 +103,11 @@ public class EmployeeAddHQView {
     }
 
     @FXML
+    void onInventoryClicked(ActionEvent event) {
+        employeeAddHQVM.openInventoryMainHQView();
+    }
+
+    @FXML
     void onWarehouseClicked(MouseEvent event) {
         employeeAddHQVM.openInventoryWHView();
     }

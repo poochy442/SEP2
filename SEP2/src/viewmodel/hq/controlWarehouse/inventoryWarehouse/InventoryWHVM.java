@@ -50,7 +50,7 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
      * This method opens the Warehouse Employee view.
      */
     public void openEmployeeWHView() {
-        viewHandler.openEmployeeWHView();
+        viewHandler.openEmployeeMainWHView();
     }
 
     /**

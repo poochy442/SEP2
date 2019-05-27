@@ -6,6 +6,8 @@ import viewmodel.hq.controlWarehouse.employeeWarehouse.EmployeeWHVM;
 import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
 import viewmodel.hq.hq.employee.EmployeeAddHQVM;
 import viewmodel.hq.hq.employee.EmployeeMainHQVM;
+import viewmodel.hq.hq.inventory.InventoryAddHQVM;
+import viewmodel.hq.hq.inventory.InventoryMainHQVM;
 import viewmodel.hq.hq.main.MainVM;
 
 /**
@@ -26,6 +28,8 @@ public class ViewModelProvider {
     private EmployeeAddHQVM employeeAddHQVM;
     private InventoryWHVM inventoryWHVM;
     private EmployeeWHVM employeeWHVM;
+    private InventoryMainHQVM inventoryMainHQVM;
+    private InventoryAddHQVM inventoryAddHQVM;
 
     /**
      * Creates a ViewModelProvider with the specified information
@@ -50,6 +54,22 @@ public class ViewModelProvider {
      */
     public EmployeeMainHQVM getEmployeeMainHQVM() {
         return employeeMainHQVM;
+    }
+
+    /**
+     * This method gets the Headquarters add Inventory viewmodel.
+     * @return The Headquarters add Inventory viewmodel.
+     */
+    public InventoryAddHQVM getInventoryAddHQVM() {
+        return inventoryAddHQVM;
+    }
+
+    /**
+     * This method gets the Headquarters main Inventory viewmodel.
+     * @return The Headquarters main Inventory viewmodel.
+     */
+    public InventoryMainHQVM getInventoryMainHQVM() {
+        return inventoryMainHQVM;
     }
 
     /**
@@ -86,5 +106,7 @@ public class ViewModelProvider {
         mainVM = new MainVM(dataModel, viewHandler);
         inventoryWHVM = new InventoryWHVM(dataModel,viewHandler);
         employeeWHVM = new EmployeeWHVM(dataModel,viewHandler);
+        inventoryAddHQVM = new InventoryAddHQVM(dataModel, viewHandler);
+        inventoryMainHQVM = new InventoryMainHQVM(dataModel, viewHandler);
     }
 }

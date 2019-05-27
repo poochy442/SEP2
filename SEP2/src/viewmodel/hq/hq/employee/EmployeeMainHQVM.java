@@ -70,7 +70,7 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
     /**
      * This method opens the Waraehouse main Inventory view.
      */
-    public void openInventoryMainWHView() { viewHandler.openInventoryWHView();
+    public void openInventoryMainWHView() { viewHandler.openInventoryMainWHView();
     }
 
     /**
@@ -78,5 +78,8 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
      * @param e The {@link Employee} to be removed.
      */
     public void removeEmployee(Employee e) {dataModel.removeEmployeeHQ(e);
+    }
+
+    public void openInventoryMainHQView() {viewHandler.openInventoryMainHQView();
     }
 }

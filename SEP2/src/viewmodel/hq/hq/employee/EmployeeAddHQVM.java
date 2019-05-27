@@ -88,7 +88,7 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
      * This method opens the Warehouse Inventory view.
      */
     public void openInventoryWHView() {
-        viewHandler.openInventoryWHView();
+        viewHandler.openInventoryMainWHView();
     }
 
     /**
@@ -117,5 +117,8 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
      */
     public boolean validateLastName() {
         return  dataModel.onlyLetters(lastName.getValue());
+    }
+
+    public void openInventoryMainHQView() { viewHandler.openInventoryMainHQView();
     }
 }

@@ -11,6 +11,8 @@ import view.hq.controlWarehouse.employeeWarehouse.EmployeeMainWHView;
 import view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView;
 import view.hq.hq.employeeHQ.EmployeeAddHQView;
 import view.hq.hq.employeeHQ.EmployeeMainHQView;
+import view.hq.hq.inventoryHQ.InventoryAddHQView;
+import view.hq.hq.inventoryHQ.InventoryMainHQView;
 import view.hq.hq.main.MainView;
 import viewmodel.hq.ViewModelProvider;
 
@@ -81,7 +83,7 @@ public class ViewHandler {
     /**
      * This method opens the Warehouses' inventory view.
      */
-    public void openInventoryWHView() {
+    public void openInventoryMainWHView() {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("controlWarehouse/inventoryWarehouse/InventoryMainWH.fxml"));
@@ -105,7 +107,7 @@ public class ViewHandler {
     /**
      * This method opens the Warehouses' Employee view.
      */
-    public void openEmployeeWHView() {
+    public void openEmployeeMainWHView() {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("controlWarehouse/employeeWarehouse/EmployeeMainWH.fxml"));
@@ -169,6 +171,48 @@ public class ViewHandler {
         MainView view = loader.getController();
         view.init(viewModelProvider.getMainVM());
         primaryStage.setTitle("Dashboard");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openInventoryMainHQView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("hq/inventoryHQ/InventoryMainHQ.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        InventoryMainHQView view = loader.getController();
+        view.init(viewModelProvider.getInventoryMainHQVM());
+        primaryStage.setTitle("Stock item list HQ");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openInventoryAddHQView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("hq/inventoryHQ/InventoryAddHQ.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        InventoryAddHQView view = loader.getController();
+        view.init(viewModelProvider.getInventoryAddHQVM());
+        primaryStage.setTitle("Add Stock item list HQ");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

@@ -1,10 +1,10 @@
-package viewmodel.warehouse.inventory;
+package viewmodel.hq.hq.inventory;
 
 import javafx.beans.property.*;
 import javafx.scene.control.Alert;
 import model.IDataModel;
 import model.StockItem;
-import view.warehouse.ViewHandler;
+import view.hq.ViewHandler;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +20,7 @@ import java.util.Date;
  * @author Dave Joe Lê
  */
 
-public class InventoryAddVM {
+public class InventoryAddHQVM {
     private StringProperty name;
     private StringProperty quantity;
     private StringProperty price;
@@ -37,7 +37,7 @@ public class InventoryAddVM {
      * @param dataModel The {@link model.DataModel} to be used.
      * @param viewHandler The {@link ViewHandler} to be used.
      */
-    public InventoryAddVM(IDataModel dataModel, ViewHandler viewHandler) {
+    public InventoryAddHQVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         name = new SimpleStringProperty();
@@ -78,7 +78,7 @@ public class InventoryAddVM {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()), "WH");
+        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()), "HQ");
         //TODO LOCATION IS NOT SET WE NEED IT FROM VIEW
         dataModel.addItemFromUser(si);
 
@@ -96,7 +96,7 @@ public class InventoryAddVM {
      * This method opens the main Inventory view.
      */
     public void goBack() {
-        viewHandler.openInventoryMainView();
+        viewHandler.openInventoryMainHQView();
     }
 
     /**
@@ -140,24 +140,24 @@ public class InventoryAddVM {
     }
 
     /**
-     * This method opens the main view.
+     * This method opens the main view of HQ.
      */
     public void openMainView() {
-        viewHandler.openMainView();
+        viewHandler.openMainHQView();
     }
 
     /**
      * This method opens the main Inventory view.
      */
     public void openInventoryView() {
-        viewHandler.openInventoryMainView();
+        viewHandler.openInventoryMainHQView();
     }
 
     /**
      * This method opens the main Employee view.
      */
     public void openEmployeeView() {
-        viewHandler.openEmployeeMainView();
+        viewHandler.openEmployeeMainHQView();
     }
 
     /**
@@ -259,5 +259,8 @@ public class InventoryAddVM {
             return false;
         }
         return true;
+    }
+
+    public void openInventoryWHView() {viewHandler.openInventoryMainWHView();
     }
 }

@@ -28,6 +28,11 @@ public class MainView {
     }
 
     @FXML
+    void onInventoryClicked(ActionEvent event) {
+        mainVM.openInventoryMainHQView();
+    }
+
+    @FXML
     void onDashboardClicked(ActionEvent event) {
         mainVM.openMainView();
     }
