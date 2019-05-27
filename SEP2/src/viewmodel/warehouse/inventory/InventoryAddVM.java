@@ -182,7 +182,7 @@ public class InventoryAddVM {
     public void confirmation() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
-        alert.setHeaderText("Employee has been added");
+        alert.setHeaderText("Stock item has been added");
         alert.setContentText("Press ok to continue");
         alert.showAndWait();
     }
