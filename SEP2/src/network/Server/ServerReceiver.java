@@ -71,7 +71,7 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
-                        System.out.println("ServerReceiver: item stored to database = " + dataBaseModel.addItemToDataBase(stockItem, "WH"));
+                        System.out.println("ServerReceiver: item stored to database = " + dataBaseModel.addItemToDataBase(stockItem, stockItem.getLocation()));
 
 
                         break;
@@ -94,11 +94,11 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.DeleteItemFromWH:
                         StockItem stockItem1 = gson.fromJson(json, StockItem.class);
-                        System.out.println("Server Receiver: Stock item deleted from database = " + dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), "WH"));
+                        System.out.println("Server Receiver: Stock item deleted from database = " + dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), stockItem1.getLocation()));
                         break;
                     case Packet.DeleteItemFromHQ:
                         StockItem stockItem2 = gson.fromJson(json, StockItem.class);
-                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(), "WH");
+                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(),stockItem2.getLocation());
                         break;
                     case Packet.DeleteEmployee:
                         Employee employee = gson.fromJson(json, Employee.class);

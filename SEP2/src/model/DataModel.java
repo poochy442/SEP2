@@ -167,7 +167,7 @@ public class DataModel implements IDataModel {
     @Override
     public void removeStockItemHQ(StockItem stockItem) {
         stockItemList.remove(stockItem);
-        propertyChangeSupport.firePropertyChange("???", null, stockItem);
+        propertyChangeSupport.firePropertyChange("DeleteItemFromWH", null, stockItem);
         //todo for now we dont have stock item department so we need different methods, we can change it if we agree in something
     }
 

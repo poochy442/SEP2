@@ -81,6 +81,7 @@ public class InventoryAddHQVM {
         StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()), "HQ");
         //TODO LOCATION IS NOT SET WE NEED IT FROM VIEW
         dataModel.addItemFromUser(si);
+        System.out.println("InventoryAddHQVM "+ si.getLocation());
 
         //Resetting fields in view
         name.setValue("");

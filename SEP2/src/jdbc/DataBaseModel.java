@@ -13,7 +13,7 @@ public class DataBaseModel {
     PreparedStatement employeeInsertStatement;
     PreparedStatement employeeQuery;
     PreparedStatement stockItemInsertStatement;
-    PreparedStatement stockitemQuery;
+    PreparedStatement stockItemQuery;
     PreparedStatement requestInsertStatement;
     PreparedStatement itemListInsertStatement;
     PreparedStatement deleteItemByIDandDep;
@@ -24,13 +24,14 @@ public class DataBaseModel {
         setConnection();
         departmentInsertStatement = prepareDepartmentStatement();
         employeeInsertStatement = prepareEmployeeStatement();
-        stockitemQuery = prepareWHItemQuery();
+        stockItemQuery = prepareWHItemQuery();
         stockItemInsertStatement = prepareStockItemStatement();
         requestInsertStatement = prepareInsertRequest();
         itemListInsertStatement = prepareInsertItemListRequest();
         changeSupport = new PropertyChangeSupport(this);
         deleteItemByIDandDep = prepareDeleteItemFromWH();
         deleteEmployee = prepareDeleteEmployee();
+        employeeQuery = prepareEmployeeQuery();
 
 
     }
@@ -273,7 +274,7 @@ public class DataBaseModel {
         try {
 
             employeeQuery.setString(1,departmentID);
-            ResultSet resultSet = prepareEmployeeQuery().executeQuery();
+            ResultSet resultSet = employeeQuery.executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
                 for (int i = 0; i < row.length; i++) {
@@ -311,7 +312,8 @@ public class DataBaseModel {
         StockItemList stockItemList = new StockItemList();
         try {
 
-            ResultSet resultSet = prepareWHItemQuery().executeQuery();
+            stockItemQuery.setString(1,departmentID);
+            ResultSet resultSet = stockItemQuery.executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
                 for (int i = 0; i < row.length; i++) {
@@ -418,11 +420,11 @@ public class DataBaseModel {
 
 
         try {
-            stockitemQuery = connection.prepareStatement(preparedStatement);
+            stockItemQuery = connection.prepareStatement(preparedStatement);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return stockitemQuery;
+        return stockItemQuery;
     }
 
 
@@ -520,15 +522,10 @@ public class DataBaseModel {
 
     public boolean deleteItemByIdAndDepartment(String id, String department) {
         try {
-
-
             deleteItemByIDandDep.setString(1, id);
             deleteItemByIDandDep.setString(2, department);
             deleteItemByIDandDep.executeUpdate();
-
-
             return true;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
