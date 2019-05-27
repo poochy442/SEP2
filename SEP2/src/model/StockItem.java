@@ -143,4 +143,15 @@ public class StockItem {
     public Date getExpiryDate() {
         return expiryDate;
     }
+
+
+    /**
+     * Gets the location of the Item.
+     *
+     * @return The location of the Item.
+     */
+    public String getLocation()
+    {
+        return location;
+    }
 }
