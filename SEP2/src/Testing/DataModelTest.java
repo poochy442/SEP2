@@ -10,20 +10,28 @@ import java.util.Date;
 
 public class DataModelTest {
 
+    // The variables needed for this test, to be set up in the Setup() method
+
     DataModel dataModel;
-    Employee e;
-    Employee f;
-    StockItem i;
+    EmployeeList eList;
+    StockItemList sList;
 
     @Before
     public void setUp() throws Exception {
+        // In the setup we set up the DataModel we are going to be testing, 2 Employees in a List
+        // and a Stock Item in a list
+
         dataModel = new DataModel();
-        e = new Employee("kenneth", "jensen", "1", "HQ");
-        f = new Employee("Dave", "Bob", "123", "WH");
-        Date date = new Date();
-        i = new StockItem("banana", "500", -500, 6876, false, date, 50, 60);
-
-
+        eList = new EmployeeList();
+        sList = new StockItemList();
+        Employee e1 = new Employee("Kenneth", "Jensen", "1", "1");
+        Employee e2 = new Employee("Florin", "Bordei", "2", "1");
+        eList.add(e1); eList.add(e2);
+        StockItem s1 = new StockItem("Banana", "1",
+                100, 5,
+                false, new Date(1,1,1),
+                5, 500);
+        sList.add(s1);
     }
 
     @After
@@ -33,91 +41,65 @@ public class DataModelTest {
 
     @Test
     public void getEmployeeList() {
-        EmployeeList emplooyeeListTest = new EmployeeList();
-        emplooyeeListTest.add(e);
-        emplooyeeListTest.add(f);
-        dataModel.setEmployeeList(emplooyeeListTest);
-        Assert.assertEquals(emplooyeeListTest, dataModel.getEmployeeList());
+        // We test if we can call a method in the EmployeeList, by testing if the size = 0
+
+        Assert.assertTrue(dataModel.getEmployeeList().size() == 0);
     }
 
     @Test
-    public void addEmployeeToClient() {
-        for(int i = 0; i < dataModel.getEmployeeList().size(); i++)
-        {
-            dataModel.getEmployeeList().remove(i);
-        }
-        dataModel.addEmployeeFromUser(e);
-        boolean biggerSize = false;
-        if(dataModel.getEmployeeList().size() > 0)
-        {
-            biggerSize = true;
-        }
-        Assert.assertTrue(biggerSize);
+    public void addEmployeeFromUser() {
+        // We add an employee from our List and then test if the size of the List is 1
+
+        dataModel.addEmployeeFromUser(eList.get(0));
+        Assert.assertTrue(dataModel.getEmployeeList().size() == 1);
     }
 
     @Test
-    public void addEmployeeToServer() {
-        for(int i = 0; i < dataModel.getEmployeeList().size(); i++)
-        {
-            dataModel.getEmployeeList().remove(i);
-        }
-        dataModel.addEmployeeFromServer(e);
-        boolean biggerSize = false;
-        if(dataModel.getEmployeeList().size() > 0)
-        {
-            biggerSize = true;
-        }
-        Assert.assertTrue(biggerSize);
+    public void addEmployeeFromServer() {
+        // We add an employee from our List and then test if the size of the List is 1
+
+        dataModel.addEmployeeFromServer(eList.get(0));
+        Assert.assertTrue(dataModel.getEmployeeList().size() == 1);
     }
 
     @Test
-    public void addListener() {
+    public void addItemFromUser() {
+        // We add a Stock Item from our List and then test if the size of the List is 1
 
+        dataModel.addItemFromUser(sList.get(0));
+        Assert.assertTrue(dataModel.getStockItemList().size() == 1);
     }
 
     @Test
-    public void addItemToClient() {
-        for(int i = 0; i < dataModel.getStockItemList().size(); i++) {
-            dataModel.getStockItemList().remove(i);
-        }
-        dataModel.addItemFromServer(i);
-        Assert.assertNotNull(dataModel.getStockItemList());
-    }
+    public void addItemFromServer() {
+        // We add a Stock Item from our List and then test if the size of the List is 1
 
-    @Test
-    public void addItemToServer() {
-        for(int i = 0; i < dataModel.getStockItemList().size(); i++) {
-            dataModel.getStockItemList().remove(i);
-        }
-        dataModel.addItemFromUser(i);
-        Assert.assertNotNull(dataModel.getStockItemList());
+        dataModel.addItemFromUser(sList.get(0));
+        Assert.assertTrue(dataModel.getStockItemList().size() == 1);
     }
 
     @Test
     public void setEmployeeList() {
-        EmployeeList employeeList = new EmployeeList();
-        EmployeeList employeeListTest = new EmployeeList();
-        employeeList.add(e);
-        employeeListTest.add(e);
-        dataModel.setEmployeeList(employeeListTest);
-        Assert.assertEquals(employeeList.size(), dataModel.getEmployeeList().size());
+        // We set the DataModel's EmployeeList equal to eList and then test whether the two tables are now equal
+        // each other
+
+        dataModel.setEmployeeList(eList);
+        Assert.assertEquals(eList, dataModel.getEmployeeList());
     }
 
     @Test
     public void getStockItemList() {
-        StockItemList stockItemListTest = new StockItemList();
-        stockItemListTest.add(i);
-        dataModel.setStockItemList(stockItemListTest);
-        Assert.assertEquals(stockItemListTest, dataModel.getStockItemList());
+        // We test that we can call a method in the StockItemList by testing if the size = 0
+
+        Assert.assertTrue(dataModel.getStockItemList().size() == 0);
     }
 
     @Test
     public void setStockItemList() {
-        StockItemList stockItemList = new StockItemList();
-        StockItemList stockItemListTest = new StockItemList();
-        stockItemList.add(i);
-        stockItemList.add(i);
-        dataModel.setStockItemList(stockItemList);
-        Assert.assertEquals(stockItemList.size(), dataModel.getEmployeeList().size());
+        // We set the DataModel's StockItemList equal to sList and then test whether the two tables are now equal
+        // each other
+
+        dataModel.setStockItemList(sList);
+        Assert.assertEquals(sList, dataModel.getStockItemList());
     }
 }

@@ -21,7 +21,7 @@ public class DataBase {
 //        productRequestList.addRequestToList(p1);
 //        productRequestList.addRequestToList(p2);
 //        System.out.println(dataBaseModel.addRequestItemsToDataBase(productRequestList,1));
-//        System.out.println(productRequestList.getSize());
+//        System.out.println(productRequestList.Size());
         System.out.println(dataBaseModel.deleteItemByIdAndDepartment("1234","WH"));
     }
 }

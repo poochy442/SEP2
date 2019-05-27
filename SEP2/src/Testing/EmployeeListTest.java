@@ -22,14 +22,19 @@ import java.util.List;
 
 public class EmployeeListTest {
 
+    // Variables needed in the test
+
     Employee e;
     Employee f;
-    EmployeeList test = new EmployeeList();
+    EmployeeList test;
 
     @Before
     public void setUp() throws Exception {
-    e = new Employee("Kevin", "Johny", "12", "HQ");
-    f = new Employee("Dave", "Bob", "123", "WH");
+        // Here we set up the List and 2 Employees
+
+        test = new EmployeeList();
+        e = new Employee("Kevin", "Johny", "12", "HQ");
+        f = new Employee("Dave", "Bob", "123", "WH");
     }
 
     @After
@@ -38,14 +43,16 @@ public class EmployeeListTest {
 
     @Test
     public void add() {
+        // We add an Employee and test if the Employee were added to the list
+
         test.add(e);
         Assert.assertEquals(e, test.get(0));
-        System.out.println(test.get(0));
-
     }
 
     @Test
     public void add1() {
+        // We add a List of Employees and test that both Employees were added to the list
+
         List<Employee> employees = new ArrayList<>();
         employees.add(e);
         employees.add(f);
@@ -56,38 +63,37 @@ public class EmployeeListTest {
 
     @Test
     public void remove() {
+        // We add an employee to the list, remove it by passing the Employee, and test that it was removed
+
         test.add(e);
         test.remove(e);
         boolean size = false;
-        if(test.size() == 0)
-        {
-            size = true;
-        }
-        Assert.assertTrue(size);
+        Assert.assertTrue(test.size() == 0);
     }
 
     @Test
     public void remove1() {
+        // We add an Employee to the list and remove it by passing the index. and test that it was remove
+
         test.add(e);
         test.remove(0);
         boolean size = false;
-        if(test.size() == 0)
-        {
-            size = true;
-        }
-        Assert.assertTrue(size);
+        Assert.assertTrue(test.size() == 0);
     }
 
     @Test
     public void get() {
-        EmployeeList el = new EmployeeList();
-        el.add(e);
-        Assert.assertEquals(el.get(0), e);
+        // We add an Employee to the list and test whether we can retrieve it
+
+        test.add(e);
+        Assert.assertEquals(test.get(0), e);
 
     }
 
     @Test
     public void size() {
+        // We add 2 Employees to the table and test whether we get the correct size back
+
         test.add(e);
         test.add(f);
         Assert.assertEquals(test.size(), 2);

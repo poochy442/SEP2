@@ -14,6 +14,15 @@ import javafx.stage.Stage;
 import model.Employee;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 
+/**
+ * The view Class for the main Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeMainView {
 
     @FXML
@@ -37,11 +46,18 @@ public class EmployeeMainView {
 
     private Employee selectedEmployee;
 
+    /**
+     * Creates an EmployeeMainView.
+     */
     public EmployeeMainView()
     {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param employeeMainVM the {@link EmployeeMainVM} viewmodel to be used.
+     */
     public void init(EmployeeMainVM employeeMainVM)
     {
         this.employeeMainVM = employeeMainVM;

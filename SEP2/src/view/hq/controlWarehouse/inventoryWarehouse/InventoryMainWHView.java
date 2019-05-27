@@ -16,6 +16,15 @@ import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
 
 import java.time.LocalDate;
 
+/**
+ * The view Class for the main Warehouse view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class InventoryMainWHView {
     @FXML
     private TableView<StockItem> stockItemTable;
@@ -50,11 +59,18 @@ public class InventoryMainWHView {
     private InventoryWHVM inventoryWHVM;
     private StockItem selectedItem;
 
+    /**
+     * Creates an InventoryMainWHView.
+     */
     public InventoryMainWHView()
     {
 
     }
 
+    /**
+     * An init method, instantiating all the fields required.
+     * @param inventoryWHVM The {@link InventoryWHVM} viewmodel to be used.
+     */
     public void init(InventoryWHVM inventoryWHVM)
     {
         this.inventoryWHVM = inventoryWHVM;

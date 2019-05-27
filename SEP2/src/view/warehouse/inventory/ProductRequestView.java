@@ -13,6 +13,15 @@ import model.ProductRequest;
 import model.StockItem;
 import viewmodel.warehouse.inventory.ProductRequestVM;
 
+/**
+ * The view Class for the Product Request view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class ProductRequestView {
 
     @FXML
@@ -32,12 +41,18 @@ public class ProductRequestView {
 
     private ProductRequestVM productRequestVM;
 
+    /**
+     * Creates a ProductRequestView.
+     */
     public ProductRequestView()
     {
 
     }
 
-
+    /**
+     * An init method instantiating all the required fields.
+     * @param productRequestVM The {@link ProductRequestVM} viewmodel to be used.
+     */
     public void init(ProductRequestVM productRequestVM) {
         this.productRequestVM = productRequestVM;
         productRequestTable.setItems(productRequestVM.getProductRequests());

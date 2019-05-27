@@ -435,7 +435,7 @@ public class DataBaseModel {
 
     public boolean addRequestItemsToDataBase(ProductRequestList productRequestList, int requestID) {
         try {
-            for (int i = 0; i < productRequestList.getSize(); i++) {
+            for (int i = 0; i < productRequestList.Size(); i++) {
                 ProductRequest productRequest = productRequestList.getProductRequest(i);
                 itemListInsertStatement.setString(1, "" + requestID);
                 itemListInsertStatement.setString(2, productRequest.getProductId());

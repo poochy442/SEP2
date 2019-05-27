@@ -10,6 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.hq.hq.employee.EmployeeAddHQVM;
 
+/**
+ * The view Class for the Headquarter's add Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeAddHQView {
     @FXML
     private TextField firstNameField;
@@ -37,10 +46,17 @@ public class EmployeeAddHQView {
 
     private EmployeeAddHQVM employeeAddHQVM;
 
+    /**
+     * Creates an EmployeeAddHQView.
+     */
     public EmployeeAddHQView() {
 
     }
 
+    /**
+     * An init method instantiating all the fields required.
+     * @param employeeAddHQVM The {@link EmployeeAddHQVM} viewmodel to use.
+     */
     public void init(EmployeeAddHQVM employeeAddHQVM) {
         this.employeeAddHQVM = employeeAddHQVM;
         firstNameField.textProperty().bindBidirectional(employeeAddHQVM.firstNameProperty());

@@ -10,6 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.warehouse.employee.EmployeeAddVM;
 
+/**
+ * The view Class for the add Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeAddView {
 
     @FXML
@@ -34,10 +43,17 @@ public class EmployeeAddView {
 
     private EmployeeAddVM employeeAddVM;
 
+    /**
+     * Creates an EmployeeAddView.
+     */
     public EmployeeAddView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param employeeAddVM The {@link EmployeeAddVM} viewmodel to be used.
+     */
     public void init(EmployeeAddVM employeeAddVM) {
         this.employeeAddVM = employeeAddVM;
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());

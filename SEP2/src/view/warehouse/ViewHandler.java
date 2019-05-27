@@ -17,11 +17,26 @@ import viewmodel.warehouse.ViewModelProvider;
 
 import java.io.IOException;
 
+/**
+ * <h1>The ViewHandler Class for the Warehouse</h1>
+ * This Class is responsible for opening the different views the Warehouse has access to.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class ViewHandler {
     private Stage primaryStage;
     private ViewModelProvider viewModelProvider;
     private Rectangle2D screenSize;
 
+    /**
+     * Creates a ViewHandler with the specified information
+     * @param stage The {@link Stage} to be used.
+     * @param vmp The {@link ViewModelProvider} to be used.
+     */
     public ViewHandler(Stage stage, ViewModelProvider vmp)
     {
         primaryStage = stage;
@@ -32,10 +47,16 @@ public class ViewHandler {
         viewModelProvider.instantiateViewModels(this);
     }
 
+    /**
+     * The start method, to be called upon the start of our program, which will open the default view.
+     */
     public void start() {
         openMainView();
     }
 
+    /**
+     * This method opens the main view.
+     */
     public void openMainView()
     {
         FXMLLoader loader = new FXMLLoader();
@@ -58,6 +79,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the main Employee view.
+     */
     public void openEmployeeMainView()
     {
         FXMLLoader loader = new FXMLLoader();
@@ -80,6 +104,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the main Inventory view,
+     */
     public void openInventoryMainView()
     {
         FXMLLoader loader = new FXMLLoader();
@@ -102,6 +129,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the add Employee view.
+     */
     public void openEmployeeAddView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -123,6 +153,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the add Inventory view.
+     */
     public void openInventoryAddView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -144,6 +177,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the Product Request view.
+     */
     public void openProductRequestView() {
         FXMLLoader loader = new FXMLLoader();
 

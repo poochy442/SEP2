@@ -14,6 +14,15 @@ import javafx.stage.Stage;
 import model.Employee;
 import viewmodel.hq.controlWarehouse.employeeWarehouse.EmployeeWHVM;
 
+/**
+ * The view Class for the main Warehouse view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeMainWHView {
     @FXML
     private TableView<Employee> employeeTable;
@@ -36,10 +45,17 @@ public class EmployeeMainWHView {
     private EmployeeWHVM employeeWHVM;
     private Employee selectedEmployee;
 
+    /**
+     * Creates an EmployeeMainWHView
+     */
     public EmployeeMainWHView() {
 
     }
 
+    /**
+     * An init method, initiating all the required fields
+     * @param employeeWHVM The {@link EmployeeWHVM} viewmodel to be used.
+     */
     public void init(EmployeeWHVM employeeWHVM) {
         this.employeeWHVM = employeeWHVM;
         employeeTable.setItems(employeeWHVM.getEmployees());

@@ -12,6 +12,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.warehouse.inventory.InventoryAddVM;
 
+/**
+ * The view Class for the add Inventory view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class InventoryAddView {
     @FXML
     private TextField nameField;
@@ -57,10 +66,17 @@ public class InventoryAddView {
 
     private InventoryAddVM inventoryAddVM;
 
+    /**
+     * Creates an InventoryAddView.
+     */
     public InventoryAddView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param inventoryAddVM the {@link InventoryAddVM} viewmodel to be used.
+     */
     public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());

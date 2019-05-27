@@ -14,6 +14,15 @@ import javafx.stage.Stage;
 import model.Employee;
 import viewmodel.hq.hq.employee.EmployeeMainHQVM;
 
+/**
+ * The view Class for the Headquarter's main Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeMainHQView {
     @FXML
     private TableView<Employee> employeeTable;
@@ -36,10 +45,17 @@ public class EmployeeMainHQView {
     private EmployeeMainHQVM employeeMainHQVM;
     private Employee selectedEmployee;
 
+    /**
+     * Creates an EmployeeMainHQView.
+     */
     public EmployeeMainHQView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param employeeMainHQVM The {@link EmployeeMainHQVM} viewmodel to use.
+     */
     public void init(EmployeeMainHQVM employeeMainHQVM)
     {
         this.employeeMainHQVM = employeeMainHQVM;

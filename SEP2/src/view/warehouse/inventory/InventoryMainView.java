@@ -16,6 +16,15 @@ import viewmodel.warehouse.inventory.InventoryMainVM;
 
 import java.time.LocalDate;
 
+/**
+ * The view Class for the main Inventory view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class InventoryMainView {
 
     @FXML
@@ -52,10 +61,17 @@ public class InventoryMainView {
 
     private StockItem selectedItem;
 
+    /**
+     * Creates an InventoryMainView.
+     */
     public InventoryMainView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param inventoryMainVM The {@link InventoryMainVM} viewmodel to be used.
+     */
     public void init(InventoryMainVM inventoryMainVM) {
         this.inventoryMainVM = inventoryMainVM;
         stockItemTable.setItems(inventoryMainVM.getStockItems());

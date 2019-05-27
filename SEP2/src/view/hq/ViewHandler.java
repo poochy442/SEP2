@@ -16,11 +16,26 @@ import viewmodel.hq.ViewModelProvider;
 
 import java.io.IOException;
 
+/**
+ * <h1>The ViewHandler Class for the Headquarters</h1>
+ * This Class is responsible for opening the different views the Headquarters has access to.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class ViewHandler {
     private Stage primaryStage;
     private ViewModelProvider viewModelProvider;
     private Rectangle2D screenSize;
 
+    /**
+     * Creates a ViewHandler with the specified information.
+     * @param stage The {@link Stage} to be used.
+     * @param vmp The {@link ViewModelProvider} to be used.
+     */
     public ViewHandler(Stage stage, ViewModelProvider vmp)
     {
         primaryStage = stage;
@@ -31,10 +46,16 @@ public class ViewHandler {
         viewModelProvider.instantiateViewModels(this);
     }
 
+    /**
+     * The start method, to be called upon the start of our program, which will open the default view.
+     */
     public void start() {
         openMainHQView();
     }
 
+    /**
+     * This method opens the Headquarterrs' main Employee view.
+     */
     public void openEmployeeMainHQView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -57,6 +78,9 @@ public class ViewHandler {
 
     }
 
+    /**
+     * This method opens the Warehouses' inventory view.
+     */
     public void openInventoryWHView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -78,6 +102,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the Warehouses' Employee view.
+     */
     public void openEmployeeWHView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -99,6 +126,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the Headquartes' add Employee view.
+     */
     public void openEmployeeAddHQView() {
         FXMLLoader loader = new FXMLLoader();
 
@@ -120,6 +150,9 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    /**
+     * This method opens the main (and default) Headquarters view.
+     */
     public void openMainHQView()
     {
         FXMLLoader loader = new FXMLLoader();

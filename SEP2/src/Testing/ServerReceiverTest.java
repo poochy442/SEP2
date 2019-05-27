@@ -17,12 +17,17 @@ import java.net.Socket;
 
 public class ServerReceiverTest {
 
+    // Variables needed for the test
+
     Socket socket;
     ServerReceiver receiver;
     Thread t1;
 
     @Before
     public void setUp() throws Exception {
+        // We set up a Server and connect it with a Client, then setup a DataBaseModel to instantiate the ServerReceiver
+        // We then start the receiver in a new Thread to be able to test it
+
         ServerSocket welcomeSocket = new ServerSocket(1111);
         socket = new Socket("localhost", 1111);
         DataBaseModel dataBaseModel = new DataBaseModel();
@@ -37,6 +42,10 @@ public class ServerReceiverTest {
 
     @Test
     public void run() throws IOException, InterruptedException {
+        // We set up an ObjectOutputStream using the Socket of the Server, to be able to send information to the Server.
+        // Then we Create a Packet with the JSON of an EmployeeList. The test succeeds if the Server output
+        // The information of the EmployeeList to the Console
+
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         Gson gson = new Gson();
         Employee e = new Employee("kenneth", "jensen", "1", "HQ");
