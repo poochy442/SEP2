@@ -31,7 +31,8 @@ public class ClientSender implements Runnable {
 
     /**
      * Creates a ClientSender with the specified information and adds the required {@link java.net.http.WebSocket.Listener}s.
-     * @param socket The {@link Socket} for the ClientSender to use.
+     *
+     * @param socket    The {@link Socket} for the ClientSender to use.
      * @param dataModel The {@link DataModel} for the ClientSender to use.
      */
     public ClientSender(Socket socket, IDataModel dataModel) {
@@ -39,57 +40,71 @@ public class ClientSender implements Runnable {
         this.dataModel = dataModel;
         dataModel.addListener("NewEmployeeFromUser", this::addEmployeeListener);
         dataModel.addListener("NewItemFromUser", this::addStockItemListener);
-        dataModel.addListener("EmployeeQuery",this::triggerEmployeeQuery);
-       dataModel.addListener("ItemQuery",this::triggerItemQuery);
-       dataModel.addListener("SendProductRequest",this::addRequestListener);
-       dataModel.addListener("DeleteItemFromWH",this::deleteItemFromWH);
+        dataModel.addListener("EmployeeQuery", this::triggerEmployeeQuery);
+        dataModel.addListener("ItemQuery", this::triggerItemQuery);
+        dataModel.addListener("SendProductRequest", this::addRequestListener);
+        dataModel.addListener("DeleteItemFromWH", this::deleteItemFromWH);
+        dataModel.addListener("DeleteEmployee", this::deleteEmployee);
         queue = new LinkedList<>();
+    }
+
+    private void deleteEmployee(PropertyChangeEvent propertyChangeEvent) {
+
+        Employee employee = (Employee) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(employee);
+        Packet p1 = new Packet(Packet.DeleteEmployee, json);
+        addToQueue(p1);
+
     }
 
     /**
      * Deletes a {@link StockItem} from the Warehouse.
+     *
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
      */
     private void deleteItemFromWH(PropertyChangeEvent propertyChangeEvent) {
         StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
         String json = gson.toJson(stockItem);
-        Packet p1 = new Packet(Packet.DeleteItemFromWH,json);
+        Packet p1 = new Packet(Packet.DeleteItemFromWH, json);
         addToQueue(p1);
     }
 
     /**
      * Adds an Item Request to the {@link Queue}.
+     *
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
      */
     private void triggerItemQuery(PropertyChangeEvent propertyChangeEvent) {
-        Packet p = new Packet(Packet.ItemQuery,null);
+        Packet p = new Packet(Packet.ItemQuery, null);
         System.out.println("ClientSenderTriggerItemQuery");
         addToQueue(p);
     }
 
     /**
      * Adds an Employee Query to the {@link Queue}.
+     *
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
      */
     private void triggerEmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
-        Packet p = new Packet(Packet.EmployeeQuery,null);
+        Packet p = new Packet(Packet.EmployeeQuery, null);
         System.out.println("ClientSenderEmployeeItemQuery");
         addToQueue(p);
     }
 
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {
-        StockItemList stockItemList = new StockItemList();
-        stockItemList.add((StockItem) propertyChangeEvent.getNewValue());
+
+      StockItem stockItem = (StockItem)propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(stockItemList);
+        String json = gson.toJson(stockItem);
         Packet packet = new Packet(Packet.StockOperation, json);
         System.out.println("ClientSender: addStockItemListener StockItemOperation");
         addToQueue(packet);
     }
 
     private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
-        Employee employe =(Employee)propertyChangeEvent.getNewValue();
+        Employee employe = (Employee) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
         String json = gson.toJson(employe);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
@@ -98,7 +113,7 @@ public class ClientSender implements Runnable {
 
     }
 
-    public void addRequestListener(PropertyChangeEvent propertyChangeEvent){
+    public void addRequestListener(PropertyChangeEvent propertyChangeEvent) {
         ProductRequestList productRequestList = (ProductRequestList) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
         String json = gson.toJson(productRequestList);
@@ -118,8 +133,8 @@ public class ClientSender implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true){
-            if(queue.isEmpty()){
+        while (true) {
+            if (queue.isEmpty()) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -136,9 +151,10 @@ public class ClientSender implements Runnable {
 
     /**
      * The method used to add {@link Packet}s the {@link Queue}.
+     *
      * @param packet The {@link Packet} to be added.
      */
-    public void addToQueue(Packet packet){
+    public void addToQueue(Packet packet) {
         queue.add(packet);
     }
 

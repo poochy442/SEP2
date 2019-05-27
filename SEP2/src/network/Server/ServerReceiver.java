@@ -27,7 +27,8 @@ public class ServerReceiver implements Runnable {
 
     /**
      * Creates a ServerReceiver with the specified {@link Socket} and {@link DataBaseModel}.
-     * @param socket The {@link Socket} for the ServerReceiver to use.
+     *
+     * @param socket        The {@link Socket} for the ServerReceiver to use.
      * @param dataBaseModel The {@link DataBaseModel} for the ServerReceiver to use.
      */
     public ServerReceiver(Socket socket, DataBaseModel dataBaseModel) {
@@ -64,22 +65,22 @@ public class ServerReceiver implements Runnable {
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
                         Employee employe = (Employee) gson.fromJson(json, Employee.class);
-                        System.out.println("ServerReceiver:employeStoredToDB" + dataBaseModel.addEmployeeToDataBase(employe));
+                        System.out.println("ServerReceiver: employee stored to database = " + dataBaseModel.addEmployeeToDataBase(employe));
                         ;
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
-                        System.out.println("ServerReceiver: itemstoredToDB=" + dataBaseModel.addItemToDataBase(stockItem,"WH"));
+                        System.out.println("ServerReceiver: item stored to database = " + dataBaseModel.addItemToDataBase(stockItem, "WH"));
 
 
                         break;
                     case Packet.RequestOperation:
                         ProductRequestList productRequestList = gson.fromJson(json, ProductRequestList.class);
                         System.out.println("ServerReceiver: ProductRequestList received");
-                        System.out.println("ServerReceiver "+productRequestList);
-                        int requestID=dataBaseModel.addRequestToDataBase("WH");
-                        dataBaseModel.addRequestItemsToDataBase(productRequestList,requestID);
+                        System.out.println("ServerReceiver " + productRequestList);
+                        int requestID = dataBaseModel.addRequestToDataBase("WH");
+                        dataBaseModel.addRequestItemsToDataBase(productRequestList, requestID);
                         break;
                     case Packet.EmployeeQuery:
                         dataBaseModel.employeeQuery();
@@ -89,13 +90,17 @@ public class ServerReceiver implements Runnable {
                         System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
                     case Packet.DeleteItemFromWH:
-                        StockItem stockItem1 = gson.fromJson(json,StockItem.class);
-                        dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(),"WH");
+                        StockItem stockItem1 = gson.fromJson(json, StockItem.class);
+                        System.out.println("Server Receiver: Stock item deleted from database = "+dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), "WH"));
                         break;
                     case Packet.DeleteItemFromHQ:
-                    StockItem stockItem2 = gson.fromJson(json,StockItem.class);
-                    dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(),"WH");
-                    break;
+                        StockItem stockItem2 = gson.fromJson(json, StockItem.class);
+                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(), "WH");
+                        break;
+                    case Packet.DeleteEmployee:
+                        Employee employee = gson.fromJson(json, Employee.class);
+                        System.out.println("Employee: "+employee.getId()+" deleted = "+dataBaseModel.deleteEmployee(employee));
+                        break;
                 }
             } catch (Exception e) {
                 e.printStackTrace();

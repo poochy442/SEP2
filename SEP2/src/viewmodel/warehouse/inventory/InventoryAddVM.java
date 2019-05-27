@@ -78,7 +78,8 @@ public class InventoryAddVM {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue())); // Here it is important
+        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()),"WH");
+        //TODO LOCATION IS NOT SET WE NEED IT FROM VIEW
         dataModel.addItemFromUser(si);
 
         //Resetting fields in view

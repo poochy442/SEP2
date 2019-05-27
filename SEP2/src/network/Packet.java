@@ -53,6 +53,8 @@ public class Packet implements Serializable {
      */
     public static final String DeleteItemFromHQ = "DeleteItemFromHQ";
 
+    public static final String DeleteEmployee = "DeleteEmployee";
+
     /**
      * Creates a Packet with the specified information.
      * @param operation The operation to use. For available operations see {@link this#EmployeeOperation}.

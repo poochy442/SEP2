@@ -26,11 +26,12 @@ public class DataModelTest {
         sList = new StockItemList();
         Employee e1 = new Employee("Kenneth", "Jensen", "1", "1");
         Employee e2 = new Employee("Florin", "Bordei", "2", "1");
-        eList.add(e1); eList.add(e2);
+        eList.add(e1);
+        eList.add(e2);
         StockItem s1 = new StockItem("Banana", "1",
                 100, 5,
-                false, new Date(1,1,1),
-                5, 500);
+                false, new Date(1, 1, 1),
+                5, 500, "WH");
         sList.add(s1);
     }
 

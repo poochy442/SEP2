@@ -32,7 +32,6 @@ public class ProductRequestVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("SendProductRequest", this::sendProductRequest);
     }
 
     /**

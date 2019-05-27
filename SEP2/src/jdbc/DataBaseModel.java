@@ -17,6 +17,7 @@ public class DataBaseModel {
     PreparedStatement requestInsertStatement;
     PreparedStatement itemListInsertStatement;
     PreparedStatement deleteItemByIDandDep;
+    PreparedStatement deleteEmployee;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
@@ -29,6 +30,7 @@ public class DataBaseModel {
         itemListInsertStatement = prepareInsertItemListRequest();
         changeSupport = new PropertyChangeSupport(this);
         deleteItemByIDandDep = prepareDeleteItemFromWH();
+        deleteEmployee = prepareDeleteEmployee();
 
 
     }
@@ -42,7 +44,7 @@ public class DataBaseModel {
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
-        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5433/postgres";
         String user = "postgres";
         String pw = "123321";
         connection = null;
@@ -63,11 +65,11 @@ public class DataBaseModel {
     //Creates a empty employee table
     public void createEmployeeTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Employee (" +
-                "   EmployeeID varchar(6) NOT NULL PRIMARY KEY," +
+                "   EmployeeID varchar(30) NOT NULL PRIMARY KEY," +
                 "departmentID varchar(30) NOT NULL ," +
                 " firstName varchar(30) NOT NULL," +
                 "lastName varchar(30) NOT NULL," +
-                " FOREIGN KEY (departmentid) REFERENCES \"Sep2\".Department(departmentID)" +
+                " FOREIGN KEY (departmentID) REFERENCES \"Sep2\".Department(departmentID)" +
                 ");";
         try {
             Statement statement = connection.createStatement();
@@ -107,11 +109,50 @@ public class DataBaseModel {
     //Creates empty StockItem table
     public void createStockItemTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".StockItem (" +
-                "   id varchar(6) NOT NULL PRIMARY KEY," +
+                "   id varchar(30) NOT NULL PRIMARY KEY," +
                 "name varchar(30) NOT NULL ," +
                 " quantity int NOT NULL," +
                 "price int NOT NULL," +
-                "expiryDate Date" +
+                "expiryDate Date, " +
+                "location varchar(30) NOT NULL" +
+
+                ");";
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    //Creates empty item request table
+    public void createItemRequestTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".itemRequest (" +
+                " RequestID varchar(6) NOT NULL ," +
+                "itemID varchar(10) NOT NULL," +
+                " quantity int NOT NULL," +
+                " CONSTRAINT ItemRequest_CK PRIMARY KEY (requestID, itemID)," +
+                " FOREIGN KEY (requestID) REFERENCES \"Sep2\".request(requestID)" +
+                ");";
+
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    //Creates empty  request table
+    public void createRequestTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Request (" +
+                " RequestID varchar(6) NOT NULL PRIMARY KEY ," +
+                "requestedFrom varchar(10) NOT NULL," +
+                " status varchar(30) NOT NULL" +
 
                 ");";
         try {
@@ -177,6 +218,7 @@ public class DataBaseModel {
             employeeInsertStatement.setString(3, employee.getFirstName());
             employeeInsertStatement.setString(4, employee.getLastName());
             employeeInsertStatement.setString(5, employee.getId());
+            System.out.println(employee.getId());
             employeeInsertStatement.executeUpdate();
             return true;
 
@@ -285,9 +327,11 @@ public class DataBaseModel {
                 int qty = (int) row[2];
                 int price = (int) row[3];
                 java.util.Date sqlDate = (java.sql.Date) row[4];
+                String location = row[4].toString();
                 java.util.Date date = new java.util.Date(sqlDate.getDay(), sqlDate.getMonth(), sqlDate.getYear());
 
-                StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100);
+                StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100,location);
+                //todo max stock is not set
                 stockItemList.add(stockItem);
             }
             resultSet.close();
@@ -323,9 +367,12 @@ public class DataBaseModel {
     //Uses a prepared statement and 2 String to add 1 row to the department table
     public boolean addItemToDataBase(StockItem stockItem, String department) {
         try {
-            java.sql.Date sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
-
-            System.out.println(stockItem.toString());
+            java.sql.Date sqlDate = null;
+            if (stockItem.getExpiryDate() != null) {
+            sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
+            } else {
+                sqlDate = new java.sql.Date(2100, 1, 1);
+            }
             stockItemInsertStatement.setString(1, stockItem.getId());
             stockItemInsertStatement.setString(2, stockItem.getName());
             stockItemInsertStatement.setInt(3, stockItem.getQuantity());
@@ -503,5 +550,40 @@ public class DataBaseModel {
             e.printStackTrace();
         }
         return deleteItemByIDandDep;
+    }
+
+    public PreparedStatement prepareDeleteEmployee() {
+        String preparedSql = "DELETE FROM \"Sep2\".employee " +
+                "where employeeID = ?;";
+
+        deleteEmployee = null;
+
+        try {
+            deleteEmployee = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deleteEmployee;
+    }
+
+    public boolean deleteEmployee(Employee employee) {
+        try {
+
+
+            deleteEmployee.setString(1, employee.getId());
+            deleteEmployee.executeUpdate();
+
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+
+
+        }
+
+
     }
 }

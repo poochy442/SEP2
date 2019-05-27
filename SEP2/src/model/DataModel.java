@@ -43,6 +43,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Gets the {@link EmployeeList} stored in the DataModel.
+     *
      * @return The {@link EmployeeList} stored in the DataModel
      */
     public EmployeeList getEmployeeList() {
@@ -51,7 +52,8 @@ public class DataModel implements IDataModel {
 
     /**
      * Adds an {@link Employee} sent from a user to the stored {@link EmployeeList}.
-     * @param e  {@link Employee} to be stored.
+     *
+     * @param e {@link Employee} to be stored.
      */
     @Override
     public void addEmployeeFromUser(Employee e) {
@@ -61,6 +63,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Adds an {@link Employee} sent from the server to the stored {@link EmployeeList}.
+     *
      * @param e {@link Employee} to be stored.
      */
     @Override
@@ -77,6 +80,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Adds a {@link StockItem} sent from the server to the stored {@link StockItemList}.
+     *
      * @param i The {@link StockItem} to be stored.
      */
     @Override
@@ -87,6 +91,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Adds a {@link StockItem} sent from a user to the stored {@link StockItemList}.
+     *
      * @param i The {@link StockItem} to be stored.
      */
     @Override
@@ -98,6 +103,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Sets the stored {@link EmployeeList} equal to the passed {@link EmployeeList}.
+     *
      * @param employeeList the {@link EmployeeList} to be stored.
      */
     public void setEmployeeList(EmployeeList employeeList) {
@@ -111,6 +117,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Gets the {@link StockItemList} stored in the DataModel.
+     *
      * @return The {@link StockItemList} stored in the DataModel.
      */
     public StockItemList getStockItemList() {
@@ -119,6 +126,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
+     *
      * @param stockItemList The {@link StockItemList} to be stored.
      */
     public void setStockItemList(StockItemList stockItemList) {
@@ -134,54 +142,61 @@ public class DataModel implements IDataModel {
     //TODO: Pass an Item to request?
     @Override
     public void sendProductRequest() {
-        StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5);
+        StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5, "WH");
         ProductRequest productRequest = new ProductRequest(stockItem, 22);
         productRequestList.addRequestToList(productRequest);
-        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequest);
+        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequestList);
     }
 
     /**
      * Deletes a {@link StockItem} from the DataModel.
+     *
      * @param stockItem the {@link StockItem} to be removed.
      */
     @Override
     public void removeStockItemWH(StockItem stockItem) {
         stockItemList.remove(stockItem);
-        propertyChangeSupport.firePropertyChange("DeleteStockItemFromDB",null,stockItem); //TODO: Isnt it other way round? old value is stockitem and new value is null
+        propertyChangeSupport.firePropertyChange("DeleteItemFromWH", null, stockItem); //
     }
 
     /**
      * Deletes a {@link StockItem} from the DataModel.
+     *
      * @param stockItem the {@link StockItem} to be removed.
      */
     @Override
     public void removeStockItemHQ(StockItem stockItem) {
         stockItemList.remove(stockItem);
-        propertyChangeSupport.firePropertyChange("???", stockItem, null );
+        propertyChangeSupport.firePropertyChange("???", null, stockItem);
+        //todo for now we dont have stock item department so we need different methods, we can change it if we agree in something
     }
 
     /**
      * Deletes a {@link Employee} from the DataModel.
+     *
      * @param e the {@link Employee} to be removed.
      */
     @Override
     public void removeEmployeeWH(Employee e) {
         employeeList.remove(e);
-        propertyChangeSupport.firePropertyChange("???", e, null); //TODO: Do we need 2 types of remove? If not, remove it and rename just to removeEmployee/removeStockItem
+        propertyChangeSupport.firePropertyChange("DeleteEmployee", null, e);
+
     }
 
     /**
      * Deletes a {@link Employee} from the DataModel.
+     *
      * @param e the {@link Employee} to be removed.
      */
     @Override
     public void removeEmployeeHQ(Employee e) {
         employeeList.remove(e);
-        propertyChangeSupport.firePropertyChange("???", e, null);
+        propertyChangeSupport.firePropertyChange("DeleteEmployee", null, e);
     }
 
     /**
      * Gets an Employee ID.
+     *
      * @return The created Employee ID.
      */
     @Override
@@ -192,6 +207,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Gets a Stock Item ID.
+     *
      * @return The created Stock Item ID.
      */
     @Override
@@ -202,6 +218,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Checks whether a {@link String} only contains Letters.
+     *
      * @param word The {@link String} to be tested.
      * @return Whether or not the {@link String} contained only Letters.
      */
@@ -214,6 +231,7 @@ public class DataModel implements IDataModel {
 
     /**
      * Checks whether a {@link String} only contains Numbers.
+     *
      * @param word the {@link String} to be tested.
      * @return whether or not the {@link String} contained only Numbers.
      */
