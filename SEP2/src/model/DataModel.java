@@ -246,8 +246,8 @@ public class DataModel implements IDataModel {
      * Loads the EmployeeList stored in the DataBase.
      */
     @Override
-    public void loadEmployeeListFromDB() {
-        propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, 2);
+    public void loadEmployeeListFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, departmentID);
         System.out.println("DataModel refresh Employee list query");
     }
 
@@ -255,8 +255,8 @@ public class DataModel implements IDataModel {
      * Loads the StockItemList stored in the DataBase.
      */
     @Override
-    public void loadItemListFromDB() {
-        propertyChangeSupport.firePropertyChange("ItemQuery", 0, 2);
+    public void loadItemListFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("ItemQuery", 0, departmentID);
         System.out.println("DataModel refresh Item list query");
     }
 

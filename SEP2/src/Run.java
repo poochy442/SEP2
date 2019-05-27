@@ -19,7 +19,8 @@ public class Run extends Application {
         ViewModelProvider vmp = new ViewModelProvider(dataModel);
         ViewHandler vh = new ViewHandler(stage, vmp);
         vh.start();
-        Client client = new Client("localhost", dataModel);
+        // Give a argument to the client to reference which data to load
+        Client client = new Client("localhost", dataModel,"WH");
         client.run();
 
     }

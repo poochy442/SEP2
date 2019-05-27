@@ -83,15 +83,18 @@ public class ServerReceiver implements Runnable {
                         dataBaseModel.addRequestItemsToDataBase(productRequestList, requestID);
                         break;
                     case Packet.EmployeeQuery:
-                        dataBaseModel.employeeQuery();
+                        String departmentID=json;
+                        dataBaseModel.employeeQuery(departmentID);
+
                         break;
                     case Packet.ItemQuery:
-                        dataBaseModel.itemQuery();
+                        String depID=json;
+                        dataBaseModel.itemQuery(depID);
                         System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
                     case Packet.DeleteItemFromWH:
                         StockItem stockItem1 = gson.fromJson(json, StockItem.class);
-                        System.out.println("Server Receiver: Stock item deleted from database = "+dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), "WH"));
+                        System.out.println("Server Receiver: Stock item deleted from database = " + dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), "WH"));
                         break;
                     case Packet.DeleteItemFromHQ:
                         StockItem stockItem2 = gson.fromJson(json, StockItem.class);
@@ -99,7 +102,7 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.DeleteEmployee:
                         Employee employee = gson.fromJson(json, Employee.class);
-                        System.out.println("Employee: "+employee.getId()+" deleted = "+dataBaseModel.deleteEmployee(employee));
+                        System.out.println("Employee: " + employee.getId() + " deleted = " + dataBaseModel.deleteEmployee(employee));
                         break;
                 }
             } catch (Exception e) {

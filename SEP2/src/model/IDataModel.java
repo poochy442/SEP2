@@ -10,8 +10,8 @@ public interface IDataModel {
     void addItemFromUser(StockItem i);
     EmployeeList getEmployeeList();
     void setEmployeeList(EmployeeList employeeList);
-    void loadEmployeeListFromDB();
-    void loadItemListFromDB();
+    void loadEmployeeListFromDB(String departmentID);
+    void loadItemListFromDB(String departmentID);
     void setStockItemList(StockItemList stockItemList1);
     void sendProductRequest();
     void removeStockItemWH(StockItem stockItem);

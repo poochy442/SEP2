@@ -77,7 +77,7 @@ public class ClientSender implements Runnable {
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
      */
     private void triggerItemQuery(PropertyChangeEvent propertyChangeEvent) {
-        Packet p = new Packet(Packet.ItemQuery, null);
+        Packet p = new Packet(Packet.ItemQuery, (String) propertyChangeEvent.getNewValue());
         System.out.println("ClientSenderTriggerItemQuery");
         addToQueue(p);
     }
@@ -88,14 +88,16 @@ public class ClientSender implements Runnable {
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
      */
     private void triggerEmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
-        Packet p = new Packet(Packet.EmployeeQuery, null);
-        System.out.println("ClientSenderEmployeeItemQuery");
+        String departmentid = (String) propertyChangeEvent.getNewValue();
+
+        Packet p = new Packet(Packet.EmployeeQuery, departmentid);
+        System.out.println("ClientSender: EmployeeQuery");
         addToQueue(p);
     }
 
     private void addStockItemListener(PropertyChangeEvent propertyChangeEvent) {
 
-      StockItem stockItem = (StockItem)propertyChangeEvent.getNewValue();
+        StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
         String json = gson.toJson(stockItem);
         Packet packet = new Packet(Packet.StockOperation, json);

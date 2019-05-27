@@ -16,7 +16,7 @@ public class RunHQ extends Application {
         ViewModelProvider vmp = new ViewModelProvider(model);
         ViewHandler vh = new ViewHandler(primaryStage, vmp);
         vh.start();
-        Client client = new Client("localhost", model);
+        Client client = new Client("localhost", model,"HQ");
         client.run();
     }
 }

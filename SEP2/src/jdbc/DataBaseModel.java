@@ -267,11 +267,12 @@ public class DataBaseModel {
 
     }
 
-    public void employeeQuery() {
+    public void employeeQuery(String departmentID) {
         ArrayList<Object[]> results = new ArrayList<>();
         EmployeeList employeeList = new EmployeeList();
         try {
 
+            employeeQuery.setString(1,departmentID);
             ResultSet resultSet = prepareEmployeeQuery().executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
@@ -285,11 +286,11 @@ public class DataBaseModel {
             for (int i = 0; i < results.size(); i++) {
                 Object[] row = results.get(i);
                 String employeeID = row[0].toString();
-                String departmentID = row[1].toString();
+                String depID = row[1].toString();
                 String firstName = row[2].toString();
                 String lastName = row[3].toString();
 
-                Employee e = new Employee(firstName, lastName, employeeID, departmentID);
+                Employee e = new Employee(firstName, lastName, employeeID, depID);
                 employeeList.add(e);
             }
 
@@ -305,7 +306,7 @@ public class DataBaseModel {
 
     }
 
-    public void itemQuery() {
+    public void itemQuery(String departmentID) {
         ArrayList<Object[]> results = new ArrayList<>();
         StockItemList stockItemList = new StockItemList();
         try {
@@ -347,7 +348,7 @@ public class DataBaseModel {
     }
 
     public PreparedStatement prepareEmployeeQuery() {
-        String preparedStatement = "SELECT * FROM \"Sep2\".employee;";
+        String preparedStatement = "SELECT * FROM \"Sep2\".employee where departmentID = ? ;";
 
 
         try {
@@ -413,7 +414,7 @@ public class DataBaseModel {
 
 
     public PreparedStatement prepareWHItemQuery() {
-        String preparedStatement = "SELECT * FROM \"Sep2\".stockitem where location='WH' ;";
+        String preparedStatement = "SELECT * FROM \"Sep2\".stockitem where location = ? ;";
 
 
         try {
@@ -554,7 +555,7 @@ public class DataBaseModel {
 
     public PreparedStatement prepareDeleteEmployee() {
         String preparedSql = "DELETE FROM \"Sep2\".employee " +
-                "where employeeID = ?;";
+                "where employeeID = ? ;";
 
         deleteEmployee = null;
 

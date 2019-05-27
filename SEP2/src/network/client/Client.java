@@ -18,17 +18,19 @@ import java.net.Socket;
 public class Client implements Runnable {
 
     private final int PORT = 5678;
-    private String HOST;
+    private String HOST,departmentID;
     private IDataModel dataModel;
+
 
     /**
      * Creates a Client connection to the given host and using the given {@link model.DataModel}.
      * @param HOST The IP Adress of the server the Client needs to connect to
      * @param dataModel The DataModel for the Client to use.
      */
-    public Client(String HOST, IDataModel dataModel) {
+    public Client(String HOST, IDataModel dataModel,String departmentID) {
         this.HOST = HOST;
         this.dataModel = dataModel;
+        this.departmentID=departmentID;
     }
 
     /**
@@ -49,8 +51,8 @@ public class Client implements Runnable {
         ClientSender clientSender = new ClientSender(socket, dataModel);
         Thread t1 = new Thread(clientSender);
         t1.start();
-        dataModel.loadEmployeeListFromDB();
-        dataModel.loadItemListFromDB();
+        dataModel.loadEmployeeListFromDB(departmentID);
+        dataModel.loadItemListFromDB(departmentID);
         System.out.println("Client Refresh employee list");
         ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel);
         Thread t2 = new Thread(clientReceiver);
