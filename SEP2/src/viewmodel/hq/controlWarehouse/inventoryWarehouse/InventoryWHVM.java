@@ -6,6 +6,8 @@ import model.IDataModel;
 import model.StockItem;
 import view.hq.ViewHandler;
 
+import java.beans.PropertyChangeEvent;
+
 /**
  * The viewmodel Class for the Warehouse Inventory view.
  *
@@ -29,8 +31,13 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         this.viewHandler = viewHandler;
         this.dataModel = dataModel;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
+        dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
     }
 
+    private void addStockItemToClient(PropertyChangeEvent evt) {
+        stockItems.add((StockItem) evt.getNewValue());
+    }
     /**
      * Gets the {@link StockItem}s stored.
      * @return The {@link StockItem}s stored.

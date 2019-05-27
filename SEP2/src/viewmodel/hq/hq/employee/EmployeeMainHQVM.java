@@ -33,6 +33,7 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
         this.viewHandler = viewHandler;
         employees = FXCollections.observableArrayList();
         dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromServer",this::addEmployeeToClient);
     }
 
     /**

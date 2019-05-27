@@ -6,6 +6,8 @@ import model.Employee;
 import model.IDataModel;
 import view.hq.ViewHandler;
 
+import java.beans.PropertyChangeEvent;
+
 /**
  * This is the viewmodel Class for the Warehouse Employee view.
  *
@@ -30,8 +32,13 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
         this.viewHandler = viewHandler;
         this.dataModel = dataModel;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromServer",this::addEmployeeToClient);
     }
 
+    private void addEmployeeToClient(PropertyChangeEvent evt) {
+        employees.add((Employee) evt.getNewValue());
+    }
     /**
      * Gets the {@link Employee}s stored
      * @return the {@link Employee}s stored
