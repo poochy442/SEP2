@@ -240,9 +240,9 @@
                </font>
             </Label>
             <Label layoutY="55.0" text="Quantity" />
-            <Label fx:id="errorQuantityLabel" layoutX="355.0" layoutY="55.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
-            <Label fx:id="errorMinStockLabel" layoutX="355.0" layoutY="105.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
-            <Label fx:id="errorMaxStockLabel" layoutX="355.0" layoutY="155.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorQuantityLabel" layoutX="355.0" layoutY="55.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorMinStockLabel" layoutX="355.0" layoutY="105.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorMaxStockLabel" layoutX="355.0" layoutY="155.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
          </children>
       </Pane>
       <Button fx:id="addButton" layoutX="577.0" layoutY="750.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" AnchorPane.topAnchor="800.0">
