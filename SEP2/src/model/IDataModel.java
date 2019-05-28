@@ -22,4 +22,5 @@ public interface IDataModel {
     String getIDStockItem();
     boolean onlyLetters(String word);
     boolean onlyNumbers(String word);
+    void addToProductRequest(ProductRequest productRequest);
 }

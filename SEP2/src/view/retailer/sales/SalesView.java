@@ -1,4 +1,4 @@
-package view.warehouse.inventory;
+package view.retailer.sales;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.ProductRequest;
 import model.StockItem;
-import viewmodel.warehouse.inventory.ProductRequestVM;
+import viewmodel.retailer.inventory.ProductRequestVM;
 
 /**
  * The view Class for the Product Request view.
@@ -22,7 +22,7 @@ import viewmodel.warehouse.inventory.ProductRequestVM;
  * @author Dave Joe Lê
  */
 
-public class ProductRequestView {
+public class SalesView {
 
     @FXML
     private TableView<ProductRequest> productRequestTable;
@@ -44,7 +44,7 @@ public class ProductRequestView {
     /**
      * Creates a SalesView.
      */
-    public ProductRequestView()
+    public SalesView()
     {
 
     }

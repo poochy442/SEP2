@@ -268,4 +268,10 @@ public class DataModel implements IDataModel {
         }
         return true;
     }
+    @Override
+    public void addToProductRequest(ProductRequest productRequest)
+    {
+        productRequestList.addRequestToList(productRequest);
+        System.out.println("DataModel: product : " +productRequest.getProductId()+ " added to model.productRequest");
+    }
 }

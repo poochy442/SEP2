@@ -1,4 +1,4 @@
-package view.warehouse;
+package view.retailer;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -7,13 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import view.warehouse.employee.EmployeeAddView;
-import view.warehouse.employee.EmployeeMainView;
-import view.warehouse.inventory.InventoryAddView;
-import view.warehouse.inventory.InventoryMainView;
-import view.warehouse.inventory.ProductRequestView;
-import view.warehouse.main.MainView;
-import viewmodel.warehouse.ViewModelProvider;
+import view.retailer.employee.EmployeeAddView;
+import view.retailer.employee.EmployeeMainView;
+import view.retailer.inventory.InventoryAddView;
+import view.retailer.inventory.InventoryMainView;
+import view.retailer.inventory.ProductRequestView;
+import view.retailer.main.MainView;
+import viewmodel.retailer.ViewModelProvider;
 
 import java.io.IOException;
 
@@ -179,7 +179,7 @@ public class ViewHandler {
 
     /**
      * This method opens the Product Request view.
-     */
+//     */
     public void openProductRequestView() {
         FXMLLoader loader = new FXMLLoader();
 
