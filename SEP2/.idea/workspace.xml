@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RunApplicationRT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RunRT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/Layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/ViewHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/employee/EmployeeAdd.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/employee/EmployeeAddView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/employee/EmployeeMain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/employee/EmployeeMainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/InventoryAdd.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/InventoryAddView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/InventoryMain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/ProductRequest.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/inventory/ProductRequestView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/main/Main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/main/MainView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/businessman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/inventory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/magnifying-glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/minus-symbol.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/settings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/pictures/user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/sales/Sales.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/retailer/sales/SalesView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/ViewModelProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeAddVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeMainVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryAddVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryMainVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/inventory/ProductRequestVM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/viewmodel/retailer/main/MainVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/IDataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/IDataModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/warehouse/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/warehouse/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/warehouse/inventory/ProductRequestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/warehouse/inventory/ProductRequestView.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -107,8 +66,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="35" column="51" selection-start-line="35" selection-end-line="36" />
+            <state relative-caret-position="303">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -288,7 +250,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559069881021" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559117177622" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaLibraries/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -494,7 +456,7 @@
     <frame x="-7" y="-7" width="1721" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2974112" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.30102348" />
       <window_info id="Structure" order="1" weight="0.25266525" />
       <window_info id="Favorites" order="2" weight="0.32995737" />
       <window_info id="Designer" order="3" />
@@ -676,12 +638,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/package-info.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/retailer.java" />
+    <entry file="file://$PROJECT_DIR$/src/view/package-info.java" />
     <entry file="file://$PROJECT_DIR$/src/view/warehouse/ViewHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1007,8 +965,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="35" column="51" selection-start-line="35" selection-end-line="36" />
+        <state relative-caret-position="303">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
