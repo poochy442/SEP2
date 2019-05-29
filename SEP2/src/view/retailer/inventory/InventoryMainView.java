@@ -60,6 +60,9 @@ public class InventoryMainView {
     @FXML
     private TextField productRequestQty;
 
+    @FXML
+    private TextField sellQty;
+
     private InventoryMainVM inventoryMainVM;
 
     private StockItem selectedItem;
@@ -73,6 +76,7 @@ public class InventoryMainView {
 
     /**
      * An init method instantiating all the required fields.
+     *
      * @param inventoryMainVM The {@link InventoryMainVM} viewmodel to be used.
      */
     public void init(InventoryMainVM inventoryMainVM) {
@@ -88,6 +92,7 @@ public class InventoryMainView {
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
         productRequestQty.setText("0");
+        sellQty.setText("0");
     }
 
 
@@ -113,15 +118,14 @@ public class InventoryMainView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-        if(selectedItem == null)
-        {
+        if (selectedItem == null) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
             warningAlert.setTitle("Warning");
             warningAlert.setHeaderText("No stock item has been selected");
@@ -150,17 +154,41 @@ public class InventoryMainView {
 
     }
 
+
     @FXML
-    void onProductRequestClicked(ActionEvent event) {
+    void onSellClicked(ActionEvent event) {
 
         //TODO  do we need to bind this? so we follow MVVM rules?
-        if (!productRequestQty.getText().equals("0"))
-        {
+        if (!sellQty.getText().equals("0")) {
             //todo  passing highlighted stockitem and a String : its a dirty way? or good
-            inventoryMainVM.addToProductRequest(stockItemTable.getSelectionModel().getSelectedItem(),productRequestQty.getText());
+            inventoryMainVM.addToSales(stockItemTable.getSelectionModel().getSelectedItem(), sellQty.getText());
         }
         //todo  display error msg when we add 0 value?
         else System.out.println("NOT ADDED ERROR");
 
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        inventoryMainVM.openProductRequestView();
+    }
+    @FXML
+    void onProductaddToRequestClicked (ActionEvent event)
+    {
+
+        //TODO  do we need to bind this? so we follow MVVM rules?
+        if (!productRequestQty.getText().equals("0")) {
+            //todo  passing highlighted stockitem and a String : its a dirty way? or good
+            inventoryMainVM.addToProductRequest(stockItemTable.getSelectionModel().getSelectedItem(),productRequestQty.getText());
+        }
+        //todo  display error msg when we add 0 value?
+        else System.out.println("InventoryMainView: NOT ADDED ERROR");
+
+
+    }
+
+    @FXML
+    void onSalesClicked(ActionEvent event) {
+        inventoryMainVM.openSalesView();
     }
 }

@@ -57,6 +57,15 @@ public class MainView {
     void onDashboardClicked(ActionEvent event) {
 
     }
+    @FXML
+    void onSalesClicked(ActionEvent event) {
+        mainVM.openSalesMainView();
+    }
+    @FXML
+    void onProducRequestClciked (ActionEvent event)
+    {
+        mainVM.openRequestMainView();
+    }
 
     @FXML
     void onCloseClicked(MouseEvent event) {

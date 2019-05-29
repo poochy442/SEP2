@@ -28,7 +28,8 @@ public class ClientReceiver implements Runnable {
 
     /**
      * Creates the ClientReceiver with the specified {@link Socket} and {@link model.DataModel}.
-     * @param socket The {@link Socket} to use.
+     *
+     * @param socket    The {@link Socket} to use.
      * @param dataModel The {@link model.DataModel} to use.
      */
     public ClientReceiver(Socket socket, IDataModel dataModel) {
@@ -76,17 +77,23 @@ public class ClientReceiver implements Runnable {
                         break;
                     case Packet.EmployeeQuery:
                         EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        for (int i=0;i<employeeList1.size();i++)
-                        {
+                        for (int i = 0; i < employeeList1.size(); i++) {
                             dataModel.addEmployeeFromServer(employeeList1.get(i));
                         }
                         break;
                     case Packet.ItemQuery:
                         StockItemList stockItemList1 = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        for (int i=0;i<stockItemList1.size();i++)
-                        {
+                        for (int i = 0; i < stockItemList1.size(); i++) {
                             dataModel.addItemFromServer(stockItemList1.get(i));
                         }
+                        break;
+                    case Packet.salesQuery:
+                        StockItemList stockItemList2 = (StockItemList) gson.fromJson(json, StockItemList.class);
+                        for (int i=0;i<stockItemList2.size();i++)
+                        {
+                            dataModel.addToSales(stockItemList2.get(i),false);
+                        }
+                        break;
 
                 }
 

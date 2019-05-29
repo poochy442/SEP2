@@ -13,6 +13,8 @@ public class Setup {
         dataBaseModel.createStockItemTable();
         dataBaseModel.createEmployeeTable();
         dataBaseModel.createRequestTable();
+        dataBaseModel.createSalesListTable();
+        dataBaseModel.createSalesTable();
         dataBaseModel.createItemRequestTable();
 
     }

@@ -18,6 +18,7 @@ public class DataBaseModel {
     PreparedStatement itemListInsertStatement;
     PreparedStatement deleteItemByIDandDep;
     PreparedStatement deleteEmployee;
+    PreparedStatement addSale;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
@@ -32,6 +33,7 @@ public class DataBaseModel {
         deleteItemByIDandDep = prepareDeleteItemFromWH();
         deleteEmployee = prepareDeleteEmployee();
         employeeQuery = prepareEmployeeQuery();
+        addSale = prepareAddSale();
 
 
     }
@@ -273,7 +275,7 @@ public class DataBaseModel {
         EmployeeList employeeList = new EmployeeList();
         try {
 
-            employeeQuery.setString(1,departmentID);
+            employeeQuery.setString(1, departmentID);
             ResultSet resultSet = employeeQuery.executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
@@ -312,7 +314,7 @@ public class DataBaseModel {
         StockItemList stockItemList = new StockItemList();
         try {
 
-            stockItemQuery.setString(1,departmentID);
+            stockItemQuery.setString(1, departmentID);
             ResultSet resultSet = stockItemQuery.executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
@@ -333,7 +335,7 @@ public class DataBaseModel {
                 String location = row[4].toString();
                 java.util.Date date = new java.util.Date(sqlDate.getDay(), sqlDate.getMonth(), sqlDate.getYear());
 
-                StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100,location);
+                StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100, location);
                 //todo max stock is not set
                 stockItemList.add(stockItem);
             }
@@ -372,7 +374,7 @@ public class DataBaseModel {
         try {
             java.sql.Date sqlDate = null;
             if (stockItem.getExpiryDate() != null) {
-            sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
+                sqlDate = new java.sql.Date(stockItem.getExpiryDate().getDay(), stockItem.getExpiryDate().getMonth(), stockItem.getExpiryDate().getYear());
             } else {
                 sqlDate = new java.sql.Date(2100, 1, 1);
             }
@@ -499,6 +501,25 @@ public class DataBaseModel {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+
+
+    }
+
+    public boolean addRequestItemToDatabase(ProductRequest productRequest, int requestID) {
+        try {
+            itemListInsertStatement.setString(1, "" + requestID);
+            itemListInsertStatement.setString(2, productRequest.getProductId());
+            itemListInsertStatement.setInt(3, productRequest.getQuantity());
+            itemListInsertStatement.executeUpdate();
+
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
 
 
         }
@@ -571,17 +592,122 @@ public class DataBaseModel {
             deleteEmployee.setString(1, employee.getId());
             deleteEmployee.executeUpdate();
 
-
             return true;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-
-
         }
 
 
     }
+
+    public void createSalesTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".sales (" +
+                "   saleID varchar(10) NOT NULL ," +
+                "itemID varchar(30)  ," +
+                "name varchar(30)  ," +
+                "quantitySold int" +
+                " CONSTRAINT salesPK PRIMARY KEY (SaleID, itemID)," +
+                " FOREIGN KEY (SaleID) REFERENCES \"Sep2\".salesList(SaleID)," +
+                " FOREIGN KEY (itemID) REFERENCES \"Sep2\".stockItem(ID) " +
+                ");";
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void createSalesListTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".salesList (" +
+                "   saleID varchar(10) NOT NULL PRIMARY KEY ," +
+                "DateOfSale DATE  , " +
+                " status varchar(30) " +
+                ");";
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public PreparedStatement prepareAddSale() {
+        String preparedSql = "INSERT INTO \"Sep2\".sales (productID, quantitySold) " +
+                "SELECT * FROM (SELECT ?,?) AS tmp " +
+                "WHERE NOT EXISTS (SELECT productID FROM \"Sep2\".sales " +
+                "WHERE  productID = ?) LIMIT 1;";
+        addSale = null;
+
+        try {
+            addSale = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return addSale;
+    }
+
+    public boolean addSaleToDataBase(StockItem stockItem) {
+        try {
+            addSale.setString(1, stockItem.getId());
+            addSale.setInt(2, stockItem.getQuantity());
+            addSale.setString(3, stockItem.getId());
+            addSale.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+    public void salesQuery() {
+        ArrayList<Object[]> results = new ArrayList<>();
+        StockItemList salesList = new StockItemList();
+        try {
+            String salesSQLQuery =
+                    "SELECT  quantitySold,productID,name,price FROM \"Sep2\".sales " +
+                            " LEFT JOIN \"Sep2\".stockItem on stockItem.id = sales.productID;";
+            PreparedStatement salesQuery = connection.prepareStatement(salesSQLQuery);
+            ResultSet resultSet = salesQuery.executeQuery();
+
+
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+
+            }
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                int quantitySold = (int) row[0];
+                String productID = row[1].toString();
+                String name = row[2].toString();
+                int price = (int) row[3];
+
+                StockItem stockItem = new StockItem(name, productID, quantitySold, price, false, null, 0, 0, null);
+                salesList.add(stockItem);
+
+            }
+            changeSupport.firePropertyChange("SalesQuery", null, salesList);
+            resultSet.close();
+            salesQuery.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

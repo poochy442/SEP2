@@ -1,10 +1,10 @@
-package viewmodel.warehouse.inventory;
+package viewmodel.retailer.sales;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
-import view.warehouse.ViewHandler;
+import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
 
@@ -17,7 +17,7 @@ import java.beans.PropertyChangeEvent;
  * @author Dave Joe Lê
  */
 
-public class ProductRequestVM {
+public class SalesVM {
     private IDataModel dataModel;
     private ObservableList<ProductRequest> productRequests;
     private ViewHandler viewHandler;
@@ -28,7 +28,7 @@ public class ProductRequestVM {
      * @param dataModel   The {@link model.DataModel} to be used.
      * @param viewHandler The {@link ViewHandler} to be used.
      */
-    public ProductRequestVM(IDataModel dataModel, ViewHandler viewHandler) {
+    public SalesVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
@@ -38,9 +38,6 @@ public class ProductRequestVM {
      * Sends a Product Request to the Server with the information in the {@link PropertyChangeEvent} passed.
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
-    private void sendProductRequest(PropertyChangeEvent evt) {
-        productRequests.add((ProductRequest) evt.getNewValue());
-    }
 
     /**
      * Gets the {@link ProductRequest}s from the List.
@@ -77,5 +74,9 @@ public class ProductRequestVM {
     public void sendProductRequest() {
 
         dataModel.sendProductRequest();
+    }
+
+    public void openProductRequest() {
+        viewHandler.openProductRequestView();
     }
 }

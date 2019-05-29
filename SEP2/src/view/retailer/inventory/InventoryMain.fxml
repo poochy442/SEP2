@@ -88,7 +88,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
+                  <Button onAction="#onSalesClicked" layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -134,9 +134,9 @@
             <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" />
-                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="662.0">
+                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="794.0">
                      <children>
-                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
+                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" prefHeight="27.0" prefWidth="103.0" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -151,12 +151,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="productRequestButton" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#onProductRequestClicked" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Add to product request ">
+                        <Button fx:id="productRequestButton" layoutX="394.0" layoutY="25.0" mnemonicParsing="false" onAction="#onProductaddToRequestClicked" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Add to product request ">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <TextField fx:id="productRequestQty" layoutX="555.0" layoutY="25.0" prefHeight="27.0" prefWidth="46.0" text="0" />
+                        <TextField fx:id="productRequestQty" layoutX="528.0" layoutY="25.0" prefHeight="27.0" prefWidth="46.0" text="0" />
+                        <Button fx:id="sellButton" layoutX="606.0" layoutY="25.0" mnemonicParsing="false" onAction="#onSellClicked" prefHeight="27.0" prefWidth="90.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Sell">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextField fx:id="sellQty" layoutX="728.0" layoutY="25.0" prefHeight="27.0" prefWidth="46.0" text="0" />
                      </children>
                   </Pane>
                </children>
@@ -203,9 +209,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane prefHeight="75.0" prefWidth="312.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="75.0" prefWidth="159.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Pane layoutX="56.0" layoutY="25.0" prefHeight="25.0" prefWidth="235.0" style="-fx-background-radius: 40px; -fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 40px;">
+            <Pane layoutX="11.0" layoutY="21.0" prefHeight="25.0" prefWidth="138.0" style="-fx-background-radius: 40px; -fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 40px;">
                <children>
                   <ImageView fitHeight="16.0" fitWidth="20.0" layoutX="209.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -215,9 +221,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <TextField layoutX="10.0" prefHeight="25.0" prefWidth="196.0" promptText="Search" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent;" />
                </children>
             </Pane>
+            <TextField layoutX="19.0" layoutY="20.0" prefHeight="27.0" prefWidth="100.0" promptText="Search" style="-fx-background-radius: 0; -fx-background-color: transparent; -fx-border-color: transparent;" />
          </children>
       </Pane>
       <MenuBar prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">

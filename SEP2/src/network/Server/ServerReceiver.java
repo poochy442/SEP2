@@ -83,12 +83,12 @@ public class ServerReceiver implements Runnable {
                         dataBaseModel.addRequestItemsToDataBase(productRequestList, requestID);
                         break;
                     case Packet.EmployeeQuery:
-                        String departmentID=json;
+                        String departmentID = json;
                         dataBaseModel.employeeQuery(departmentID);
 
                         break;
                     case Packet.ItemQuery:
-                        String depID=json;
+                        String depID = json;
                         dataBaseModel.itemQuery(depID);
                         System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
@@ -98,11 +98,24 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.DeleteItemFromHQ:
                         StockItem stockItem2 = gson.fromJson(json, StockItem.class);
-                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(),stockItem2.getLocation());
+                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(), stockItem2.getLocation());
                         break;
                     case Packet.DeleteEmployee:
                         Employee employee = gson.fromJson(json, Employee.class);
                         System.out.println("Employee: " + employee.getId() + " deleted = " + dataBaseModel.deleteEmployee(employee));
+                        break;
+                    case Packet.AddSale:
+                        StockItem stockItem3 = gson.fromJson(json, StockItem.class);
+                        System.out.println("ServerReceiver: sale added to database = " + dataBaseModel.addSaleToDataBase(stockItem3));
+                        break;
+                    case Packet.salesQuery:
+                        dataBaseModel.salesQuery();
+                        System.out.println("ServerReceiver: SalesQuery");
+                        break;
+                    case Packet.addProductRequest:
+                        int departmentid = dataBaseModel.requestCountQuery() - 1;
+                        ProductRequest productRequest = gson.fromJson(json, ProductRequest.class);
+                        System.out.println(dataBaseModel.addRequestItemToDatabase(productRequest, departmentid));
                         break;
                 }
             } catch (Exception e) {
