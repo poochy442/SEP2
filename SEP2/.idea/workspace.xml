@@ -473,10 +473,10 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.RunApplicationHQ" />
+      <item itemvalue="Application.RunApplicationRT" />
       <item itemvalue="Application.RunApplication" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Setup" />
-      <item itemvalue="Application.RunApplicationRT" />
     </list>
     <recent_temporary>
       <list>
