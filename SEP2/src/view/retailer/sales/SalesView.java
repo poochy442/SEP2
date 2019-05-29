@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.ProductRequest;
 import model.StockItem;
-import viewmodel.retailer.inventory.ProductRequestVM;
+import viewmodel.retailer.sales.SalesVM;
 
 /**
  * The view Class for the Product Request view.
@@ -39,45 +39,45 @@ public class SalesView {
     @FXML
     private AnchorPane anchorPane;
 
-    private ProductRequestVM productRequestVM;
+    private SalesVM salesVM;
 
     /**
      * Creates a SalesView.
      */
-    public SalesView()
-    {
+    public SalesView() {
 
     }
 
     /**
      * An init method instantiating all the required fields.
-     * @param productRequestVM The {@link ProductRequestVM} viewmodel to be used.
+     *
+     * @param salesVM The {@link SalesVM} viewmodel to be used.
      */
-    public void init(ProductRequestVM productRequestVM) {
-        this.productRequestVM = productRequestVM;
-        productRequestTable.setItems(productRequestVM.getProductRequests());
+    public void init(SalesVM salesVM) {
+        this.salesVM = salesVM;
+        productRequestTable.setItems(salesVM.getProductRequests());
         nameCol.setCellValueFactory(new PropertyValueFactory<>("stockItem"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-        productRequestVM.openMainView();
+        salesVM.openMainView();
     }
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
-        productRequestVM.openEmployeeMainView();
+        salesVM.openEmployeeMainView();
     }
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-        productRequestVM.openInventoryMainView();
+        salesVM.openInventoryMainView();
     }
 
     @FXML
     void onSendRequestClicked(ActionEvent event) {
-        productRequestVM.sendProductRequest();
+        salesVM.sendProductRequest();
     }
 
     @FXML
@@ -87,7 +87,13 @@ public class SalesView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        salesVM.openProductRequest();
+
     }
 }

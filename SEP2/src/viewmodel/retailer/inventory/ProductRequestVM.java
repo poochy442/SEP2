@@ -23,7 +23,7 @@ public class ProductRequestVM {
     private ViewHandler viewHandler;
 
     /**
-     * Creates a ProductRequestVM with the specified information and adds the required listeners.
+     * Creates a SalesVM with the specified information and adds the required listeners.
      *
      * @param dataModel   The {@link model.DataModel} to be used.
      * @param viewHandler The {@link ViewHandler} to be used.

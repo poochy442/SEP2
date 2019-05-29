@@ -45,7 +45,34 @@ public class ClientSender implements Runnable {
         dataModel.addListener("SendProductRequest", this::addRequestListener);
         dataModel.addListener("DeleteItemFromWH", this::deleteItemFromWH);
         dataModel.addListener("DeleteEmployee", this::deleteEmployee);
+        dataModel.addListener("AddSale", this::addSale);
+        dataModel.addListener("SalesQuery", this::salesQuery);
+        dataModel.addListener("AddProductRequest", this::addRequest);
         queue = new LinkedList<>();
+    }
+
+    private void addRequest(PropertyChangeEvent propertyChangeEvent) {
+        ProductRequest productRequest = (ProductRequest) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(productRequest);
+        Packet packet = new Packet(Packet.addProductRequest, json);
+        addToQueue(packet);
+        System.out.println("ClientSender: Request Packet Sent");
+    }
+
+    private void salesQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p1 = new Packet(Packet.salesQuery, "");
+        addToQueue(p1);
+        System.out.println("ClientSender: SalesQuery");
+    }
+
+    private void addSale(PropertyChangeEvent propertyChangeEvent) {
+        StockItem saleItem = (StockItem) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(saleItem);
+        Packet p1 = new Packet(Packet.AddSale, json);
+        System.out.println("ClientSender: " + saleItem.getId() + " sent to server");
+        addToQueue(p1);
     }
 
     private void deleteEmployee(PropertyChangeEvent propertyChangeEvent) {

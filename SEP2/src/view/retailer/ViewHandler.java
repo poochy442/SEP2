@@ -13,6 +13,7 @@ import view.retailer.inventory.InventoryAddView;
 import view.retailer.inventory.InventoryMainView;
 import view.retailer.inventory.ProductRequestView;
 import view.retailer.main.MainView;
+import view.retailer.sales.SalesView;
 import viewmodel.retailer.ViewModelProvider;
 
 import java.io.IOException;
@@ -183,7 +184,7 @@ public class ViewHandler {
     public void openProductRequestView() {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("inventory/Sales.fxml"));
+        loader.setLocation(getClass().getResource("inventory/ProductRequest.fxml"));
         Parent root = null;
         try{
             root = loader.load();
@@ -195,6 +196,27 @@ public class ViewHandler {
         ProductRequestView view = loader.getController();
         view.init(viewModelProvider.getProductRequestVM());
         primaryStage.setTitle("Product request");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openSalesView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("sales/Sales.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        SalesView view = loader.getController();
+        view.init(viewModelProvider.getSalesVM());
+        primaryStage.setTitle("Sales");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

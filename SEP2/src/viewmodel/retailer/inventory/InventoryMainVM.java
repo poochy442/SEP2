@@ -91,7 +91,16 @@ public class InventoryMainVM {
     public void addToProductRequest(StockItem stockItem,String qty) {
         int quantity=Integer.parseInt(qty);
         ProductRequest productRequest = new ProductRequest(stockItem,quantity);
-        dataModel.addToProductRequest(productRequest);
+        dataModel.addToProductRequest(productRequest,true);
+    }
+
+    public void addToSales(StockItem selectedItem, String text) {
+        selectedItem.setQuantity(Integer.parseInt(text));
+        dataModel.addToSales(selectedItem,true);
+    }
+
+    public void openSalesView() {
+        viewHandler.openSalesView();
     }
 
     //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation

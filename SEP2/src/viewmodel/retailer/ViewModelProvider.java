@@ -9,6 +9,7 @@ import viewmodel.retailer.inventory.InventoryAddVM;
 import viewmodel.retailer.inventory.InventoryMainVM;
 import viewmodel.retailer.inventory.ProductRequestVM;
 import viewmodel.retailer.main.MainVM;
+import viewmodel.retailer.sales.SalesVM;
 
 
 /**
@@ -29,6 +30,7 @@ public class ViewModelProvider {
     private EmployeeMainVM employeeMainVM;
     private EmployeeAddVM employeeAddVM;
     private ProductRequestVM productRequestVM;
+    private SalesVM salesVM;
 
     /**
      * Creates a ViewModelProvider with the specified information and instantiates all the required fields.
@@ -44,6 +46,7 @@ public class ViewModelProvider {
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
         productRequestVM = new ProductRequestVM(dataModel, viewHandler);
+        salesVM = new SalesVM(dataModel,viewHandler);
     }
 
     /**
@@ -115,4 +118,7 @@ public class ViewModelProvider {
     }
 
 
+    public SalesVM getSalesVM() {
+        return salesVM;
+    }
 }

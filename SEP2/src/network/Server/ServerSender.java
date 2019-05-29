@@ -43,7 +43,18 @@ public class ServerSender implements Runnable {
         queue= new LinkedList<>();
         dataBaseModel.addListener("EmployeeQuery",this::sendEmployeeList);
         dataBaseModel.addListener("ItemQuery",this::sendItemList);
+        dataBaseModel.addListener("SalesQuery",this::sendSalesList);
         // TODO: Add listener for the Response
+    }
+
+    private void sendSalesList(PropertyChangeEvent propertyChangeEvent) {
+        Gson gson = new Gson();
+        StockItemList stockItemList =((StockItemList) propertyChangeEvent.getNewValue());
+        String json = gson.toJson(stockItemList);
+        Packet packet = new Packet(Packet.salesQuery, json);
+        addToQueue(packet);
+        System.out.println("ServerSender: Sales List sent");
+
     }
 
     /**
@@ -56,10 +67,6 @@ public class ServerSender implements Runnable {
         String json = gson.toJson(stockItemList);
         Packet packet = new Packet(Packet.ItemQuery, json);
         addToQueue(packet);
-        for (int i=0;i<stockItemList.size();i++)
-        {
-            System.out.println(stockItemList.get(i).getName());
-        }
         System.out.println("ServerSender: StockItemListPacket sent");
     }
 

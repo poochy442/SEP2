@@ -51,4 +51,8 @@ public class MainVM {
     {
         viewHandler.openProductRequestView();
     }
+
+    public void openSalesMainView() {
+        viewHandler.openSalesView();
+    }
 }

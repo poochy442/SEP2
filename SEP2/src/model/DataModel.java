@@ -29,6 +29,7 @@ public class DataModel implements IDataModel {
      */
     private ProductRequestList productRequestList;
     private Counter counter;
+    private StockItemList sales;
 
     /**
      * Creates a DataModel and instantiate all the fields.
@@ -39,6 +40,7 @@ public class DataModel implements IDataModel {
         stockItemList = new StockItemList();
         productRequestList = new ProductRequestList();
         counter = new Counter(this);
+        sales = new StockItemList();
     }
 
     /**
@@ -268,10 +270,33 @@ public class DataModel implements IDataModel {
         }
         return true;
     }
+
     @Override
-    public void addToProductRequest(ProductRequest productRequest)
-    {
+    public void addToProductRequest(ProductRequest productRequest,boolean notifyServer) {
         productRequestList.addRequestToList(productRequest);
-        System.out.println("DataModel: product : " +productRequest.getProductId()+ " added to model.productRequest");
+        propertyChangeSupport.firePropertyChange("AddProductRequest",null,productRequest);
+        System.out.println("DataModel: product : " + productRequest.getProductId() + " added to model.productRequest");
     }
+
+    @Override
+    public void addToSales(StockItem selectedItem, boolean notifyServer) {
+        sales.add(selectedItem);
+        if (notifyServer == true) {
+            //notifies Client sender
+            propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
+            System.out.println(selectedItem.getName());
+            //todo notify view
+        }
+        //todo notify view
+        System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
+
+    }
+
+    @Override
+    public void loadSalesFromDB() {
+        propertyChangeSupport.firePropertyChange("SalesQuery", 1, 2);
+        System.out.println("DataModel : Sales query");
+
+    }
+
 }

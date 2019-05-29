@@ -54,6 +54,9 @@ public class Packet implements Serializable {
     public static final String DeleteItemFromHQ = "DeleteItemFromHQ";
 
     public static final String DeleteEmployee = "DeleteEmployee";
+    public static final String AddSale = "AddSale";
+    public static final String salesQuery = "SalesQuery";
+    public static final String addProductRequest = "AddProductRequest";
 
     /**
      * Creates a Packet with the specified information.
