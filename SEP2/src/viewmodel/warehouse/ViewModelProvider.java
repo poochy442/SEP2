@@ -7,7 +7,7 @@ import viewmodel.warehouse.employee.EmployeeAddVM;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 import viewmodel.warehouse.inventory.InventoryAddVM;
 import viewmodel.warehouse.inventory.InventoryMainVM;
-import viewmodel.warehouse.inventory.ProductRequestVM;
+import viewmodel.warehouse.request.ProductRequestVM;
 import viewmodel.warehouse.main.MainVM;
 
 /**

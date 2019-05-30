@@ -287,8 +287,11 @@ public class DataModel implements IDataModel {
             propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
             System.out.println(selectedItem.getName());
         }
-        System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
-        propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+        else {
+            System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
+            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+        }
+
 
     }
 

@@ -1,10 +1,10 @@
-package viewmodel.retailer.inventory;
+package viewmodel.warehouse.request;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
-import view.retailer.ViewHandler;
+import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
 
@@ -38,6 +38,9 @@ public class ProductRequestVM {
      * Sends a Product Request to the Server with the information in the {@link PropertyChangeEvent} passed.
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
+    private void sendProductRequest(PropertyChangeEvent evt) {
+        productRequests.add((ProductRequest) evt.getNewValue());
+    }
 
     /**
      * Gets the {@link ProductRequest}s from the List.

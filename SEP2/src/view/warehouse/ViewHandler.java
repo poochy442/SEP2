@@ -11,7 +11,7 @@ import view.warehouse.employee.EmployeeAddView;
 import view.warehouse.employee.EmployeeMainView;
 import view.warehouse.inventory.InventoryAddView;
 import view.warehouse.inventory.InventoryMainView;
-import view.warehouse.inventory.ProductRequestView;
+import view.warehouse.request.ProductRequestView;
 import view.warehouse.main.MainView;
 import viewmodel.warehouse.ViewModelProvider;
 

@@ -7,7 +7,7 @@ import viewmodel.retailer.employee.EmployeeAddVM;
 import viewmodel.retailer.employee.EmployeeMainVM;
 import viewmodel.retailer.inventory.InventoryAddVM;
 import viewmodel.retailer.inventory.InventoryMainVM;
-import viewmodel.retailer.inventory.ProductRequestVM;
+import viewmodel.retailer.request.ProductRequestVM;
 import viewmodel.retailer.main.MainVM;
 import viewmodel.retailer.sales.SalesVM;
 

@@ -1,4 +1,4 @@
-package view.warehouse.inventory;
+package view.retailer.request;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.ProductRequest;
 import model.StockItem;
-import viewmodel.warehouse.inventory.ProductRequestVM;
+import viewmodel.retailer.request.ProductRequestVM;
 
 /**
  * The view Class for the Product Request view.
