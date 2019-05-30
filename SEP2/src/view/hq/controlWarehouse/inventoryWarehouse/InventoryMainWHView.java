@@ -3,6 +3,8 @@ package view.hq.controlWarehouse.inventoryWarehouse;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,6 +15,15 @@ import model.StockItem;
 import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
 
 import java.time.LocalDate;
+
+/**
+ * The view Class for the main Warehouse view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 
 public class InventoryMainWHView {
     @FXML
@@ -46,12 +57,20 @@ public class InventoryMainWHView {
     private AnchorPane anchorPane;
 
     private InventoryWHVM inventoryWHVM;
+    private StockItem selectedItem;
 
+    /**
+     * Creates an InventoryMainWHView.
+     */
     public InventoryMainWHView()
     {
 
     }
 
+    /**
+     * An init method, instantiating all the fields required.
+     * @param inventoryWHVM The {@link InventoryWHVM} viewmodel to be used.
+     */
     public void init(InventoryWHVM inventoryWHVM)
     {
         this.inventoryWHVM = inventoryWHVM;
@@ -60,8 +79,8 @@ public class InventoryMainWHView {
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire")); //TODO: Can expire weird
-        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
+        canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire"));
+        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
     }
@@ -109,7 +128,26 @@ public class InventoryMainWHView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
 
+        if (alert.getResult() == ButtonType.YES) {
+            StockItem selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+            stockItemTable.getItems().remove(selectedItem);
+            inventoryWHVM.removeStockItem(selectedItem);
+        }
     }
 
     @FXML

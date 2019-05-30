@@ -8,18 +8,33 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.warehouse.main.MainVM;
 
+/**
+ * The main view Class for the Warehouse.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class MainView {
     private MainVM mainVM;
     @FXML
     private AnchorPane anchorPane;
 
+    /**
+     * Creates a MainView.
+     */
     public MainView() {
 
     }
 
-    public void init (MainVM mainVM)
-    {
-       this.mainVM=mainVM;
+    /**
+     * An init method instantiating all the required fields.
+     * @param mainVM The {@link MainVM} viewmodel to be used.
+     */
+    public void init(MainVM mainVM) {
+        this.mainVM = mainVM;
     }
 
     @FXML
@@ -28,8 +43,14 @@ public class MainView {
     }
 
     @FXML
-    void onInventoryClicked(ActionEvent event) { mainVM.openInventoryMainView();
+    void onInventoryClicked(ActionEvent event) {
+        mainVM.openInventoryMainView();
 
+    }
+
+    @FXML
+    void onRequestClicked(ActionEvent event) {
+        mainVM.openRequestMainView();
     }
 
     @FXML
@@ -44,7 +65,7 @@ public class MainView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 }

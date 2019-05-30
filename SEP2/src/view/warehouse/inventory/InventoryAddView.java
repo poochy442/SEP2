@@ -5,11 +5,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.warehouse.inventory.InventoryAddVM;
+
+/**
+ * The view Class for the add Inventory view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 
 public class InventoryAddView {
     @FXML
@@ -22,13 +32,10 @@ public class InventoryAddView {
     private TextField priceField;
 
     @FXML
-    private TextField iDField;
+    private CheckBox canExpireCheckBox;
 
     @FXML
-    private CheckBox canExpireCheck;
-
-    @FXML
-    private DatePicker datePicker;
+    private DatePicker expiryDatePicker;
 
     @FXML
     private TextField minStockField;
@@ -38,29 +45,57 @@ public class InventoryAddView {
 
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private Label emptyNameLabel;
+
+    @FXML
+    private Label errorPriceLabel;
+
+    @FXML
+    private Label errorQuantityLabel;
+
+    @FXML
+    private Label errorMinStockLabel;
+
+    @FXML
+    private Label errorMaxStockLabel;
+
+    @FXML
+    private Label errorExpiryDateLabel;
+
     private InventoryAddVM inventoryAddVM;
 
-    public InventoryAddView()
-    {
+    /**
+     * Creates an InventoryAddView.
+     */
+    public InventoryAddView() {
 
     }
 
-    public void init(InventoryAddVM inventoryAddVM)
-    {
+    /**
+     * An init method instantiating all the required fields.
+     * @param inventoryAddVM the {@link InventoryAddVM} viewmodel to be used.
+     */
+    public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
-        iDField.textProperty().bindBidirectional(inventoryAddVM.IDProperty());
-        canExpireCheck.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty()); // TODO: BINDING canExpire weird
-        datePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate()); //TODO: BINDING datePicker weird
+        canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty());
+        expiryDatePicker.valueProperty().bindBidirectional(inventoryAddVM.getExpiryDate());
         minStockField.textProperty().bindBidirectional(inventoryAddVM.minStockProperty());
         maxStockField.textProperty().bindBidirectional(inventoryAddVM.maxStockProperty());
 
     }
+
     @FXML
     void onAddClicked(ActionEvent event) {
-        inventoryAddVM.addStockItem();
+        if(isEverythingValid())
+        {
+            inventoryAddVM.addStockItem();
+            inventoryAddVM.confirmation();
+        }
     }
 
     @FXML
@@ -75,7 +110,7 @@ public class InventoryAddView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
@@ -95,16 +130,74 @@ public class InventoryAddView {
     }
 
     @FXML
-    void canExpireClicked(ActionEvent event)
-    {
-        if(canExpireCheck.isSelected())
+    void canExpireClicked(ActionEvent event) {
+        if (canExpireCheckBox.isSelected()) {
+            expiryDatePicker.setDisable(false);
+        } else {
+            expiryDatePicker.setDisable(true);
+            expiryDatePicker.setValue(null);
+        } //TODO: Violating MVVM pattern?
+    }
+
+    private boolean isEverythingValid() {
+        boolean emptyName, validExpiryDate, validPrice, validQuantity, validMinStock, validMaxStock = false;
+
+        inventoryAddVM.executeEmpty();
+        validExpiryDate = inventoryAddVM.validDate();
+
+        if (nameField.textProperty().getValue().isEmpty()) {
+            emptyName = true;
+            emptyNameLabel.setVisible(true);
+        } else {
+            emptyName = false;
+            emptyNameLabel.setVisible(false);
+        }
+
+        if(validExpiryDate)
         {
-            datePicker.setDisable(false);
+            errorExpiryDateLabel.setVisible(false);
         }
         else
         {
-            datePicker.setDisable(true);
-            datePicker.setValue(null);
+            errorExpiryDateLabel.setVisible(true);
         }
+
+        if (!inventoryAddVM.onlyNumbersPrice()) {
+            errorPriceLabel.setVisible(true);
+            validPrice = false;
+        } else {
+            errorPriceLabel.setVisible(false);
+            validPrice = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersQuantity()) {
+            errorQuantityLabel.setVisible(true);
+            validQuantity = false;
+        } else {
+            errorQuantityLabel.setVisible(false);
+            validQuantity = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersMaxStock()) {
+            errorMaxStockLabel.setVisible(true);
+            validMaxStock = false;
+        } else {
+            errorMaxStockLabel.setVisible(false);
+            validMaxStock = true;
+        }
+
+        if (!inventoryAddVM.onlyNumbersMinStock()) {
+            errorMinStockLabel.setVisible(true);
+            validMinStock = false;
+        } else {
+            errorMinStockLabel.setVisible(false);
+            validMinStock = true;
+        }
+
+        if (validPrice && validQuantity && validMaxStock && validMinStock && !emptyName && validExpiryDate)
+        {
+            return true;
+        }
+        return false;
     }
 }

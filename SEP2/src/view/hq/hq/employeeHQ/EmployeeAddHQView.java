@@ -10,6 +10,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.hq.hq.employee.EmployeeAddHQVM;
 
+/**
+ * The view Class for the Headquarter's add Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
+
 public class EmployeeAddHQView {
     @FXML
     private TextField firstNameField;
@@ -18,7 +27,16 @@ public class EmployeeAddHQView {
     private TextField lastNameField;
 
     @FXML
-    private TextField iDField;
+    private Label errorFirstNameLabel;
+
+    @FXML
+    private Label emptyFirstNameLabel;
+
+    @FXML
+    private Label errorLastNameLabel;
+
+    @FXML
+    private Label emptyLastNameLabel;
 
     @FXML
     private Label nameLabel;
@@ -28,21 +46,29 @@ public class EmployeeAddHQView {
 
     private EmployeeAddHQVM employeeAddHQVM;
 
+    /**
+     * Creates an EmployeeAddHQView.
+     */
     public EmployeeAddHQView() {
 
     }
 
-    public void init(EmployeeAddHQVM employeeAddHQVM)
-    {
+    /**
+     * An init method instantiating all the fields required.
+     * @param employeeAddHQVM The {@link EmployeeAddHQVM} viewmodel to use.
+     */
+    public void init(EmployeeAddHQVM employeeAddHQVM) {
         this.employeeAddHQVM = employeeAddHQVM;
         firstNameField.textProperty().bindBidirectional(employeeAddHQVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddHQVM.lastNameProperty());
-        iDField.textProperty().bindBidirectional(employeeAddHQVM.IDProperty());
     }
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        employeeAddHQVM.addEmployee();
+        if(isEverythingValid()) {
+            employeeAddHQVM.addEmployee();
+            employeeAddHQVM.confirmation();
+        }
     }
 
     @FXML
@@ -57,7 +83,7 @@ public class EmployeeAddHQView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
@@ -77,8 +103,56 @@ public class EmployeeAddHQView {
     }
 
     @FXML
+    void onInventoryClicked(ActionEvent event) {
+        employeeAddHQVM.openInventoryMainHQView();
+    }
+
+    @FXML
     void onWarehouseClicked(MouseEvent event) {
         employeeAddHQVM.openInventoryWHView();
+    }
+
+    private boolean isEverythingValid() {
+        boolean emptyFirstName, emptyLastName, validFirstName, validLastName = false;
+
+        if (firstNameField.textProperty().getValue().isEmpty()) {
+            emptyFirstName = true;
+            emptyFirstNameLabel.setVisible(true);
+        } else {
+            emptyFirstName = false;
+            emptyFirstNameLabel.setVisible(false);
+        }
+
+        if (lastNameField.textProperty().getValue().isEmpty()) {
+            emptyLastName = true;
+            emptyLastNameLabel.setVisible(true);
+        } else {
+            emptyLastName = false;
+            emptyLastNameLabel.setVisible(false);
+        }
+
+        if (!employeeAddHQVM.validateFirstName()) {
+            errorFirstNameLabel.setText("Only letters are allowed");
+            errorFirstNameLabel.setVisible(true);
+            validFirstName = false;
+        } else {
+            errorFirstNameLabel.setVisible(false);
+            validFirstName = true;
+        }
+
+        if (!employeeAddHQVM.validateLastName()) {
+            errorLastNameLabel.setText("Only letters are allowed");
+            errorLastNameLabel.setVisible(true);
+            validLastName = false;
+        } else {
+            errorLastNameLabel.setVisible(false);
+            validLastName = true;
+        }
+
+        if (!emptyFirstName && !emptyLastName && validFirstName && validLastName) {
+            return true;
+        }
+        return false;
     }
 
 }

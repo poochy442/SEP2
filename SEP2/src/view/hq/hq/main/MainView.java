@@ -8,6 +8,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.hq.hq.main.MainVM;
 
+/**
+ * The main view Class for the Headquarters.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 public class MainView {
     private MainVM mainVM;
 
@@ -20,15 +28,27 @@ public class MainView {
     }
 
     @FXML
+    void onInventoryClicked(ActionEvent event) {
+        mainVM.openInventoryMainHQView();
+    }
+
+    @FXML
     void onDashboardClicked(ActionEvent event) {
         mainVM.openMainView();
     }
 
+    /**
+     * Creates a MainView.
+     */
     public MainView()
     {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param mainVM The {@link MainVM} viewmodel to use.
+     */
     public void init(MainVM mainVM)
     {
         this.mainVM = mainVM;
