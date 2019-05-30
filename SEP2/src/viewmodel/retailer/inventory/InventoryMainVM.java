@@ -95,8 +95,9 @@ public class InventoryMainVM {
     }
 
     public void addToSales(StockItem selectedItem, String text) {
-        selectedItem.setQuantity(Integer.parseInt(text));
-        dataModel.addToSales(selectedItem,true);
+        StockItem x = selectedItem.copy();
+        x.setQuantity(Integer.parseInt(text));
+        dataModel.addToSales(x,true);
     }
 
     public void openSalesView() {
