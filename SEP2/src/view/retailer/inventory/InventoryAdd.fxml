@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="anchorPane" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.inventory.InventoryAddView">
+   <children>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="53.0" layoutY="15.0" text="Retailer Management Tool">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Pane fx:id="actualPicture" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #58CBC6;">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../pictures/inventory.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <MenuBar layoutY="50.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Window">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Pane layoutY="75.0" prefHeight="779.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">
+         <children>
+            <Button fx:id="homeButton" layoutY="51.0" mnemonicParsing="false" onAction="#onDashboardClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Dashboard" textFill="#dddddd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="30.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/home.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="inventoryButton" layoutY="101.0" mnemonicParsing="false" onAction="#onInventoryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #58CBC6;" text="Inventory" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="employeeButton" layoutY="151.0" mnemonicParsing="false" onAction="#onEmployeeClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Employee" textFill="#dddddd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutY="201.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Reports/Issues" textFill="#dddddd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutY="251.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Operations" textFill="#dddddd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutY="301.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Something" textFill="#dddddd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="30.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/inventory.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="30.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/businessman.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <children>
+            <ImageView fx:id="help" fitHeight="26.0" fitWidth="26.0" layoutX="136.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/question.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="settings" fitHeight="25.0" fitWidth="25.0" layoutX="98.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/settings.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="804.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="close" fitHeight="14.0" fitWidth="14.0" layoutX="765.0" layoutY="15.0" onMouseClicked="#onCloseClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/close.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="minimize" fitHeight="16.0" fitWidth="16.0" layoutX="729.0" layoutY="15.0" onMouseClicked="#onMinimizeClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/minus-symbol.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="315.0" layoutY="108.0" text="Product info" AnchorPane.leftAnchor="315.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Pane layoutX="315.0" layoutY="175.0" prefHeight="287.0" prefWidth="490.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="200.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="91.0" text="Basic" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" prefHeight="17.0" prefWidth="77.0" text="Item Name" />
+            <Label layoutY="105.0" text="Category" />
+            <TextArea fx:id="descriptionArea" disable="true" editable="false" layoutX="120.0" layoutY="150.0" prefHeight="50.0" prefWidth="225.0" />
+            <ChoiceBox fx:id="categoryField" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="167.0" text="Description" />
+            <Label fx:id="emptyNameLabel" layoutX="355.0" layoutY="55.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
+         </children>
+      </Pane>
+      <Pane layoutX="315.0" layoutY="472.0" prefHeight="167.0" prefWidth="529.0" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="550.0">
+         <children>
+            <CheckBox fx:id="canExpireCheckBox" layoutY="55.0" mnemonicParsing="false" onAction="#canExpireClicked" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Expiration" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="expiryDatePicker" disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="105.0" text="Expiry date" />
+            <Label layoutX="21.0" layoutY="55.0" text="Expirable item?" />
+            <Label fx:id="errorExpiryDateLabel" layoutX="355.0" layoutY="105.0" text="You need to choose expiry date" textFill="#dd4b39" visible="false" />
+         </children>
+      </Pane>
+      <Pane layoutX="745.0" layoutY="175.0" prefHeight="200.0" prefWidth="475.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="200.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="136.0" text="Cost and Price" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="priceField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="55.0" text="Cost" />
+            <Label layoutY="105.0" text="Normal price" />
+            <Label layoutX="304.0" layoutY="150.0" text="Markup" />
+            <TextField disable="true" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutX="353.0" layoutY="55.0" text="kr." />
+            <Label layoutX="353.0" layoutY="105.0" text="kr." />
+            <Label fx:id="errorPriceLabel" layoutX="375.0" layoutY="55.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+         </children>
+      </Pane>
+      <Pane layoutX="745.0" layoutY="475.0" prefHeight="193.0" prefWidth="475.0" AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="550.0">
+         <children>
+            <Label layoutY="115.0" />
+            <TextField fx:id="quantityField" layoutX="120.0" layoutY="50.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="minStockField" layoutX="120.0" layoutY="100.0" prefHeight="25.0" prefWidth="225.0" />
+            <TextField fx:id="maxStockField" layoutX="120.0" layoutY="150.0" prefHeight="25.0" prefWidth="225.0" />
+            <Label layoutY="105.0" text="Min stock" />
+            <Label layoutY="155.0" text="Max stock" />
+            <Label prefHeight="30.0" prefWidth="91.0" text="Inventory" textFill="#58cbc6">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutY="55.0" text="Quantity" />
+            <Label fx:id="errorQuantityLabel" layoutX="355.0" layoutY="55.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorMinStockLabel" layoutX="355.0" layoutY="105.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+            <Label fx:id="errorMaxStockLabel" layoutX="355.0" layoutY="155.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+         </children>
+      </Pane>
+      <Button fx:id="addButton" layoutX="577.0" layoutY="750.0" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #58CBC6; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="backButton" layoutX="854.0" layoutY="750.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="BACK" AnchorPane.topAnchor="800.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

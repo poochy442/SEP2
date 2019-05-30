@@ -3,6 +3,8 @@ package view.hq.hq.employeeHQ;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -11,6 +13,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Employee;
 import viewmodel.hq.hq.employee.EmployeeMainHQVM;
+
+/**
+ * The view Class for the Headquarter's main Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 
 public class EmployeeMainHQView {
     @FXML
@@ -26,14 +37,25 @@ public class EmployeeMainHQView {
     private TableColumn<String, Employee> iDCol;
 
     @FXML
+    private TableColumn<String, Employee> departmentIDCol;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private EmployeeMainHQVM employeeMainHQVM;
+    private Employee selectedEmployee;
 
+    /**
+     * Creates an EmployeeMainHQView.
+     */
     public EmployeeMainHQView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param employeeMainHQVM The {@link EmployeeMainHQVM} viewmodel to use.
+     */
     public void init(EmployeeMainHQVM employeeMainHQVM)
     {
         this.employeeMainHQVM = employeeMainHQVM;
@@ -41,6 +63,7 @@ public class EmployeeMainHQView {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        departmentIDCol.setCellValueFactory(new PropertyValueFactory<>("departmentID"));
     }
 
     @FXML
@@ -75,8 +98,33 @@ public class EmployeeMainHQView {
     }
 
     @FXML
-    void onRemoveEmployeeClicked(ActionEvent event) {
+    void onInventoryClicked(ActionEvent event)
+    {
+        employeeMainHQVM.openInventoryMainHQView();
+    }
 
+    @FXML
+    void onRemoveEmployeeClicked(ActionEvent event) {
+        selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+        if(selectedEmployee == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No employee has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        confirmingAlert.setTitle("Confirmation");
+        confirmingAlert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
+        confirmingAlert.setContentText("Press ok to continue");
+        confirmingAlert.showAndWait();
+
+        if(confirmingAlert.getResult() == ButtonType.YES) {
+            Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
+            employeeTable.getItems().remove(selectedEmployee);
+            employeeMainHQVM.removeEmployee(selectedEmployee);
+        }
     }
 
 

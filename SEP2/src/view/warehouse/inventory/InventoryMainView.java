@@ -3,7 +3,8 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -13,18 +14,21 @@ import javafx.stage.Stage;
 import model.StockItem;
 import viewmodel.warehouse.inventory.InventoryMainVM;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+/**
+ * The view Class for the main Inventory view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 
 public class InventoryMainView {
 
     @FXML
     private TableView<StockItem> stockItemTable;
-
-    @FXML
-    private TableView<StockItem> stockItemTableError;
-
-    @FXML
-    private Label errorLabel;
 
     @FXML
     private TableColumn<String, StockItem> nameCol;
@@ -42,7 +46,7 @@ public class InventoryMainView {
     private TableColumn<Boolean, StockItem> canExpireCol;
 
     @FXML
-    private TableColumn<Date, StockItem> expiryDateCol; //TODO: expiryDateCol change format
+    private TableColumn<LocalDate, StockItem> expiryDateCol;
 
     @FXML
     private TableColumn<Integer, StockItem> minStockCol;
@@ -51,14 +55,26 @@ public class InventoryMainView {
     private TableColumn<Integer, StockItem> maxStockCol;
 
     @FXML
+    private TableColumn<String, StockItem> locationCol;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private InventoryMainVM inventoryMainVM;
 
+    private StockItem selectedItem;
+
+    /**
+     * Creates an InventoryMainView.
+     */
     public InventoryMainView() {
 
     }
 
+    /**
+     * An init method instantiating all the required fields.
+     * @param inventoryMainVM The {@link InventoryMainVM} viewmodel to be used.
+     */
     public void init(InventoryMainVM inventoryMainVM) {
         this.inventoryMainVM = inventoryMainVM;
         stockItemTable.setItems(inventoryMainVM.getStockItems());
@@ -67,9 +83,10 @@ public class InventoryMainView {
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         canExpireCol.setCellValueFactory(new PropertyValueFactory<>("canExpire"));
-        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate")); //TODO: Expiry date weird
+        expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
+        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
     }
 
 
@@ -101,19 +118,24 @@ public class InventoryMainView {
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
-        if(stockItemTableError.isVisible())
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null)
         {
-            stockItemTableError.setPrefHeight(0);
-            stockItemTableError.setVisible(false);
-            errorLabel.setVisible(false);
-            errorLabel.setPrefHeight(0);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
         }
-        else
-        {
-            stockItemTableError.setPrefHeight(600);
-            stockItemTableError.setVisible(true);
-            errorLabel.setVisible((true));
-            errorLabel.setPrefHeight(17);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES) {
+            stockItemTable.getItems().remove(selectedItem);
+            inventoryMainVM.removeStockItem(selectedItem);
         }
     }
 

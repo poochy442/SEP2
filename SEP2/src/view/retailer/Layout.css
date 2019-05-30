@@ -1,0 +1,52 @@
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover {
+    -fx-background-color: #B579CF !important;
+    -fx-text-fill: white;
+}
+
+#editEmployeeButton:hover, #editItemStockButton:hover {
+    -fx-background-color: #FACD06 !important;
+    -fx-text-fill: white;
+}
+
+#removeEmployeeButton:hover, #removeItemStockButton:hover {
+    -fx-background-color: #DD4B39 !important;
+    -fx-text-fill: white;
+}
+
+#close:hover, #minimize:hover, #settings:hover, #help:hover {
+    -fx-scale-x: 1.15;
+    -fx-scale-y: 1.15;
+}
+
+.column-header{
+    -fx-background-color: #B579CF;
+    -fx-border-color: white;
+}
+
+#homeButton:hover, #inventoryButton:hover, #employeeButton:hover {
+    -fx-text-fill: white;
+}
+
+.text-field, .choice-box, .date-picker {
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #2C363B;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #2C363B !important;
+}
+
+.date-picker .text-field {
+    -fx-border-color: transparent;
+}
+
+.date-picker, #actualPicture {
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+

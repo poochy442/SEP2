@@ -3,11 +3,21 @@ package view.warehouse.employee;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import viewmodel.warehouse.employee.EmployeeAddVM;
+
+/**
+ * The view Class for the add Employee view.
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 
 public class EmployeeAddView {
 
@@ -18,31 +28,46 @@ public class EmployeeAddView {
     private TextField lastNameField;
 
     @FXML
-    private TextField iDField;
+    private AnchorPane anchorPane;
 
     @FXML
-    private AnchorPane anchorPane;
+    private Label errorFirstNameLabel;
+
+    @FXML Label emptyFirstNameLabel;
+
+    @FXML
+    private Label errorLastNameLabel;
+
+    @FXML
+    private Label emptyLastNameLabel;
 
     private EmployeeAddVM employeeAddVM;
 
-    public EmployeeAddView()
-    {
+    /**
+     * Creates an EmployeeAddView.
+     */
+    public EmployeeAddView() {
 
     }
 
-    public void init(EmployeeAddVM employeeAddVM)
-    {
+    /**
+     * An init method instantiating all the required fields.
+     * @param employeeAddVM The {@link EmployeeAddVM} viewmodel to be used.
+     */
+    public void init(EmployeeAddVM employeeAddVM) {
         this.employeeAddVM = employeeAddVM;
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddVM.lastNameProperty());
-        iDField.textProperty().bindBidirectional(employeeAddVM.IDProperty());
-
     }
 
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        employeeAddVM.addEmployee();
+        if(isEverythingValid())
+        {
+            employeeAddVM.addEmployee();
+            employeeAddVM.confirmation();
+        }
     }
 
     @FXML
@@ -57,7 +82,7 @@ public class EmployeeAddView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
@@ -74,5 +99,49 @@ public class EmployeeAddView {
     @FXML
     void onInventoryClicked(ActionEvent event) {
         employeeAddVM.openInventoryView();
+    }
+
+    private boolean isEverythingValid() {
+        boolean emptyFirstName, emptyLastName, validFirstName, validLastName = false;
+
+        if (firstNameField.textProperty().getValue().isEmpty()) {
+            emptyFirstName = true;
+            emptyFirstNameLabel.setVisible(true);
+        } else {
+            emptyFirstName = false;
+            emptyFirstNameLabel.setVisible(false);
+        }
+
+        if (lastNameField.textProperty().getValue().isEmpty()) {
+            emptyLastName = true;
+            emptyLastNameLabel.setVisible(true);
+        } else {
+            emptyLastName = false;
+            emptyLastNameLabel.setVisible(false);
+        }
+
+        if (!employeeAddVM.validateFirstName()) {
+            errorFirstNameLabel.setText("Only letters are allowed");
+            errorFirstNameLabel.setVisible(true);
+            validFirstName = false;
+        } else {
+            errorFirstNameLabel.setVisible(false);
+            validFirstName = true;
+        }
+
+        if (!employeeAddVM.validateLastName()) {
+            errorLastNameLabel.setText("Only letters are allowed");
+            errorLastNameLabel.setVisible(true);
+            validLastName = false;
+        } else {
+            errorLastNameLabel.setVisible(false);
+            validLastName = true;
+        }
+
+        if(!emptyFirstName && !emptyLastName && validFirstName && validLastName)
+        {
+            return true;
+        }
+        return false;
     }
 }
