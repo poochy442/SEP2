@@ -280,7 +280,7 @@ public class DataModel implements IDataModel {
 
     @Override
     public void addToSales(StockItem selectedItem, boolean notifyServer) {
-        sales.add(selectedItem);
+        sales.add(selectedItem.copy());
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);

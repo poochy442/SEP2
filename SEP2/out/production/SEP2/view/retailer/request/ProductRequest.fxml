@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.inventory.ProductRequestView">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.request.ProductRequestView">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="53.0" layoutY="15.0" text="Warehouse Management Tool">
+                  <Label layoutX="53.0" layoutY="15.0" text="Retailer Management Tool">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -79,7 +69,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Operations" textFill="#dddddd">
+                  <Button layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Requests" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -87,7 +77,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Something" textFill="#dddddd">
+                  <Button layoutY="326.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>

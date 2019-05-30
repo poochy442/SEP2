@@ -168,4 +168,10 @@ public class StockItem {
     public int getTotalProfit() {
         return totalProfit;
     }
+
+    public StockItem copy()
+    {
+        StockItem stockItem = new StockItem(name, id, quantity, price, canExpire, expiryDate, minStock, maxStock, location);
+        return stockItem;
+    }
 }

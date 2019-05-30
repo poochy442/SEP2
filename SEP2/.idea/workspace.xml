@@ -72,8 +72,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="506">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="173" column="94" selection-start-line="173" selection-start-column="94" selection-end-line="173" selection-end-column="94" />
+              <folding>
+                <element signature="e#2313#2314#0" expanded="true" />
+                <element signature="e#2345#2346#0" expanded="true" />
+                <element signature="e#3997#3998#0" expanded="true" />
+                <element signature="e#4049#4050#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="292" column="9" lean-forward="true" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
+            <state relative-caret-position="419">
+              <caret line="281" column="74" lean-forward="true" selection-start-line="281" selection-start-column="74" selection-end-line="281" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -133,7 +148,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/request/ProductRequestVM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
@@ -150,15 +165,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/Event.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="198" selection-start-line="198" selection-end-line="198" />
             </state>
           </provider>
         </entry>
@@ -281,10 +287,10 @@
         <option value="$PROJECT_DIR$/src/test/EmployeeTest.java" />
         <option value="$PROJECT_DIR$/src/test/ServerReceiverTest.java" />
         <option value="$PROJECT_DIR$/src/test/EmployeeListTest.java" />
-        <option value="$PROJECT_DIR$/src/model/StockItem.java" />
         <option value="$PROJECT_DIR$/src/view/retailer/sales/SalesView.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java" />
         <option value="$PROJECT_DIR$/src/model/DataModel.java" />
+        <option value="$PROJECT_DIR$/src/model/StockItem.java" />
       </list>
     </option>
   </component>
@@ -332,21 +338,6 @@
               <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEP2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,6 +346,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
               <item name="retailer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="retailer" type="462c0819:PsiDirectoryNode" />
+              <item name="sales" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -388,6 +387,10 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ledao\Project\SEP2\SEP2\src\view\warehouse\request" />
+      <recent name="C:\Users\ledao\Project\SEP2\SEP2\src\view\retailer\request" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="viewmodel.retailer.sales" />
       <recent name="viewmodel.retailer.main" />
@@ -578,6 +581,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25866666" />
       <window_info id="Structure" order="1" weight="0.25266525" />
@@ -901,19 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
-          <folding>
-            <element signature="e#2281#2282#0" expanded="true" />
-            <element signature="e#2313#2314#0" expanded="true" />
-            <element signature="e#3754#3755#0" expanded="true" />
-            <element signature="e#3788#3789#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_181/javafx-src.zip!/javafx/scene/control/TableView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1002,13 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/retailer/sales/SalesView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1016,13 +1000,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="292" column="9" lean-forward="true" selection-start-line="292" selection-start-column="9" selection-end-line="292" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1068,6 +1045,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="281" column="74" lean-forward="true" selection-start-line="281" selection-start-column="74" selection-end-line="281" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="173" column="94" selection-start-line="173" selection-start-column="94" selection-end-line="173" selection-end-column="94" />
+          <folding>
+            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2345#2346#0" expanded="true" />
+            <element signature="e#3997#3998#0" expanded="true" />
+            <element signature="e#4049#4050#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
