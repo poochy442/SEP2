@@ -284,11 +284,11 @@ public class DataModel implements IDataModel {
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
+            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
             System.out.println(selectedItem.getName());
-            //todo notify view
         }
-        //todo notify view
         System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
+        propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
 
     }
 

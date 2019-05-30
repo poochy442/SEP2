@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
+import model.StockItem;
 import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -19,8 +20,9 @@ import java.beans.PropertyChangeEvent;
 
 public class SalesVM {
     private IDataModel dataModel;
-    private ObservableList<ProductRequest> productRequests;
+    private ObservableList<StockItem> sales;
     private ViewHandler viewHandler;
+    private int quantity,price;
 
     /**
      * Creates a SalesVM with the specified information and adds the required listeners.
@@ -31,7 +33,14 @@ public class SalesVM {
     public SalesVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
-        productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        sales = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("AddSaleView",this::addSalesToClient);
+    }
+
+    private void addSalesToClient(PropertyChangeEvent propertyChangeEvent) {
+        sales.add((StockItem) propertyChangeEvent.getNewValue());
+        quantity=((StockItem) propertyChangeEvent.getNewValue()).getQuantity();
+        price=((StockItem) propertyChangeEvent.getNewValue()).getPrice();
     }
 
     /**
@@ -43,8 +52,8 @@ public class SalesVM {
      * Gets the {@link ProductRequest}s from the List.
      * @return The {@link ProductRequest}s from the List.
      */
-    public ObservableList<ProductRequest> getProductRequests() {
-        return productRequests;
+    public ObservableList<StockItem> getSales() {
+        return sales;
     }
 
     /**
@@ -78,5 +87,10 @@ public class SalesVM {
 
     public void openProductRequest() {
         viewHandler.openProductRequestView();
+    }
+
+    public int calculateTotalProfit ()
+    {
+       return quantity * price;
     }
 }

@@ -9,7 +9,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.ProductRequest;
 import model.StockItem;
 import viewmodel.retailer.sales.SalesVM;
 
@@ -25,16 +24,19 @@ import viewmodel.retailer.sales.SalesVM;
 public class SalesView {
 
     @FXML
-    private TableView<ProductRequest> productRequestTable;
+    private TableView<StockItem> salesTable;
 
     @FXML
-    private TableColumn<StockItem, ProductRequest> nameCol;
+    private TableColumn<String, StockItem> nameCol;
 
     @FXML
-    private TableColumn<String, ProductRequest> iDCol;
+    private TableColumn<Integer, StockItem> quantitySoldCol;
 
     @FXML
-    private TableColumn<Integer, ProductRequest> quantityCol;
+    private TableColumn<Integer, StockItem> pricePerUnitCol;
+
+    @FXML
+    private TableColumn<Integer, StockItem> totalProfitCol;
 
     @FXML
     private AnchorPane anchorPane;
@@ -55,9 +57,10 @@ public class SalesView {
      */
     public void init(SalesVM salesVM) {
         this.salesVM = salesVM;
-        productRequestTable.setItems(salesVM.getProductRequests());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("stockItem"));
-        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        salesTable.setItems(salesVM.getSales());
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        quantitySoldCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        pricePerUnitCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
     @FXML
