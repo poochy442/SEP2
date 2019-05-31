@@ -122,4 +122,7 @@ public class EmployeeAddVM {
     public boolean validateLastName() {
         return  dataModel.onlyLetters(lastName.getValue());
     }
+
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
 }

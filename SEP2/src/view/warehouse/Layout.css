@@ -1,5 +1,5 @@
-.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #productRequestButton:hover, #sendRequestButton:hover {
-    -fx-background-color: #58CBC6 !important;
+.menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, #addEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover, #sendRequestButton:hover, #addProductRequestButton:hover {
+    -fx-background-color: #3498DB !important;
     -fx-text-fill: white;
 }
 
@@ -19,11 +19,11 @@
 }
 
 .column-header{
-    -fx-background-color: #58CBC6;
+    -fx-background-color: #3498DB;
     -fx-border-color: white;
 }
 
-#homeButton:hover, #inventoryButton:hover, #employeeButton:hover {
+#homeButton:hover, #inventoryButton:hover, #employeeButton:hover, #productRequestButton:hover, #deliveryButton:hover {
     -fx-text-fill: white;
 }
 

@@ -130,6 +130,16 @@ public class InventoryAddView {
     }
 
     @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        inventoryAddVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+
+    }
+
+    @FXML
     void canExpireClicked(ActionEvent event) {
         if (canExpireCheckBox.isSelected()) {
             expiryDatePicker.setDisable(false);

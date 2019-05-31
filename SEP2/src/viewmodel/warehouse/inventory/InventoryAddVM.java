@@ -260,4 +260,7 @@ public class InventoryAddVM {
         }
         return true;
     }
+
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
 }

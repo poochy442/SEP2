@@ -153,4 +153,16 @@ public class InventoryMainView {
     void onProductRequestClicked(ActionEvent event) {
         inventoryMainVM.openProductRequestView();
     }
+
+    @FXML
+    void onAddProductRequestClicked(ActionEvent event)
+    {
+
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+
+    }
+
 }

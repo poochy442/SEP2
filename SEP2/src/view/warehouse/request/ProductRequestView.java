@@ -90,4 +90,14 @@ public class ProductRequestView {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    @FXML void onProductRequestClicked(ActionEvent event)
+    {
+        productRequestVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+
+    }
 }

@@ -78,4 +78,7 @@ public class ProductRequestVM {
 
         dataModel.sendProductRequest();
     }
+
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
 }

@@ -68,101 +68,95 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+            <state relative-caret-position="320">
+              <caret line="136" column="2" selection-start-line="136" selection-start-column="2" selection-end-line="140" />
+              <folding>
+                <element signature="e#3251#3252#0" expanded="true" />
+                <element signature="e#3306#3307#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="163" column="31" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
+            <state relative-caret-position="464">
+              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/main/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+              <folding>
+                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1215#1216#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryMainVM.java">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/request/ProductRequestView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="99" column="37" lean-forward="true" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+            <state relative-caret-position="311">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2402#2403#0" expanded="true" />
+                <element signature="e#2441#2442#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="174" column="25" lean-forward="true" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
-              <folding>
-                <element signature="e#2313#2314#0" expanded="true" />
-                <element signature="e#2345#2346#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="295" column="5" lean-forward="true" selection-start-line="295" selection-start-column="5" selection-end-line="295" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeAddVM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-279">
-              <caret line="43" column="106" selection-start-line="43" selection-start-column="106" selection-end-line="43" selection-end-column="106" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/retailer/request/ProductRequestView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="59" column="80" lean-forward="true" selection-start-line="59" selection-start-column="80" selection-end-line="59" selection-end-column="80" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/retailer/request/ProductRequest.fxml">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/request/ProductRequest.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="209" lean-forward="true" selection-start-line="8" selection-start-column="209" selection-end-line="8" selection-end-column="209" />
+            <state relative-caret-position="175">
+              <caret line="89" column="106" selection-start-line="89" selection-start-column="100" selection-end-line="89" selection-end-column="106" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/request/ProductRequestVM.java">
+        <entry file="file://$PROJECT_DIR$/src/view/warehouse/ViewHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/ViewModelProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/ViewModelProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-402">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,8 +167,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/request/ProductRequestVM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="-540">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/main/MainVM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+              <folding>
+                <element signature="e#1125#1126#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,17 +204,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getemplo</find>
-      <find>retailer</find>
-      <find>w</find>
-      <find>ware</find>
-      <find>wh</find>
-      <find>WH</find>
-      <find>RT</find>
-      <find>&quot;WH</find>
-      <find>product</find>
-      <find>selecteditem</find>
-      <find>productRequestList</find>
       <find>operations</find>
       <find>some</find>
       <find>o</find>
@@ -224,6 +223,17 @@
       <find>productrequest</find>
       <find>addsale</find>
       <find>onsell</find>
+      <find>clos</find>
+      <find>requ</find>
+      <find>inven</find>
+      <find>oepnde</find>
+      <find>reque</find>
+      <find>home</find>
+      <find>openpro</find>
+      <find>delive</find>
+      <find>produc</find>
+      <find>send</find>
+      <find>ondeli</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -237,20 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/hq/controlWarehouse/employeeWarehouse/EmployeeMainWHView.java" />
-        <option value="$PROJECT_DIR$/src/view/hq/controlWarehouse/inventoryWarehouse/InventoryMainWHView.java" />
-        <option value="$PROJECT_DIR$/src/view/hq/hq/inventoryHQ/InventoryMainHQView.java" />
-        <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" />
-        <option value="$PROJECT_DIR$/src/viewmodel/hq/hq/inventory/InventoryAddHQVM.java" />
-        <option value="$PROJECT_DIR$/src/RunRT.java" />
-        <option value="$PROJECT_DIR$/src/RunApplicationRT.java" />
-        <option value="$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeMainVM.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/employee/EmployeeAddView.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/employee/EmployeeMainView.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/inventory/InventoryAddView.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/inventory/ProductRequestView.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/employee/EmployeeAdd.fxml" />
-        <option value="$PROJECT_DIR$/src/view/retailer/inventory/InventoryAdd.fxml" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryAddVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeAddVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/inventory/ProductRequestVM.java" />
@@ -267,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/view/retailer/inventory/InventoryMain.fxml" />
         <option value="$PROJECT_DIR$/src/network/Server/Server.java" />
         <option value="$PROJECT_DIR$/src/jdbc/Setup.java" />
-        <option value="$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java" />
         <option value="$PROJECT_DIR$/src/network/client/Client.java" />
         <option value="$PROJECT_DIR$/src/model/Sale.java" />
         <option value="$PROJECT_DIR$/src/model/Sales.java" />
@@ -279,7 +274,6 @@
         <option value="$PROJECT_DIR$/src/network/client/ClientSender.java" />
         <option value="$PROJECT_DIR$/src/network/Server/ServerReceiver.java" />
         <option value="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" />
-        <option value="$PROJECT_DIR$/src/view/warehouse/employee/EmployeeMainView.java" />
         <option value="$PROJECT_DIR$/src/test/EmployeeTest.java" />
         <option value="$PROJECT_DIR$/src/test/ServerReceiverTest.java" />
         <option value="$PROJECT_DIR$/src/test/EmployeeListTest.java" />
@@ -288,11 +282,27 @@
         <option value="$PROJECT_DIR$/src/model/DataModel.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java" />
         <option value="$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryMainVM.java" />
+        <option value="$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java" />
+        <option value="$PROJECT_DIR$/src/view/retailer/Layout.css" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAdd.fxml" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAddView.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/employee/EmployeeMainView.java" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeMainVM.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryAddVM.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/Layout.css" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/main/MainView.java" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/main/MainVM.java" />
+        <option value="$PROJECT_DIR$/src/viewmodel/warehouse/request/ProductRequestVM.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/ViewHandler.java" />
+        <option value="$PROJECT_DIR$/src/view/warehouse/request/ProductRequestView.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1614" />
@@ -307,6 +317,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -344,7 +356,23 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="retailer" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="retailer" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="retailer" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
@@ -358,6 +386,45 @@
               <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEP2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="inventory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,12 +442,25 @@
               <item name="retailer" type="462c0819:PsiDirectoryNode" />
               <item name="sales" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouse" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -437,7 +517,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunApplicationRT">
+  <component name="RunManager" selected="Application.RunApplication">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -565,11 +645,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunApplication" />
         <item itemvalue="Application.RunApplicationRT" />
         <item itemvalue="Application.RunRT" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.RunHQ" />
-        <item itemvalue="Application.RunApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -600,9 +680,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25866666" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.26133335" />
       <window_info id="Structure" order="1" weight="0.25266525" />
       <window_info id="Favorites" order="2" weight="0.32995737" />
       <window_info id="Designer" order="3" />
@@ -615,7 +696,7 @@
       <window_info id="Learn" order="10" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.26535088" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.14175825" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2791209" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37692308" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -648,149 +729,23 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/RunApplication.java</url>
+          <line>2</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/Layout.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryAddVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="251" column="51" selection-start-line="251" selection-start-column="51" selection-end-line="251" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ProductRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/employee/EmployeeMain.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="82" column="156" selection-start-line="82" selection-start-column="156" selection-end-line="82" selection-end-column="156" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/ViewModelProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="48" column="53" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3475#3476#0" expanded="true" />
-            <element signature="e#3496#3497#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/main/MainVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#857#858#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/main/Main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="138" column="45" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/ViewHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="183" column="16" selection-start-line="183" selection-start-column="16" selection-end-line="183" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/main/MainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-            <element signature="e#1115#1116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc/Setup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Sale.java" />
-    <entry file="file://$PROJECT_DIR$/src/model/Sales.java" />
-    <entry file="file://$PROJECT_DIR$/src/network/client/ClientReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1068">
-          <caret line="90" column="110" selection-start-line="90" selection-start-column="105" selection-end-line="90" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="57" column="40" lean-forward="true" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="45" column="45" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ProductRequestList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding>
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#724#725#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/IDataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/network/client/ClientSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -869,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeMainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="67" column="82" lean-forward="true" selection-start-line="67" selection-start-column="82" selection-end-line="67" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeMainVM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -931,14 +879,6 @@
           <folding>
             <element signature="e#46988#46989#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/inventory/InventoryMain.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="153" column="125" selection-start-line="153" selection-start-column="125" selection-end-line="153" selection-end-column="125" />
         </state>
       </provider>
     </entry>
@@ -1002,9 +942,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2718">
+          <caret line="174" column="25" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
+          <folding>
+            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2345#2346#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5202">
+          <caret line="295" column="5" selection-start-line="295" selection-start-column="5" selection-end-line="295" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/employee/EmployeeAddVM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-279">
+        <state relative-caret-position="684">
           <caret line="43" column="106" selection-start-line="43" selection-start-column="106" selection-end-line="43" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1014,8 +979,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/retailer/request/ProductRequestView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="59" column="80" lean-forward="true" selection-start-line="59" selection-start-column="80" selection-end-line="59" selection-end-column="80" />
+        <state relative-caret-position="864">
+          <caret line="59" column="80" selection-start-line="59" selection-start-column="80" selection-end-line="59" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1026,56 +991,14 @@
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="8" column="209" lean-forward="true" selection-start-line="8" selection-start-column="209" selection-end-line="8" selection-end-column="209" />
+          <caret line="8" column="209" selection-start-line="8" selection-start-column="209" selection-end-line="8" selection-end-column="209" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/request/ProductRequestVM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/request/ProductRequestVM.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="295" column="5" lean-forward="true" selection-start-line="295" selection-start-column="5" selection-end-line="295" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/sales/SalesVM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/StockItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="174" column="25" lean-forward="true" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
-          <folding>
-            <element signature="e#2313#2314#0" expanded="true" />
-            <element signature="e#2345#2346#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="163" column="31" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1085,9 +1008,199 @@
     <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/inventory/InventoryMainVM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="99" column="37" lean-forward="true" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
+          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/retailer/inventory/InventoryMain.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="153" column="125" selection-start-line="153" selection-start-column="125" selection-end-line="153" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/retailer/inventory/InventoryMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/retailer/Layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAdd.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RunApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeAddVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/employee/EmployeeMainVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeAddView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="108" column="2" lean-forward="true" selection-start-line="108" selection-start-column="2" selection-end-line="111" selection-end-column="5" />
+          <folding>
+            <element signature="e#2369#2370#0" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/employee/EmployeeMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="140" selection-end-column="5" />
+          <folding>
+            <element signature="e#3765#3766#0" expanded="true" />
+            <element signature="e#3819#3820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/inventory/InventoryAddVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="266" lean-forward="true" selection-start-line="266" selection-end-line="266" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/Layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="183" selection-start-column="183" selection-end-column="183" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryAddView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="136" column="2" selection-start-line="136" selection-start-column="2" selection-end-line="140" />
+          <folding>
+            <element signature="e#3251#3252#0" expanded="true" />
+            <element signature="e#3306#3307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/inventory/InventoryMainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/main/MainVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+          <folding>
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding>
+            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/ViewHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/retailer/ViewModelProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/request/ProductRequestVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewmodel/warehouse/ViewModelProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-402">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/request/ProductRequest.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="89" column="106" selection-start-line="89" selection-start-column="100" selection-end-line="89" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/warehouse/request/ProductRequestView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
           </folding>
         </state>
       </provider>

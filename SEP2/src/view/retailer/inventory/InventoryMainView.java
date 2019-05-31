@@ -91,8 +91,6 @@ public class InventoryMainView {
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
-        productRequestQty.setText("0");
-        sellQty.setText("0");
     }
 
 

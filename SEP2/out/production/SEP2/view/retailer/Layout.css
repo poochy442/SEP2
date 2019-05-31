@@ -1,5 +1,5 @@
 .menu:hover, .menu:showing, .menu-item:hover, .menu-item:checked, .inventoryButton:hover, #addEmployeeButton:hover, #addButton:hover, #backButton:hover, #addItemStockButton:hover {
-    -fx-background-color: #B579CF !important;
+    -fx-background-color: #1ABC9C !important;
     -fx-text-fill: white;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .column-header{
-    -fx-background-color: #B579CF;
+    -fx-background-color: #1ABC9C;
     -fx-border-color: white;
 }
 

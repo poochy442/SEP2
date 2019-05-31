@@ -49,13 +49,13 @@ public class MainView {
     }
 
     @FXML
-    void onRequestClicked(ActionEvent event) {
-        mainVM.openRequestMainView();
+    void onProductRequestClicked(ActionEvent event) {
+        mainVM.openProductRequestView();
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-
+        mainVM.openMainView();
     }
 
     @FXML
@@ -68,6 +68,13 @@ public class MainView {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
+    @FXML
+    void onDeliveryClicked(ActionEvent event)
+    {
+
+    }
+
 }
 
 
