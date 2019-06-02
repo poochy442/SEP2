@@ -3,10 +3,7 @@ package view.warehouse.inventory;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -58,6 +55,9 @@ public class InventoryMainView {
     private TableColumn<String, StockItem> locationCol;
 
     @FXML
+    private TextField requestQtyField;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private InventoryMainVM inventoryMainVM;
@@ -87,6 +87,7 @@ public class InventoryMainView {
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
+        requestQtyField.textProperty().bindBidirectional(inventoryMainVM.requestQtyProperty());
     }
 
 
@@ -157,7 +158,8 @@ public class InventoryMainView {
     @FXML
     void onAddProductRequestClicked(ActionEvent event)
     {
-
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        inventoryMainVM.addProductRequestToList(selectedItem);
     }
 
     @FXML void onDeliveryClicked(ActionEvent event)

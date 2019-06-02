@@ -13,7 +13,7 @@ package model;
 
 public class ProductRequest {
     private int quantity;
-    private String productId;
+    private String productId; //TODO: What for?
     private StockItem stockItem;
 
     /**
@@ -51,5 +51,15 @@ public class ProductRequest {
     public StockItem getStockItem ()
     {
         return stockItem;
+    }
+
+    public String getName()
+    {
+        return stockItem.getName();
+    }
+
+    public String getID()
+    {
+        return stockItem.getId();
     }
 }

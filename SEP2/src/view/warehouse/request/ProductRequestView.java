@@ -1,6 +1,8 @@
 package view.warehouse.request;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -9,8 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.ProductRequest;
-import model.StockItem;
 import viewmodel.warehouse.request.ProductRequestVM;
 
 /**
@@ -28,10 +30,10 @@ public class ProductRequestView {
     private TableView<ProductRequest> productRequestTable;
 
     @FXML
-    private TableColumn<StockItem, ProductRequest> nameCol;
+    private TableColumn<ProductRequest, String> nameCol;
 
     @FXML
-    private TableColumn<String, ProductRequest> iDCol;
+    private TableColumn<ProductRequest, String> iDCol;
 
     @FXML
     private TableColumn<Integer, ProductRequest> quantityCol;
@@ -56,7 +58,18 @@ public class ProductRequestView {
     public void init(ProductRequestVM productRequestVM) {
         this.productRequestVM = productRequestVM;
         productRequestTable.setItems(productRequestVM.getProductRequests());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("stockItem"));
+        nameCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductRequest, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductRequest, String> param) {
+                return new SimpleStringProperty(param.getValue().getName());
+            }
+        });
+        iDCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductRequest, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductRequest, String> param) {
+                return new SimpleStringProperty(param.getValue().getID());
+            }
+        });
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 

@@ -55,7 +55,7 @@
                         <Image url="@../pictures/home.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="inventoryButton" layoutY="126.0" mnemonicParsing="false" onAction="#onInventoryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Inventory" textFill="WHITE">
+                  <Button fx:id="inventoryButton" layoutY="126.0" mnemonicParsing="false" onAction="#onInventoryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Inventory" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -79,7 +79,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="productRequestButton" layoutY="276.0" mnemonicParsing="false" onAction="#onProductRequestClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #3498DB;" text="Request" textFill="#dddddd">
+                  <Button fx:id="productRequestButton" layoutY="276.0" mnemonicParsing="false" onAction="#onProductRequestClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #3498DB;" text="Request" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -128,7 +128,7 @@
                <columns>
                   <TableColumn fx:id="nameCol" prefWidth="188.0" styleClass="column-1" text="Name" />
                   <TableColumn fx:id="iDCol" minWidth="0.0" prefWidth="188.0" text="ID" />
-                  <TableColumn fx:id="quantityCol" prefWidth="188.0" text="Quantity" />
+                  <TableColumn fx:id="quantityCol" prefWidth="188.0" text="Quantity required" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -232,7 +232,7 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label layoutX="56.0" layoutY="83.0" text="Request from:" />
+            <Label layoutX="56.0" layoutY="83.0" text="Request to:" />
             <Label layoutX="140.0" layoutY="83.0" text="HQ" />
          </children>
       </Pane>

@@ -291,8 +291,6 @@ public class DataModel implements IDataModel {
             System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
             propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
         }
-
-
     }
 
     @Override

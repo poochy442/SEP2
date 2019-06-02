@@ -22,6 +22,7 @@ import java.util.Date;
 
 public class InventoryAddVM {
     private StringProperty name;
+    private StringProperty id;
     private StringProperty quantity;
     private StringProperty price;
     private BooleanProperty canExpire;
@@ -41,6 +42,7 @@ public class InventoryAddVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         name = new SimpleStringProperty();
+        id = new SimpleStringProperty();
         quantity = new SimpleStringProperty();
         price = new SimpleStringProperty();
         canExpire = new SimpleBooleanProperty();
@@ -78,12 +80,13 @@ public class InventoryAddVM {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        StockItem si = new StockItem(name.getValue(), dataModel.getIDStockItem(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()), "WH");
+        StockItem si = new StockItem(name.getValue(), id.getValue(), Integer.parseInt(quantity.getValue()), Integer.parseInt(price.getValue()), canExpire.getValue(), date, Integer.parseInt(minStock.getValue()), Integer.parseInt(maxStock.getValue()), "WH");
         //TODO LOCATION IS NOT SET WE NEED IT FROM VIEW
         dataModel.addItemFromUser(si);
 
         //Resetting fields in view
         name.setValue("");
+        id.setValue("");
         quantity.setValue("");
         price.setValue("");
         canExpire.set(false);
@@ -105,6 +108,14 @@ public class InventoryAddVM {
      */
     public StringProperty nameProperty() {
         return name;
+    }
+
+    /**
+     * Gets the ID {@link StringProperty}.
+     * @return The ID {@link StringProperty}.
+     */
+    public StringProperty idProperty() {
+        return id;
     }
 
     /**

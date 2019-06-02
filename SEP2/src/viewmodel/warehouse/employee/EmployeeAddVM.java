@@ -19,6 +19,7 @@ import view.warehouse.ViewHandler;
 public class EmployeeAddVM {
     private StringProperty firstName;
     private StringProperty lastName;
+    private StringProperty id;
 
     private IDataModel dataModel;
     private ViewHandler viewHandler;
@@ -34,6 +35,7 @@ public class EmployeeAddVM {
         this.viewHandler = viewHandler;
         firstName = new SimpleStringProperty();
         lastName = new SimpleStringProperty();
+        id = new SimpleStringProperty();
     }
 
     /**
@@ -41,11 +43,12 @@ public class EmployeeAddVM {
      */
     public void addEmployee()
     {
-        Employee e = new Employee(firstName.getValue(), lastName.getValue(), dataModel.getIDEmployee(),"WH");
+        Employee e = new Employee(firstName.getValue(), lastName.getValue(), id.getValue(),"WH");
         dataModel.addEmployeeFromUser(e);
         //dataModel.addEmployeeFromServer(e);
         firstName.setValue("");
         lastName.setValue("");
+        id.setValue("");
     }
 
     /**
@@ -94,6 +97,14 @@ public class EmployeeAddVM {
      */
     public StringProperty lastNameProperty() {
         return lastName;
+    }
+
+    /**
+     * Gets the id {@link StringProperty} stored.
+     * @return The id {@link StringProperty} stored.
+     */
+    public StringProperty idProperty() {
+        return id;
     }
 
     /**
