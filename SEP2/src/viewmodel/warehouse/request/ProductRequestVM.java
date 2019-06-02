@@ -87,4 +87,8 @@ public class ProductRequestVM {
 
     public void openProductRequestView() {viewHandler.openProductRequestView();
     }
+
+    public void removeProductRequest(ProductRequest selectedItem) {
+        dataModel.removeProductRequest(selectedItem);
+    }
 }

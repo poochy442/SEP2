@@ -300,4 +300,10 @@ public class DataModel implements IDataModel {
 
     }
 
+    @Override
+    public void removeProductRequest(ProductRequest selectedItem) {
+        productRequestList.removeRequestFromList(selectedItem.getProductId()); //TODO: How do I get productID saved to product request?
+        propertyChangeSupport.firePropertyChange("DeleteProductRequest", null, selectedItem); //TODO: Remove in DB
+    }
+
 }

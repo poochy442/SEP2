@@ -3,7 +3,7 @@
     -fx-text-fill: white;
 }
 
-#editEmployeeButton:hover, #editItemStockButton:hover {
+#editEmployeeButton:hover, #editItemStockButton:hover, #editQuantityButton:hover {
     -fx-background-color: #FACD06 !important;
     -fx-text-fill: white;
 }

@@ -5,6 +5,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -112,5 +114,29 @@ public class ProductRequestView {
     @FXML void onDeliveryClicked(ActionEvent event)
     {
 
+    }
+
+    @FXML
+    void onRemoveProductRequestClicked(ActionEvent event)
+    {
+        ProductRequest selectedItem = productRequestTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Are you sure you want to delete the item with ID: " + selectedItem.getID() + "?");
+        alert.setContentText("Press ok to continue");
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES) {
+            productRequestTable.getItems().remove(selectedItem);
+            productRequestVM.removeProductRequest(selectedItem);
+        }
     }
 }

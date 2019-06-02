@@ -46,4 +46,6 @@ public interface IDataModel {
     void addToSales(StockItem selectedItem, boolean notifyServer);
 
     void loadSalesFromDB();
+
+    void removeProductRequest(ProductRequest selectedItem);
 }
