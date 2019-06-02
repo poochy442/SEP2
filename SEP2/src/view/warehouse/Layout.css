@@ -8,7 +8,7 @@
     -fx-text-fill: white;
 }
 
-#removeEmployeeButton:hover, #removeItemStockButton:hover {
+#removeEmployeeButton:hover, #removeItemStockButton:hover, #removeProductRequestButton:hover {
     -fx-background-color: #DD4B39 !important;
     -fx-text-fill: white;
 }

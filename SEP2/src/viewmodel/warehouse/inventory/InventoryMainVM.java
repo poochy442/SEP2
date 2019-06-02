@@ -107,5 +107,11 @@ public class InventoryMainVM {
 
     }
 
-    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
+    public boolean onlyNumbersQuantity()
+    {
+        return dataModel.onlyNumbers(requestQty.getValue());
+    }
+
+    public void openInventoryMainView() {viewHandler.openInventoryMainView();
+    }
 }

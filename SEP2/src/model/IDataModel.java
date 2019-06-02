@@ -48,4 +48,6 @@ public interface IDataModel {
     void loadSalesFromDB();
 
     void removeProductRequest(ProductRequest selectedItem);
+
+    void editProductRequest(ProductRequest selectedItem, int quantity);
 }

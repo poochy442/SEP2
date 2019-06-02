@@ -3,12 +3,12 @@
     -fx-text-fill: white;
 }
 
-#editEmployeeButton:hover, #editItemStockButton:hover {
+#editEmployeeButton:hover, #editItemStockButton:hover, #editQuantityButton:hover {
     -fx-background-color: #FACD06 !important;
     -fx-text-fill: white;
 }
 
-#removeEmployeeButton:hover, #removeItemStockButton:hover {
+#removeEmployeeButton:hover, #removeItemStockButton:hover, #removeProductRequestButton:hover {
     -fx-background-color: #DD4B39 !important;
     -fx-text-fill: white;
 }

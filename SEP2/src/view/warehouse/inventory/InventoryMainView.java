@@ -58,6 +58,12 @@ public class InventoryMainView {
     private TextField requestQtyField;
 
     @FXML
+    private Label errorQuantityLabel;
+
+    @FXML
+    private Label emptyQuantity;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private InventoryMainVM inventoryMainVM;
@@ -73,6 +79,7 @@ public class InventoryMainView {
 
     /**
      * An init method instantiating all the required fields.
+     *
      * @param inventoryMainVM The {@link InventoryMainVM} viewmodel to be used.
      */
     public void init(InventoryMainVM inventoryMainVM) {
@@ -113,15 +120,14 @@ public class InventoryMainView {
 
     @FXML
     void onMinimizeClicked(MouseEvent event) {
-        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
     void onRemoveItemStockClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-        if(selectedItem == null)
-        {
+        if (selectedItem == null) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
             warningAlert.setTitle("Warning");
             warningAlert.setHeaderText("No stock item has been selected");
@@ -147,7 +153,7 @@ public class InventoryMainView {
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-
+        inventoryMainVM.openInventoryMainView();
     }
 
     @FXML
@@ -156,15 +162,48 @@ public class InventoryMainView {
     }
 
     @FXML
-    void onAddProductRequestClicked(ActionEvent event)
-    {
+    void onAddProductRequestClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-        inventoryMainVM.addProductRequestToList(selectedItem);
+        if (selectedItem == null) {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        if (isValid()) {
+            inventoryMainVM.addProductRequestToList(selectedItem);
+        }
+
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event)
-    {
+    @FXML
+    void onDeliveryClicked(ActionEvent event) {
 
+    }
+
+    private boolean isValid() {
+        boolean validQty, emptyQty = false;
+        if (requestQtyField.textProperty().getValue().isEmpty()) {
+            emptyQty = true;
+            emptyQuantity.setVisible(true);
+        } else {
+            emptyQty = false;
+            emptyQuantity.setVisible(false);
+        }
+
+        if (!inventoryMainVM.onlyNumbersQuantity() && !emptyQty) {
+            validQty = false;
+            errorQuantityLabel.setVisible(true);
+        } else {
+            validQty = true;
+            errorQuantityLabel.setVisible(false);
+        }
+
+        if (validQty && !emptyQty) {
+            return true;
+        }
+        return false;
     }
 
 }

@@ -5,10 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -41,9 +38,19 @@ public class ProductRequestView {
     private TableColumn<Integer, ProductRequest> quantityCol;
 
     @FXML
+    private TextField quantityField;
+
+    @FXML
+    private Label errorQuantityLabel;
+
+    @FXML
+    private Label emptyQuantity;
+
+    @FXML
     private AnchorPane anchorPane;
 
     private ProductRequestVM productRequestVM;
+    private ProductRequest selectedItem;
 
     /**
      * Creates a SalesView.
@@ -73,6 +80,7 @@ public class ProductRequestView {
             }
         });
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        quantityField.textProperty().bindBidirectional(productRequestVM.quantityProperty());
     }
 
     @FXML
@@ -117,9 +125,53 @@ public class ProductRequestView {
     }
 
     @FXML
+    void onEditQuantityClicked(ActionEvent event)
+    {
+        selectedItem = productRequestTable.getSelectionModel().getSelectedItem();
+        if(selectedItem == null)
+        {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        if(isValid())
+        {
+            productRequestVM.editProductRequest(selectedItem);
+            productRequestTable.refresh();
+        }
+
+    }
+
+    private boolean isValid() {
+        boolean validQty, emptyQty = false;
+        if (quantityField.textProperty().getValue().isEmpty()) {
+            emptyQty = true;
+            emptyQuantity.setVisible(true);
+        } else {
+            emptyQty = false;
+            emptyQuantity.setVisible(false);
+        }
+
+        if (!productRequestVM.onlyNumbersQuantity() && !emptyQty) {
+            validQty = false;
+            errorQuantityLabel.setVisible(true);
+        } else {
+            validQty = true;
+            errorQuantityLabel.setVisible(false);
+        }
+
+        if (validQty && !emptyQty) {
+            return true;
+        }
+        return false;
+    }
+
+    @FXML
     void onRemoveProductRequestClicked(ActionEvent event)
     {
-        ProductRequest selectedItem = productRequestTable.getSelectionModel().getSelectedItem();
+        selectedItem = productRequestTable.getSelectionModel().getSelectedItem();
         if(selectedItem == null)
         {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);

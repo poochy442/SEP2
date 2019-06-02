@@ -172,6 +172,8 @@
                            </cursor>
                         </Button>
                         <TextField fx:id="requestQtyField" layoutX="505.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" promptText="Quantity to request" />
+                        <Label fx:id="errorQuantityLabel" layoutX="780.0" layoutY="30.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
+                        <Label fx:id="emptyQuantity" layoutX="790.0" layoutY="30.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
                      </children>
                   </Pane>
                </children>

@@ -306,4 +306,11 @@ public class DataModel implements IDataModel {
         propertyChangeSupport.firePropertyChange("DeleteProductRequest", null, selectedItem); //TODO: Remove in DB
     }
 
+    @Override
+    public void editProductRequest(ProductRequest selectedItem, int quantity) {
+        int oldQuantity = selectedItem.getQuantity();
+        selectedItem.setQuantity(quantity);
+        propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
+    }
+
 }

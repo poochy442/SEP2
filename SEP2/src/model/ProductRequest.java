@@ -62,4 +62,9 @@ public class ProductRequest {
     {
         return stockItem.getId();
     }
+
+    public void setQuantity(int quantity)
+    {
+        this.quantity = quantity;
+    }
 }
