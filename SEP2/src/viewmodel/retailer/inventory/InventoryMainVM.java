@@ -1,5 +1,7 @@
 package viewmodel.retailer.inventory;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
@@ -22,6 +24,8 @@ public class InventoryMainVM {
     private IDataModel dataModel;
     private ObservableList<StockItem> stockItems;
     private ViewHandler viewHandler;
+    private StringProperty requestQty;
+    private StringProperty sellQty;
 
     /**
      * Creates an InventoryMainVM with the specified information and adds the required
@@ -35,6 +39,8 @@ public class InventoryMainVM {
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
+        requestQty = new SimpleStringProperty();
+        sellQty = new SimpleStringProperty();
     }
 
     /**
@@ -58,6 +64,22 @@ public class InventoryMainVM {
      */
     public void openMainView() {
         viewHandler.openMainView();
+    }
+
+    /**
+     * Gets the quantity for Request {@link StringProperty} stored.
+     * @return The quantity for Request {@link StringProperty} stored.
+     */
+    public StringProperty requestQtyProperty() {
+        return requestQty;
+    }
+
+    /**
+     * Gets the quantity to sell {@link StringProperty} stored.
+     * @return The quantity to sell {@link StringProperty} stored.
+     */
+    public StringProperty sellQtyProperty() {
+        return sellQty;
     }
 
     /**
@@ -95,13 +117,32 @@ public class InventoryMainVM {
     }
 
     public void addToSales(StockItem selectedItem, String text) {
-        selectedItem.setQuantity(Integer.parseInt(text));
-        dataModel.addToSales(selectedItem,true);
+        StockItem x = selectedItem.copy();
+        x.setQuantity(Integer.parseInt(text));
+        dataModel.addToSales(x,true);
     }
 
     public void openSalesView() {
         viewHandler.openSalesView();
     }
 
-    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
+    public void openInventoryMainView() {viewHandler.openInventoryMainView();
+    }
+
+    public void openDeliveryView() {
+    }
+
+    public void addProductRequestToList(StockItem selectedItem) {
+        ProductRequest productRequest = new ProductRequest(selectedItem, Integer.parseInt(requestQty.getValue()));
+        dataModel.addToProductRequest(productRequest, false);
+        requestQty.setValue("");
+    }
+
+    public boolean onlyNumbersQuantity() {
+        return dataModel.onlyNumbers(requestQty.getValue());
+    }
+
+    public void sellStockItem(StockItem selectedItem) {
+        //TODO: Sell it
+    }
 }

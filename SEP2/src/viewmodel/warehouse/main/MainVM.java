@@ -45,8 +45,11 @@ public class MainVM {
     /**
      * This method opens the Product Request view.
      */
-    public void openRequestMainView()
+    public void openProductRequestView()
     {
         viewHandler.openProductRequestView();
+    }
+
+    public void openMainView() {viewHandler.openMainView();
     }
 }

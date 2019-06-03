@@ -13,9 +13,8 @@ package model;
 
 public class ProductRequest {
     private int quantity;
-    private String productId;
+    private String productId; //TODO: What for?
     private StockItem stockItem;
-    private String name;
 
     /**
      * Creates a ProductRequest with the specified information.
@@ -26,7 +25,6 @@ public class ProductRequest {
         this.productId=stockItem.getId();
         this.quantity = quantity;
         this.stockItem=stockItem;
-        this.name=stockItem.getName();
 
     }
 
@@ -55,8 +53,18 @@ public class ProductRequest {
         return stockItem;
     }
 
-    public String getName ()
+    public String getName()
     {
-        return name;
+        return stockItem.getName();
+    }
+
+    public String getID()
+    {
+        return stockItem.getId();
+    }
+
+    public void setQuantity(int quantity)
+    {
+        this.quantity = quantity;
     }
 }

@@ -28,12 +28,15 @@ public class EmployeeAddView {
     private TextField lastNameField;
 
     @FXML
+    private TextField iDField;
+
+    @FXML
     private AnchorPane anchorPane;
 
     @FXML
     private Label errorFirstNameLabel;
 
-    @FXML Label emptyFirstNameLabel;
+    @FXML private Label emptyFirstNameLabel;
 
     @FXML
     private Label errorLastNameLabel;
@@ -58,6 +61,7 @@ public class EmployeeAddView {
         this.employeeAddVM = employeeAddVM;
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddVM.lastNameProperty());
+        iDField.textProperty().bindBidirectional(employeeAddVM.idProperty());
     }
 
 
@@ -101,6 +105,16 @@ public class EmployeeAddView {
         employeeAddVM.openInventoryView();
     }
 
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        employeeAddVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+
+    }
+
     private boolean isEverythingValid() {
         boolean emptyFirstName, emptyLastName, validFirstName, validLastName = false;
 
@@ -121,7 +135,6 @@ public class EmployeeAddView {
         }
 
         if (!employeeAddVM.validateFirstName()) {
-            errorFirstNameLabel.setText("Only letters are allowed");
             errorFirstNameLabel.setVisible(true);
             validFirstName = false;
         } else {
@@ -130,7 +143,6 @@ public class EmployeeAddView {
         }
 
         if (!employeeAddVM.validateLastName()) {
-            errorLastNameLabel.setText("Only letters are allowed");
             errorLastNameLabel.setVisible(true);
             validLastName = false;
         } else {

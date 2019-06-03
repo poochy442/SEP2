@@ -27,6 +27,8 @@ public class EmployeeAddView {
     @FXML
     private TextField lastNameField;
 
+    @FXML private TextField iDField;
+
     @FXML
     private AnchorPane anchorPane;
 
@@ -58,6 +60,7 @@ public class EmployeeAddView {
         this.employeeAddVM = employeeAddVM;
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddVM.lastNameProperty());
+        iDField.textProperty().bindBidirectional(employeeAddVM.idProperty());
     }
 
 
@@ -143,5 +146,21 @@ public class EmployeeAddView {
             return true;
         }
         return false;
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event)
+    {
+        employeeAddVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        employeeAddVM.openDeliveryView();
+    }
+
+    @FXML void onSalesClicked(ActionEvent event)
+    {
+        employeeAddVM.openSalesView();
     }
 }
