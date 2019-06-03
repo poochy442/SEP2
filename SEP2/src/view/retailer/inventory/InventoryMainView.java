@@ -175,10 +175,7 @@ public class InventoryMainView {
     @FXML
     void onProductaddToRequestClicked (ActionEvent event)
     {
-
-        //TODO  do we need to bind this? so we follow MVVM rules?
         if (!productRequestQty.getText().equals("0")) {
-            //todo  passing highlighted stockitem and a String : its a dirty way? or good
             inventoryMainVM.addToProductRequest(stockItemTable.getSelectionModel().getSelectedItem(),productRequestQty.getText());
         }
         //todo  display error msg when we add 0 value?

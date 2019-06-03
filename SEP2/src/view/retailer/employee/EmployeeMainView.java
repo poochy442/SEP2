@@ -129,4 +129,12 @@ public class EmployeeMainView {
     void onEditEmployeeClicked(ActionEvent event) {
 
     }
+
+    public void onProductRequestClicked(ActionEvent event) {
+        employeeMainVM.openRequestView();
+    }
+
+    public void onSalesClicked(ActionEvent event) {
+        employeeMainVM.openSalesView();
+    }
 }

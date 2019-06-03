@@ -214,18 +214,18 @@ public class DataBaseModel {
     }
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
-    public boolean addEmployeeToDataBase(Employee employee) {
+    public boolean addEmployeeToDataBase(Employee employee, int clientNo) {
         try {
             employeeInsertStatement.setString(1, employee.getId());
             employeeInsertStatement.setString(2, employee.getDepartmentID());
             employeeInsertStatement.setString(3, employee.getFirstName());
             employeeInsertStatement.setString(4, employee.getLastName());
             employeeInsertStatement.setString(5, employee.getId());
-            System.out.println(employee.getId());
             employeeInsertStatement.executeUpdate();
+            changeSupport.firePropertyChange("NewEmployee", clientNo, employee);
+            changeSupport.getPropertyChangeListeners().toString();
             return true;
 
-            //todo notify OTHER client
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -236,7 +236,7 @@ public class DataBaseModel {
     }
 
     //Departament query prints out all rows in the department table
-    public void departmentQuery() {
+    public void departmentQuery(int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         try {
             String departmentQuery = "SELECT * FROM \"Sep2\".department;";
@@ -270,7 +270,7 @@ public class DataBaseModel {
 
     }
 
-    public void employeeQuery(String departmentID) {
+    public void employeeQuery(String departmentID, int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         EmployeeList employeeList = new EmployeeList();
         try {
@@ -298,18 +298,19 @@ public class DataBaseModel {
             }
 
             resultSet.close();
-            prepareEmployeeQuery().close();
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        changeSupport.firePropertyChange("EmployeeQuery", null, employeeList);
+        changeSupport.firePropertyChange("EmployeeQuery", clientNo, employeeList);
         System.out.println("DataBaseModel: Employee query fired");
 
 
     }
 
-    public void itemQuery(String departmentID) {
+    public void itemQuery(String departmentID, int clientNo) {
+
         ArrayList<Object[]> results = new ArrayList<>();
         StockItemList stockItemList = new StockItemList();
         try {
@@ -332,7 +333,7 @@ public class DataBaseModel {
                 int qty = (int) row[2];
                 int price = (int) row[3];
                 java.util.Date sqlDate = (java.sql.Date) row[4];
-                String location = row[4].toString();
+                String location = row[5].toString();
                 java.util.Date date = new java.util.Date(sqlDate.getDay(), sqlDate.getMonth(), sqlDate.getYear());
 
                 StockItem stockItem = new StockItem(itemName, itemID, qty, price, true, date, 10, 100, location);
@@ -340,12 +341,12 @@ public class DataBaseModel {
                 stockItemList.add(stockItem);
             }
             resultSet.close();
-            prepareWHItemQuery().close();
+
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        changeSupport.firePropertyChange("ItemQuery", null, stockItemList);
+        changeSupport.firePropertyChange("ItemQuery", clientNo, stockItemList);
         System.out.println("DataBaseModel: ItemQueryFired query fired");
 
 
@@ -370,7 +371,7 @@ public class DataBaseModel {
 
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
-    public boolean addItemToDataBase(StockItem stockItem, String department) {
+    public boolean addItemToDataBase(StockItem stockItem, String department, int clientNo) {
         try {
             java.sql.Date sqlDate = null;
             if (stockItem.getExpiryDate() != null) {
@@ -437,6 +438,7 @@ public class DataBaseModel {
                 "WHERE requestID = ?) LIMIT 1;";
         requestInsertStatement = null;
 
+
         try {
             requestInsertStatement = connection.prepareStatement(preparedSql);
         } catch (SQLException e) {
@@ -445,12 +447,12 @@ public class DataBaseModel {
         return requestInsertStatement;
     }
 
-    public int addRequestToDataBase(String requestedFrom) {
+    public int addRequestToDataBase(String requestedFrom, int clientNo) {
         try {
-            int count = requestCountQuery();
+            int count = requestCountQuery() + 1;
             requestInsertStatement.setString(1, "" + count);
             requestInsertStatement.setString(2, requestedFrom);
-            requestInsertStatement.setString(3, "In Progress");
+            requestInsertStatement.setString(3, "Null");
             requestInsertStatement.setString(4, "" + count);
             requestInsertStatement.executeUpdate();
             return count;
@@ -466,7 +468,7 @@ public class DataBaseModel {
 
     public int requestCountQuery() {
 
-        int count = 1;
+        int count = 0;
         try {
             String requestCount = "SELECT * FROM \"Sep2\".request;";
             PreparedStatement requestCountStatement = connection.prepareStatement(requestCount);
@@ -485,19 +487,36 @@ public class DataBaseModel {
         return count;
     }
 
-    public boolean addRequestItemsToDataBase(ProductRequestList productRequestList, int requestID) {
+    public int requestProductMaxID(String department) {
+
+        String maxID = "0";
         try {
-            for (int i = 0; i < productRequestList.Size(); i++) {
-                ProductRequest productRequest = productRequestList.getProductRequest(i);
-                itemListInsertStatement.setString(1, "" + requestID);
-                itemListInsertStatement.setString(2, productRequest.getProductId());
-                itemListInsertStatement.setInt(3, productRequest.getQuantity());
-                itemListInsertStatement.executeUpdate();
+            String requestCount = "select max(requestid) from \"Sep2\".request where requestedfrom ='" + department + "';";
+            PreparedStatement requestCountStatement = connection.prepareStatement(requestCount);
+            ResultSet resultSet = requestCountStatement.executeQuery();
+            while (resultSet.next()) {
+                if (resultSet.getObject(1) != null)
+                    maxID = resultSet.getObject(1).toString();
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return Integer.parseInt(maxID);
+    }
+
+    public boolean setRequestStatus(int requestID, int clientNo, String status) {
+        try {
+            String sql = "UPDATE \"Sep2\".request " +
+                    "SET status = '" + status + "' " +
+                    "WHERE requestid ='" + requestID + "';";
+            PreparedStatement setRequestStatus = connection.prepareStatement(sql);
+            setRequestStatus.executeUpdate();
+            changeSupport.firePropertyChange("RequestInProgress", null, null);
+            addRequestToDataBase("RT", clientNo);
+            //todo fix manual input
             return true;
-
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -506,7 +525,7 @@ public class DataBaseModel {
 
     }
 
-    public boolean addRequestItemToDatabase(ProductRequest productRequest, int requestID) {
+    public boolean addRequestItemToDatabase(ProductRequest productRequest, int requestID, int clientNo) {
         try {
             itemListInsertStatement.setString(1, "" + requestID);
             itemListInsertStatement.setString(2, productRequest.getProductId());
@@ -541,7 +560,7 @@ public class DataBaseModel {
         return itemListInsertStatement;
     }
 
-    public boolean deleteItemByIdAndDepartment(String id, String department) {
+    public boolean deleteItemByIdAndDepartment(String id, String department, int clientNo) {
         try {
             deleteItemByIDandDep.setString(1, id);
             deleteItemByIDandDep.setString(2, department);
@@ -653,7 +672,7 @@ public class DataBaseModel {
         return addSale;
     }
 
-    public boolean addSaleToDataBase(StockItem stockItem) {
+    public boolean addSaleToDataBase(StockItem stockItem, int clientNo) {
         try {
             addSale.setString(1, stockItem.getId());
             addSale.setInt(2, stockItem.getQuantity());
@@ -669,7 +688,7 @@ public class DataBaseModel {
     }
 
 
-    public void salesQuery() {
+    public void salesQuery(int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         StockItemList salesList = new StockItemList();
         try {
@@ -700,7 +719,7 @@ public class DataBaseModel {
                 salesList.add(stockItem);
 
             }
-            changeSupport.firePropertyChange("SalesQuery", null, salesList);
+            changeSupport.firePropertyChange("SalesQuery", clientNo, salesList);
             resultSet.close();
             salesQuery.close();
 
@@ -710,4 +729,49 @@ public class DataBaseModel {
 
     }
 
+    public void requestQuery(int clientNo, String departmentID) {
+        ArrayList<Object[]> results = new ArrayList<>();
+        ProductRequestList requestList = new ProductRequestList();
+        try {
+            String SQLQuery =
+                    //todo query last id from request join itemlist on requestID
+                    "select stockitem.name,itemrequest.itemid,itemrequest.quantity " +
+                            "from \"Sep2\".request " +
+                            "join \"Sep2\".itemrequest on request.requestid = itemrequest.requestid " +
+                            "join \"Sep2\".stockitem on itemrequest.itemid = stockitem.id " +
+                            "and itemrequest.requestid = (select count(*) from \"Sep2\".request)::VARCHAR(10)" +
+                            "and request.status = 'Null';";
+            PreparedStatement requestQuery = connection.prepareStatement(SQLQuery);
+            ResultSet resultSet = requestQuery.executeQuery();
+
+
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+
+            }
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String name = row[0].toString();
+                String itemID = row[1].toString();
+                int quantity = (int) row[2];
+
+                StockItem stockItem = new StockItem(name, itemID, quantity, 0, false, null, 0, 0, null);
+                ProductRequest productRequest = new ProductRequest(stockItem, quantity);
+                requestList.addRequestToList(productRequest);
+
+            }
+            changeSupport.firePropertyChange("RequestQuery", clientNo, requestList);
+            resultSet.close();
+            requestQuery.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

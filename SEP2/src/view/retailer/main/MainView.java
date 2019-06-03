@@ -56,6 +56,7 @@ public class MainView {
     @FXML
     void onDashboardClicked(ActionEvent event) {
 
+
     }
     @FXML
     void onSalesClicked(ActionEvent event) {

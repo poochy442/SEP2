@@ -31,7 +31,7 @@ public class ServerReceiverTest {
         ServerSocket welcomeSocket = new ServerSocket(1111);
         socket = new Socket("localhost", 1111);
         DataBaseModel dataBaseModel = new DataBaseModel();
-        receiver = new ServerReceiver(welcomeSocket.accept(), dataBaseModel);
+        receiver = new ServerReceiver(welcomeSocket.accept(), dataBaseModel,1);
         t1 = new Thread(receiver);
         t1.start();
     }

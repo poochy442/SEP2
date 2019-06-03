@@ -10,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.ProductRequest;
-import model.StockItem;
 import viewmodel.retailer.request.ProductRequestVM;
 
 /**
@@ -28,7 +27,7 @@ public class ProductRequestView {
     private TableView<ProductRequest> productRequestTable;
 
     @FXML
-    private TableColumn<StockItem, ProductRequest> nameCol;
+    private TableColumn<String, ProductRequest> nameCol;
 
     @FXML
     private TableColumn<String, ProductRequest> iDCol;
@@ -56,13 +55,15 @@ public class ProductRequestView {
     public void init(ProductRequestVM productRequestVM) {
         this.productRequestVM = productRequestVM;
         productRequestTable.setItems(productRequestVM.getProductRequests());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("stockItem"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        iDCol.setCellValueFactory(new PropertyValueFactory<>("productId"));
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
         productRequestVM.openMainView();
+        System.out.println("ProductRequestView dashboardclicked");
     }
 
     @FXML
@@ -89,5 +90,9 @@ public class ProductRequestView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    public void onSalesClicked(ActionEvent event) {
+        productRequestVM.openSalesView();
     }
 }

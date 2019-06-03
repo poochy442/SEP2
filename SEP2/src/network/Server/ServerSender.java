@@ -2,7 +2,9 @@ package network.Server;
 
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
+import model.Employee;
 import model.EmployeeList;
+import model.ProductRequestList;
 import model.StockItemList;
 import network.Packet;
 
@@ -31,56 +33,97 @@ public class ServerSender implements Runnable {
     private Socket socket;
     private Queue<Packet> queue;
     private DataBaseModel dataBaseModel;
+    private int clientNo;
 
     /**
      * Creates ServerSender with the specified information
-     * @param socket The {@link Socket} to be used.
+     *
+     * @param socket        The {@link Socket} to be used.
      * @param dataBaseModel The {@link DataBaseModel} to  be used.
      */
-    public ServerSender(Socket socket, DataBaseModel dataBaseModel) {
+    public ServerSender(Socket socket, DataBaseModel dataBaseModel, int clientNo) {
         this.socket = socket;
-        this.dataBaseModel=dataBaseModel;
-        queue= new LinkedList<>();
-        dataBaseModel.addListener("EmployeeQuery",this::sendEmployeeList);
-        dataBaseModel.addListener("ItemQuery",this::sendItemList);
-        dataBaseModel.addListener("SalesQuery",this::sendSalesList);
-        // TODO: Add listener for the Response
+        this.dataBaseModel = dataBaseModel;
+        queue = new LinkedList<>();
+        this.clientNo = clientNo;
+        dataBaseModel.addListener("EmployeeQuery", this::sendEmployeeList);
+        dataBaseModel.addListener("ItemQuery", this::sendItemList);
+        dataBaseModel.addListener("SalesQuery", this::sendSalesList);
+        dataBaseModel.addListener("NewEmployee",this::newEmployee);
+        dataBaseModel.addListener("RequestQuery",this::sendRequestList);
+        System.out.println("newemployeelistener");
+
+    }
+
+    private void sendRequestList(PropertyChangeEvent propertyChangeEvent) {
+        ProductRequestList requestList = (ProductRequestList) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(requestList);
+        Packet packet = new Packet(Packet.requestQuery,json);
+        addToQueue(packet);
+        System.out.println("ServerSender: requestList sent");
+    }
+
+    private void newEmployee(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo != (int) propertyChangeEvent.getOldValue()) {
+            Gson gson = new Gson();
+            Employee employee = ((Employee) propertyChangeEvent.getNewValue());
+            String json = gson.toJson(employee);
+            Packet packet = new Packet(Packet.EmployeeOperation, json);
+            addToQueue(packet);
+            System.out.println("ServerSender: Employee  sent");
+        }
+        System.out.println("ServerSender: "+clientNo+ " = " +(int)propertyChangeEvent.getOldValue());
+
     }
 
     private void sendSalesList(PropertyChangeEvent propertyChangeEvent) {
-        Gson gson = new Gson();
-        StockItemList stockItemList =((StockItemList) propertyChangeEvent.getNewValue());
-        String json = gson.toJson(stockItemList);
-        Packet packet = new Packet(Packet.salesQuery, json);
-        addToQueue(packet);
-        System.out.println("ServerSender: Sales List sent");
+        if (clientNo == (int) propertyChangeEvent.getOldValue()) {
+            Gson gson = new Gson();
+            StockItemList stockItemList = ((StockItemList) propertyChangeEvent.getNewValue());
+            String json = gson.toJson(stockItemList);
+            Packet packet = new Packet(Packet.salesQuery, json);
+            addToQueue(packet);
+            System.out.println("ServerSender: Sales List sent");
+        }
+
 
     }
 
     /**
      * Sends a {@link StockItemList} to the client.
+     *
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void sendItemList(PropertyChangeEvent propertyChangeEvent) {
-        Gson gson = new Gson();
-        StockItemList stockItemList =((StockItemList) propertyChangeEvent.getNewValue());
-        String json = gson.toJson(stockItemList);
-        Packet packet = new Packet(Packet.ItemQuery, json);
-        addToQueue(packet);
-        System.out.println("ServerSender: StockItemListPacket sent");
+        if (clientNo == (int) propertyChangeEvent.getOldValue()) {
+            Gson gson = new Gson();
+            StockItemList stockItemList = ((StockItemList) propertyChangeEvent.getNewValue());
+            String json = gson.toJson(stockItemList);
+            Packet packet = new Packet(Packet.ItemQuery, json);
+            addToQueue(packet);
+            System.out.println("ServerSender: StockItemListPacket sent");
+        }
     }
 
     /**
      * Sends a {@link EmployeeList} to the client.
+     *
      * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void sendEmployeeList(PropertyChangeEvent propertyChangeEvent) {
-        Gson gson = new Gson();
-        EmployeeList employeeList =((EmployeeList) propertyChangeEvent.getNewValue());
-        String json = gson.toJson(employeeList);
-        Packet packet = new Packet(Packet.EmployeeQuery, json);
-        addToQueue(packet);
-        System.out.println("ServerSender: EmployeListPacket sent");
+        if (clientNo == (int) propertyChangeEvent.getOldValue()) {
+            Gson gson = new Gson();
+            EmployeeList employeeList = ((EmployeeList) propertyChangeEvent.getNewValue());
+            String json = gson.toJson(employeeList);
+            Packet packet = new Packet(Packet.EmployeeQuery, json);
+            addToQueue(packet);
+            System.out.println("ServerSender: EmployeListPacket sent");
+        }
+    }
+
+    public int getClientNo() {
+        return clientNo;
     }
 
     /**
@@ -96,8 +139,8 @@ public class ServerSender implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(true){
-            if(queue.isEmpty()){
+        while (true) {
+            if (queue.isEmpty()) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -112,7 +155,7 @@ public class ServerSender implements Runnable {
         }
     }
 
-    public void addToQueue(Packet packet){
+    public void addToQueue(Packet packet) {
         queue.add(packet);
     }
 }

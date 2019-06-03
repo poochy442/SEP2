@@ -15,6 +15,7 @@ public class ProductRequest {
     private int quantity;
     private String productId;
     private StockItem stockItem;
+    private String name;
 
     /**
      * Creates a ProductRequest with the specified information.
@@ -25,6 +26,7 @@ public class ProductRequest {
         this.productId=stockItem.getId();
         this.quantity = quantity;
         this.stockItem=stockItem;
+        this.name=stockItem.getName();
 
     }
 
@@ -51,5 +53,10 @@ public class ProductRequest {
     public StockItem getStockItem ()
     {
         return stockItem;
+    }
+
+    public String getName ()
+    {
+        return name;
     }
 }

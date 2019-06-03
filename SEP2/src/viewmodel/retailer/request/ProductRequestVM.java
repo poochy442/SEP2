@@ -32,6 +32,17 @@ public class ProductRequestVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("AddProductRequestView",this::addToView);
+        dataModel.addListener("DeleteProductRequestView",this::deleteAll);
+    }
+
+    private void deleteAll(PropertyChangeEvent propertyChangeEvent) {
+        productRequests = FXCollections.observableArrayList();
+
+    }
+
+    private void addToView(PropertyChangeEvent propertyChangeEvent) {
+        productRequests.add((ProductRequest) propertyChangeEvent.getNewValue());
     }
 
     /**
@@ -74,5 +85,9 @@ public class ProductRequestVM {
     public void sendProductRequest() {
 
         dataModel.sendProductRequest();
+    }
+
+    public void openSalesView() {
+        viewHandler.openSalesView();
     }
 }
