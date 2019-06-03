@@ -135,7 +135,6 @@
                   <TableColumn fx:id="expiryDateCol" prefWidth="188.0" text="Expiry date" />
                   <TableColumn fx:id="minStockCol" prefWidth="188.0" text="Min stock" />
                   <TableColumn fx:id="maxStockCol" prefWidth="188.0" text="Max stock" />
-                  <TableColumn fx:id="locationCol" prefWidth="188.0" text="Location" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -151,17 +150,17 @@
                   <Pane prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" />
                   <Pane layoutX="259.0" prefHeight="76.0" prefWidth="662.0">
                      <children>
-                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #3498DB; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
+                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #3498DB; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit item stock">
+                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="removeItemStockButton" layoutX="253.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
+                        <Button fx:id="removeItemStockButton" layoutX="253.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

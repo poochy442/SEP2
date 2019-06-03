@@ -85,5 +85,7 @@ public class InventoryMainHQVM {
         viewHandler.openInventoryMainWHView();
     }
 
-    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
+    public void openDeliveryView() {
+    }
+
 }

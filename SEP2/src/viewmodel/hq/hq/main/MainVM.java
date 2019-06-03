@@ -26,4 +26,7 @@ public class MainVM {
 
     public void openInventoryMainHQView() {viewHandler.openInventoryMainHQView();
     }
+
+    public void openDeliveryView() {
+    }
 }

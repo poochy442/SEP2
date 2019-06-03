@@ -76,4 +76,9 @@ public class MainView {
         mainVM.openInventoryWHView();
     }
 
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        mainVM.openDeliveryView();
+    }
+
 }

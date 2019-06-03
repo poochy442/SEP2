@@ -52,9 +52,6 @@ public class InventoryMainView {
     private TableColumn<Integer, StockItem> maxStockCol;
 
     @FXML
-    private TableColumn<String, StockItem> locationCol;
-
-    @FXML
     private TextField requestQtyField;
 
     @FXML
@@ -93,7 +90,6 @@ public class InventoryMainView {
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
         requestQtyField.textProperty().bindBidirectional(inventoryMainVM.requestQtyProperty());
     }
 

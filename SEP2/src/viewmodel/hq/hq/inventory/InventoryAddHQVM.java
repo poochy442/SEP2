@@ -48,6 +48,7 @@ public class InventoryAddHQVM {
         minStock = new SimpleStringProperty();
         maxStock = new SimpleStringProperty();
 
+
         date = new Date(0, 0, 0);
     }
 
@@ -263,5 +264,8 @@ public class InventoryAddHQVM {
     }
 
     public void openInventoryWHView() {viewHandler.openInventoryMainWHView();
+    }
+
+    public void openDeliveryView() {
     }
 }

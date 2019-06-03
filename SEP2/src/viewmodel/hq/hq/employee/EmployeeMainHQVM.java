@@ -83,4 +83,7 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
 
     public void openInventoryMainHQView() {viewHandler.openInventoryMainHQView();
     }
+
+    public void openDeliveryView() {
+    }
 }

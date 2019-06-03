@@ -1,6 +1,7 @@
 package view.retailer.request;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -33,6 +34,8 @@ public class ProductRequestView {
 
     @FXML
     private TableColumn<ProductRequest, String> iDCol;
+
+    @FXML private TableColumn<ProductRequest, Integer> actualQuantityCol;
 
     @FXML
     private TableColumn<Integer, ProductRequest> quantityCol;
@@ -77,6 +80,12 @@ public class ProductRequestView {
             @Override
             public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductRequest, String> param) {
                 return new SimpleStringProperty(param.getValue().getID());
+            }
+        });
+        actualQuantityCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductRequest, Integer>, ObservableValue<Integer>>() {
+            @Override
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<ProductRequest, Integer> param) {
+                return new SimpleIntegerProperty(param.getValue().getActualQuantity()).asObject();
             }
         });
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));

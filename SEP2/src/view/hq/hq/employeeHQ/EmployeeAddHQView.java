@@ -155,4 +155,9 @@ public class EmployeeAddHQView {
         return false;
     }
 
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        employeeAddHQVM.openDeliveryView();
+    }
+
 }

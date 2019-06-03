@@ -210,4 +210,9 @@ public class InventoryAddHQView {
         }
         return false;
     }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        inventoryAddHQVM.openDeliveryView();
+    }
 }

@@ -37,9 +37,6 @@ public class EmployeeMainWHView {
     private TableColumn<String, Employee> iDCol;
 
     @FXML
-    private TableColumn<String, Employee> departmentIDCol;
-
-    @FXML
     private AnchorPane anchorPane;
 
     private EmployeeWHVM employeeWHVM;
@@ -62,7 +59,6 @@ public class EmployeeMainWHView {
         firstNameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         lastNameCol.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         iDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        departmentIDCol.setCellValueFactory(new PropertyValueFactory<>("departmentID"));
     }
 
     @FXML
@@ -83,6 +79,11 @@ public class EmployeeMainWHView {
     @FXML
     void onEditEmployeeClicked(ActionEvent event) {
 
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        employeeWHVM.openDeliveryView();
     }
 
     @FXML
@@ -117,7 +118,7 @@ public class EmployeeMainWHView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
         alert.setContentText("Press ok to continue");

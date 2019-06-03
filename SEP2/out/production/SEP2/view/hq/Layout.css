@@ -23,7 +23,7 @@
     -fx-border-color: white;
 }
 
-#homeButton:hover, #inventoryButton:hover, #employeeButton:hover {
+#homeButton:hover, #inventoryButton:hover, #employeeButton:hover, #deliveryButton:hover {
     -fx-text-fill: white;
 }
 

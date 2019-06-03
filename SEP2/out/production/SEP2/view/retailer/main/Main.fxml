@@ -54,7 +54,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Label layoutX="53.0" layoutY="15.0" text="Warehouse Management Tool">
+                  <Label layoutX="53.0" layoutY="15.0" text="Retailer Management Tool">
                      <font>
                         <Font size="15.0" />
                      </font>

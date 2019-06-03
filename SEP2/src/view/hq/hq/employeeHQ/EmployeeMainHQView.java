@@ -114,7 +114,7 @@ public class EmployeeMainHQView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
         confirmingAlert.setTitle("Confirmation");
         confirmingAlert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
         confirmingAlert.setContentText("Press ok to continue");
@@ -136,5 +136,9 @@ public class EmployeeMainHQView {
     @FXML
     void onWarehouseClicked(MouseEvent event) {
         employeeMainHQVM.openInventoryMainWHView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event) {
+        employeeMainHQVM.openDeliveryView();
     }
 }

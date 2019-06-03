@@ -137,7 +137,7 @@ public class InventoryMainWHView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
         alert.setContentText("Press ok to continue");
@@ -153,5 +153,10 @@ public class InventoryMainWHView {
     @FXML
     void onRetailerClicked(MouseEvent event) {
 
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        inventoryWHVM.openDeliveryView();
     }
 }
