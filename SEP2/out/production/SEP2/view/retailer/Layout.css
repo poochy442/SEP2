@@ -50,3 +50,6 @@
     -fx-background-radius: 5px;
 }
 
+.table-row-cell:selected{
+    -fx-background-color: #1ABC9C;
+}
