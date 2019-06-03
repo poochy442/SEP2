@@ -15,7 +15,7 @@ import java.util.Date;
 public class StockItem {
 
     private String name, id,location;
-    private int quantity, price, minStock, maxStock;
+    private int quantity, price, minStock, maxStock, totalProfit;
     private boolean canExpire;
     private Date expiryDate;
 
@@ -43,6 +43,7 @@ public class StockItem {
         this.minStock = minStock;
         this.maxStock = maxStock;
         this.location=location;
+        this.totalProfit = price * quantity;
     }
 
     /**
@@ -61,6 +62,8 @@ public class StockItem {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        this.totalProfit = price * quantity;
+        //TODO: Update Java doc
     }
 
     /**
@@ -97,6 +100,8 @@ public class StockItem {
      */
     public void setPrice(int price) {
         this.price = price;
+        this.totalProfit = price * quantity;
+        //TODO: Update Java doc
     }
 
     /**
@@ -153,5 +158,20 @@ public class StockItem {
     public String getLocation()
     {
         return location;
+    }
+
+    /**
+     * Gets the total profit of the Item.
+     *
+     * @return The total profit of the Item.
+     */
+    public int getTotalProfit() {
+        return totalProfit;
+    }
+
+    public StockItem copy()
+    {
+        StockItem stockItem = new StockItem(name, id, quantity, price, canExpire, expiryDate, minStock, maxStock, location);
+        return stockItem;
     }
 }

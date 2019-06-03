@@ -22,7 +22,6 @@ public class SalesVM {
     private IDataModel dataModel;
     private ObservableList<StockItem> sales;
     private ViewHandler viewHandler;
-    private int quantity,price;
 
     /**
      * Creates a SalesVM with the specified information and adds the required listeners.
@@ -39,8 +38,6 @@ public class SalesVM {
 
     private void addSalesToClient(PropertyChangeEvent propertyChangeEvent) {
         sales.add((StockItem) propertyChangeEvent.getNewValue());
-        quantity=((StockItem) propertyChangeEvent.getNewValue()).getQuantity();
-        price=((StockItem) propertyChangeEvent.getNewValue()).getPrice();
     }
 
     /**
@@ -77,20 +74,13 @@ public class SalesVM {
         viewHandler.openInventoryMainView();
     }
 
-    /**
-     * Sends the product request to the {@link model.DataModel}.
-     */
-    public void sendProductRequest() {
-
-        dataModel.sendProductRequest();
-    }
-
     public void openProductRequest() {
         viewHandler.openProductRequestView();
     }
 
-    public int calculateTotalProfit ()
-    {
-       return quantity * price;
+    public void openDeliveryView() {
+    }
+
+    public void openSalesView() {viewHandler.openSalesView();
     }
 }

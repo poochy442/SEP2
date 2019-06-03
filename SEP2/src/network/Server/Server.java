@@ -31,16 +31,19 @@ public class Server {
 
             ServerSocket welcomeSocket = new ServerSocket(PORT);
         System.out.println("Starting server...");
+        DataBaseModel dataBaseModel = new DataBaseModel();
+        int i=1;
 
         while (true) {
             Socket socket = welcomeSocket.accept();
-            DataBaseModel dataBaseModel = new DataBaseModel();
-            ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel);
-            ServerSender serverSender = new ServerSender(socket,dataBaseModel);
+
+            ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel,i);
+            ServerSender serverSender = new ServerSender(socket,dataBaseModel,i);
             Thread t2 = new Thread(serverSender);
             Thread t1 = new Thread(serverReceiver);
             t1.start();
             t2.start();
+            i++;
         }
     }
 }

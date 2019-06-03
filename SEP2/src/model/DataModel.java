@@ -280,16 +280,17 @@ public class DataModel implements IDataModel {
 
     @Override
     public void addToSales(StockItem selectedItem, boolean notifyServer) {
-        sales.add(selectedItem);
+        sales.add(selectedItem.copy());
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
             propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
             System.out.println(selectedItem.getName());
         }
-        System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
-        propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
-
+        else {
+            System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
+            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+        }
     }
 
     @Override
@@ -297,6 +298,19 @@ public class DataModel implements IDataModel {
         propertyChangeSupport.firePropertyChange("SalesQuery", 1, 2);
         System.out.println("DataModel : Sales query");
 
+    }
+
+    @Override
+    public void removeProductRequest(ProductRequest selectedItem) {
+        productRequestList.removeRequestFromList(selectedItem.getProductId()); //TODO: How do I get productID saved to product request?
+        propertyChangeSupport.firePropertyChange("DeleteProductRequest", null, selectedItem); //TODO: Remove in DB
+    }
+
+    @Override
+    public void editProductRequest(ProductRequest selectedItem, int quantity) {
+        int oldQuantity = selectedItem.getQuantity();
+        selectedItem.setQuantity(quantity);
+        propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
     }
 
 }

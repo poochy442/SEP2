@@ -31,6 +31,7 @@ public class MainView {
 
     /**
      * An init method instantiating all the required fields.
+     *
      * @param mainVM The {@link MainVM} viewmodel to be used.
      */
     public void init(MainVM mainVM) {
@@ -49,22 +50,24 @@ public class MainView {
     }
 
     @FXML
-    void onRequestClicked(ActionEvent event) {
+    void onProductRequestClicked(ActionEvent event) {
         mainVM.openRequestMainView();
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
 
+
     }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        mainVM.openDeliveryView();
+    }
+
     @FXML
     void onSalesClicked(ActionEvent event) {
         mainVM.openSalesMainView();
-    }
-    @FXML
-    void onProducRequestClciked (ActionEvent event)
-    {
-        mainVM.openRequestMainView();
     }
 
     @FXML
@@ -77,6 +80,7 @@ public class MainView {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
     }
+
 }
 
 

@@ -1,9 +1,7 @@
 package network.client;
 
 import com.google.gson.Gson;
-import model.EmployeeList;
-import model.IDataModel;
-import model.StockItemList;
+import model.*;
 import network.Packet;
 
 import java.io.IOException;
@@ -61,12 +59,9 @@ public class ClientReceiver implements Runnable {
                 Packet packet = (Packet) incoming;
                 String json = packet.getJson();
                 switch (packet.getOperation()) {
-                    case Packet.EmployeeResponseOperation:
-                        EmployeeList employeeList = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        for (int i = 0; i < employeeList.size(); i++) {
-                            dataModel.addEmployeeFromServer(employeeList.get(i));
-                        }
-                        // TODO: Fix back/forth firing of responses
+                    case Packet.EmployeeOperation:
+                        Employee employee = (Employee) gson.fromJson(json, Employee.class);
+                            dataModel.addEmployeeFromServer(employee);
                         break;
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
@@ -92,6 +87,13 @@ public class ClientReceiver implements Runnable {
                         for (int i=0;i<stockItemList2.size();i++)
                         {
                             dataModel.addToSales(stockItemList2.get(i),false);
+                        }
+                        break;
+                    case Packet.requestQuery:
+                        ProductRequestList requestList = (ProductRequestList) gson.fromJson(json,ProductRequestList.class);
+                        for (int i=0;i<requestList.Size();i++)
+                        {
+                            dataModel.addToProductRequest(requestList.getProductRequest(i),false);
                         }
                         break;
 

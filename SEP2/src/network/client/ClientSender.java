@@ -30,7 +30,7 @@ public class ClientSender implements Runnable {
     private IDataModel dataModel;
 
     /**
-     * Creates a ClientSender with the specified information and adds the required {@link java.net.http.WebSocket.Listener}s.
+     * Creates a ClientSender with the specified information and adds the required {@link }s.
      *
      * @param socket    The {@link Socket} for the ClientSender to use.
      * @param dataModel The {@link DataModel} for the ClientSender to use.
@@ -48,7 +48,15 @@ public class ClientSender implements Runnable {
         dataModel.addListener("AddSale", this::addSale);
         dataModel.addListener("SalesQuery", this::salesQuery);
         dataModel.addListener("AddProductRequest", this::addRequest);
+        dataModel.addListener("RequestQuery",this::triggerRequestQuery);
         queue = new LinkedList<>();
+    }
+
+    private void triggerRequestQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p1 = new Packet(Packet.requestQuery, (String) propertyChangeEvent.getNewValue());
+        addToQueue(p1);
+        System.out.println("ClientSender: RequestQuery");
+
     }
 
     private void addRequest(PropertyChangeEvent propertyChangeEvent) {
@@ -133,9 +141,9 @@ public class ClientSender implements Runnable {
     }
 
     private void addEmployeeListener(PropertyChangeEvent propertyChangeEvent) {
-        Employee employe = (Employee) propertyChangeEvent.getNewValue();
+        Employee employee = (Employee) propertyChangeEvent.getNewValue();
         Gson gson = new Gson();
-        String json = gson.toJson(employe);
+        String json = gson.toJson(employee);
         Packet packet = new Packet(Packet.EmployeeOperation, json);
         System.out.println("ClientSender: addEmployeListener EmployeeOperation");
         addToQueue(packet);

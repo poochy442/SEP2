@@ -11,7 +11,7 @@ import view.retailer.employee.EmployeeAddView;
 import view.retailer.employee.EmployeeMainView;
 import view.retailer.inventory.InventoryAddView;
 import view.retailer.inventory.InventoryMainView;
-import view.retailer.inventory.ProductRequestView;
+import view.retailer.request.ProductRequestView;
 import view.retailer.main.MainView;
 import view.retailer.sales.SalesView;
 import viewmodel.retailer.ViewModelProvider;
@@ -184,7 +184,7 @@ public class ViewHandler {
     public void openProductRequestView() {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("inventory/ProductRequest.fxml"));
+        loader.setLocation(getClass().getResource("request/ProductRequest.fxml"));
         Parent root = null;
         try{
             root = loader.load();

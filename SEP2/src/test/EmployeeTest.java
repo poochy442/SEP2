@@ -10,7 +10,7 @@ public class EmployeeTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        e = new Employee("kenneth", "jensen", "1");
+        e = new Employee("kenneth", "jensen", "1", "HQ");
     }
 
     @org.junit.After
@@ -52,7 +52,7 @@ public class EmployeeTest {
 
     @org.junit.Test
     public void equals() {
-        Employee em = new Employee("a", "b", "2");
+        Employee em = new Employee("a", "b", "2", "WH");
         Assert.assertTrue(e.equals(e));
         Assert.assertFalse(e.equals(em));
     }

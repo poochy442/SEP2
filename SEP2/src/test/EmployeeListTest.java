@@ -1,9 +1,7 @@
 package test;
 
-import model.Employee;
 import model.EmployeeList;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,8 +23,6 @@ public class EmployeeListTest {
 
     @Test
     public void add() {
-        test.add(testemp);
-        Assert.assertEquals();
 
     }
 

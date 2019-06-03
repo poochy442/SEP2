@@ -24,6 +24,7 @@ public class ServerReceiver implements Runnable {
     private Socket socket;
     private DataBaseModel dataBaseModel;
     private IDataModel dataModel;
+    private int clientNo;
 
     /**
      * Creates a ServerReceiver with the specified {@link Socket} and {@link DataBaseModel}.
@@ -31,9 +32,14 @@ public class ServerReceiver implements Runnable {
      * @param socket        The {@link Socket} for the ServerReceiver to use.
      * @param dataBaseModel The {@link DataBaseModel} for the ServerReceiver to use.
      */
-    public ServerReceiver(Socket socket, DataBaseModel dataBaseModel) {
+    public ServerReceiver(Socket socket, DataBaseModel dataBaseModel, int clientNo) {
         this.socket = socket;
         this.dataBaseModel = dataBaseModel;
+        this.clientNo = clientNo;
+    }
+
+    public int getClientNo() {
+        return clientNo;
     }
 
     /**
@@ -64,59 +70,69 @@ public class ServerReceiver implements Runnable {
                 String json = packet.getJson();
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
-                        Employee employe = (Employee) gson.fromJson(json, Employee.class);
-                        System.out.println("ServerReceiver: employee stored to database = " + dataBaseModel.addEmployeeToDataBase(employe));
+                        Employee employee = (Employee) gson.fromJson(json, Employee.class);
+                        System.out.println("ServerReceiver: employee stored to database = " + dataBaseModel.addEmployeeToDataBase(employee, clientNo));
+
                         ;
                         // TODO: change to view event
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
-                        System.out.println("ServerReceiver: item stored to database = " + dataBaseModel.addItemToDataBase(stockItem, stockItem.getLocation()));
+                        System.out.println("ServerReceiver: item stored to database = " + dataBaseModel.addItemToDataBase(stockItem, stockItem.getLocation(), clientNo));
 
 
                         break;
                     case Packet.RequestOperation:
-                        ProductRequestList productRequestList = gson.fromJson(json, ProductRequestList.class);
-                        System.out.println("ServerReceiver: ProductRequestList received");
-                        System.out.println("ServerReceiver " + productRequestList);
-                        int requestID = dataBaseModel.addRequestToDataBase("WH");
-                        dataBaseModel.addRequestItemsToDataBase(productRequestList, requestID);
+                        int requestID = dataBaseModel.requestCountQuery();
+                        dataBaseModel.setRequestStatus(requestID, clientNo, "In progress");
                         break;
                     case Packet.EmployeeQuery:
                         String departmentID = json;
-                        dataBaseModel.employeeQuery(departmentID);
+                        dataBaseModel.employeeQuery(departmentID, clientNo);
 
                         break;
                     case Packet.ItemQuery:
                         String depID = json;
-                        dataBaseModel.itemQuery(depID);
+                        dataBaseModel.itemQuery(depID, clientNo);
                         System.out.println("ServerReceiver: ItemQuery()called in DB");
                         break;
                     case Packet.DeleteItemFromWH:
                         StockItem stockItem1 = gson.fromJson(json, StockItem.class);
-                        System.out.println("Server Receiver: Stock item deleted from database = " + dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), stockItem1.getLocation()));
+                        System.out.println("Server Receiver: Stock item deleted from database = " +
+                                dataBaseModel.deleteItemByIdAndDepartment(stockItem1.getId(), stockItem1.getLocation(), clientNo));
                         break;
                     case Packet.DeleteItemFromHQ:
                         StockItem stockItem2 = gson.fromJson(json, StockItem.class);
-                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(), stockItem2.getLocation());
+                        dataBaseModel.deleteItemByIdAndDepartment(stockItem2.getId(), stockItem2.getLocation(), clientNo);
                         break;
                     case Packet.DeleteEmployee:
-                        Employee employee = gson.fromJson(json, Employee.class);
+                        employee = gson.fromJson(json, Employee.class);
                         System.out.println("Employee: " + employee.getId() + " deleted = " + dataBaseModel.deleteEmployee(employee));
                         break;
                     case Packet.AddSale:
                         StockItem stockItem3 = gson.fromJson(json, StockItem.class);
-                        System.out.println("ServerReceiver: sale added to database = " + dataBaseModel.addSaleToDataBase(stockItem3));
+                        System.out.println("ServerReceiver: sale added to database = " + dataBaseModel.addSaleToDataBase(stockItem3, clientNo));
                         break;
                     case Packet.salesQuery:
-                        dataBaseModel.salesQuery();
+                        dataBaseModel.salesQuery(clientNo);
                         System.out.println("ServerReceiver: SalesQuery");
                         break;
                     case Packet.addProductRequest:
-                        int departmentid = dataBaseModel.requestCountQuery() - 1;
+
+                        int departmentid = dataBaseModel.requestProductMaxID("RT");
+                        if (departmentid == 0) {
+                            departmentid = dataBaseModel.requestCountQuery();
+                        }
                         ProductRequest productRequest = gson.fromJson(json, ProductRequest.class);
-                        System.out.println(dataBaseModel.addRequestItemToDatabase(productRequest, departmentid));
+                        if (departmentid == 0) {
+                            dataBaseModel.addRequestToDataBase(productRequest.getStockItem().getLocation(), clientNo);
+                            departmentid++;
+                        }
+
+                        System.out.println(dataBaseModel.addRequestItemToDatabase(productRequest, departmentid, clientNo));
                         break;
+                    case Packet.requestQuery:
+                        dataBaseModel.requestQuery(clientNo, json);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

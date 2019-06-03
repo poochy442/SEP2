@@ -36,7 +36,7 @@ public class SalesView {
     private TableColumn<Integer, StockItem> pricePerUnitCol;
 
     @FXML
-    private TableColumn<Integer, StockItem> totalProfitCol;
+    private TableColumn<Integer, StockItem > totalProfitCol;
 
     @FXML
     private AnchorPane anchorPane;
@@ -61,6 +61,7 @@ public class SalesView {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         quantitySoldCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         pricePerUnitCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+        totalProfitCol.setCellValueFactory(new PropertyValueFactory<>("totalProfit"));
     }
 
     @FXML
@@ -79,11 +80,6 @@ public class SalesView {
     }
 
     @FXML
-    void onSendRequestClicked(ActionEvent event) {
-        salesVM.sendProductRequest();
-    }
-
-    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }
@@ -98,5 +94,15 @@ public class SalesView {
     void onProductRequestClicked(ActionEvent event) {
         salesVM.openProductRequest();
 
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        salesVM.openDeliveryView();
+    }
+
+    @FXML void onSalesClicked(ActionEvent event)
+    {
+        salesVM.openSalesView();
     }
 }

@@ -89,4 +89,16 @@ public class EmployeeMainVM {
     public void removeEmployee(Employee e) {
         dataModel.removeEmployeeWH(e);
     }
+
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
+
+    public void openDeliveryClicked() {
+    }
+
+    public void openSalesView() {viewHandler.openSalesView();
+    }
+
+    public void openEmployeeMainView() {viewHandler.openEmployeeMainView();
+    }
 }

@@ -26,6 +26,9 @@ public class InventoryAddView {
     private TextField nameField;
 
     @FXML
+    private TextField iDField;
+
+    @FXML
     private TextField quantityField;
 
     @FXML
@@ -80,6 +83,7 @@ public class InventoryAddView {
     public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());
+        iDField.textProperty().bindBidirectional(inventoryAddVM.idProperty());
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
         canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty());
@@ -127,6 +131,16 @@ public class InventoryAddView {
     @FXML
     void onInventoryClicked(ActionEvent event) {
         inventoryAddVM.openInventoryView();
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        inventoryAddVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+
     }
 
     @FXML
