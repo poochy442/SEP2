@@ -497,7 +497,7 @@ public class DataBaseModel {
             while (resultSet.next()) {
                 if (resultSet.getObject(1) != null)
                     maxID = resultSet.getObject(1).toString();
-            }ko
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

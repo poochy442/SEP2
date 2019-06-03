@@ -58,10 +58,13 @@ public class InventoryMainView {
     private AnchorPane anchorPane;
 
     @FXML
-    private TextField productRequestQty;
+    private TextField requestQtyField;
 
-    @FXML
-    private TextField sellQty;
+    @FXML private Label emptyQuantity;
+
+    @FXML private Label errorQuantityLabel;
+
+    @FXML private TextField sellQuantityField;
 
     private InventoryMainVM inventoryMainVM;
 
@@ -91,8 +94,8 @@ public class InventoryMainView {
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
-        productRequestQty.setText("0");
-        sellQty.setText("0");
+        requestQtyField.textProperty().bindBidirectional(inventoryMainVM.requestQtyProperty());
+        sellQuantityField.textProperty().bindBidirectional(inventoryMainVM.sellQtyProperty());
     }
 
 
@@ -151,21 +154,7 @@ public class InventoryMainView {
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-
-    }
-
-
-    @FXML
-    void onSellClicked(ActionEvent event) {
-
-        //TODO  do we need to bind this? so we follow MVVM rules?
-        if (!sellQty.getText().equals("0")) {
-            //todo  passing highlighted stockitem and a String : its a dirty way? or good
-            inventoryMainVM.addToSales(stockItemTable.getSelectionModel().getSelectedItem(), sellQty.getText());
-        }
-        //todo  display error msg when we add 0 value?
-        else System.out.println("NOT ADDED ERROR");
-
+        inventoryMainVM.openInventoryMainView();
     }
 
     @FXML
@@ -173,19 +162,66 @@ public class InventoryMainView {
         inventoryMainVM.openProductRequestView();
     }
     @FXML
-    void onProductaddToRequestClicked (ActionEvent event)
+    void onAddProductRequestClicked (ActionEvent event)
     {
-        if (!productRequestQty.getText().equals("0")) {
-            inventoryMainVM.addToProductRequest(stockItemTable.getSelectionModel().getSelectedItem(),productRequestQty.getText());
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
         }
-        //todo  display error msg when we add 0 value?
-        else System.out.println("InventoryMainView: NOT ADDED ERROR");
-
+        if (isValid()) {
+            inventoryMainVM.addProductRequestToList(selectedItem);
+        }
 
     }
 
     @FXML
     void onSalesClicked(ActionEvent event) {
         inventoryMainVM.openSalesView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        inventoryMainVM.openDeliveryView();
+    }
+
+    private boolean isValid() {
+        boolean validQty, emptyQty = false;
+        if (requestQtyField.textProperty().getValue().isEmpty()) {
+            emptyQty = true;
+            emptyQuantity.setVisible(true);
+        } else {
+            emptyQty = false;
+            emptyQuantity.setVisible(false);
+        }
+
+        if (!inventoryMainVM.onlyNumbersQuantity() && !emptyQty) {
+            validQty = false;
+            errorQuantityLabel.setVisible(true);
+        } else {
+            validQty = true;
+            errorQuantityLabel.setVisible(false);
+        }
+
+        if (validQty && !emptyQty) {
+            return true;
+        }
+        return false;
+    }
+
+    @FXML void onSellClicked(ActionEvent event)
+    {
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        inventoryMainVM.sellStockItem(selectedItem);
     }
 }

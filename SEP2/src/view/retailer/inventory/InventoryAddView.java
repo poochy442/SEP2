@@ -26,6 +26,9 @@ public class InventoryAddView {
     private TextField nameField;
 
     @FXML
+    private TextField iDField;
+
+    @FXML
     private TextField quantityField;
 
     @FXML
@@ -75,11 +78,13 @@ public class InventoryAddView {
 
     /**
      * An init method instantiating all the required fields.
+     *
      * @param inventoryAddVM the {@link InventoryAddVM} viewmodel to be used.
      */
     public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;
         nameField.textProperty().bindBidirectional(inventoryAddVM.nameProperty());
+        iDField.textProperty().bindBidirectional(inventoryAddVM.idProperty());
         quantityField.textProperty().bindBidirectional(inventoryAddVM.quantityProperty());
         priceField.textProperty().bindBidirectional(inventoryAddVM.priceProperty());
         canExpireCheckBox.selectedProperty().bindBidirectional(inventoryAddVM.canExpireProperty());
@@ -91,8 +96,7 @@ public class InventoryAddView {
 
     @FXML
     void onAddClicked(ActionEvent event) {
-        if(isEverythingValid())
-        {
+        if (isEverythingValid()) {
             inventoryAddVM.addStockItem();
             inventoryAddVM.confirmation();
         }
@@ -153,12 +157,9 @@ public class InventoryAddView {
             emptyNameLabel.setVisible(false);
         }
 
-        if(validExpiryDate)
-        {
+        if (validExpiryDate) {
             errorExpiryDateLabel.setVisible(false);
-        }
-        else
-        {
+        } else {
             errorExpiryDateLabel.setVisible(true);
         }
 
@@ -194,10 +195,24 @@ public class InventoryAddView {
             validMinStock = true;
         }
 
-        if (validPrice && validQuantity && validMaxStock && validMinStock && !emptyName && validExpiryDate)
-        {
+        if (validPrice && validQuantity && validMaxStock && validMinStock && !emptyName && validExpiryDate) {
             return true;
         }
         return false;
+    }
+
+    @FXML
+    void onProductRequestClicked(ActionEvent event) {
+        inventoryAddVM.openProductRequestView();
+    }
+
+    @FXML
+    void onDeliveryClicked(ActionEvent event) {
+        inventoryAddVM.openDeliveryView();
+    }
+
+    @FXML
+    void onSalesClicked(ActionEvent event) {
+        inventoryAddVM.openSalesView();
     }
 }

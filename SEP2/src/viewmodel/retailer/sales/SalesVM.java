@@ -74,16 +74,13 @@ public class SalesVM {
         viewHandler.openInventoryMainView();
     }
 
-    /**
-     * Sends the product request to the {@link model.DataModel}.
-     */
-    public void sendProductRequest() {
-
-        dataModel.sendProductRequest();
-    }
-
     public void openProductRequest() {
         viewHandler.openProductRequestView();
     }
 
+    public void openDeliveryView() {
+    }
+
+    public void openSalesView() {viewHandler.openSalesView();
+    }
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Date;
 
 /**
  * <h1>The Model class from the MVVM patterns.</h1>
@@ -143,9 +144,10 @@ public class DataModel implements IDataModel {
     //TODO: Pass an Item to request?
     @Override
     public void sendProductRequest() {
+        StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5, "WH");
+        ProductRequest productRequest = new ProductRequest(stockItem, 22);
+        productRequestList.addRequestToList(productRequest);
         propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequestList);
-        propertyChangeSupport.firePropertyChange("DeleteProductRequestView",0,1);
-        productRequestList = new ProductRequestList();
     }
 
     /**
@@ -270,15 +272,9 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void addToProductRequest(ProductRequest productRequest, boolean notifyServer) {
+    public void addToProductRequest(ProductRequest productRequest,boolean notifyServer) {
         productRequestList.addRequestToList(productRequest);
-
-        if (notifyServer == true) {
-            propertyChangeSupport.firePropertyChange("AddProductRequest", null, productRequest);
-        }
-
-
-        propertyChangeSupport.firePropertyChange("AddProductRequestView", null, productRequest);
+        propertyChangeSupport.firePropertyChange("AddProductRequest",null,productRequest);
         System.out.println("DataModel: product : " + productRequest.getProductId() + " added to model.productRequest");
     }
 
@@ -288,15 +284,13 @@ public class DataModel implements IDataModel {
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
-            propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
+            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
             System.out.println(selectedItem.getName());
-            System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
-        } else {
-
-            propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
         }
-
-
+        else {
+            System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
+            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+        }
     }
 
     @Override
@@ -307,10 +301,21 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void loadRequestsFromDB(String departmentID) {
-        propertyChangeSupport.firePropertyChange("RequestQuery", 1, departmentID);
-        System.out.println("DataModel : Request query");
+    public void removeProductRequest(ProductRequest selectedItem) {
+        productRequestList.removeRequestFromList(selectedItem.getProductId()); //TODO: How do I get productID saved to product request?
+        propertyChangeSupport.firePropertyChange("DeleteProductRequest", null, selectedItem); //TODO: Remove in DB
+    }
 
+    @Override
+    public void editProductRequest(ProductRequest selectedItem, int quantity) {
+        int oldQuantity = selectedItem.getQuantity();
+        selectedItem.setQuantity(quantity);
+        propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
+    }
+
+    @Override
+    public void loadRequestsFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("RequestQuery",0,departmentID);
     }
 
 }

@@ -1,8 +1,11 @@
 package viewmodel.warehouse.inventory;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
+import model.ProductRequest;
 import model.StockItem;
 import view.warehouse.ViewHandler;
 
@@ -21,6 +24,7 @@ public class InventoryMainVM {
     private IDataModel dataModel;
     private ObservableList<StockItem> stockItems;
     private ViewHandler viewHandler;
+    private StringProperty requestQty;
 
     /**
      * Creates an InventoryMainVM with the specified information and adds the required
@@ -34,6 +38,7 @@ public class InventoryMainVM {
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
+        requestQty = new SimpleStringProperty();
     }
 
     /**
@@ -50,6 +55,14 @@ public class InventoryMainVM {
      */
     public ObservableList<StockItem> getStockItems() {
         return stockItems;
+    }
+
+    /**
+     * Gets the quantity for Request {@link StringProperty} stored.
+     * @return The quantity for Request {@link StringProperty} stored.
+     */
+    public StringProperty requestQtyProperty() {
+        return requestQty;
     }
 
     /**
@@ -87,5 +100,21 @@ public class InventoryMainVM {
         dataModel.removeStockItemWH(stockItem);
     }
 
-    //JOptionPane.showMessageDialog(null, "Quantity is low."); //TODO: Alert implementation
+    public void addProductRequestToList(StockItem stockItem) {
+        ProductRequest productRequest = new ProductRequest(stockItem, Integer.parseInt(requestQty.getValue()));
+        dataModel.addToProductRequest(productRequest, false);
+        requestQty.setValue("");
+
+    }
+
+    public boolean onlyNumbersQuantity()
+    {
+        return dataModel.onlyNumbers(requestQty.getValue());
+    }
+
+    public void openInventoryMainView() {viewHandler.openInventoryMainView();
+    }
+
+    public void openDeliveryView() {
+    }
 }
