@@ -19,6 +19,7 @@ import view.retailer.ViewHandler;
 public class EmployeeAddVM {
     private StringProperty firstName;
     private StringProperty lastName;
+    private StringProperty id;
 
     private IDataModel dataModel;
     private ViewHandler viewHandler;
@@ -34,6 +35,7 @@ public class EmployeeAddVM {
         this.viewHandler = viewHandler;
         firstName = new SimpleStringProperty();
         lastName = new SimpleStringProperty();
+        id = new SimpleStringProperty();
     }
 
     /**
@@ -41,11 +43,12 @@ public class EmployeeAddVM {
      */
     public void addEmployee()
     {
-        Employee e = new Employee(firstName.getValue(), lastName.getValue(), dataModel.getIDEmployee(),"RT");
+        Employee e = new Employee(firstName.getValue(), lastName.getValue(), id.getValue(),"RT");
         dataModel.addEmployeeFromUser(e);
         //dataModel.addEmployeeFromServer(e);
         firstName.setValue("");
         lastName.setValue("");
+        id.setValue("");
     }
 
     /**
@@ -97,6 +100,14 @@ public class EmployeeAddVM {
     }
 
     /**
+     * Gets the id {@link StringProperty} stored.
+     * @return The id {@link StringProperty} stored.
+     */
+    public StringProperty idProperty() {
+        return id;
+    }
+
+    /**
      * This method asks the user for confirmation using a {@link Alert}.
      */
     public void confirmation() {
@@ -121,5 +132,16 @@ public class EmployeeAddVM {
      */
     public boolean validateLastName() {
         return  dataModel.onlyLetters(lastName.getValue());
+    }
+
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
+
+    public void openDeliveryView() {
+
+    }
+
+    public void openSalesView() {
+        viewHandler.openSalesView();
     }
 }

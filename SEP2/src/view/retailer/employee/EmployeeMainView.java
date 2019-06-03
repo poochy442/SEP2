@@ -122,11 +122,26 @@ public class EmployeeMainView {
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
-
+        employeeMainVM.openEmployeeMainView();
     }
 
     @FXML
     void onEditEmployeeClicked(ActionEvent event) {
 
+    }
+
+    @FXML void onProductRequestClicked(ActionEvent event)
+    {
+        employeeMainVM.openProductRequestView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        employeeMainVM.openDeliveryClicked();
+    }
+
+    @FXML void onSalesClicked(ActionEvent event)
+    {
+        employeeMainVM.openSalesView();
     }
 }

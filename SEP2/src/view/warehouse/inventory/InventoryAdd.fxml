@@ -176,7 +176,7 @@
                         <Insets left="250.0" top="400.0" />
                      </StackPane.margin>
                   </Button>
-                  <TextField fx:id="iDCol" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
+                  <TextField fx:id="iDField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
                      <StackPane.margin>
                         <Insets bottom="420.0" right="500.0" />
                      </StackPane.margin>

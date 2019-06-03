@@ -179,7 +179,7 @@ public class InventoryMainView {
 
     @FXML
     void onDeliveryClicked(ActionEvent event) {
-
+        inventoryMainVM.openDeliveryView();
     }
 
     private boolean isValid() {
