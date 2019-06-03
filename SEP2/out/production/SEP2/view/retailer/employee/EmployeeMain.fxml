@@ -133,7 +133,7 @@
                         <Image url="@../pictures/delivery.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="salesButton" layoutX="-2.0" layoutY="376.0" mnemonicParsing="false" onAction="#onSalesClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
+                  <Button fx:id="salesButton" layoutY="376.0" mnemonicParsing="false" onAction="#onSalesClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>

@@ -46,6 +46,7 @@ public class ProductRequestVM {
 
     /**
      * Sends a Product Request to the Server with the information in the {@link PropertyChangeEvent} passed.
+     *
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void sendProductRequest(PropertyChangeEvent evt) {
@@ -54,6 +55,7 @@ public class ProductRequestVM {
 
     /**
      * Gets the quantity {@link StringProperty}.
+     *
      * @return The quantity {@link StringProperty}.
      */
     public StringProperty quantityProperty() {
@@ -62,6 +64,7 @@ public class ProductRequestVM {
 
     /**
      * Gets the {@link ProductRequest}s from the List.
+     *
      * @return The {@link ProductRequest}s from the List.
      */
     public ObservableList<ProductRequest> getProductRequests() {
@@ -97,7 +100,8 @@ public class ProductRequestVM {
         dataModel.sendProductRequest();
     }
 
-    public void openProductRequestView() {viewHandler.openProductRequestView();
+    public void openProductRequestView() {
+        viewHandler.openProductRequestView();
     }
 
     public void removeProductRequest(ProductRequest selectedItem) {

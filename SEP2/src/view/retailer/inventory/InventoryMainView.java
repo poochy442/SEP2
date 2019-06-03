@@ -64,6 +64,8 @@ public class InventoryMainView {
 
     @FXML private Label errorQuantityLabel;
 
+    @FXML private TextField sellQuantityField;
+
     private InventoryMainVM inventoryMainVM;
 
     private StockItem selectedItem;
@@ -93,6 +95,7 @@ public class InventoryMainView {
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
         locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
         requestQtyField.textProperty().bindBidirectional(inventoryMainVM.requestQtyProperty());
+        sellQuantityField.textProperty().bindBidirectional(inventoryMainVM.sellQtyProperty());
     }
 
 
@@ -161,7 +164,6 @@ public class InventoryMainView {
     @FXML
     void onAddProductRequestClicked (ActionEvent event)
     {
-
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
@@ -208,5 +210,18 @@ public class InventoryMainView {
             return true;
         }
         return false;
+    }
+
+    @FXML void onSellClicked(ActionEvent event)
+    {
+        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
+        if (selectedItem == null) {
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Warning");
+            warningAlert.setHeaderText("No stock item has been selected");
+            warningAlert.setContentText("Press ok to continue");
+            warningAlert.showAndWait();
+        }
+        inventoryMainVM.sellStockItem(selectedItem);
     }
 }

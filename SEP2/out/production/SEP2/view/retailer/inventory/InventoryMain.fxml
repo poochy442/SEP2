@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.inventory.InventoryMainView">
+<AnchorPane fx:id="anchorPane" prefHeight="1200.0" prefWidth="1800.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.inventory.InventoryMainView">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -121,7 +121,7 @@
                         <Image url="@../pictures/delivery.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="salesButton" layoutX="1.0" layoutY="376.0" mnemonicParsing="false" onAction="#onSalesClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
+                  <Button fx:id="salesButton" layoutY="376.0" mnemonicParsing="false" onAction="#onSalesClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Sales" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -138,7 +138,7 @@
             </Pane>
          </left>
          <center>
-            <TableView fx:id="stockItemTable" prefHeight="800.0" prefWidth="941.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="stockItemTable" prefHeight="800.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="nameCol" prefWidth="188.0" styleClass="column-1" text="Name" />
                 <TableColumn fx:id="iDCol" minWidth="0.0" prefWidth="188.0" text="ID" />
@@ -162,7 +162,7 @@
             <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" />
-                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="662.0">
+                  <Pane layoutX="259.0" prefHeight="76.0" prefWidth="1273.0">
                      <children>
                         <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #1ABC9C; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
                            <cursor>
@@ -187,6 +187,12 @@
                         <TextField fx:id="requestQtyField" layoutX="505.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" promptText="Quantity to request" />
                         <Label fx:id="errorQuantityLabel" layoutX="780.0" layoutY="30.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
                         <Label fx:id="emptyQuantity" layoutX="790.0" layoutY="30.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
+                        <TextField fx:id="sellQuantityField" layoutX="900.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" promptText="Quantity to sell" />
+                        <Button fx:id="sellButton" layoutX="1065.0" layoutY="25.0" mnemonicParsing="false" onAction="#onSellClicked" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Sell">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </Pane>
                </children>

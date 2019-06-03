@@ -241,13 +241,17 @@
       </MenuBar>
       <Pane prefHeight="138.0" prefWidth="200.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0">
          <children>
-            <Label layoutX="56.0" layoutY="34.0" text="Product Request">
+            <Label layoutX="56.0" layoutY="83.0" text="Request to:" />
+            <Label layoutX="140.0" layoutY="83.0" text="HQ" />
+         </children>
+      </Pane>
+      <Pane layoutX="30.0" layoutY="30.0" prefHeight="50.0" prefWidth="941.0" style="-fx-background-color: #3498DB;" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0">
+         <children>
+            <Label layoutX="50.0" layoutY="8.0" text="Request">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label layoutX="56.0" layoutY="83.0" text="Request to:" />
-            <Label layoutX="140.0" layoutY="83.0" text="HQ" />
          </children>
       </Pane>
    </children>

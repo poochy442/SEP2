@@ -25,6 +25,7 @@ public class InventoryMainVM {
     private ObservableList<StockItem> stockItems;
     private ViewHandler viewHandler;
     private StringProperty requestQty;
+    private StringProperty sellQty;
 
     /**
      * Creates an InventoryMainVM with the specified information and adds the required
@@ -39,6 +40,7 @@ public class InventoryMainVM {
         dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
         requestQty = new SimpleStringProperty();
+        sellQty = new SimpleStringProperty();
     }
 
     /**
@@ -70,6 +72,14 @@ public class InventoryMainVM {
      */
     public StringProperty requestQtyProperty() {
         return requestQty;
+    }
+
+    /**
+     * Gets the quantity to sell {@link StringProperty} stored.
+     * @return The quantity to sell {@link StringProperty} stored.
+     */
+    public StringProperty sellQtyProperty() {
+        return sellQty;
     }
 
     /**
@@ -132,4 +142,7 @@ public class InventoryMainVM {
         return dataModel.onlyNumbers(requestQty.getValue());
     }
 
+    public void sellStockItem(StockItem selectedItem) {
+        //TODO: Sell it
+    }
 }

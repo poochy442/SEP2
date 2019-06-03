@@ -80,11 +80,6 @@ public class SalesView {
     }
 
     @FXML
-    void onSendRequestClicked(ActionEvent event) {
-        salesVM.sendProductRequest();
-    }
-
-    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }
@@ -99,5 +94,15 @@ public class SalesView {
     void onProductRequestClicked(ActionEvent event) {
         salesVM.openProductRequest();
 
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        salesVM.openDeliveryView();
+    }
+
+    @FXML void onSalesClicked(ActionEvent event)
+    {
+        salesVM.openSalesView();
     }
 }

@@ -184,7 +184,7 @@ public class ViewHandler {
     public void openProductRequestView() {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("inventory/ProductRequest.fxml"));
+        loader.setLocation(getClass().getResource("request/ProductRequest.fxml"));
         Parent root = null;
         try{
             root = loader.load();
