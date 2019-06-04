@@ -5,9 +5,9 @@ import java.beans.PropertyChangeSupport;
 import java.util.Date;
 
 /**
- * <h1>The Model class from the MVVM patterns.</h1>
+ * <h1>The Model class from the MVVM patterns</h1>
  * This incorporates all the methods within our
- * model and functions as the Class in which we store and access our data.
+ * model and functions as the Class in which we store and access our data
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -16,23 +16,23 @@ import java.util.Date;
  */
 public class DataModel implements IDataModel {
     /**
-     * The stored list of Employees.
+     * The stored list of Employees
      */
     private EmployeeList employeeList;
     /**
-     * The stored list of Stock Items.
+     * The stored list of Stock Items
      */
     private StockItemList stockItemList;
     private PropertyChangeSupport propertyChangeSupport;
     /**
-     * The stored list of Product Requests.
+     * The stored list of Product Requests
      */
     private ProductRequestList productRequestList;
     private Counter counter;
     private StockItemList sales;
 
     /**
-     * Creates a DataModel and instantiate all the fields.
+     * Creates a DataModel and instantiate all the fields
      */
     public DataModel() {
         employeeList = new EmployeeList();
@@ -44,7 +44,7 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Gets the {@link EmployeeList} stored in the DataModel.
+     * Gets the {@link EmployeeList} stored in the DataModel
      *
      * @return The {@link EmployeeList} stored in the DataModel
      */
@@ -53,9 +53,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Adds an {@link Employee} sent from a user to the stored {@link EmployeeList}.
+     * Adds an {@link Employee} sent from a user to the stored {@link EmployeeList}
      *
-     * @param e {@link Employee} to be stored.
+     * @param e {@link Employee} to be stored
      */
     @Override
     public void addEmployeeFromUser(Employee e) {
@@ -64,9 +64,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Adds an {@link Employee} sent from the server to the stored {@link EmployeeList}.
+     * Adds an {@link Employee} sent from the server to the stored {@link EmployeeList}
      *
-     * @param e {@link Employee} to be stored.
+     * @param e {@link Employee} to be stored
      */
     @Override
     public void addEmployeeFromServer(Employee e) {
@@ -81,9 +81,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Adds a {@link StockItem} sent from the server to the stored {@link StockItemList}.
+     * Adds a {@link StockItem} sent from the server to the stored {@link StockItemList}
      *
-     * @param i The {@link StockItem} to be stored.
+     * @param i The {@link StockItem} to be stored
      */
     @Override
     public void addItemFromServer(StockItem i) {
@@ -92,9 +92,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Adds a {@link StockItem} sent from a user to the stored {@link StockItemList}.
+     * Adds a {@link StockItem} sent from a user to the stored {@link StockItemList}
      *
-     * @param i The {@link StockItem} to be stored.
+     * @param i The {@link StockItem} to be stored
      */
     @Override
     public void addItemFromUser(StockItem i) {
@@ -104,9 +104,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Sets the stored {@link EmployeeList} equal to the passed {@link EmployeeList}.
+     * Sets the stored {@link EmployeeList} equal to the passed {@link EmployeeList}
      *
-     * @param employeeList the {@link EmployeeList} to be stored.
+     * @param employeeList the {@link EmployeeList} to be stored
      */
     public void setEmployeeList(EmployeeList employeeList) {
         this.employeeList = employeeList;
@@ -118,18 +118,18 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Gets the {@link StockItemList} stored in the DataModel.
+     * Gets the {@link StockItemList} stored in the DataModel
      *
-     * @return The {@link StockItemList} stored in the DataModel.
+     * @return The {@link StockItemList} stored in the DataModel
      */
     public StockItemList getStockItemList() {
         return stockItemList;
     }
 
     /**
-     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
+     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}
      *
-     * @param stockItemList The {@link StockItemList} to be stored.
+     * @param stockItemList The {@link StockItemList} to be stored
      */
     public void setStockItemList(StockItemList stockItemList) {
         this.stockItemList = stockItemList;
@@ -139,7 +139,7 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Adds a {@link ProductRequest} to the {@link ProductRequestList} stored in the DataModel.
+     * Adds a {@link ProductRequest} to the {@link ProductRequestList} stored in the DataModel
      */
     //TODO: Pass an Item to request?
     @Override
@@ -151,9 +151,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Deletes a {@link StockItem} from the DataModel.
+     * Deletes a {@link StockItem} from the DataModel
      *
-     * @param stockItem the {@link StockItem} to be removed.
+     * @param stockItem the {@link StockItem} to be removed
      */
     @Override
     public void removeStockItemWH(StockItem stockItem) {
@@ -162,9 +162,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Deletes a {@link StockItem} from the DataModel.
+     * Deletes a {@link StockItem} from the DataModel
      *
-     * @param stockItem the {@link StockItem} to be removed.
+     * @param stockItem the {@link StockItem} to be removed
      */
     @Override
     public void removeStockItemHQ(StockItem stockItem) {
@@ -174,9 +174,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Deletes a {@link Employee} from the DataModel.
+     * Deletes a {@link Employee} from the DataModel
      *
-     * @param e the {@link Employee} to be removed.
+     * @param e the {@link Employee} to be removed
      */
     @Override
     public void removeEmployeeWH(Employee e) {
@@ -186,9 +186,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Deletes a {@link Employee} from the DataModel.
+     * Deletes a {@link Employee} from the DataModel
      *
-     * @param e the {@link Employee} to be removed.
+     * @param e the {@link Employee} to be removed
      */
     @Override
     public void removeEmployeeHQ(Employee e) {
@@ -197,9 +197,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Gets an Employee ID.
+     * Creates an employee ID using the {@link Counter} and returns it
      *
-     * @return The created Employee ID.
+     * @return The created Employee ID
      */
     @Override
     public String getIDEmployee() {
@@ -208,9 +208,9 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Gets a Stock Item ID.
+     * Creates a stock item ID using the {@link Counter} and returns it
      *
-     * @return The created Stock Item ID.
+     * @return The created Stock Item ID
      */
     @Override
     public String getIDStockItem() {
@@ -219,10 +219,10 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Checks whether a {@link String} only contains Letters.
+     * Checks whether a {@link String} only contains Letters
      *
-     * @param word The {@link String} to be tested.
-     * @return Whether or not the {@link String} contained only Letters.
+     * @param word The {@link String} to be tested
+     * @return Whether or not the {@link String} contained only Letters
      */
     @Override
     public boolean onlyLetters(String word) {
@@ -232,10 +232,10 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Checks whether a {@link String} only contains Numbers.
+     * Checks whether a {@link String} only contains Numbers
      *
-     * @param word the {@link String} to be tested.
-     * @return whether or not the {@link String} contained only Numbers.
+     * @param word the {@link String} to be tested
+     * @return whether or not the {@link String} contained only Numbers
      */
     @Override
     public boolean onlyNumbers(String word) {
@@ -245,7 +245,7 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Loads the EmployeeList stored in the DataBase.
+     * Loads the EmployeeList stored in the DataBase
      */
     @Override
     public void loadEmployeeListFromDB(String departmentID) {
@@ -254,7 +254,7 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Loads the StockItemList stored in the DataBase.
+     * Loads the StockItemList stored in the DataBase
      */
     @Override
     public void loadItemListFromDB(String departmentID) {

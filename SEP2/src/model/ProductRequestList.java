@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 /**
- * ProductRequestList to store {@link ProductRequest} objects.
+ * ProductRequestList to store {@link ProductRequest} objects
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -14,23 +14,23 @@ public class ProductRequestList {
     private ArrayList<ProductRequest> requestList;
 
     /**
-     * Creates a ProductRequestList and instantiates the {@link ArrayList} stored.
+     * Creates a ProductRequestList and instantiates the {@link ArrayList} stored
      */
     public ProductRequestList() {
         requestList = new ArrayList<>();
     }
 
     /**
-     * Add a {@link ProductRequest} to the List.
-     * @param productRequest the {@link ProductRequest} to add.
+     * Add a {@link ProductRequest} to the List
+     * @param productRequest the {@link ProductRequest} to add
      */
     public void addRequestToList(ProductRequest productRequest) {
         requestList.add(productRequest);
     }
 
     /**
-     * Removes a {@link ProductRequest} from the List.
-     * @param productId the {@link ProductRequest} to remove.
+     * Removes a {@link ProductRequest} from the List
+     * @param productId the {@link ProductRequest} to remove
      */
     public void removeRequestFromList(String productId) {
         for (int i = 0; i < requestList.size(); i++) {
@@ -44,8 +44,8 @@ public class ProductRequestList {
     }
 
     /**
-     * Gets the size of the List.
-     * @return The size of the List.
+     * Gets the size of the List
+     * @return The size of the List
      */
     public int Size()
     {
@@ -53,9 +53,9 @@ public class ProductRequestList {
     }
 
     /**
-     * Gets the {@link ProductRequest} at the requested index from the List.
-     * @param i The index to return.
-     * @return The {@link ProductRequest} the the requested index.
+     * Gets the {@link ProductRequest} at the requested index from the List
+     * @param i The index to return
+     * @return The {@link ProductRequest} the the requested index
      */
     public ProductRequest getProductRequest( int i)
     {

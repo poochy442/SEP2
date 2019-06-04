@@ -2,8 +2,8 @@ package model;
 
 /**
  * <h1>Counter Class used for ID creation</h1>
- * The Counter Class stores an int for both employees added and Stock Items added.
- * These are used an incremented when creating a new Employee or Stock Item ID.
+ * The Counter Class stores an int for both employees added and Stock Items added
+ * These are used an incremented when creating a new Employee or Stock Item ID
  *
  * @author Kenneth Jensen
  * @author Floring Bordei

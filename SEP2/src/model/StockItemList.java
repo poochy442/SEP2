@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * <h1>StockItemList to store a List of StockItems</h1>
  * This stores {@link StockItem}s, and contains methods to interact with them like
- * {@link StockItemList#totalPrice()} and {@link StockItemList#totalQuantity()}.
+ * {@link StockItemList#totalPrice()} and {@link StockItemList#totalQuantity()}
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -17,39 +17,39 @@ public class StockItemList {
     private ArrayList<StockItem> stockItemList;
 
     /**
-     * Creates the StockItemList and instantiates the {@link ArrayList} stored.
+     * Creates the StockItemList and instantiates the {@link ArrayList} stored
      */
     public StockItemList() {
         this.stockItemList = new ArrayList<>();
     }
 
     /**
-     * Adds a {@link StockItem} to the List.
-     * @param item The {@link StockItem} to be added.
+     * Adds a {@link StockItem} to the List
+     * @param item The {@link StockItem} to be added
      */
     public void add(StockItem item){
         stockItemList.add(item);
     }
 
     /**
-     * Removes a {@link StockItem} at the specified index from the List.
-     * @param index The index of the {@link StockItem} to be removed.
+     * Removes a {@link StockItem} at the specified index from the List
+     * @param index The index of the {@link StockItem} to be removed
      */
     public void remove(int index){
         stockItemList.remove(index);
     }
 
     /**
-     * Removes a {@link StockItem} from the List.
-     * @param item The {@link StockItem} to be removed.
+     * Removes a {@link StockItem} from the List
+     * @param item The {@link StockItem} to be removed
      */
     public void remove(StockItem item){
         stockItemList.remove(item);
     }
 
     /**
-     * Gets the total price of {@link StockItem}s stored in the List.
-     * @return The total price of {@link StockItem}s stored in the List.
+     * Gets the total price of {@link StockItem}s stored in the List
+     * @return The total price of {@link StockItem}s stored in the List
      */
     public int totalPrice(){
         int count = 0;
@@ -62,8 +62,8 @@ public class StockItemList {
     }
 
     /**
-     * Gets the total quantity of {@link StockItem}s stored in the List.
-     * @return The total quantity of {@link StockItem}s stored in the List.
+     * Gets the total quantity of {@link StockItem}s stored in the List
+     * @return The total quantity of {@link StockItem}s stored in the List
      */
     public int totalQuantity(){
         int count = 0;
@@ -76,17 +76,17 @@ public class StockItemList {
     }
 
     /**
-     * Gets a {@link StockItem} at the specified index from the List.
-     * @param index The index to retrieve.
-     * @return The {@link StockItem} retrieved at the index.
+     * Gets a {@link StockItem} at the specified index from the List
+     * @param index The index to retrieve
+     * @return The {@link StockItem} retrieved at the index
      */
     public StockItem get(int index){
         return stockItemList.get(index);
     }
 
     /**
-     * Gets the size of the List.
-     * @return The size of the List.
+     * Gets the size of the List
+     * @return The size of the List
      */
     public int size(){
         return stockItemList.size();
