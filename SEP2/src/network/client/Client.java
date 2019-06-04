@@ -60,7 +60,7 @@ public class Client implements Runnable {
         }
 
         System.out.println("Client Refresh employee list");
-        ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel);
+        ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel,departmentID);
         Thread t2 = new Thread(clientReceiver);
         t2.start();
     }

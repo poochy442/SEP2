@@ -58,6 +58,7 @@ public class Packet implements Serializable {
     public static final String salesQuery = "SalesQuery";
     public static final String addProductRequest = "AddProductRequest";
     public static final String requestQuery = "RequestQuery";
+    public static final String requestRefresh = "RequestRefresh";
 
     /**
      * Creates a Packet with the specified information.

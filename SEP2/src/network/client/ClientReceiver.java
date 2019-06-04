@@ -23,6 +23,7 @@ public class ClientReceiver implements Runnable {
 
     private Socket socket;
     private IDataModel dataModel;
+    private String departmentID;
 
     /**
      * Creates the ClientReceiver with the specified {@link Socket} and {@link model.DataModel}.
@@ -30,9 +31,10 @@ public class ClientReceiver implements Runnable {
      * @param socket    The {@link Socket} to use.
      * @param dataModel The {@link model.DataModel} to use.
      */
-    public ClientReceiver(Socket socket, IDataModel dataModel) {
+    public ClientReceiver(Socket socket, IDataModel dataModel,String departmentID) {
         this.socket = socket;
         this.dataModel = dataModel;
+        this.departmentID=departmentID;
     }
 
     /**
@@ -72,30 +74,39 @@ public class ClientReceiver implements Runnable {
                         break;
                     case Packet.EmployeeQuery:
                         EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
-                        for (int i = 0; i < employeeList1.size(); i++) {
-                            dataModel.addEmployeeFromServer(employeeList1.get(i));
-                        }
+//                        for (int i = 0; i < employeeList1.size(); i++) {
+//                            dataModel.addEmployeeFromServer(employeeList1.get(i));
+//                        }
+                        dataModel.setEmployeeList(employeeList1);
                         break;
                     case Packet.ItemQuery:
                         StockItemList stockItemList1 = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        for (int i = 0; i < stockItemList1.size(); i++) {
-                            dataModel.addItemFromServer(stockItemList1.get(i));
-                        }
+                        dataModel.setStockItemList(stockItemList1);
+//                        for (int i = 0; i < stockItemList1.size(); i++) {
+//                            dataModel.addItemFromServer(stockItemList1.get(i));
+//                        }
                         break;
                     case Packet.salesQuery:
                         StockItemList stockItemList2 = (StockItemList) gson.fromJson(json, StockItemList.class);
-                        for (int i=0;i<stockItemList2.size();i++)
-                        {
-                            dataModel.addToSales(stockItemList2.get(i),false);
-                        }
+//                        for (int i=0;i<stockItemList2.size();i++)
+//                        {
+//                            dataModel.addToSales(stockItemList2.get(i),false);
+//                        }
+                        dataModel.setSalesList(stockItemList2);
                         break;
                     case Packet.requestQuery:
                         ProductRequestList requestList = (ProductRequestList) gson.fromJson(json,ProductRequestList.class);
-                        for (int i=0;i<requestList.Size();i++)
-                        {
-                            dataModel.addToProductRequest(requestList.getProductRequest(i),false);
-                        }
+//                        for (int i=0;i<requestList.Size();i++)
+//                        {
+//                            dataModel.addToProductRequest(requestList.getProductRequest(i),false);
+//                        }
+                        dataModel.setRequestList(requestList);
                         break;
+                    case Packet.requestRefresh:
+                        dataModel.loadItemListFromDB(departmentID);
+                        dataModel.loadRequestsFromDB(departmentID);
+                        if (departmentID.equals("RT"))
+                        dataModel.loadSalesFromDB();
 
                 }
 

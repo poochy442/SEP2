@@ -41,7 +41,9 @@ public class InventoryMainVM {
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
         requestQty = new SimpleStringProperty();
         sellQty = new SimpleStringProperty();
+
     }
+
 
     /**
      * Adds a stock item to the List using the information stored in the {@link PropertyChangeEvent} passed.

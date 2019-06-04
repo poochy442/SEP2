@@ -2,7 +2,6 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.Date;
 
 /**
  * <h1>The Model class from the MVVM patterns.</h1>
@@ -126,28 +125,14 @@ public class DataModel implements IDataModel {
         return stockItemList;
     }
 
-    /**
-     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
-     *
-     * @param stockItemList The {@link StockItemList} to be stored.
-     */
-    public void setStockItemList(StockItemList stockItemList) {
-        this.stockItemList = stockItemList;
-        System.out.println("DataModel: ItemList Received from server and stored");
-
-        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList);
-    }
 
     /**
      * Adds a {@link ProductRequest} to the {@link ProductRequestList} stored in the DataModel.
      */
     //TODO: Pass an Item to request?
     @Override
-    public void sendProductRequest() {
-        StockItem stockItem = new StockItem("PlayStation3", "2", 2, 5, false, new Date(3, 3, 3), 1, 5, "WH");
-        ProductRequest productRequest = new ProductRequest(stockItem, 22);
-        productRequestList.addRequestToList(productRequest);
-        propertyChangeSupport.firePropertyChange("SendProductRequest", null, productRequestList);
+    public void sendProductRequest(String department) {
+        propertyChangeSupport.firePropertyChange("SendProductRequest", null, department);
     }
 
     /**
@@ -272,10 +257,16 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void addToProductRequest(ProductRequest productRequest,boolean notifyServer) {
+    public void addToProductRequest(ProductRequest productRequest, boolean notifyServer) {
         productRequestList.addRequestToList(productRequest);
-        propertyChangeSupport.firePropertyChange("AddProductRequest",null,productRequest);
+
+        if (notifyServer == true) {
+            propertyChangeSupport.firePropertyChange("AddProductRequest", null, productRequest);
+        }
+        propertyChangeSupport.firePropertyChange("AddProductRequestView", null, productRequest);
         System.out.println("DataModel: product : " + productRequest.getProductId() + " added to model.productRequest");
+
+
     }
 
     @Override
@@ -284,12 +275,11 @@ public class DataModel implements IDataModel {
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
-            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+            propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
             System.out.println(selectedItem.getName());
-        }
-        else {
+        } else {
             System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
-            propertyChangeSupport.firePropertyChange("AddSaleView",null,selectedItem);
+            propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
         }
     }
 
@@ -315,7 +305,31 @@ public class DataModel implements IDataModel {
 
     @Override
     public void loadRequestsFromDB(String departmentID) {
-        propertyChangeSupport.firePropertyChange("RequestQuery",0,departmentID);
+        propertyChangeSupport.firePropertyChange("RequestQuery", 0, departmentID);
     }
+
+    @Override
+    public void setRequestList(ProductRequestList productRequestList) {
+        this.productRequestList =productRequestList;
+
+    }
+
+    @Override
+    public void setSalesList(StockItemList salesList) {
+        this.sales=salesList;
+
+    }
+    /**
+     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
+     *
+     * @param stockItemList The {@link StockItemList} to be stored.
+     */
+    public void setStockItemList(StockItemList stockItemList) {
+        this.stockItemList = stockItemList;
+        System.out.println("DataModel: ItemList Received from server and stored");
+        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList);
+        //todo dave
+    }
+
 
 }
