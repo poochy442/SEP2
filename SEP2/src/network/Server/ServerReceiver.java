@@ -136,6 +136,8 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.requestQuery:
                         dataBaseModel.requestQuery(clientNo, json);
+                    case Packet.deliveriesQuery:
+                        dataBaseModel.
                 }
             } catch (Exception e) {
                 e.printStackTrace();

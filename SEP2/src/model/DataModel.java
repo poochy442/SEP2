@@ -341,10 +341,10 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void loadSalesFromDB(String departmentID) {
-
-
+    public void loadDeliveriesListFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("DeliveriesQuery",0,departmentID);
     }
+
 
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.

@@ -56,5 +56,5 @@ public interface IDataModel {
     void setRequestList (ProductRequestList productRequestList);
 
     void setSalesList (StockItemList salesList);
-    void loadSalesFromDB(String departmentID);
+    void loadDeliveriesListFromDB (String departmentID);
 }
