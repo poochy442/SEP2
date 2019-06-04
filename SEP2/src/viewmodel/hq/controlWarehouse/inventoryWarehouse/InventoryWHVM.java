@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.StockItem;
+import model.StockItemList;
 import view.hq.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -33,6 +34,19 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewItemFromServer", this::addStockItemToClient); //TODO: Delete one of these to just initialize the table view
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
+        dataModel.addListener("NewStockItemList", this::loadList);
+    }
+
+    private void loadList(PropertyChangeEvent evt) {
+        StockItemList stockItemList = (StockItemList) evt.getNewValue();
+        for(int j = 0; j < stockItems.size(); j++)
+        {
+            stockItems.remove(j);
+        }
+        for(int i = 0; i < stockItemList.size(); i++)
+        {
+            stockItems.add(stockItemList.get(i));
+        }
     }
 
     private void addStockItemToClient(PropertyChangeEvent evt) {

@@ -3,6 +3,8 @@ package viewmodel.warehouse;
 import javafx.stage.Stage;
 import model.IDataModel;
 import view.warehouse.ViewHandler;
+import viewmodel.warehouse.delivery.DeliveryItemsVM;
+import viewmodel.warehouse.delivery.DeliveryMainVM;
 import viewmodel.warehouse.employee.EmployeeAddVM;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 import viewmodel.warehouse.inventory.InventoryAddVM;
@@ -28,6 +30,8 @@ public class ViewModelProvider {
     private EmployeeMainVM employeeMainVM;
     private EmployeeAddVM employeeAddVM;
     private ProductRequestVM productRequestVM;
+    private DeliveryMainVM deliveryMainVM;
+    private DeliveryItemsVM deliveryItemsVM;
 
     /**
      * Creates a ViewModelProvider with the specified information and instantiates all the required fields.
@@ -42,6 +46,8 @@ public class ViewModelProvider {
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
         productRequestVM = new ProductRequestVM(dataModel, viewHandler);
+        deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
+        deliveryItemsVM = new DeliveryItemsVM(dataModel, viewHandler);
     }
 
     /**
@@ -101,6 +107,16 @@ public class ViewModelProvider {
         inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
         inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
         productRequestVM = new ProductRequestVM(dataModel, viewHandler);
+        deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
+        deliveryItemsVM = new DeliveryItemsVM(dataModel, viewHandler);
+    }
+
+    public DeliveryMainVM getDeliveryMainVM() {return deliveryMainVM;
+    }
+
+    public DeliveryItemsVM getDeliveryItemsVM()
+    {
+        return deliveryItemsVM;
     }
 
 

@@ -105,20 +105,6 @@ public class DataModel implements IDataModel {
     }
 
     /**
-     * Sets the stored {@link EmployeeList} equal to the passed {@link EmployeeList}.
-     *
-     * @param employeeList the {@link EmployeeList} to be stored.
-     */
-    public void setEmployeeList(EmployeeList employeeList) {
-        this.employeeList = employeeList;
-        for (int i = 0; i < employeeList.size(); i++) {
-            System.out.println("DataModel " + employeeList.get(i).getFirstName());
-        }
-
-        propertyChangeSupport.firePropertyChange("NewEmployeeList", null, employeeList);
-    }
-
-    /**
      * Gets the {@link StockItemList} stored in the DataModel.
      *
      * @return The {@link StockItemList} stored in the DataModel.
@@ -318,9 +304,36 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void setRequestList(ProductRequestList productRequestList) {
-        this.productRequestList =productRequestList;
+    public void loadDeliveriesListFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("DeliveriesQuery",0,departmentID);
+    }
 
+    @Override
+    public void openDelivery(Delivery delivery)
+    {
+        propertyChangeSupport.firePropertyChange("OpenDelivery", null, delivery);
+    }
+    /**
+     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
+     *
+     * @param stockItemList The {@link StockItemList} to be stored.
+     */
+    public void setStockItemList(StockItemList stockItemList) {
+        this.stockItemList = stockItemList;
+        System.out.println("DataModel: ItemList Received from server and stored");
+        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList); //TODO: Is the oldValue null?
+    }
+
+    @Override
+    public void setDeliveryList(DeliveryList deliveryList) {
+        this.deliveryList = deliveryList;
+        propertyChangeSupport.firePropertyChange("NewDeliveryList", null, deliveryList); //TODO: Is the oldValue null?
+    }
+
+    @Override
+    public void setRequestList(ProductRequestList productRequestList) {
+        this.productRequestList = productRequestList;
+        propertyChangeSupport.firePropertyChange("NewRequestList", null, productRequestList); //TODO: Is the oldValue null?
     }
 
     @Override
@@ -340,34 +353,20 @@ public class DataModel implements IDataModel {
             profit += (costOfGoods - operationalCost);
         }
         propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
+        propertyChangeSupport.firePropertyChange("NewSalesList", null, salesList); //TODO: Is the oldValue null?
     }
 
-    @Override
-    public void loadDeliveriesListFromDB(String departmentID) {
-        propertyChangeSupport.firePropertyChange("DeliveriesQuery",0,departmentID);
-    }
-
-    @Override
-    public void setDeliveryList(DeliveryList deliveryList) {
-        this.deliveryList=deliveryList;
-    }
-
-    @Override
-    public void openDelivery(Delivery delivery)
-    {
-        propertyChangeSupport.firePropertyChange("OpenDelivery", null, delivery);
-    }
     /**
-     * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
+     * Sets the stored {@link EmployeeList} equal to the passed {@link EmployeeList}.
      *
-     * @param stockItemList The {@link StockItemList} to be stored.
+     * @param employeeList the {@link EmployeeList} to be stored.
      */
-    public void setStockItemList(StockItemList stockItemList) {
-        this.stockItemList = stockItemList;
-        System.out.println("DataModel: ItemList Received from server and stored");
-        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList);
-        //todo dave
+    public void setEmployeeList(EmployeeList employeeList) {
+        this.employeeList = employeeList;
+        for (int i = 0; i < employeeList.size(); i++) {
+            System.out.println("DataModel " + employeeList.get(i).getFirstName());
+        }
+
+        propertyChangeSupport.firePropertyChange("NewEmployeeList", null, employeeList);
     }
-
-
 }

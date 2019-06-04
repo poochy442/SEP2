@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.warehouse.delivery.DeliveryItemsView;
+import view.warehouse.delivery.DeliveryMainView;
 import view.warehouse.employee.EmployeeAddView;
 import view.warehouse.employee.EmployeeMainView;
 import view.warehouse.inventory.InventoryAddView;
@@ -195,6 +197,48 @@ public class ViewHandler {
         ProductRequestView view = loader.getController();
         view.init(viewModelProvider.getProductRequestVM());
         primaryStage.setTitle("Product request");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryMainView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("delivery/DeliveryMain.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryMainView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryMainVM());
+        primaryStage.setTitle("Deliveries");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryItemsView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("delivery/DeliveryItems.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryItemsView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryItemsVM());
+        primaryStage.setTitle("Delivery item");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

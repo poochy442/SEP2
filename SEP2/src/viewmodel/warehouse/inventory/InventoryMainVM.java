@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
 import model.StockItem;
+import model.StockItemList;
 import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -38,7 +39,20 @@ public class InventoryMainVM {
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
+        dataModel.addListener("NewStockItemList", this::loadList);
         requestQty = new SimpleStringProperty();
+    }
+
+    private void loadList(PropertyChangeEvent evt) {
+        StockItemList stockItemList = (StockItemList) evt.getNewValue();
+        for(int j = 0; j < stockItems.size(); j++)
+        {
+            stockItems.remove(j);
+        }
+        for(int i = 0; i < stockItemList.size(); i++)
+        {
+            stockItems.add(stockItemList.get(i));
+        }
     }
 
     /**

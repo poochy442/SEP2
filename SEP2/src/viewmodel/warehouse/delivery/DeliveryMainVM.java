@@ -1,11 +1,11 @@
-package viewmodel.retailer.delivery;
+package viewmodel.warehouse.delivery;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Delivery;
 import model.DeliveryList;
 import model.IDataModel;
-import view.retailer.ViewHandler;
+import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
 
@@ -34,18 +34,15 @@ public class DeliveryMainVM {
         this.viewHandler = viewHandler;
         deliveries = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("", this::addDeliveryToClient);
-        dataModel.addListener("NewDeliveryList",this::loadList);
-
+        dataModel.addListener("NewDeliveryList", this::loadList);
     }
 
     private void loadList(PropertyChangeEvent evt) {
         DeliveryList deliveryList = (DeliveryList) evt.getNewValue();
-        for(int j = 0; j < deliveries.size(); j++)
-        {
+        for (int j = 0; j < deliveries.size(); j++) {
             deliveries.remove(j);
         }
-        for(int i = 0; i < deliveryList.size(); i++)
-        {
+        for (int i = 0; i < deliveryList.size(); i++) {
             deliveries.add(deliveryList.get(i));
         }
     }
@@ -58,9 +55,9 @@ public class DeliveryMainVM {
      * This method adds the Employee stored in the {@link PropertyChangeEvent} data.
      *
      * @param {@link PropertyChangeEvent} that caused the Listener to call this method.
-     *            <p>
-     *            /**
-     *            Gets the {@link Delivery}s stored.
+     *               <p>
+     *               /**
+     *               Gets the {@link Delivery}s stored.
      * @return The {@link Delivery}s stored.
      */
     public ObservableList<Delivery> getDeliveries() {
@@ -93,10 +90,6 @@ public class DeliveryMainVM {
 
     public void openDeliveryClicked() {
         viewHandler.openDeliveryMainView();
-    }
-
-    public void openSalesView() {
-        viewHandler.openSalesView();
     }
 
     public void openEmployeeMainView() {

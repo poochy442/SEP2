@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
+import model.ProductRequestList;
 import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -36,8 +37,20 @@ public class ProductRequestVM {
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("AddProductRequestView", this::addProductRequest);
+        dataModel.addListener("NewRequestList", this::loadList);
         quantity = new SimpleStringProperty();
+    }
 
+    private void loadList(PropertyChangeEvent evt) {
+        ProductRequestList productRequestList = (ProductRequestList) evt.getNewValue();
+        for(int j = 0; j < productRequests.size(); j++)
+        {
+            productRequests.remove(j);
+        }
+        for(int i = 0; i < productRequestList.size(); i++)
+        {
+            productRequests.add(productRequestList.getProductRequest(i));
+        }
     }
 
     private void addProductRequest(PropertyChangeEvent evt) {

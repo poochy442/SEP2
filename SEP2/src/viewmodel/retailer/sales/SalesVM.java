@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.ProductRequest;
 import model.StockItem;
+import model.StockItemList;
 import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -34,6 +35,19 @@ public class SalesVM {
         this.viewHandler = viewHandler;
         sales = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("AddSaleView",this::addSalesToClient);
+        dataModel.addListener("NewSalesList", this::loadList);
+    }
+
+    private void loadList(PropertyChangeEvent evt) {
+        StockItemList stockItemList = (StockItemList) evt.getNewValue();
+        for(int j = 0; j < sales.size(); j++)
+        {
+            sales.remove(j);
+        }
+        for(int i = 0; i < stockItemList.size(); i++)
+        {
+            sales.add(stockItemList.get(i));
+        }
     }
 
     private void addSalesToClient(PropertyChangeEvent propertyChangeEvent) {
