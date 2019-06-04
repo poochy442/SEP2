@@ -113,6 +113,7 @@ public class InventoryMainVM {
     public void addToSales(StockItem selectedItem) {
         StockItem x = selectedItem.copy();
         x.setQuantity(Integer.parseInt(sellQty.getValue()));
+        x.setPrice(selectedItem.getPrice() * 2);
         dataModel.addToSales(x,true);
         sellQty.setValue("");
     }
