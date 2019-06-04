@@ -824,4 +824,52 @@ public class DataBaseModel {
         }
 
     }
+
+    public void deliveriesQuery(String departmentID) {
+        ArrayList<Object[]> results = new ArrayList<>();
+        StockItemList salesList = new StockItemList();
+        try {
+            String sql =
+                    "select itemid,quantity from \"Sep2\".request join \"Sep2\".itemrequest " +
+                            "on request.requestid = itemrequest.requestid " +
+                            "and requestedfrom ='" + requestedfrom + "' and request.requestid='" + requestID + "';";
+            PreparedStatement transaction = connection.prepareStatement(sql);
+            ResultSet resultSet = transaction.executeQuery();
+            String sendFrom = "";
+            if (requestedfrom.equals("WH")) {
+                sendFrom = "HQ";
+            } else sendFrom = "WH";
+
+
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+
+            }
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String itemID = row[0].toString();
+                int quantityRequested = (int) row[1];
+
+                sql = "update \"Sep2\".stockitem set quantity = quantity-" + quantityRequested + " where id ='" + itemID + "' and location ='" + sendFrom + "';";
+                transaction = connection.prepareStatement(sql);
+                transaction.executeUpdate();
+                sql = "update \"Sep2\".stockitem set quantity = quantity+" + quantityRequested + " where id ='" + itemID + "' and location ='" + requestedfrom + "';";
+                transaction = connection.prepareStatement(sql);
+                transaction.executeUpdate();
+
+            }
+            //todo update all clients new data
+            changeSupport.firePropertyChange("RequestRefresh", 0, clientNo);
+            resultSet.close();
+            transaction.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
