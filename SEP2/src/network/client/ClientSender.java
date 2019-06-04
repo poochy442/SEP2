@@ -30,7 +30,7 @@ public class ClientSender implements Runnable {
     private IDataModel dataModel;
 
     /**
-     * Creates a ClientSender with the specified information and adds the required {@link }s.
+     * Creates a ClientSender with the specified information and adds the required {@link javafx.beans.property.StringPropertyBase.Listener}s.
      *
      * @param socket    The {@link Socket} for the ClientSender to use.
      * @param dataModel The {@link DataModel} for the ClientSender to use.

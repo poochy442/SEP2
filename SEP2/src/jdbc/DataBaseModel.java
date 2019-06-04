@@ -7,6 +7,9 @@ import java.beans.PropertyChangeSupport;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * The Model class for the {@link network.Server.Server}, letting the server store data in the database
+ */
 public class DataBaseModel {
     Connection connection;
     PreparedStatement departmentInsertStatement;
@@ -21,6 +24,9 @@ public class DataBaseModel {
     PreparedStatement addSale;
     private PropertyChangeSupport changeSupport;
 
+    /**
+     * Creates a DataBaseModel and instantiates all the variables
+     */
     public DataBaseModel() {
         setConnection();
         departmentInsertStatement = prepareDepartmentStatement();
@@ -43,7 +49,9 @@ public class DataBaseModel {
         changeSupport.addPropertyChangeListener(evt, listener);
     }
 
-    //Conection to postgres
+    /**
+     * This method sets the connection to the database using JDBC
+     */
     public void setConnection() {
         //Settings for Database
         String driver = "org.postgresql.Driver";
@@ -66,6 +74,10 @@ public class DataBaseModel {
     }
 
     //Creates a empty employee table
+
+    /**
+     * This method creates an empty Employee table in the database
+     */
     public void createEmployeeTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Employee (" +
                 "   EmployeeID varchar(30) NOT NULL PRIMARY KEY," +
@@ -84,6 +96,10 @@ public class DataBaseModel {
     }
 
     //Creates a empty department table;
+
+    /**
+     * This method creates an empty department table in the database
+     */
     public void createDepartmentTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Department (" +
                 "departmentID varchar(30) NOT NULL PRIMARY KEY ," +
@@ -99,6 +115,9 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method sets the schema of the database, if it doesn't already exist
+     */
     public void createSep2Schema() {
         String sql = "CREATE SCHEMA IF NOT EXISTS \"Sep2\";";
         try {
@@ -110,6 +129,9 @@ public class DataBaseModel {
     }
 
     //Creates empty StockItem table
+    /**
+     * This method creates an empty StockItem table in the database
+     */
     public void createStockItemTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".StockItem (" +
                 "   id varchar(30) NOT NULL PRIMARY KEY," +
@@ -131,6 +153,10 @@ public class DataBaseModel {
     }
 
     //Creates empty item request table
+
+    /**
+     * This method creates an empty Item request table in the database
+     */
     public void createItemRequestTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".itemRequest (" +
                 " RequestID varchar(6) NOT NULL ," +
@@ -151,6 +177,10 @@ public class DataBaseModel {
     }
 
     //Creates empty  request table
+
+    /**
+     * This method creates an empty request table
+     */
     public void createRequestTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Request (" +
                 " RequestID varchar(6) NOT NULL PRIMARY KEY ," +
@@ -169,6 +199,11 @@ public class DataBaseModel {
     }
 
     //Prepares a employee statement to improve DB performance for simple queries that are used multiple times
+
+    /**
+     * This method creates a {@link PreparedStatement} for inserting Employees into the database
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareEmployeeStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".employee (employeeID,departmentID,firstName,lastName) " +
                 "SELECT * FROM (SELECT ?,?,?,?) AS tmp " +
@@ -185,6 +220,11 @@ public class DataBaseModel {
     }
 
     //Prepares a employee statement to improve DB performance for simple queries that are used multiple times
+
+    /**
+     * This method creates a {@link PreparedStatement} for inserting departments into the  database
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareDepartmentStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".department (departmentID,departmentName) " +
                 "SELECT * FROM (SELECT ?,?) AS tmp " +
@@ -201,6 +241,7 @@ public class DataBaseModel {
     }
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
+    // TODO: Javadoc
     public void addDepartmentToDataBase(String departmentID, String departmentName) {
         try {
             departmentInsertStatement.setString(1, departmentID);
@@ -214,6 +255,7 @@ public class DataBaseModel {
     }
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
+    // TODO: javadoc
     public boolean addEmployeeToDataBase(Employee employee, int clientNo) {
         try {
             employeeInsertStatement.setString(1, employee.getId());
@@ -236,6 +278,11 @@ public class DataBaseModel {
     }
 
     //Departament query prints out all rows in the department table
+    // TODO: update javadoc
+    /**
+     * This method prints all rows of the department table to the console
+     * @param clientNo The clientNo to print tables from
+     */
     public void departmentQuery(int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         try {
@@ -270,6 +317,11 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method gets all {@link Employee}s in a specific department
+     * @param departmentID The department to look in
+     * @param clientNo The clientNo of the client calling the method
+     */
     public void employeeQuery(String departmentID, int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         EmployeeList employeeList = new EmployeeList();
@@ -309,6 +361,11 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method gets all {@link StockItem}s from a specific department
+     * @param departmentID The department to look in
+     * @param clientNo The client number of the client calling this method
+     */
     public void itemQuery(String departmentID, int clientNo) {
 
         ArrayList<Object[]> results = new ArrayList<>();
@@ -352,6 +409,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} for getting {@link Employee}s
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareEmployeeQuery() {
         String preparedStatement = "SELECT * FROM \"Sep2\".employee where departmentID = ? ;";
 
@@ -371,6 +432,7 @@ public class DataBaseModel {
 
 
     //Uses a prepared statement and 2 String to add 1 row to the department table
+    // TODO: javadoc
     public boolean addItemToDataBase(StockItem stockItem, String department, int clientNo) {
         try {
             java.sql.Date sqlDate = null;
@@ -402,6 +464,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} for inserting {@link StockItem}s into the databse
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareStockItemStatement() {
         String preparedSql = "INSERT INTO \"Sep2\".stockitem (id,name,quantity,price,expiryDate,location) " +
                 "SELECT * FROM (SELECT ?,?,?,?,? :: DATE,?) AS tmp " +
@@ -417,7 +483,10 @@ public class DataBaseModel {
         return stockItemStatement;
     }
 
-
+    /**
+     * This method creates a {@link PreparedStatement} for getting {@link StockItem}s in the Warehouse
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareWHItemQuery() {
         String preparedStatement = "SELECT * FROM \"Sep2\".stockitem where location = ? ;";
 
@@ -430,7 +499,10 @@ public class DataBaseModel {
         return stockItemQuery;
     }
 
-
+    /**
+     * This method creates a {@link PreparedStatement} for inserting requests into the database
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareInsertRequest() {
         String preparedSql = "INSERT INTO \"Sep2\".request (requestID,requestedFrom,status) " +
                 "SELECT * FROM (SELECT ?,?,?) AS tmp " +
@@ -447,6 +519,12 @@ public class DataBaseModel {
         return requestInsertStatement;
     }
 
+    /**
+     * This method adds a request to the database
+     * @param requestedFrom The user the request came from
+     * @param clientNo The client number of the client calling this method
+     * @return The current amount of requests in the database
+     */
     public int addRequestToDataBase(String requestedFrom, int clientNo) {
         try {
             int count = requestCountQuery() + 1;
@@ -466,6 +544,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * Gets the current amount of requests in the database
+     * @return The current amount of requests in the database
+     */
     public int requestCountQuery() {
 
         int count = 0;
@@ -487,6 +569,11 @@ public class DataBaseModel {
         return count;
     }
 
+    /**
+     * This method gets the amount max ID of requests in a specified department
+     * @param department The department to look in
+     * @return The max ID of requests in the specified department
+     */
     public int requestProductMaxID(String department) {
 
         String maxID = "0";
@@ -506,6 +593,13 @@ public class DataBaseModel {
         return Integer.parseInt(maxID);
     }
 
+    /**
+     * This method sets the request status of a request in the database
+     * @param requestID The ID of the request to change
+     * @param clientNo The client number of the client calling this method
+     * @param status The status to change the request to
+     * @return Whether or not he method completed successfully
+     */
     public boolean setRequestStatus(int requestID, int clientNo, String status) {
         try {
             String sql = "UPDATE \"Sep2\".request " +
@@ -525,6 +619,13 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method adds a {@link ProductRequest} to the database
+     * @param productRequest The {@link ProductRequest} to add
+     * @param requestID The request ID of the {@link ProductRequest}
+     * @param clientNo The client number of the client calling this method
+     * @return Whether or not the method completed successfully
+     */
     public boolean addRequestItemToDatabase(ProductRequest productRequest, int requestID, int clientNo) {
         try {
             itemListInsertStatement.setString(1, "" + requestID);
@@ -546,6 +647,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} for inserting item requests to the database
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareInsertItemListRequest() {
         String preparedSql = "INSERT INTO \"Sep2\".itemRequest (requestID,itemID,quantity) " +
                 "SELECT * FROM (SELECT ?,?,?) AS tmp ;";
@@ -560,6 +665,13 @@ public class DataBaseModel {
         return itemListInsertStatement;
     }
 
+    /**
+     * This method deletes an item with a specified ID in a given department
+     * @param id The id to remove
+     * @param department The department in which the item is
+     * @param clientNo The client number of the client calling this method
+     * @return Whether or not the method completed successfully
+     */
     public boolean deleteItemByIdAndDepartment(String id, String department, int clientNo) {
         try {
             deleteItemByIDandDep.setString(1, id);
@@ -576,6 +688,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} to delete an Item from the warehouse
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareDeleteItemFromWH() {
         String preparedSql = "DELETE FROM \"Sep2\".stockitem " +
                 "where id = ? and location = ? ;";
@@ -590,6 +706,10 @@ public class DataBaseModel {
         return deleteItemByIDandDep;
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} for deleing an employee
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareDeleteEmployee() {
         String preparedSql = "DELETE FROM \"Sep2\".employee " +
                 "where employeeID = ? ;";
@@ -604,6 +724,11 @@ public class DataBaseModel {
         return deleteEmployee;
     }
 
+    /**
+     * This method deletes an {@link Employee} from the database
+     * @param employee The {@link Employee} to delete
+     * @return Whether or not the method completed successfully
+     */
     public boolean deleteEmployee(Employee employee) {
         try {
 
@@ -621,6 +746,9 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates an empty sales table in the database
+     */
     public void createSalesTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".sales (" +
                 "   saleID varchar(10) NOT NULL ," +
@@ -641,6 +769,9 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a sales list table in the database
+     */
     public void createSalesListTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".salesList (" +
                 "   saleID varchar(10) NOT NULL PRIMARY KEY ," +
@@ -657,6 +788,10 @@ public class DataBaseModel {
 
     }
 
+    /**
+     * This method creates a {@link PreparedStatement} for inserting a sale into the database
+     * @return The {@link PreparedStatement} created
+     */
     public PreparedStatement prepareAddSale() {
         String preparedSql = "INSERT INTO \"Sep2\".sales (productID, quantitySold) " +
                 "SELECT * FROM (SELECT ?,?) AS tmp " +
@@ -672,6 +807,12 @@ public class DataBaseModel {
         return addSale;
     }
 
+    /**
+     * This method adds a sale to the database
+     * @param stockItem The {@link StockItem} to be sold, containing the quantity
+     * @param clientNo The client number of the client calling this method
+     * @return Whether or not this method completed successfully
+     */
     public boolean addSaleToDataBase(StockItem stockItem, int clientNo) {
         try {
             addSale.setString(1, stockItem.getId());
@@ -687,7 +828,7 @@ public class DataBaseModel {
 
     }
 
-
+    // TODO: Javadoc
     public void salesQuery(int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
         StockItemList salesList = new StockItemList();
@@ -729,6 +870,7 @@ public class DataBaseModel {
 
     }
 
+    // TODO: javadoc
     public void requestQuery(int clientNo, String departmentID) {
         ArrayList<Object[]> results = new ArrayList<>();
         ProductRequestList requestList = new ProductRequestList();

@@ -1,9 +1,22 @@
 package readersWritters;
 
+/**
+ * This Class is a reader for the database, implementing the reader/writer design pattern
+ *
+ * @author Kenneth Jensen
+ * @author Floring Bordei
+ * @author Jaime Lopez
+ * @author Dave Joe Lê
+ */
 public class Reader implements Runnable {
     private ReadWriteSafe sharedResourceController;
     private String name;
 
+    /**
+     * Creates a Reader with the given parameters
+     * @param sharedResourceController The {@link ReadWriteSafe} to use
+     * @param name
+     */
     public Reader(ReadWriteSafe sharedResourceController, String name) {
         this.sharedResourceController = sharedResourceController;
         this.name = name;

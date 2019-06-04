@@ -52,11 +52,25 @@ public class Packet implements Serializable {
      * The remove Stock Item from Headquarters operation {@link String}.
      */
     public static final String DeleteItemFromHQ = "DeleteItemFromHQ";
-
+    /**
+     * The delete Employee operation {@link String}.
+     */
     public static final String DeleteEmployee = "DeleteEmployee";
+    /**
+     * The add sale operation {@link String}.
+     */
     public static final String AddSale = "AddSale";
+    /**
+     * The sales query operation {@link String}.
+     */
     public static final String salesQuery = "SalesQuery";
+    /**
+     * The product request operation {@link String}.
+     */
     public static final String addProductRequest = "AddProductRequest";
+    /**
+     * The request query operation {@link String}.
+     */
     public static final String requestQuery = "RequestQuery";
 
     /**

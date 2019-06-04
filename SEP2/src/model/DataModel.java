@@ -271,6 +271,11 @@ public class DataModel implements IDataModel {
         return true;
     }
 
+    /**
+     * This method adds a {@link ProductRequest} to the request list
+     * @param productRequest The {@link ProductRequest} to add
+     * @param notifyServer Whether or not to notify the server //TODO: check
+     */
     @Override
     public void addToProductRequest(ProductRequest productRequest,boolean notifyServer) {
         productRequestList.addRequestToList(productRequest);
@@ -278,6 +283,11 @@ public class DataModel implements IDataModel {
         System.out.println("DataModel: product : " + productRequest.getProductId() + " added to model.productRequest");
     }
 
+    /**
+     * This method adds a {@link StockItem} to the sales list
+     * @param selectedItem The {@link StockItem} to add
+     * @param notifyServer Whether or not to notify the server //TODO: Check
+     */
     @Override
     public void addToSales(StockItem selectedItem, boolean notifyServer) {
         sales.add(selectedItem.copy());
@@ -293,6 +303,9 @@ public class DataModel implements IDataModel {
         }
     }
 
+    /**
+     * This method loads sales from the database
+     */
     @Override
     public void loadSalesFromDB() {
         propertyChangeSupport.firePropertyChange("SalesQuery", 1, 2);
@@ -300,12 +313,21 @@ public class DataModel implements IDataModel {
 
     }
 
+    /**
+     * This method removes a {@link ProductRequest} from the request list
+     * @param selectedItem the {@link ProductRequest} to remove
+     */
     @Override
     public void removeProductRequest(ProductRequest selectedItem) {
         productRequestList.removeRequestFromList(selectedItem.getProductId()); //TODO: How do I get productID saved to product request?
         propertyChangeSupport.firePropertyChange("DeleteProductRequest", null, selectedItem); //TODO: Remove in DB
     }
 
+    /**
+     * This method edits a {@link ProductRequest} in the request list
+     * @param selectedItem The {@link ProductRequest} to edit
+     * @param quantity The new quantity of the {@link ProductRequest}
+     */
     @Override
     public void editProductRequest(ProductRequest selectedItem, int quantity) {
         int oldQuantity = selectedItem.getQuantity();
@@ -313,6 +335,10 @@ public class DataModel implements IDataModel {
         propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
     }
 
+    /**
+     * This method loads {@link ProductRequest}s from the database
+     * @param departmentID The department from which to get the {@link ProductRequest}s
+     */
     @Override
     public void loadRequestsFromDB(String departmentID) {
         propertyChangeSupport.firePropertyChange("RequestQuery",0,departmentID);

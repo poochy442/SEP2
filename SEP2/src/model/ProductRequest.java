@@ -53,16 +53,28 @@ public class ProductRequest {
         return stockItem;
     }
 
+    /**
+     * Gets the name requested.
+     * @return The name requested.
+     */
     public String getName()
     {
         return stockItem.getName();
     }
 
+    /**
+     * Gets the ID requested
+     * @return The ID requested
+     */
     public String getID()
     {
         return stockItem.getId();
     }
 
+    /**
+     * Sets the quantity
+     * @param quantity The new quantity
+     */
     public void setQuantity(int quantity)
     {
         this.quantity = quantity;
