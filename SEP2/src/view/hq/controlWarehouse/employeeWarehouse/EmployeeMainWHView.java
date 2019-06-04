@@ -3,8 +3,6 @@ package view.hq.controlWarehouse.employeeWarehouse;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,7 +38,6 @@ public class EmployeeMainWHView {
     private AnchorPane anchorPane;
 
     private EmployeeWHVM employeeWHVM;
-    private Employee selectedEmployee;
 
     /**
      * Creates an EmployeeMainWHView
@@ -62,22 +59,12 @@ public class EmployeeMainWHView {
     }
 
     @FXML
-    void onAddEmployeeClicked(ActionEvent event) {
-
-    }
-
-    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onEditEmployeeClicked(ActionEvent event) {
 
     }
 
@@ -108,31 +95,12 @@ public class EmployeeMainWHView {
     }
 
     @FXML
-    void onRemoveEmployeeClicked(ActionEvent event) {
-        selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
-        if(selectedEmployee == null)
-        {
-            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
-            warningAlert.setTitle("Warning");
-            warningAlert.setHeaderText("No employee has been selected");
-            warningAlert.setContentText("Press ok to continue");
-            warningAlert.showAndWait();
-        }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
-        alert.setContentText("Press ok to continue");
-        alert.showAndWait();
-
-        if(alert.getResult() == ButtonType.YES) {
-            Employee selectedEmployee = employeeTable.getSelectionModel().getSelectedItem();
-            employeeTable.getItems().remove(selectedEmployee);
-            employeeWHVM.removeEmployee(selectedEmployee);
-        }
+    void onRetailerClicked(MouseEvent event) {
+        employeeWHVM.openMainRTView();
     }
 
-    @FXML
-    void onRetailerClicked(MouseEvent event) {
-
+    @FXML void onWarehouseClicked(MouseEvent event)
+    {
+        employeeWHVM.openMainWHView();
     }
 }

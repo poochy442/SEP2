@@ -2,8 +2,12 @@ package viewmodel.hq;
 
 import model.IDataModel;
 import view.hq.ViewHandler;
+import viewmodel.hq.controlRetailer.employeeRetailer.EmployeeRTVM;
+import viewmodel.hq.controlRetailer.inventoryRetailer.InventoryRTVM;
+import viewmodel.hq.controlRetailer.mainRetailer.MainRTVM;
 import viewmodel.hq.controlWarehouse.employeeWarehouse.EmployeeWHVM;
 import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
+import viewmodel.hq.controlWarehouse.mainWarehouse.MainWHVM;
 import viewmodel.hq.hq.employee.EmployeeAddHQVM;
 import viewmodel.hq.hq.employee.EmployeeMainHQVM;
 import viewmodel.hq.hq.inventory.InventoryAddHQVM;
@@ -30,18 +34,23 @@ public class ViewModelProvider {
     private EmployeeWHVM employeeWHVM;
     private InventoryMainHQVM inventoryMainHQVM;
     private InventoryAddHQVM inventoryAddHQVM;
+    private EmployeeRTVM employeeRTVM;
+    private InventoryRTVM inventoryRTVM;
+    private MainWHVM mainWHVM;
+    private MainRTVM mainRTVM;
 
     /**
      * Creates a ViewModelProvider with the specified information
+     *
      * @param dataModel The {@link model.DataModel} to be used.
      */
-    public ViewModelProvider(IDataModel dataModel)
-    {
+    public ViewModelProvider(IDataModel dataModel) {
         this.dataModel = dataModel;
     }
 
     /**
      * This method gets the main viewmodel.
+     *
      * @return The main viewmodel.
      */
     public MainVM getMainVM() {
@@ -50,6 +59,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Headquarters main Employee viewmodel.
+     *
      * @return The Headquarters main Employee viewmodel.
      */
     public EmployeeMainHQVM getEmployeeMainHQVM() {
@@ -58,6 +68,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Headquarters add Inventory viewmodel.
+     *
      * @return The Headquarters add Inventory viewmodel.
      */
     public InventoryAddHQVM getInventoryAddHQVM() {
@@ -66,6 +77,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Headquarters main Inventory viewmodel.
+     *
      * @return The Headquarters main Inventory viewmodel.
      */
     public InventoryMainHQVM getInventoryMainHQVM() {
@@ -74,6 +86,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Headquarters add Employee viewmodel.
+     *
      * @return The Headquarters add Employee viewmodel.
      */
     public EmployeeAddHQVM getEmployeeAddHQVM() {
@@ -82,6 +95,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Warehouse Inventory viewmodel.
+     *
      * @return The Warehouse Inventory viewmodel.
      */
     public InventoryWHVM getInventoryWHVM() {
@@ -90,6 +104,7 @@ public class ViewModelProvider {
 
     /**
      * This method gets the Warehouse Employee viewmodel.
+     *
      * @return The Warehouse Employee viewmodel.
      */
     public EmployeeWHVM getEmployeeWHVM() {
@@ -97,16 +112,59 @@ public class ViewModelProvider {
     }
 
     /**
+     * This method gets the Retailer Employee viewmodel.
+     *
+     * @return The Retailer Employee viewmodel.
+     */
+    public EmployeeRTVM getEmployeeRTVM() {
+        return employeeRTVM;
+    }
+
+    /**
+     * This method gets the Retailer Inventory viewmodel.
+     *
+     * @return The Retailer Inventory viewmodel.
+     */
+    public InventoryRTVM getInventoryRTVM() {
+        return inventoryRTVM;
+    }
+
+    /**
+     * This method gets the Warehouse Dashboard viewmodel.
+     *
+     * @return The Warehouse Dashboard viewmodel.
+     */
+    public MainWHVM getMainWHVM() {
+        return mainWHVM;
+    }
+
+    /**
+     * This method gets the Retailer Dashboard viewmodel.
+     *
+     * @return The Retailer Dashboard viewmodel.
+     */
+    public MainRTVM getMainRTVM() {
+        return mainRTVM;
+    }
+
+    /**
      * This method instantiates all the viewmode.
+     *
      * @param viewHandler The {@link ViewHandler} to be used.
      */
     public void instantiateViewModels(ViewHandler viewHandler) {
         employeeAddHQVM = new EmployeeAddHQVM(dataModel, viewHandler);
         employeeMainHQVM = new EmployeeMainHQVM(dataModel, viewHandler);
         mainVM = new MainVM(dataModel, viewHandler);
-        inventoryWHVM = new InventoryWHVM(dataModel,viewHandler);
-        employeeWHVM = new EmployeeWHVM(dataModel,viewHandler);
+        inventoryWHVM = new InventoryWHVM(dataModel, viewHandler);
+        employeeWHVM = new EmployeeWHVM(dataModel, viewHandler);
         inventoryAddHQVM = new InventoryAddHQVM(dataModel, viewHandler);
         inventoryMainHQVM = new InventoryMainHQVM(dataModel, viewHandler);
+        employeeRTVM = new EmployeeRTVM(dataModel, viewHandler);
+        inventoryRTVM = new InventoryRTVM(dataModel, viewHandler);
+        mainRTVM = new MainRTVM(dataModel, viewHandler);
+        mainWHVM = new MainWHVM(dataModel, viewHandler);
     }
+
+
 }

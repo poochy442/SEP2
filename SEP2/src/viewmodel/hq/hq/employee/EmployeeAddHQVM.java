@@ -85,13 +85,6 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     }
 
     /**
-     * This method opens the Warehouse Inventory view.
-     */
-    public void openInventoryWHView() {
-        viewHandler.openInventoryMainWHView();
-    }
-
-    /**
      * This method asks the user for confirmation, using an {@link Alert}.
      */
     public void confirmation() {
@@ -123,5 +116,11 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     }
 
     public void openDeliveryView() {
+    }
+
+    public void openMainRTView() {viewHandler.openMainRTView();
+    }
+
+    public void openMainWHView() {viewHandler.openMainWHView();
     }
 }

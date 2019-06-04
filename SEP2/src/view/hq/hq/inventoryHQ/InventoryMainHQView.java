@@ -142,21 +142,26 @@ public class InventoryMainHQView {
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-
+        inventoryMainHQVM.openInventoryMainHQView();
     }
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        inventoryMainHQVM.openMainRTView();
     }
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        inventoryMainHQVM.openInventoryMainWHView();
+        inventoryMainHQVM.openMainWHView();
     }
 
     @FXML void onDeliveryClicked(ActionEvent event)
     {
         inventoryMainHQVM.openDeliveryView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        inventoryMainHQVM.openMainView();
     }
 }

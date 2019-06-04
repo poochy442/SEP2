@@ -94,7 +94,7 @@ public class EmployeeMainHQView {
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
-
+        employeeMainHQVM.openEmployeeMainHQView();
     }
 
     @FXML
@@ -130,12 +130,17 @@ public class EmployeeMainHQView {
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        employeeMainHQVM.openMainRTView();
     }
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        employeeMainHQVM.openInventoryMainWHView();
+        employeeMainHQVM.openMainWHView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        employeeMainHQVM.openMainView();
     }
 
     @FXML void onDeliveryClicked(ActionEvent event) {

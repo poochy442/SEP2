@@ -116,29 +116,7 @@
             </Pane>
          </left>
          <bottom>
-            <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Pane layoutX="309.0" prefHeight="76.0" prefWidth="369.0">
-                     <children>
-                        <Button fx:id="addEmployeeButton" disable="true" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #B579CF; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add employee">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="editEmployeeButton" disable="true" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit employee">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="removeEmployeeButton" disable="true" layoutX="254.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveEmployeeClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove employee">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
+            <Pane prefHeight="75.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
             <TableView fx:id="employeeTable" fixedCellSize="0.0" prefHeight="650.0" BorderPane.alignment="CENTER">
@@ -257,7 +235,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="70.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #B579CF; -fx-background-radius: 5px;">
+            <Pane layoutY="70.0" onMouseClicked="#onWarehouseClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #B579CF; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="13.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -269,7 +247,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="120.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: 5px;">
+            <Pane layoutY="120.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

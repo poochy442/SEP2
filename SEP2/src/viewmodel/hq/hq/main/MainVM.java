@@ -16,11 +16,6 @@ public class MainVM {
         viewHandler.openEmployeeMainHQView();
     }
 
-    public void openInventoryWHView()
-    {
-        viewHandler.openInventoryMainWHView();
-    }
-
     public void openMainView() {viewHandler.openMainHQView();
     }
 
@@ -28,5 +23,12 @@ public class MainVM {
     }
 
     public void openDeliveryView() {
+    }
+
+    public void openMainWHView() {
+        viewHandler.openMainWHView();
+    }
+
+    public void openMainRTView() {viewHandler.openMainRTView();
     }
 }
