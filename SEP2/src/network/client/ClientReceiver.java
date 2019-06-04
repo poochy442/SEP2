@@ -108,6 +108,10 @@ public class ClientReceiver implements Runnable {
                         if (departmentID.equals("RT"))
                         dataModel.loadSalesFromDB();
 
+                    case Packet.deliveriesQuery:
+                        DeliveryList deliveryList = (DeliveryList) gson.fromJson(json,DeliveryList.class);
+                        dataModel.setDeliveryList(deliveryList);
+
                 }
 
             } catch (Exception e) {

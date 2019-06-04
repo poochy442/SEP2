@@ -49,7 +49,14 @@ public class ClientSender implements Runnable {
         dataModel.addListener("SalesQuery", this::salesQuery);
         dataModel.addListener("AddProductRequest", this::addRequest);
         dataModel.addListener("RequestQuery",this::triggerRequestQuery);
+        dataModel.addListener("DeliveriesQuery",this::triggerDeliveriesQuery);
         queue = new LinkedList<>();
+    }
+
+    private void triggerDeliveriesQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p1 = new Packet(Packet.deliveriesQuery, (String) propertyChangeEvent.getNewValue());
+        addToQueue(p1);
+        System.out.println("ClientSender : DeliveriesQuery");
     }
 
     private void triggerRequestQuery(PropertyChangeEvent propertyChangeEvent) {
