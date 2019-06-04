@@ -149,10 +149,13 @@
             </Pane>
          </left>
          <center>
-            <TableView fx:id="deliveryListTableView" fixedCellSize="0.0" prefHeight="650.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="deliveryTableView" fixedCellSize="0.0" prefHeight="650.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="313.3" text="Name" />
                   <TableColumn fx:id="iDCol" prefWidth="313.3" text="ID" />
+                  <TableColumn fx:id="requestFromCol" prefWidth="313.3" text="Request from/to" />
+                  <TableColumn fx:id="dateCol" prefWidth="313.3" text="Date" />
+                  <TableColumn fx:id="statusCol" prefWidth="313.3" text="Status" />
+                  <TableColumn fx:id="totalItemsCol" prefWidth="313.3" text="Total items" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -352,7 +352,11 @@ public class DataModel implements IDataModel {
         this.deliveryList=deliveryList;
     }
 
-
+    @Override
+    public void openDelivery(Delivery delivery)
+    {
+        propertyChangeSupport.firePropertyChange("OpenDelivery", null, delivery);
+    }
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
      *

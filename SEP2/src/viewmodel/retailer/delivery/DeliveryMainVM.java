@@ -2,7 +2,7 @@ package viewmodel.retailer.delivery;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.DeliveryList;
+import model.Delivery;
 import model.IDataModel;
 import view.retailer.ViewHandler;
 
@@ -19,7 +19,7 @@ import java.beans.PropertyChangeEvent;
 
 public class DeliveryMainVM {
     private IDataModel dataModel;
-    private ObservableList<DeliveryList> deliveryLists;
+    private ObservableList<Delivery> deliveries;
     private ViewHandler viewHandler;
 
     /**
@@ -31,12 +31,12 @@ public class DeliveryMainVM {
     public DeliveryMainVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
-        deliveryLists = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("", this::addDeliveryListToClient);
+        deliveries = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("", this::addDeliveryToClient);
 
     }
 
-    private void addDeliveryListToClient(PropertyChangeEvent evt) {
+    private void addDeliveryToClient(PropertyChangeEvent evt) {
     }
 
     /**
@@ -46,11 +46,11 @@ public class DeliveryMainVM {
      * @param {@link PropertyChangeEvent} that caused the Listener to call this method.
      *            <p>
      *            /**
-     *            Gets the {@link DeliveryList}s stored.
-     * @return The {@link DeliveryList}s stored.
+     *            Gets the {@link Delivery}s stored.
+     * @return The {@link Delivery}s stored.
      */
-    public ObservableList<DeliveryList> getDeliveryLists() {
-        return deliveryLists;
+    public ObservableList<Delivery> getDeliveries() {
+        return deliveries;
     }
 
     /**
@@ -68,14 +68,7 @@ public class DeliveryMainVM {
     }
 
     /**
-     * This method opens the add Employee view.
-     */
-    public void openEmployeeAddView() {
-        viewHandler.openEmployeeAddView();
-    }
-
-    /**
-     * This method removes an {@link DeliveryList} from the List.
+     * This method removes an {@link Delivery} from the List.
      *
      * @param {@link DeliveryList} to be removed.
      */
@@ -96,6 +89,8 @@ public class DeliveryMainVM {
         viewHandler.openEmployeeMainView();
     }
 
-    public void openDeliveryItemsView() {viewHandler.openDeliveryItemsView();
+    public void openDeliveryItemsView(Delivery delivery) {
+        viewHandler.openDeliveryItemsView();
+        dataModel.openDelivery(delivery);
     }
 }

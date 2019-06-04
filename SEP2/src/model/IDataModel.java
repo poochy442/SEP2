@@ -21,6 +21,8 @@ public interface IDataModel {
 
     void loadItemListFromDB(String departmentID);
 
+    void openDelivery(Delivery delivery);
+
     void setStockItemList(StockItemList stockItemList1);
 
     void sendProductRequest(String department);

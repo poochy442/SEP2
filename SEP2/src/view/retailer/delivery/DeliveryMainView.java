@@ -9,8 +9,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.DeliveryList;
+import model.Delivery;
 import viewmodel.retailer.delivery.DeliveryMainVM;
+
+import java.util.Date;
 
 /**
  * The view Class for the main Employee view.
@@ -24,17 +26,25 @@ import viewmodel.retailer.delivery.DeliveryMainVM;
 public class DeliveryMainView {
 
     @FXML
-    private TableView<DeliveryList> deliveryListTableView;
+    private TableView<Delivery> deliveryTableView;
 
     @FXML
-    private TableColumn<String, DeliveryList> nameCol;
+    private TableColumn<String, Delivery> iDCol;
+
+    @FXML private TableColumn<String, Delivery> requestFromCol;
+
+    @FXML private TableColumn<String, Delivery> statusCol;
+
+    @FXML private TableColumn<Date, Delivery> dateCol;
+
+    @FXML private TableColumn<Integer, Delivery> totalItemsCol;
 
     @FXML
     private AnchorPane anchorPane;
 
     private DeliveryMainVM deliveryMainVM;
 
-    private DeliveryList selectedDeliveryList;
+    private Delivery selectedDelivery;
 
     /**
      * Creates an DeliveryMainView.
@@ -50,8 +60,12 @@ public class DeliveryMainView {
      */
     public void init(DeliveryMainVM deliveryMainVM) {
         this.deliveryMainVM = deliveryMainVM;
-        deliveryListTableView.setItems(deliveryMainVM.getDeliveryLists());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        deliveryTableView.setItems(deliveryMainVM.getDeliveries());
+        iDCol.setCellValueFactory(new PropertyValueFactory<>("requestid"));
+        requestFromCol.setCellValueFactory(new PropertyValueFactory<>("requestedFrom"));
+        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
+        totalItemsCol.setCellValueFactory(new PropertyValueFactory<>("totalItems"));
     }
 
     @FXML
@@ -80,7 +94,6 @@ public class DeliveryMainView {
         deliveryMainVM.openEmployeeMainView();
     }
 
-
     @FXML
     void onProductRequestClicked(ActionEvent event) {
         deliveryMainVM.openProductRequestView();
@@ -98,6 +111,7 @@ public class DeliveryMainView {
 
     @FXML void onOpenDeliveryItemClicked(ActionEvent event)
     {
-        deliveryMainVM.openDeliveryItemsView();
+        selectedDelivery = deliveryTableView.getSelectionModel().getSelectedItem();
+        deliveryMainVM.openDeliveryItemsView(selectedDelivery);
     }
 }

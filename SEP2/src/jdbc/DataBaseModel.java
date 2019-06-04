@@ -856,7 +856,7 @@ public class DataBaseModel {
                 String requestID = row[0].toString();
                 String requestedFrom = row[1].toString();
                 String status = row[2].toString();
-                Delivery delivery = new Delivery(requestID, requestedFrom, status);
+                Delivery delivery = new Delivery(requestID, requestedFrom, status); //TODO: needs date
                 deliveryList.addDelivery(delivery);
             }
 

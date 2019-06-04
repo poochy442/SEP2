@@ -1,6 +1,9 @@
 package view.retailer.delivery;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -9,7 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.Delivery;
+import model.ProductRequest;
 import viewmodel.retailer.delivery.DeliveryItemsVM;
 
 /**
@@ -24,10 +29,14 @@ import viewmodel.retailer.delivery.DeliveryItemsVM;
 public class DeliveryItemsView {
 
     @FXML
-    private TableView<Delivery> deliveryTableView;
+    private TableView<ProductRequest> deliveryTableView;
 
     @FXML
-    private TableColumn<String, Delivery> nameCol;
+    private TableColumn<ProductRequest, String> nameCol;
+
+    @FXML private TableColumn<ProductRequest, String> iDCol;
+
+    @FXML private TableColumn<Integer, ProductRequest> quantityCol;
 
     @FXML
     private AnchorPane anchorPane;
@@ -48,8 +57,20 @@ public class DeliveryItemsView {
      */
     public void init(DeliveryItemsVM deliveryItemsVM) {
         this.deliveryItemsVM = deliveryItemsVM;
-        deliveryTableView.setItems(deliveryItemsVM.getDeliveries());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        deliveryTableView.setItems(deliveryItemsVM.getProductRequests());
+        nameCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductRequest, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductRequest, String> param) {
+                return new SimpleStringProperty(param.getValue().getName());
+            }
+        });
+        iDCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProductRequest, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<ProductRequest, String> param) {
+                return new SimpleStringProperty(param.getValue().getID());
+            }
+        });
+        quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
     }
 
     @FXML

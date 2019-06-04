@@ -1,29 +1,25 @@
 package model;
 
+import java.util.Date;
+
 public class Delivery {
     private String requestid,requestedFrom,status;
+    private java.util.Date date;
+    private int totalItems;
     private ProductRequestList productList;
 
-    public Delivery(String requestid, String requestedFrom, String status) {
+    public Delivery(String requestid, String requestedFrom, String status, java.util.Date date) {
         this.requestid = requestid;
         this.requestedFrom = requestedFrom;
         this.status = status;
+        this.date = date; //TODO: Dave: I created date, should save this to database
         productList = new ProductRequestList();
+        calculateTotalItems();
     }
 
 
     public String getRequestid() {
         return requestid;
-    }
-
-    @Override
-    public String toString() {
-        return "Delivery{" +
-                "requestid='" + requestid + '\'' +
-                ", requestedFrom='" + requestedFrom + '\'' +
-                ", status='" + status + '\'' +
-                ", productList=" + productList +
-                '}';
     }
 
     public void setRequestid(String requestid) {
@@ -50,11 +46,42 @@ public class Delivery {
         return productList;
     }
 
+    public Date getDate()
+    {
+        return date;
+    }
+
+    public int getTotalItems()
+    {
+        return totalItems;
+    }
+
     public void setProductList(ProductRequestList productList) {
         this.productList = productList;
+        calculateTotalItems();
     }
     public void addToDelivery(ProductRequest productRequest)
     {
         productList.addRequestToList(productRequest);
+        calculateTotalItems();
+    }
+
+    private void calculateTotalItems()
+    {
+        totalItems = 0;
+        for(int i = 0; i < productList.size(); i++)
+        {
+            totalItems += productList.getProductRequest(i).getQuantity();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Delivery{" +
+                "requestid='" + requestid + '\'' +
+                ", requestedFrom='" + requestedFrom + '\'' +
+                ", status='" + status + '\'' +
+                ", productList=" + productList +
+                '}';
     }
 }

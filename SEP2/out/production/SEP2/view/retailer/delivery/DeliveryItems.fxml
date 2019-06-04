@@ -185,11 +185,6 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Button fx:id="backButton" layoutX="1101.0" layoutY="24.0" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Back">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                </children>
             </Pane>
          </bottom>
@@ -259,5 +254,10 @@
             </Label>
          </children>
       </Pane>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackClicked" style="-fx-background-color: white; -fx-border-color: black; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Back" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="56.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

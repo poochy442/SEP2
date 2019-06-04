@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Delivery;
 import model.IDataModel;
+import model.ProductRequest;
 import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -19,7 +20,7 @@ import java.beans.PropertyChangeEvent;
 
 public class DeliveryItemsVM {
     private IDataModel dataModel;
-    private ObservableList<Delivery> deliveries;
+    private ObservableList<ProductRequest> productRequests;
     private ViewHandler viewHandler;
 
     /**
@@ -31,12 +32,17 @@ public class DeliveryItemsVM {
     {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
-        deliveries = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("", this::addDeliveryToClient);
+        productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("OpenDelivery", this::openDelivery);
 
     }
 
-    private void addDeliveryToClient(PropertyChangeEvent propertyChangeEvent) {
+    private void openDelivery(PropertyChangeEvent evt) {
+        Delivery delivery = (Delivery)evt.getNewValue();
+        for(int i = 0; i < delivery.getProductList().size(); i++)
+        {
+            productRequests.add(delivery.getProductList().getProductRequest(i));
+        }
     }
 
     /**
@@ -45,12 +51,12 @@ public class DeliveryItemsVM {
      * @param {@link PropertyChangeEvent} that caused the Listener to call this method.
 
     /**
-     * Gets the {@link Delivery}s stored.
-     * @return The {@link Delivery}s stored.
+     * Gets the {@link ProductRequest}s stored.
+     * @return The {@link ProductRequest}s stored.
      */
-    public ObservableList<Delivery> getDeliveries()
+    public ObservableList<ProductRequest> getProductRequests()
     {
-        return deliveries;
+        return productRequests;
     }
 
     /**
@@ -70,15 +76,7 @@ public class DeliveryItemsVM {
     }
 
     /**
-     * This method opens the add Employee view.
-     */
-    public void openEmployeeAddView()
-    {
-        viewHandler.openEmployeeAddView();
-    }
-
-    /**
-     * This method removes an {@link Delivery} from the List.
+     * This method removes an {@link ProductRequest} from the List.
      * @param {@link Delivery} to be removed.
      */
 

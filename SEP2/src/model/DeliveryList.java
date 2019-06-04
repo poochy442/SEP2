@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class DeliveryList {
+public class DeliveryList{
 
     private ArrayList<Delivery> deliveries;
 
@@ -33,5 +33,13 @@ public class DeliveryList {
     public void addDelivery(Delivery delivery)
     {
         deliveries.add(delivery);
+    }
+
+    public int size() {
+        return deliveries.size();
+    }
+
+    public Delivery get(int i) {
+        return deliveries.get(i);
     }
 }

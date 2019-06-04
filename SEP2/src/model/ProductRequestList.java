@@ -47,7 +47,7 @@ public class ProductRequestList {
      * Gets the size of the List.
      * @return The size of the List.
      */
-    public int Size()
+    public int size()
     {
         return requestList.size();
     }
