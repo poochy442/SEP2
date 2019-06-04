@@ -53,3 +53,7 @@
 .table-row-cell:selected{
     -fx-background-color: #1ABC9C;
 }
+
+.data0.chart-pie { -fx-pie-color: #2E4756; }
+.data1.chart-pie { -fx-pie-color: #FE7211; }
+.data2.chart-pie { -fx-pie-color: cornflowerblue; }
