@@ -37,6 +37,11 @@
                         <Insets bottom="500.0" right="500.0" />
                      </StackPane.margin>
                   </TextField>
+                  <TextField fx:id="iDField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
+                     <StackPane.margin>
+                        <Insets bottom="420.0" right="500.0" />
+                     </StackPane.margin>
+                  </TextField>
                   <Label prefHeight="17.0" prefWidth="80.0" text="Item Name">
                      <StackPane.margin>
                         <Insets bottom="500.0" right="820.0" />
@@ -176,11 +181,6 @@
                         <Insets left="250.0" top="400.0" />
                      </StackPane.margin>
                   </Button>
-                  <TextField fx:id="iDField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
-                     <StackPane.margin>
-                        <Insets bottom="420.0" right="500.0" />
-                     </StackPane.margin>
-                  </TextField>
                   <Label prefHeight="17.0" prefWidth="80.0" text="ID/Code">
                      <StackPane.margin>
                         <Insets bottom="420.0" right="820.0" />

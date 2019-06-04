@@ -7,8 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.hq.controlRetailer.employeeRetailer.EmployeeMainRTView;
+import view.hq.controlRetailer.inventoryRetailer.InventoryMainRTView;
+import view.hq.controlRetailer.mainRetailer.MainRTView;
 import view.hq.controlWarehouse.employeeWarehouse.EmployeeMainWHView;
 import view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView;
+import view.hq.controlWarehouse.mainWarehouse.MainWHView;
 import view.hq.hq.employeeHQ.EmployeeAddHQView;
 import view.hq.hq.employeeHQ.EmployeeMainHQView;
 import view.hq.hq.inventoryHQ.InventoryAddHQView;
@@ -213,6 +217,90 @@ public class ViewHandler {
         InventoryAddHQView view = loader.getController();
         view.init(viewModelProvider.getInventoryAddHQVM());
         primaryStage.setTitle("Add Stock item list HQ");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openEmployeeMainRTView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlRetailer/employeeRetailer/EmployeeMainRT.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        EmployeeMainRTView view = loader.getController();
+        view.init(viewModelProvider.getEmployeeRTVM());
+        primaryStage.setTitle("Employee list RT");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openInventoryMainRTView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlRetailer/inventoryRetailer/InventoryMainRT.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        InventoryMainRTView view = loader.getController();
+        view.init(viewModelProvider.getInventoryRTVM());
+        primaryStage.setTitle("Inventory list RT");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openMainWHView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlWarehouse/mainWarehouse/MainWH.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        MainWHView view = loader.getController();
+        view.init(viewModelProvider.getMainWHVM());
+        primaryStage.setTitle("Warehouse Dashboard");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openMainRTView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlRetailer/mainRetailer/MainRT.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        MainRTView view = loader.getController();
+        view.init(viewModelProvider.getMainRTVM());
+        primaryStage.setTitle("Retailer Dashboard");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

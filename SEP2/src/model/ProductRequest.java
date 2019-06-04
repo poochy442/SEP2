@@ -67,4 +67,9 @@ public class ProductRequest {
     {
         this.quantity = quantity;
     }
+
+    public int getActualQuantity()
+    {
+        return stockItem.getQuantity();
+    }
 }

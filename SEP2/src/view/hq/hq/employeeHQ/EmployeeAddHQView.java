@@ -99,7 +99,7 @@ public class EmployeeAddHQView {
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        employeeAddHQVM.openMainRTView();
     }
 
     @FXML
@@ -109,7 +109,12 @@ public class EmployeeAddHQView {
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        employeeAddHQVM.openInventoryWHView();
+        employeeAddHQVM.openMainWHView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        employeeAddHQVM.openMainView();
     }
 
     private boolean isEverythingValid() {
@@ -153,6 +158,11 @@ public class EmployeeAddHQView {
             return true;
         }
         return false;
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        employeeAddHQVM.openDeliveryView();
     }
 
 }

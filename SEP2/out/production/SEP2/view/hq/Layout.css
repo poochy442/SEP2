@@ -23,7 +23,7 @@
     -fx-border-color: white;
 }
 
-#homeButton:hover, #inventoryButton:hover, #employeeButton:hover {
+#homeButton:hover, #inventoryButton:hover, #employeeButton:hover, #deliveryButton:hover {
     -fx-text-fill: white;
 }
 
@@ -49,4 +49,10 @@
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
 }
+
+.table-row-cell:selected{
+    -fx-background-color: #B579CF;
+}
+
+
 

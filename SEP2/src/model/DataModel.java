@@ -313,4 +313,9 @@ public class DataModel implements IDataModel {
         propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
     }
 
+    @Override
+    public void loadRequestsFromDB(String departmentID) {
+        propertyChangeSupport.firePropertyChange("RequestQuery",0,departmentID);
+    }
+
 }

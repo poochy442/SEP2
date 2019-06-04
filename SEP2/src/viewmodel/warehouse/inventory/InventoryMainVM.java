@@ -102,7 +102,7 @@ public class InventoryMainVM {
 
     public void addProductRequestToList(StockItem stockItem) {
         ProductRequest productRequest = new ProductRequest(stockItem, Integer.parseInt(requestQty.getValue()));
-        dataModel.addToProductRequest(productRequest, false);
+        dataModel.addToProductRequest(productRequest, true);
         requestQty.setValue("");
 
     }

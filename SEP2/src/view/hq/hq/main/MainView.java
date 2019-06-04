@@ -68,12 +68,22 @@ public class MainView {
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        mainVM.openMainRTView();
     }
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        mainVM.openInventoryWHView();
+        mainVM.openMainWHView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        mainVM.openDeliveryView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        mainVM.openMainView();
     }
 
 }

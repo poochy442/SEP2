@@ -142,6 +142,7 @@
                <columns>
                   <TableColumn fx:id="nameCol" prefWidth="188.0" styleClass="column-1" text="Name" />
                   <TableColumn fx:id="iDCol" minWidth="0.0" prefWidth="188.0" text="ID" />
+                  <TableColumn fx:id="actualQuantityCol" minWidth="0.0" prefWidth="188.0" text="Actual quantity" />
                   <TableColumn fx:id="quantityCol" prefWidth="188.0" text="Quantity required" />
                </columns>
                <columnResizePolicy>

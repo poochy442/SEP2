@@ -50,4 +50,6 @@ public interface IDataModel {
     void removeProductRequest(ProductRequest selectedItem);
 
     void editProductRequest(ProductRequest selectedItem, int quantity);
+
+    void loadRequestsFromDB(String departmentID);
 }

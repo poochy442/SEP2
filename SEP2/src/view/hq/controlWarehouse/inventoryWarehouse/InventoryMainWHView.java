@@ -3,8 +3,6 @@ package view.hq.controlWarehouse.inventoryWarehouse;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -57,7 +55,6 @@ public class InventoryMainWHView {
     private AnchorPane anchorPane;
 
     private InventoryWHVM inventoryWHVM;
-    private StockItem selectedItem;
 
     /**
      * Creates an InventoryMainWHView.
@@ -86,11 +83,6 @@ public class InventoryMainWHView {
     }
 
     @FXML
-    void onAddItemStockClicked(ActionEvent event) {
-
-    }
-
-    @FXML
     void onCloseClicked(MouseEvent event) {
         Platform.exit();
     }
@@ -98,11 +90,6 @@ public class InventoryMainWHView {
     @FXML
     void onDashboardClicked(ActionEvent event) {
         inventoryWHVM.openMainView();
-    }
-
-    @FXML
-    void onEditItemStockClicked(ActionEvent event) {
-
     }
 
     @FXML
@@ -127,31 +114,16 @@ public class InventoryMainWHView {
     }
 
     @FXML
-    void onRemoveItemStockClicked(ActionEvent event) {
-        selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-        if(selectedItem == null)
-        {
-            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
-            warningAlert.setTitle("Warning");
-            warningAlert.setHeaderText("No stock item has been selected");
-            warningAlert.setContentText("Press ok to continue");
-            warningAlert.showAndWait();
-        }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
-        alert.setContentText("Press ok to continue");
-        alert.showAndWait();
-
-        if (alert.getResult() == ButtonType.YES) {
-            StockItem selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-            stockItemTable.getItems().remove(selectedItem);
-            inventoryWHVM.removeStockItem(selectedItem);
-        }
+    void onRetailerClicked(MouseEvent event) {
+        inventoryWHVM.openMainRTView();
     }
 
-    @FXML
-    void onRetailerClicked(MouseEvent event) {
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        inventoryWHVM.openDeliveryView();
+    }
 
+    @FXML void onWarehouseClicked(MouseEvent event) {
+        inventoryWHVM.openMainWHView();
     }
 }

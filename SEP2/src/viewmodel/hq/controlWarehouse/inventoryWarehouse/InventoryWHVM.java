@@ -31,7 +31,7 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         this.viewHandler = viewHandler;
         this.dataModel = dataModel;
         stockItems = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("NewItemFromServer", this::addStockItemToClient);
+        dataModel.addListener("NewItemFromServer", this::addStockItemToClient); //TODO: Delete one of these to just initialize the table view
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
     }
 
@@ -70,13 +70,15 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
      * This method opens the Warehouse main Inventory view,
      */
     public void openInventoryMainWHView() {
+        viewHandler.openInventoryMainWHView();
     }
 
-    /**
-     * This method removes a {@link StockItem}.
-     * @param stockItem The {@link StockItem} to be removed.
-     */
-    public void removeStockItem(StockItem stockItem) {
-        dataModel.removeStockItemHQ(stockItem);
+    public void openDeliveryView() {
+    }
+
+    public void openMainRTView() {viewHandler.openMainRTView();
+    }
+
+    public void openMainWHView() {viewHandler.openMainWHView();
     }
 }
