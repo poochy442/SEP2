@@ -317,7 +317,6 @@ public class DataModel implements IDataModel {
     @Override
     public void setSalesList(StockItemList salesList) {
         this.sales=salesList;
-
     }
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
