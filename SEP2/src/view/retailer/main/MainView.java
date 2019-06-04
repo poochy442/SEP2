@@ -1,6 +1,9 @@
 package view.retailer.main;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
@@ -45,9 +48,16 @@ public class MainView {
      */
     public void init(MainVM mainVM) {
         this.mainVM = mainVM;
-//        costOfGoods.pieValueProperty().bind(viewModel.xProperty());
-//        profit.pieValueProperty().bind(viewModel.yProperty());
-//        operationalCost.pieValueProperty().bind(viewModel.zProperty());
+        costOfGoods.pieValueProperty().bind(mainVM.costOfGoodsProperty());
+        profit.pieValueProperty().bind(mainVM.profitProperty());
+        operationalCost.pieValueProperty().bind(mainVM.operationalCostProperty());
+        costOfGoods.setName("Cost of goods");
+        profit.setName("Profit");
+        operationalCost.setName("Operational costs");
+        ObservableList<PieChart.Data> datas = FXCollections.observableArrayList(costOfGoods, profit, operationalCost);
+        pieChart.setData(datas);
+        datas.forEach(data -> data.nameProperty().bind(Bindings.concat(data.getName(), " ", data.pieValueProperty())));
+
     }
 
     @FXML

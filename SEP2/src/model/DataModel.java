@@ -272,14 +272,21 @@ public class DataModel implements IDataModel {
     @Override
     public void addToSales(StockItem selectedItem, boolean notifyServer) {
         sales.add(selectedItem.copy());
+        int quantity = selectedItem.getQuantity();
+        int costOfGoods = (selectedItem.getPrice()/2) * quantity;
+        int operationalCost = quantity;
+        int profit = (costOfGoods - operationalCost);
+
         if (notifyServer == true) {
             //notifies Client sender
             propertyChangeSupport.firePropertyChange("AddSale", null, selectedItem);
             propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
+            propertyChangeSupport.firePropertyChange("PieChartUpdate", null, new int[]{costOfGoods, profit, operationalCost});
             System.out.println(selectedItem.getName());
         } else {
             System.out.println("DataModel:" + selectedItem.getId() + " Item added to sales");
             propertyChangeSupport.firePropertyChange("AddSaleView", null, selectedItem);
+            propertyChangeSupport.firePropertyChange("PieChartUpdate", null, new int[]{costOfGoods, profit, operationalCost});
         }
     }
 
@@ -317,6 +324,14 @@ public class DataModel implements IDataModel {
     @Override
     public void setSalesList(StockItemList salesList) {
         this.sales=salesList;
+        int costOfGoods = 0, profit = 0, operationalCost = 0;
+        for(int i =0; i < salesList.size(); i++)
+        {
+            costOfGoods += (salesList.get(i).getPrice()/2) * salesList.get(i).getQuantity();
+            operationalCost += salesList.get(i).getQuantity();
+            profit += (costOfGoods - operationalCost);
+        }
+        propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
     }
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.

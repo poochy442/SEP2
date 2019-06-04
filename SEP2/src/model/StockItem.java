@@ -43,7 +43,7 @@ public class StockItem {
         this.minStock = minStock;
         this.maxStock = maxStock;
         this.location=location;
-        this.totalProfit = price * quantity;
+        this.totalProfit = (price * quantity) / 2;
     }
 
     /**
@@ -62,7 +62,7 @@ public class StockItem {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-        this.totalProfit = price * quantity;
+        this.totalProfit = (price * quantity) / 2;
         //TODO: Update Java doc
     }
 
@@ -100,7 +100,7 @@ public class StockItem {
      */
     public void setPrice(int price) {
         this.price = price;
-        this.totalProfit = price * quantity;
+        this.totalProfit = (price * quantity) / 2;
         //TODO: Update Java doc
     }
 

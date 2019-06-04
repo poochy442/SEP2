@@ -16,11 +16,6 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.main.MainView">
    <children>
-      <Pane prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane layoutX="480.0" layoutY="-300.0" prefHeight="900.0" prefWidth="600.0" rotate="-49.1" style="-fx-background-color: #1ABC9C; -fx-background-radius: 20px;" />
-         </children>
-      </Pane>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" BorderPane.alignment="CENTER">
@@ -43,7 +38,7 @@
             </Pane>
          </top>
          <center>
-            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="779.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">

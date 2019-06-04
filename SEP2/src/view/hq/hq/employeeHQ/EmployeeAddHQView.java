@@ -39,9 +39,6 @@ public class EmployeeAddHQView {
     private Label emptyLastNameLabel;
 
     @FXML
-    private Label nameLabel;
-
-    @FXML
     private AnchorPane anchorPane;
 
     private EmployeeAddHQVM employeeAddHQVM;
@@ -118,7 +115,8 @@ public class EmployeeAddHQView {
     }
 
     private boolean isEverythingValid() {
-        boolean emptyFirstName, emptyLastName, validFirstName, validLastName = false;
+        boolean emptyFirstName = false, emptyLastName = false,
+                validFirstName = false, validLastName = false;
 
         if (firstNameField.textProperty().getValue().isEmpty()) {
             emptyFirstName = true;
