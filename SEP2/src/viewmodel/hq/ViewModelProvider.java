@@ -12,7 +12,7 @@ import viewmodel.hq.hq.main.MainVM;
 
 /**
  * The viewmodel provider for the Headquarters and it is responsible for passing the requested
- * viewmodel to any Class requesting a viewmodel.
+ * viewmodel to any Class requesting a viewmodel
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -33,7 +33,7 @@ public class ViewModelProvider {
 
     /**
      * Creates a ViewModelProvider with the specified information
-     * @param dataModel The {@link model.DataModel} to be used.
+     * @param dataModel The {@link model.DataModel} to be used
      */
     public ViewModelProvider(IDataModel dataModel)
     {
@@ -41,64 +41,64 @@ public class ViewModelProvider {
     }
 
     /**
-     * This method gets the main viewmodel.
-     * @return The main viewmodel.
+     * This method gets the main viewmodel
+     * @return The main viewmodel
      */
     public MainVM getMainVM() {
         return mainVM;
     }
 
     /**
-     * This method gets the Headquarters main Employee viewmodel.
-     * @return The Headquarters main Employee viewmodel.
+     * This method gets the Headquarters main Employee viewmodel
+     * @return The Headquarters main Employee viewmodel
      */
     public EmployeeMainHQVM getEmployeeMainHQVM() {
         return employeeMainHQVM;
     }
 
     /**
-     * This method gets the Headquarters add Inventory viewmodel.
-     * @return The Headquarters add Inventory viewmodel.
+     * This method gets the Headquarters add Inventory viewmodel
+     * @return The Headquarters add Inventory viewmodel
      */
     public InventoryAddHQVM getInventoryAddHQVM() {
         return inventoryAddHQVM;
     }
 
     /**
-     * This method gets the Headquarters main Inventory viewmodel.
-     * @return The Headquarters main Inventory viewmodel.
+     * This method gets the Headquarters main Inventory viewmodel
+     * @return The Headquarters main Inventory viewmodel
      */
     public InventoryMainHQVM getInventoryMainHQVM() {
         return inventoryMainHQVM;
     }
 
     /**
-     * This method gets the Headquarters add Employee viewmodel.
-     * @return The Headquarters add Employee viewmodel.
+     * This method gets the Headquarters add Employee viewmodel
+     * @return The Headquarters add Employee viewmodel
      */
     public EmployeeAddHQVM getEmployeeAddHQVM() {
         return employeeAddHQVM;
     }
 
     /**
-     * This method gets the Warehouse Inventory viewmodel.
-     * @return The Warehouse Inventory viewmodel.
+     * This method gets the Warehouse Inventory viewmodel
+     * @return The Warehouse Inventory viewmodel
      */
     public InventoryWHVM getInventoryWHVM() {
         return inventoryWHVM;
     }
 
     /**
-     * This method gets the Warehouse Employee viewmodel.
-     * @return The Warehouse Employee viewmodel.
+     * This method gets the Warehouse Employee viewmodel
+     * @return The Warehouse Employee viewmodel
      */
     public EmployeeWHVM getEmployeeWHVM() {
         return employeeWHVM;
     }
 
     /**
-     * This method instantiates all the viewmode.
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * This method instantiates all the viewmodel
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public void instantiateViewModels(ViewHandler viewHandler) {
         employeeAddHQVM = new EmployeeAddHQVM(dataModel, viewHandler);

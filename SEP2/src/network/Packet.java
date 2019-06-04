@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * <h1>Packet Class used for sending information between Server and Client</h1>
  * This Class contains a static reference to the strings to be sent as a representation
- * of the operation this Packet was created to convey.
+ * of the operation this Packet was created to convey
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -17,66 +17,66 @@ public class Packet implements Serializable {
 
     private String operation, Json;
     /**
-     * The Employee operation {@link String}.
+     * The Employee operation {@link String}
      */
     public static final String EmployeeOperation = "Employees";
     /**
-     * The Stock Item operation {@link String}.
+     * The Stock Item operation {@link String}
      */
     public static final String StockOperation = "StockItems";
     /**
-     * The Request operation {@link String}.
+     * The Request operation {@link String}
      */
     public static final String RequestOperation = "ProductRequest";
     /**
-     * The Employee Server response operation {@link String}.
+     * The Employee Server response operation {@link String}
      */
     public static final String EmployeeResponseOperation = "EmployeeResponse";
     /**
-     * The Stock Item Server response operation {@link String}.
+     * The Stock Item Server response operation {@link String}
      */
     public static final String StockResponseOperation = "StockResponse";
     /**
-     * The Employee Query operation {@link String}.
+     * The Employee Query operation {@link String}
      */
     public static final String EmployeeQuery = "EmployeeQuery";
     /**
-     * The Stock Item Query {@link String}.
+     * The Stock Item Query {@link String}
      */
     public static final String ItemQuery = "ItemQuery";
     /**
-     * The remove Stock Item from Warehouse operation {@link String}.
+     * The remove Stock Item from Warehouse operation {@link String}
      */
     public static final String DeleteItemFromWH = "DeleteItemFromWH";
     /**
-     * The remove Stock Item from Headquarters operation {@link String}.
+     * The remove Stock Item from Headquarters operation {@link String}
      */
     public static final String DeleteItemFromHQ = "DeleteItemFromHQ";
     /**
-     * The delete Employee operation {@link String}.
+     * The delete Employee operation {@link String}
      */
     public static final String DeleteEmployee = "DeleteEmployee";
     /**
-     * The add sale operation {@link String}.
+     * The add sale operation {@link String}
      */
     public static final String AddSale = "AddSale";
     /**
-     * The sales query operation {@link String}.
+     * The sales query operation {@link String}
      */
     public static final String salesQuery = "SalesQuery";
     /**
-     * The product request operation {@link String}.
+     * The product request operation {@link String}
      */
     public static final String addProductRequest = "AddProductRequest";
     /**
-     * The request query operation {@link String}.
+     * The request query operation {@link String}
      */
     public static final String requestQuery = "RequestQuery";
 
     /**
-     * Creates a Packet with the specified information.
-     * @param operation The operation to use. For available operations see {@link this#EmployeeOperation}.
-     * @param json The Json {@link String} of the file to be send with this Packet.
+     * Creates a Packet with the specified information
+     * @param operation The operation to use. This operation should be one of the static fields this Class contains
+     * @param json The Json {@link String} of the file to be send with this Packet
      */
     public Packet(String operation, String json) {
         this.operation = operation;
@@ -84,16 +84,16 @@ public class Packet implements Serializable {
     }
 
     /**
-     * Gets the operation stored in the Packet.
-     * @return The operation stored in the Packet.
+     * Gets the operation stored in the Packet
+     * @return The operation stored in the Packet
      */
     public String getOperation() {
         return operation;
     }
 
     /**
-     * Gets the Json {@link String} stored in the Packet.
-     * @return The Json {@link String} stored in the Packet.
+     * Gets the Json {@link String} stored in the Packet
+     * @return The Json {@link String} stored in the Packet
      */
     public String getJson() {
         return Json;

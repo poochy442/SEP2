@@ -18,9 +18,9 @@ import java.util.Queue;
 /**
  * <h1>ServerSender Class responsible for the {@link Server}s outgoing traffic</h1>
  * The ServerSocket implements a modified Producer/Consumer pattern with the {@link network.client.ClientReceiver}
- * as the Consumer.
+ * as the Consumer
  * It stores a {@link Queue} and methods to add to it, and then sends the {@link Packet}s contained in the {@link Queue}
- * to the {@link network.client.ClientReceiver}.
+ * to the {@link network.client.ClientReceiver}
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -38,8 +38,9 @@ public class ServerSender implements Runnable {
     /**
      * Creates ServerSender with the specified information
      *
-     * @param socket        The {@link Socket} to be used.
-     * @param dataBaseModel The {@link DataBaseModel} to  be used.
+     * @param socket        The {@link Socket} to be used
+     * @param dataBaseModel The {@link DataBaseModel} to  be used
+     * @param clientNo The client number of the connected client
      */
     public ServerSender(Socket socket, DataBaseModel dataBaseModel, int clientNo) {
         this.socket = socket;
@@ -91,9 +92,9 @@ public class ServerSender implements Runnable {
     }
 
     /**
-     * Sends a {@link StockItemList} to the client.
+     * Sends a {@link StockItemList} to the client
      *
-     * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called.
+     * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called
      */
     private void sendItemList(PropertyChangeEvent propertyChangeEvent) {
         if (clientNo == (int) propertyChangeEvent.getOldValue()) {
@@ -107,9 +108,9 @@ public class ServerSender implements Runnable {
     }
 
     /**
-     * Sends a {@link EmployeeList} to the client.
+     * Sends a {@link EmployeeList} to the client
      *
-     * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called.
+     * @param propertyChangeEvent The {@link PropertyChangeEvent} that caused this method to be called
      */
     private void sendEmployeeList(PropertyChangeEvent propertyChangeEvent) {
         if (clientNo == (int) propertyChangeEvent.getOldValue()) {
@@ -127,9 +128,9 @@ public class ServerSender implements Runnable {
     }
 
     /**
-     * The run method inherited from {@link Runnable}.
-     * The method loops running {@link Thread#sleep(long)} and checking if something is in the {@link Queue}.
-     * If there is something in the {@link Queue}, it will send it to the {@link network.client.ClientReceiver}.
+     * The run method inherited from {@link Runnable}
+     * The method loops running {@link Thread#sleep(long)} and checking if something is in the {@link Queue}
+     * If there is something in the {@link Queue}, it will send it to the {@link network.client.ClientReceiver}
      */
     @Override
     public void run() {

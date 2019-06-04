@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import viewmodel.hq.hq.employee.EmployeeAddHQVM;
 
 /**
- * The view Class for the Headquarter's add Employee view.
+ * The view Class for the Headquarter's add Employee view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -47,15 +47,15 @@ public class EmployeeAddHQView {
     private EmployeeAddHQVM employeeAddHQVM;
 
     /**
-     * Creates an EmployeeAddHQView.
+     * Creates an EmployeeAddHQView
      */
     public EmployeeAddHQView() {
 
     }
 
     /**
-     * An init method instantiating all the fields required.
-     * @param employeeAddHQVM The {@link EmployeeAddHQVM} viewmodel to use.
+     * An init method instantiating all the fields required
+     * @param employeeAddHQVM The {@link EmployeeAddHQVM} viewmodel to use
      */
     public void init(EmployeeAddHQVM employeeAddHQVM) {
         this.employeeAddHQVM = employeeAddHQVM;

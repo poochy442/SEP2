@@ -22,10 +22,11 @@ public class Server {
     private static int PORT = 5678;
 
     /**
-     * The main method starting and running a {@link ServerSocket} for clients to connect to.
-     * Then starts a Thread with a {@link ServerSender} and a Thread with a {@link ServerReceiver}.
+     * The main method starting and running a {@link ServerSocket} for clients to connect to
+     * Then starts a Thread with a {@link ServerSender} and a Thread with a {@link ServerReceiver}
      * @param args The command line arguments passed
-     * @throws IOException
+     * @throws IOException This method throws an IOException if it is unsuccessful in setting up the
+     * {@link ServerSocket}
      */
     public static void main(String[] args) throws IOException {
 

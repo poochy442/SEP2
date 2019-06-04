@@ -33,9 +33,9 @@ public class ViewModelProvider {
     private SalesVM salesVM;
 
     /**
-     * Creates a ViewModelProvider with the specified information and instantiates all the required fields.
+     * Creates a ViewModelProvider with the specified information and instantiates all the required fields
      *
-     * @param dataModel The {@link model.DataModel} to be used.
+     * @param dataModel The {@link model.DataModel} to be used
      */
     public ViewModelProvider(IDataModel dataModel) {
         this.dataModel = dataModel;
@@ -50,18 +50,18 @@ public class ViewModelProvider {
     }
 
     /**
-     * Gets the main viewmodel.
+     * Gets the main viewmodel
      *
-     * @return The main viewmodel.
+     * @return The main viewmodel
      */
     public MainVM getMainVM() {
         return mainVM;
     }
 
     /**
-     * Gets the main Inventory viewmodel.
+     * Gets the main Inventory viewmodel
      *
-     * @return The main Inventory viewmodel.
+     * @return The main Inventory viewmodel
      */
     public InventoryMainVM getInventoryMainVM() {
         return inventoryMainVM;
@@ -77,36 +77,36 @@ public class ViewModelProvider {
     }
 
     /**
-     * Gets the add Employee viewmodel.
+     * Gets the add Employee viewmodel
      *
-     * @return The add Employee viewmodel.
+     * @return The add Employee viewmodel
      */
     public EmployeeAddVM getEmployeeAddVM() {
         return employeeAddVM;
     }
 
     /**
-     * Gets the add Inventory viewmodel.
+     * Gets the add Inventory viewmodel
      *
-     * @return The add Inventory viewmodel.
+     * @return The add Inventory viewmodel
      */
     public InventoryAddVM getInventoryAddVM() {
         return inventoryAddVM;
     }
 
     /**
-     * Gets the Product Request viewmodel.
+     * Gets the Product Request viewmodel
      *
-     * @return
+     * @return The product Request viewmodel
      */
     public ProductRequestVM getProductRequestVM() {
         return productRequestVM;
     }
 
     /**
-     * Instantiates all the viewmodels, to make sure they aren't null.
+     * Instantiates all the viewmodels, to make sure they aren't null
      *
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public void instantiateViewModels(ViewHandler viewHandler) {
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);

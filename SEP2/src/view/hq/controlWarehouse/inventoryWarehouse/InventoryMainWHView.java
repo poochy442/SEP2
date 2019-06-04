@@ -17,7 +17,7 @@ import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
 import java.time.LocalDate;
 
 /**
- * The view Class for the main Warehouse view.
+ * The view Class for the main Warehouse view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -60,7 +60,7 @@ public class InventoryMainWHView {
     private StockItem selectedItem;
 
     /**
-     * Creates an InventoryMainWHView.
+     * Creates an InventoryMainWHView
      */
     public InventoryMainWHView()
     {
@@ -68,8 +68,8 @@ public class InventoryMainWHView {
     }
 
     /**
-     * An init method, instantiating all the fields required.
-     * @param inventoryWHVM The {@link InventoryWHVM} viewmodel to be used.
+     * An init method, instantiating all the fields required
+     * @param inventoryWHVM The {@link InventoryWHVM} viewmodel to be used
      */
     public void init(InventoryWHVM inventoryWHVM)
     {

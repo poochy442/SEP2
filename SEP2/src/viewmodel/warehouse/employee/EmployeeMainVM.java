@@ -9,7 +9,7 @@ import view.warehouse.ViewHandler;
 import java.beans.PropertyChangeEvent;
 
 /**
- * This is the viewmodel Class for the main Employye view.
+ * This is the viewmodel Class for the main Employye view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -23,9 +23,9 @@ public class EmployeeMainVM {
     private ViewHandler viewHandler;
 
     /**
-     * Creates an EmployeeMainVM with the specified information and adds the needed Listeners.
-     * @param dataModel The {@link model.DataModel} to be used.
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * Creates an EmployeeMainVM with the specified information and adds the needed Listeners
+     * @param dataModel The {@link model.DataModel} to be used
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public EmployeeMainVM(IDataModel dataModel, ViewHandler viewHandler)
     {
@@ -41,17 +41,17 @@ public class EmployeeMainVM {
     }
 
     /**
-     * The method called by the Listener added at {@link this#EmployeeMainVM(IDataModel, ViewHandler)}.
-     * This method adds the Employee stored in the {@link PropertyChangeEvent} data.
-     * @param evt The {@link PropertyChangeEvent} that caused the Listener to call this method.
+     * The method called by the Listener added at {@link this#EmployeeMainVM(IDataModel, ViewHandler)}
+     * This method adds the Employee stored in the {@link PropertyChangeEvent} data
+     * @param evt The {@link PropertyChangeEvent} that caused the Listener to call this method
      */
     private void addEmployeeToClient(PropertyChangeEvent evt) {
         employees.add((Employee) evt.getNewValue());
     }
 
     /**
-     * Gets the {@link Employee}s stored.
-     * @return The {@link Employee}s stored.
+     * Gets the {@link Employee}s stored
+     * @return The {@link Employee}s stored
      */
     public ObservableList<Employee> getEmployees()
     {
@@ -59,7 +59,7 @@ public class EmployeeMainVM {
     }
 
     /**
-     * This method opens the main view.
+     * This method opens the main view
      */
     public void openMainView()
     {
@@ -67,7 +67,7 @@ public class EmployeeMainVM {
     }
 
     /**
-     * This method opens the main Inventory view.
+     * This method opens the main Inventory view
      */
     public void openInventoryView()
     {
@@ -75,7 +75,7 @@ public class EmployeeMainVM {
     }
 
     /**
-     * This method opens the add Employee view.
+     * This method opens the add Employee view
      */
     public void openEmployeeAddView()
     {
@@ -83,8 +83,8 @@ public class EmployeeMainVM {
     }
 
     /**
-     * This method removes an {@link Employee} from the List.
-     * @param e The {@link Employee} to be removed.
+     * This method removes an {@link Employee} from the List
+     * @param e The {@link Employee} to be removed
      */
     public void removeEmployee(Employee e) {
         dataModel.removeEmployeeWH(e);

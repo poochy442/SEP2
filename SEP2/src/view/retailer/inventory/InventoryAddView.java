@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import viewmodel.retailer.inventory.InventoryAddVM;
 
 /**
- * The view Class for the add Inventory view.
+ * The view Class for the add Inventory view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -70,16 +70,16 @@ public class InventoryAddView {
     private InventoryAddVM inventoryAddVM;
 
     /**
-     * Creates an InventoryAddView.
+     * Creates an InventoryAddView
      */
     public InventoryAddView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
+     * An init method instantiating all the required fields
      *
-     * @param inventoryAddVM the {@link InventoryAddVM} viewmodel to be used.
+     * @param inventoryAddVM the {@link InventoryAddVM} viewmodel to be used
      */
     public void init(InventoryAddVM inventoryAddVM) {
         this.inventoryAddVM = inventoryAddVM;

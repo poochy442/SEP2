@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 /**
- * The viewmodel Class for the add Inventory view.
+ * The viewmodel Class for the add Inventory view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -34,9 +34,9 @@ public class InventoryAddVM {
     private ViewHandler viewHandler;
 
     /**
-     * Creates an InventoryAddVM with the specified information and instantiated the required fields.
-     * @param dataModel The {@link model.DataModel} to be used.
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * Creates an InventoryAddVM with the specified information and instantiated the required fields
+     * @param dataModel The {@link model.DataModel} to be used
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public InventoryAddVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
@@ -54,8 +54,9 @@ public class InventoryAddVM {
     }
 
     /**
-     * Converts a {@link LocalDate} Object to a {@link Date} Object.
-     * @throws ParseException
+     * Converts a {@link LocalDate} Object to a {@link Date} Object
+     * @throws ParseException This method throws a ParseException if the {@link SimpleDateFormat} using the
+     * pattern MM/dd/yyyy can not parse the data
      */
     public void dateConverter() throws ParseException
     {
@@ -72,7 +73,7 @@ public class InventoryAddVM {
     }
 
     /**
-     * Adds a Stock Item to the {@link model.DataModel} with the current information.
+     * Adds a Stock Item to the {@link model.DataModel} with the current information
      */
     public void addStockItem() {
         try {
@@ -96,99 +97,99 @@ public class InventoryAddVM {
     }
 
     /**
-     * This method opens the main Inventory view.
+     * This method opens the main Inventory view
      */
     public void goBack() {
         viewHandler.openInventoryMainView();
     }
 
     /**
-     * Gets the name {@link StringProperty}.
-     * @return The name {@link StringProperty}.
+     * Gets the name {@link StringProperty}
+     * @return The name {@link StringProperty}
      */
     public StringProperty nameProperty() {
         return name;
     }
 
     /**
-     * Gets the ID {@link StringProperty}.
-     * @return The ID {@link StringProperty}.
+     * Gets the ID {@link StringProperty}
+     * @return The ID {@link StringProperty}
      */
     public StringProperty idProperty() {
         return id;
     }
 
     /**
-     * Gets the quantity {@link StringProperty}.
-     * @return The quantity {@link StringProperty}.
+     * Gets the quantity {@link StringProperty}
+     * @return The quantity {@link StringProperty}
      */
     public StringProperty quantityProperty() {
         return quantity;
     }
 
     /**
-     * Gets the price {@link StringProperty}.
-     * @return The price {@link StringProperty}.
+     * Gets the price {@link StringProperty}
+     * @return The price {@link StringProperty}
      */
     public StringProperty priceProperty() {
         return price;
     }
 
     /**
-     * Get the can expire {@link BooleanProperty}.
-     * @return The can expire {@link BooleanProperty}.
+     * Get the can expire {@link BooleanProperty}
+     * @return The can expire {@link BooleanProperty}
      */
     public BooleanProperty canExpireProperty() {
         return canExpire;
     }
 
     /**
-     * Gets the expiry date {@link ObjectProperty}.
-     * @return The expiry date {@link ObjectProperty}.
+     * Gets the expiry date {@link ObjectProperty}
+     * @return The expiry date {@link ObjectProperty}
      */
     public ObjectProperty<LocalDate> getExpiryDate() {
         return expiryDate;
     }
 
     /**
-     * This method opens the main view.
+     * This method opens the main view
      */
     public void openMainView() {
         viewHandler.openMainView();
     }
 
     /**
-     * This method opens the main Inventory view.
+     * This method opens the main Inventory view
      */
     public void openInventoryView() {
         viewHandler.openInventoryMainView();
     }
 
     /**
-     * This method opens the main Employee view.
+     * This method opens the main Employee view
      */
     public void openEmployeeView() {
         viewHandler.openEmployeeMainView();
     }
 
     /**
-     * Gets the minimum stock {@link StringProperty}.
-     * @return The minimum stock {@link StringProperty}.
+     * Gets the minimum stock {@link StringProperty}
+     * @return The minimum stock {@link StringProperty}
      */
     public StringProperty minStockProperty() {
         return minStock;
     }
 
     /**
-     * Gets the maximum stock {@link StringProperty}.
-     * @return The maximum stock {@link StringProperty}.
+     * Gets the maximum stock {@link StringProperty}
+     * @return The maximum stock {@link StringProperty}
      */
     public StringProperty maxStockProperty() {
         return maxStock;
     }
 
     /**
-     * This method asks the user for confirmation using an {@link Alert}.
+     * This method asks the user for confirmation using an {@link Alert}
      */
     public void confirmation() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -199,16 +200,16 @@ public class InventoryAddVM {
     }
 
     /**
-     * Verifies that the quantity only contains Numbers.
-     * @return Whether the quantity only contains Numbers or not.
+     * Verifies that the quantity only contains Numbers
+     * @return Whether the quantity only contains Numbers or not
      */
     public boolean onlyNumbersQuantity() {
         return dataModel.onlyNumbers(quantity.getValue());
     }
 
     /**
-     * Verifies that the price only contains Numbers.
-     * @return Whether the price only contains Numbers or not.
+     * Verifies that the price only contains Numbers
+     * @return Whether the price only contains Numbers or not
      */
     public boolean onlyNumbersPrice()
     {
@@ -216,8 +217,8 @@ public class InventoryAddVM {
     }
 
     /**
-     * Verifies that the minimum stock only contains Numbers.
-     * @return Whether the minimum stock only contains Numbers or not.
+     * Verifies that the minimum stock only contains Numbers
+     * @return Whether the minimum stock only contains Numbers or not
      */
     public boolean onlyNumbersMinStock()
     {
@@ -225,8 +226,8 @@ public class InventoryAddVM {
     }
 
     /**
-     * Verifies that the maximum stock only contains Numbers.
-     * @return Whether the maximum stock only contains Numbers or not.
+     * Verifies that the maximum stock only contains Numbers
+     * @return Whether the maximum stock only contains Numbers or not
      */
     public boolean onlyNumbersMaxStock()
     {
@@ -234,7 +235,7 @@ public class InventoryAddVM {
     }
 
     /**
-     * Populates the fields with default values if they are empty.
+     * Populates the fields with default values if they are empty
      */
     public void executeEmpty()
     {
@@ -260,8 +261,8 @@ public class InventoryAddVM {
     }
 
     /**
-     * Verifies that the expiry date is a valid date.
-     * @return Whether the expiry date is a valid date or not.
+     * Verifies that the expiry date is a valid date
+     * @return Whether the expiry date is a valid date or not
      */
     public boolean validDate()
     {

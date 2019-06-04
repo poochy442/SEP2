@@ -9,9 +9,9 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 
 /**
- * The ClientReveiver Class is responsible for all Incoming traffic to the {@link Client}¨.
- * It uses a modified Producer/Consumer pattern, with the {@link network.Server.ServerSender} being the Producer.
- * The Class will loop between putting running the {@link Thread#sleep(long)} method and checking for incoming traffic.
+ * The ClientReveiver Class is responsible for all Incoming traffic to the {@link Client}
+ * It uses a modified Producer/Consumer pattern, with the {@link network.Server.ServerSender} being the Producer
+ * The Class will loop between putting running the {@link Thread#sleep(long)} method and checking for incoming traffic
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -25,10 +25,10 @@ public class ClientReceiver implements Runnable {
     private IDataModel dataModel;
 
     /**
-     * Creates the ClientReceiver with the specified {@link Socket} and {@link model.DataModel}.
+     * Creates the ClientReceiver with the specified {@link Socket} and {@link model.DataModel}
      *
-     * @param socket    The {@link Socket} to use.
-     * @param dataModel The {@link model.DataModel} to use.
+     * @param socket    The {@link Socket} to use
+     * @param dataModel The {@link model.DataModel} to use
      */
     public ClientReceiver(Socket socket, IDataModel dataModel) {
         this.socket = socket;
@@ -36,8 +36,8 @@ public class ClientReceiver implements Runnable {
     }
 
     /**
-     * The run method inherited from {@link Runnable}.
-     * This method is responsible for the logic of the ClientReceiver.
+     * The run method inherited from {@link Runnable}
+     * This method is responsible for the logic of the ClientReceiver
      */
     @Override
     public void run() {

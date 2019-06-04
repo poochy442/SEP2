@@ -17,7 +17,7 @@ import viewmodel.hq.hq.inventory.InventoryMainHQVM;
 import java.time.LocalDate;
 
 /**
- * The view Class for the main Inventory view.
+ * The view Class for the main Inventory view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -64,15 +64,15 @@ public class InventoryMainHQView {
     private StockItem selectedItem;
 
     /**
-     * Creates an InventoryMainView.
+     * Creates an InventoryMainView
      */
     public InventoryMainHQView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
-     * @param inventoryMainHQVM The {@link InventoryMainHQVM} viewmodel to be used.
+     * An init method instantiating all the required fields
+     * @param inventoryMainHQVM The {@link InventoryMainHQVM} viewmodel to be used
      */
     public void init(InventoryMainHQVM inventoryMainHQVM) {
         this.inventoryMainHQVM = inventoryMainHQVM;

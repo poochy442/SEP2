@@ -4,7 +4,7 @@ import model.IDataModel;
 import view.retailer.ViewHandler;
 
 /**
- * The main viewmodel Class for the Warehouse.
+ * The main viewmodel Class for the Warehouse
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -20,8 +20,8 @@ public class MainVM {
     /**
      * Creates a MainVM with the specified information
      *
-     * @param dataModel   The {@link model.DataModel} to be used.
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * @param dataModel   The {@link model.DataModel} to be used
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public MainVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
@@ -30,14 +30,14 @@ public class MainVM {
 
 
     /**
-     * This method opens the main Employee view.
+     * This method opens the main Employee view
      */
     public void openEmployeeMainView() {
         viewHandler.openEmployeeMainView();
     }
 
     /**
-     * This method opens the main Inventory view.
+     * This method opens the main Inventory view
      */
     public void openInventoryMainView()
     {
@@ -45,7 +45,7 @@ public class MainVM {
     }
 
     /**
-     * This method opens the Product Request view.
+     * This method opens the Product Request view
      */
     public void openRequestMainView()
     {

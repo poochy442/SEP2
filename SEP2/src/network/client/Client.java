@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * The Client class of our Client/Server infrastructure.
+ * The Client class of our Client/Server infrastructure
  * This Class is responsible for setting up the connection and starting 2 Threads, one running a
- * {@link ClientSender} and the other running a {@link ClientReceiver}.
+ * {@link ClientSender} and the other running a {@link ClientReceiver}
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -23,9 +23,10 @@ public class Client implements Runnable {
 
 
     /**
-     * Creates a Client connection to the given host and using the given {@link model.DataModel}.
+     * Creates a Client connection to the given host and using the given {@link model.DataModel}
      * @param HOST The IP Adress of the server the Client needs to connect to
-     * @param dataModel The DataModel for the Client to use.
+     * @param dataModel The DataModel for the Client to use
+     * @param departmentID The department ID of the client
      */
     public Client(String HOST, IDataModel dataModel,String departmentID) {
         this.HOST = HOST;
@@ -34,8 +35,8 @@ public class Client implements Runnable {
     }
 
     /**
-     * The Run method inherited from the {@link Runnable} interface.
-     * This method creates a {@link ClientSender} and {@link ClientReceiver} and start a a Thread for each.
+     * The Run method inherited from the {@link Runnable} interface
+     * This method creates a {@link ClientSender} and {@link ClientReceiver} and start a a Thread for each
      */
     @Override
     public void run() {

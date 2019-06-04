@@ -11,7 +11,7 @@ import java.net.Socket;
 
 /**
  * <h1>ServerReceiver Class responsible for the incoming traffic of the {@link Server}</h1>
- * This class implements a modified Producer/Consumer pattern, with the {@link network.client.ClientSender} as the Producer.
+ * This class implements a modified Producer/Consumer pattern, with the {@link network.client.ClientSender} as the Producer
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -27,10 +27,11 @@ public class ServerReceiver implements Runnable {
     private int clientNo;
 
     /**
-     * Creates a ServerReceiver with the specified {@link Socket} and {@link DataBaseModel}.
+     * Creates a ServerReceiver with the specified {@link Socket} and {@link DataBaseModel}
      *
-     * @param socket        The {@link Socket} for the ServerReceiver to use.
-     * @param dataBaseModel The {@link DataBaseModel} for the ServerReceiver to use.
+     * @param socket        The {@link Socket} for the ServerReceiver to use
+     * @param dataBaseModel The {@link DataBaseModel} for the ServerReceiver to use
+     * @param clientNo The client number of the connected client
      */
     public ServerReceiver(Socket socket, DataBaseModel dataBaseModel, int clientNo) {
         this.socket = socket;
@@ -43,11 +44,11 @@ public class ServerReceiver implements Runnable {
     }
 
     /**
-     * The run method inherited from the {@link Runnable}.
-     * This method creates an {@link java.io.ObjectOutputStream} with the input stream of the {@link Socket}.
-     * It then loops running {@link Thread#sleep(long)} and checking whether something has been sent to it.
+     * The run method inherited from the {@link Runnable}
+     * This method creates an {@link java.io.ObjectOutputStream} with the input stream of the {@link Socket}
+     * It then loops running {@link Thread#sleep(long)} and checking whether something has been sent to it
      * If something has been sent, it decrypts the {@link Packet} and performs the logic associated with the
-     * request contained.
+     * request contained
      */
     @Override
     public void run() {

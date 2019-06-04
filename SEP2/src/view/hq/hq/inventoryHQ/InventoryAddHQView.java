@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import viewmodel.hq.hq.inventory.InventoryAddHQVM;
 
 /**
- * The view Class for the add Inventory view.
+ * The view Class for the add Inventory view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -67,15 +67,15 @@ public class InventoryAddHQView {
     private InventoryAddHQVM inventoryAddHQVM;
 
     /**
-     * Creates an InventoryAddView.
+     * Creates an InventoryAddView
      */
     public InventoryAddHQView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
-     * @param inventoryAddHQVM the {@link InventoryAddHQVM} viewmodel to be used.
+     * An init method instantiating all the required fields
+     * @param inventoryAddHQVM the {@link InventoryAddHQVM} viewmodel to be used
      */
     public void init(InventoryAddHQVM inventoryAddHQVM) {
         this.inventoryAddHQVM = inventoryAddHQVM;

@@ -15,7 +15,7 @@ import model.ProductRequest;
 import viewmodel.retailer.request.ProductRequestVM;
 
 /**
- * The view Class for the Product Request view.
+ * The view Class for the Product Request view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -53,16 +53,16 @@ public class ProductRequestView {
     private ProductRequest selectedItem;
 
     /**
-     * Creates a SalesView.
+     * Creates a SalesView
      */
     public ProductRequestView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
+     * An init method instantiating all the required fields
      *
-     * @param productRequestVM The {@link ProductRequestVM} viewmodel to be used.
+     * @param productRequestVM The {@link ProductRequestVM} viewmodel to be used
      */
     public void init(ProductRequestVM productRequestVM) {
         this.productRequestVM = productRequestVM;

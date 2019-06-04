@@ -8,7 +8,7 @@ import model.IDataModel;
 import view.warehouse.ViewHandler;
 
 /**
- * This is the viewmodel Class for add Employee view.
+ * This is the viewmodel Class for add Employee view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -25,9 +25,9 @@ public class EmployeeAddVM {
     private ViewHandler viewHandler;
 
     /**
-     * Creates an EmployeeAddVM with the specified information.
-     * @param dataModel The {@link model.DataModel} to be used.
-     * @param viewHandler The {@link ViewHandler} to be used.
+     * Creates an EmployeeAddVM with the specified information
+     * @param dataModel The {@link model.DataModel} to be used
+     * @param viewHandler The {@link ViewHandler} to be used
      */
     public EmployeeAddVM(IDataModel dataModel, ViewHandler viewHandler)
     {
@@ -39,7 +39,7 @@ public class EmployeeAddVM {
     }
 
     /**
-     * Adds an {@link Employee} with the current information.
+     * Adds an {@link Employee} with the current information
      */
     public void addEmployee()
     {
@@ -52,7 +52,7 @@ public class EmployeeAddVM {
     }
 
     /**
-     * This method opens the main Employee view.
+     * This method opens the main Employee view
      */
     public void goBack()
     {
@@ -60,7 +60,7 @@ public class EmployeeAddVM {
     }
 
     /**
-     * This method opens the main view.
+     * This method opens the main view
      */
     public void openMainView()
     {
@@ -68,7 +68,7 @@ public class EmployeeAddVM {
     }
 
     /**
-     * This method opens the main Inventory view.
+     * This method opens the main Inventory view
      */
     public void openInventoryView()
     {
@@ -76,7 +76,7 @@ public class EmployeeAddVM {
     }
 
     /**
-     * This method opens the main Employee view.
+     * This method opens the main Employee view
      */
     public void openEmployeeView()
     {
@@ -84,31 +84,31 @@ public class EmployeeAddVM {
     }
 
     /**
-     * Gets the first name {@link StringProperty} stored.
-     * @return The first name {@link StringProperty} stored.
+     * Gets the first name {@link StringProperty} stored
+     * @return The first name {@link StringProperty} stored
      */
     public StringProperty firstNameProperty() {
         return firstName;
     }
 
     /**
-     * Gets the last name {@link StringProperty} stored.
-     * @return The last name {@link StringProperty} stored.
+     * Gets the last name {@link StringProperty} stored
+     * @return The last name {@link StringProperty} stored
      */
     public StringProperty lastNameProperty() {
         return lastName;
     }
 
     /**
-     * Gets the id {@link StringProperty} stored.
-     * @return The id {@link StringProperty} stored.
+     * Gets the id {@link StringProperty} stored
+     * @return The id {@link StringProperty} stored
      */
     public StringProperty idProperty() {
         return id;
     }
 
     /**
-     * This method asks the user for confirmation using a {@link Alert}.
+     * This method asks the user for confirmation using a {@link Alert}
      */
     public void confirmation() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -119,16 +119,16 @@ public class EmployeeAddVM {
     }
 
     /**
-     * This method validates that the first name only contains Letters.
-     * @return Whether the first name only contains Letters or not.
+     * This method validates that the first name only contains Letters
+     * @return Whether the first name only contains Letters or not
      */
     public boolean validateFirstName() {
         return dataModel.onlyLetters(firstName.getValue());
     }
 
     /**
-     * This method validates that the last name only contains Letters.
-     * @return Whether the last name only contains Letters or not.
+     * This method validates that the last name only contains Letters
+     * @return Whether the last name only contains Letters or not
      */
     public boolean validateLastName() {
         return  dataModel.onlyLetters(lastName.getValue());

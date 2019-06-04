@@ -12,10 +12,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * The ClientSender is the Class responsible for the outgoing traffic of the {@link Client}.
+ * The ClientSender is the Class responsible for the outgoing traffic of the {@link Client}
  * The ClientSender implements a modified Producer/Consumer pattern with the {@link network.Server.ServerReceiver}
  * as the Consumer. It stores a {@link Queue} and a method to add {@link Packet}s to the {@link Queue},
- * which it will then send. When there is nothing in the {@link Queue}, it will {@link Thread#sleep(long)}.
+ * which it will then send. When there is nothing in the {@link Queue}, it will {@link Thread#sleep(long)}
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -30,10 +30,10 @@ public class ClientSender implements Runnable {
     private IDataModel dataModel;
 
     /**
-     * Creates a ClientSender with the specified information and adds the required {@link javafx.beans.property.StringPropertyBase.Listener}s.
+     * Creates a ClientSender with the specified information and adds the required Listeners
      *
-     * @param socket    The {@link Socket} for the ClientSender to use.
-     * @param dataModel The {@link DataModel} for the ClientSender to use.
+     * @param socket    The {@link Socket} for the ClientSender to use
+     * @param dataModel The {@link DataModel} for the ClientSender to use
      */
     public ClientSender(Socket socket, IDataModel dataModel) {
         this.socket = socket;
@@ -94,9 +94,9 @@ public class ClientSender implements Runnable {
     }
 
     /**
-     * Deletes a {@link StockItem} from the Warehouse.
+     * Deletes a {@link StockItem} from the Warehouse
      *
-     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
+     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run
      */
     private void deleteItemFromWH(PropertyChangeEvent propertyChangeEvent) {
         StockItem stockItem = (StockItem) propertyChangeEvent.getNewValue();
@@ -107,9 +107,9 @@ public class ClientSender implements Runnable {
     }
 
     /**
-     * Adds an Item Request to the {@link Queue}.
+     * Adds an Item Request to the {@link Queue}
      *
-     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
+     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run
      */
     private void triggerItemQuery(PropertyChangeEvent propertyChangeEvent) {
         Packet p = new Packet(Packet.ItemQuery, (String) propertyChangeEvent.getNewValue());
@@ -118,9 +118,9 @@ public class ClientSender implements Runnable {
     }
 
     /**
-     * Adds an Employee Query to the {@link Queue}.
+     * Adds an Employee Query to the {@link Queue}
      *
-     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run.
+     * @param propertyChangeEvent The {@link PropertyChangeEvent} that triggered this method to be run
      */
     private void triggerEmployeeQuery(PropertyChangeEvent propertyChangeEvent) {
         String departmentid = (String) propertyChangeEvent.getNewValue();
@@ -159,8 +159,8 @@ public class ClientSender implements Runnable {
     }
 
     /**
-     * The run method inherited from {@link Runnable}.
-     * This method contains the logic of sending {@link Packet}s stored in the {@link Queue} to the {@link network.Server.ServerReceiver}.
+     * The run method inherited from {@link Runnable}
+     * This method contains the logic of sending {@link Packet}s stored in the {@link Queue} to the {@link network.Server.ServerReceiver}
      */
     @Override
     public void run() {
@@ -187,9 +187,9 @@ public class ClientSender implements Runnable {
     }
 
     /**
-     * The method used to add {@link Packet}s the {@link Queue}.
+     * The method used to add {@link Packet}s the {@link Queue}
      *
-     * @param packet The {@link Packet} to be added.
+     * @param packet The {@link Packet} to be added
      */
     public void addToQueue(Packet packet) {
         queue.add(packet);

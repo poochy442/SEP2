@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import viewmodel.retailer.main.MainVM;
 
 /**
- * The main view Class for the Warehouse.
+ * The main view Class for the Warehouse
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -23,16 +23,16 @@ public class MainView {
     private AnchorPane anchorPane;
 
     /**
-     * Creates a MainView.
+     * Creates a MainView
      */
     public MainView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
+     * An init method instantiating all the required fields
      *
-     * @param mainVM The {@link MainVM} viewmodel to be used.
+     * @param mainVM The {@link MainVM} viewmodel to be used
      */
     public void init(MainVM mainVM) {
         this.mainVM = mainVM;

@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import viewmodel.warehouse.employee.EmployeeAddVM;
 
 /**
- * The view Class for the add Employee view.
+ * The view Class for the add Employee view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -47,15 +47,15 @@ public class EmployeeAddView {
     private EmployeeAddVM employeeAddVM;
 
     /**
-     * Creates an EmployeeAddView.
+     * Creates an EmployeeAddView
      */
     public EmployeeAddView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
-     * @param employeeAddVM The {@link EmployeeAddVM} viewmodel to be used.
+     * An init method instantiating all the required fields
+     * @param employeeAddVM The {@link EmployeeAddVM} viewmodel to be used
      */
     public void init(EmployeeAddVM employeeAddVM) {
         this.employeeAddVM = employeeAddVM;

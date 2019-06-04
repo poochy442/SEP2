@@ -13,7 +13,7 @@ import model.StockItem;
 import viewmodel.retailer.sales.SalesVM;
 
 /**
- * The view Class for the Product Request view.
+ * The view Class for the Product Request view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -44,16 +44,16 @@ public class SalesView {
     private SalesVM salesVM;
 
     /**
-     * Creates a SalesView.
+     * Creates a SalesView
      */
     public SalesView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
+     * An init method instantiating all the required fields
      *
-     * @param salesVM The {@link SalesVM} viewmodel to be used.
+     * @param salesVM The {@link SalesVM} viewmodel to be used
      */
     public void init(SalesVM salesVM) {
         this.salesVM = salesVM;

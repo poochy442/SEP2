@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import viewmodel.hq.hq.main.MainVM;
 
 /**
- * The main view Class for the Headquarters.
+ * The main view Class for the Headquarters
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -38,7 +38,7 @@ public class MainView {
     }
 
     /**
-     * Creates a MainView.
+     * Creates a MainView
      */
     public MainView()
     {
@@ -46,8 +46,8 @@ public class MainView {
     }
 
     /**
-     * An init method instantiating all the required fields.
-     * @param mainVM The {@link MainVM} viewmodel to use.
+     * An init method instantiating all the required fields
+     * @param mainVM The {@link MainVM} viewmodel to use
      */
     public void init(MainVM mainVM)
     {

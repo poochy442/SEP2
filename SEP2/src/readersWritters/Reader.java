@@ -15,7 +15,7 @@ public class Reader implements Runnable {
     /**
      * Creates a Reader with the given parameters
      * @param sharedResourceController The {@link ReadWriteSafe} to use
-     * @param name
+     * @param name foo
      */
     public Reader(ReadWriteSafe sharedResourceController, String name) {
         this.sharedResourceController = sharedResourceController;

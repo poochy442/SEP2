@@ -6,6 +6,9 @@ import network.client.Client;
 import view.retailer.ViewHandler;
 import viewmodel.retailer.ViewModelProvider;
 
+/**
+ * The Run Class for our retailer {@link Application}
+ */
 public class RunRT extends Application {
 
 

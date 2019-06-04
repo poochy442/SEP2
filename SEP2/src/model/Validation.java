@@ -3,7 +3,7 @@ package model;
 /**
  * <h1>Validation Class used for validating input with sets of regex's</h1>
  * This Class contains methods to check whether a string contains only Letters,
- * only Numbers or a combination of the two.
+ * only Numbers or a combination of the two
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -20,9 +20,9 @@ public class Validation {
     }
 
     /**
-     * Checks whether all Characters of a String are Letters.
-     * @param name The {@link String} to test.
-     * @return Whether the {@link String} only contains Letters or not.
+     * Checks whether all Characters of a String are Letters
+     * @param name The {@link String} to test
+     * @return Whether the {@link String} only contains Letters or not
      */
     public boolean onlyLetters(String name) {
         char[] chars = name.toCharArray();
@@ -37,9 +37,9 @@ public class Validation {
     }
 
     /**
-     * Checks whether all Characters of a String are Numbers.
-     * @param name The {@link String} to test.
-     * @return Whether the {@link String} only contains Numbers or not.
+     * Checks whether all Characters of a String are Numbers
+     * @param name The {@link String} to test
+     * @return Whether the {@link String} only contains Numbers or not
      */
     public boolean onlyNumbers(String name)
     {
@@ -51,9 +51,9 @@ public class Validation {
     }
 
     /**
-     * Checks whether All Characters of a String are either a Letter or a Number.
-     * @param name The {@link String} to test.
-     * @return Whether the {@link String} only contains Letters and Numbers.
+     * Checks whether All Characters of a String are either a Letter or a Number
+     * @param name The {@link String} to test
+     * @return Whether the {@link String} only contains Letters and Numbers
      */
     public boolean onlyLettersAndNumbers(String name)
     {

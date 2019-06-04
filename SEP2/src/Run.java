@@ -6,6 +6,9 @@ import network.client.Client;
 import view.warehouse.ViewHandler;
 import viewmodel.warehouse.ViewModelProvider;
 
+/**
+ * The Run class for our Warehouse {@link Application}
+ */
 public class Run extends Application {
 
 

@@ -6,6 +6,9 @@ import network.client.Client;
 import view.hq.ViewHandler;
 import viewmodel.hq.ViewModelProvider;
 
+/**
+ * The Run class for our headquarters {@link Application}
+ */
 public class RunHQ extends Application {
     public static void main(String[] args) {
         Application.launch(RunHQ.class);

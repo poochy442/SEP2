@@ -9,7 +9,7 @@ import view.hq.ViewHandler;
 import java.beans.PropertyChangeEvent;
 
 /**
- * The viewmodel Class for the Warehouse Inventory view.
+ * The viewmodel Class for the Warehouse Inventory view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -24,8 +24,8 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
 
     /**
      * Creates an InventoryWHVM with the specified information
-     * @param dataModel The {@link model.DataModel} to be used.
-     * @param viewHandler The {@link view.hq.ViewHandler} to be used.
+     * @param dataModel The {@link model.DataModel} to be used
+     * @param viewHandler The {@link view.hq.ViewHandler} to be used
      */
     public InventoryWHVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.viewHandler = viewHandler;
@@ -39,42 +39,42 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         stockItems.add((StockItem) evt.getNewValue());
     }
     /**
-     * Gets the {@link StockItem}s stored.
-     * @return The {@link StockItem}s stored.
+     * Gets the {@link StockItem}s stored
+     * @return The {@link StockItem}s stored
      */
     public ObservableList<StockItem> getStockItems() {
         return stockItems;
     }
 
     /**
-     * This method opens the main view.
+     * This method opens the main view
      */
     public void openMainView() {
 
     }
 
     /**
-     * This method opens the Warehouse Employee view.
+     * This method opens the Warehouse Employee view
      */
     public void openEmployeeWHView() {
         viewHandler.openEmployeeMainWHView();
     }
 
     /**
-     * This method opens the main Headquarters view.
+     * This method opens the main Headquarters view
      */
     public void openMainHQView() {viewHandler.openMainHQView();
     }
 
     /**
-     * This method opens the Warehouse main Inventory view,
+     * This method opens the Warehouse main Inventory view
      */
     public void openInventoryMainWHView() {
     }
 
     /**
-     * This method removes a {@link StockItem}.
-     * @param stockItem The {@link StockItem} to be removed.
+     * This method removes a {@link StockItem}
+     * @param stockItem The {@link StockItem} to be removed
      */
     public void removeStockItem(StockItem stockItem) {
         dataModel.removeStockItemHQ(stockItem);

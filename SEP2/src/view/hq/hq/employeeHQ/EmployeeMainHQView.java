@@ -15,7 +15,7 @@ import model.Employee;
 import viewmodel.hq.hq.employee.EmployeeMainHQVM;
 
 /**
- * The view Class for the Headquarter's main Employee view.
+ * The view Class for the Headquarter's main Employee view
  *
  * @author Kenneth Jensen
  * @author Floring Bordei
@@ -46,15 +46,15 @@ public class EmployeeMainHQView {
     private Employee selectedEmployee;
 
     /**
-     * Creates an EmployeeMainHQView.
+     * Creates an EmployeeMainHQView
      */
     public EmployeeMainHQView() {
 
     }
 
     /**
-     * An init method instantiating all the required fields.
-     * @param employeeMainHQVM The {@link EmployeeMainHQVM} viewmodel to use.
+     * An init method instantiating all the required fields
+     * @param employeeMainHQVM The {@link EmployeeMainHQVM} viewmodel to use
      */
     public void init(EmployeeMainHQVM employeeMainHQVM)
     {
