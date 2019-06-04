@@ -151,10 +151,8 @@ public class ClientSender implements Runnable {
     }
 
     public void addRequestListener(PropertyChangeEvent propertyChangeEvent) {
-        ProductRequestList productRequestList = (ProductRequestList) propertyChangeEvent.getNewValue();
-        Gson gson = new Gson();
-        String json = gson.toJson(productRequestList);
-        Packet packet = new Packet(Packet.RequestOperation, json);
+        String departmentID = (String) propertyChangeEvent.getNewValue();
+        Packet packet = new Packet(Packet.RequestOperation, departmentID);
         addToQueue(packet);
     }
 

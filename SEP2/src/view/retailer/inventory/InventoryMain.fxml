@@ -148,7 +148,6 @@
                   <TableColumn fx:id="expiryDateCol" prefWidth="188.0" text="Expiry date" />
                   <TableColumn fx:id="minStockCol" prefWidth="188.0" text="Min stock" />
                   <TableColumn fx:id="maxStockCol" prefWidth="188.0" text="Max stock" />
-                  <TableColumn fx:id="locationCol" prefWidth="188.0" text="Location" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -164,17 +163,17 @@
                   <Pane prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" />
                   <Pane layoutX="259.0" prefHeight="76.0" prefWidth="1273.0">
                      <children>
-                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #1ABC9C; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add item stock">
+                        <Button fx:id="addItemStockButton" layoutX="23.0" layoutY="25.0" mnemonicParsing="false" onAction="#onAddItemStockClicked" style="-fx-background-color: white; -fx-border-color: #1ABC9C; -fx-border-radius: 5px; -fx-background-radius: 8px;" text="Add stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit item stock">
+                        <Button fx:id="editItemStockButton" layoutX="138.0" layoutY="25.0" mnemonicParsing="false" onAction="#onEditItemStockClicked" style="-fx-background-color: white; -fx-border-color: #FACD06; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Edit stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="removeItemStockButton" layoutX="253.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove item stock">
+                        <Button fx:id="removeItemStockButton" layoutX="253.0" layoutY="25.0" mnemonicParsing="false" onAction="#onRemoveItemStockClicked" style="-fx-background-color: white; -fx-border-color: #DD4B39; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Remove stock item">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -185,8 +184,6 @@
                            </cursor>
                         </Button>
                         <TextField fx:id="requestQtyField" layoutX="505.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" promptText="Quantity to request" />
-                        <Label fx:id="errorQuantityLabel" layoutX="780.0" layoutY="30.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false" />
-                        <Label fx:id="emptyQuantity" layoutX="790.0" layoutY="30.0" text="Field cannot be empty" textFill="#dd4b39" visible="false" />
                         <TextField fx:id="sellQuantityField" layoutX="900.0" layoutY="25.0" prefHeight="27.0" prefWidth="150.0" promptText="Quantity to sell" />
                         <Button fx:id="sellButton" layoutX="1065.0" layoutY="25.0" mnemonicParsing="false" onAction="#onSellClicked" prefWidth="50.0" style="-fx-background-color: white; -fx-border-color: #2C363B; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="Sell">
                            <cursor>

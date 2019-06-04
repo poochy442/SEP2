@@ -94,7 +94,7 @@ public class EmployeeMainHQView {
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
-
+        employeeMainHQVM.openEmployeeMainHQView();
     }
 
     @FXML
@@ -114,7 +114,7 @@ public class EmployeeMainHQView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        Alert confirmingAlert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
         confirmingAlert.setTitle("Confirmation");
         confirmingAlert.setHeaderText("Are you sure you want to delete the employee with ID: " + selectedEmployee.getId() + "?");
         confirmingAlert.setContentText("Press ok to continue");
@@ -130,11 +130,20 @@ public class EmployeeMainHQView {
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        employeeMainHQVM.openMainRTView();
     }
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        employeeMainHQVM.openInventoryMainWHView();
+        employeeMainHQVM.openMainWHView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        employeeMainHQVM.openMainView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event) {
+        employeeMainHQVM.openDeliveryView();
     }
 }

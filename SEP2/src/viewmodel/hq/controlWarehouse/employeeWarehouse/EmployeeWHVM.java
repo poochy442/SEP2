@@ -32,7 +32,7 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
         this.viewHandler = viewHandler;
         this.dataModel = dataModel;
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
+        dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient); //TODO: Delete one of these to just initialize the table view
         dataModel.addListener("NewEmployeeFromServer",this::addEmployeeToClient);
     }
 
@@ -70,11 +70,12 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
     public void openEmployeeMainWHView() {viewHandler.openEmployeeMainWHView();
     }
 
-    /**
-     * This method removes an {@link Employee}.
-     * @param e The {@link Employee} to be removed.
-     */
-    public void removeEmployee(Employee e) {
-        dataModel.removeEmployeeHQ(e);
+    public void openDeliveryView() {
+    }
+
+    public void openMainRTView() {viewHandler.openMainRTView();
+    }
+
+    public void openMainWHView() {viewHandler.openMainWHView();
     }
 }

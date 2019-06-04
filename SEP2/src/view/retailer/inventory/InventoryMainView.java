@@ -52,19 +52,13 @@ public class InventoryMainView {
     private TableColumn<Integer, StockItem> maxStockCol;
 
     @FXML
-    private TableColumn<String, StockItem> locationCol;
-
-    @FXML
     private AnchorPane anchorPane;
 
     @FXML
     private TextField requestQtyField;
 
-    @FXML private Label emptyQuantity;
-
-    @FXML private Label errorQuantityLabel;
-
-    @FXML private TextField sellQuantityField;
+    @FXML
+    private TextField sellQuantityField;
 
     private InventoryMainVM inventoryMainVM;
 
@@ -93,7 +87,6 @@ public class InventoryMainView {
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
         requestQtyField.textProperty().bindBidirectional(inventoryMainVM.requestQtyProperty());
         sellQuantityField.textProperty().bindBidirectional(inventoryMainVM.sellQtyProperty());
     }
@@ -161,18 +154,33 @@ public class InventoryMainView {
     void onProductRequestClicked(ActionEvent event) {
         inventoryMainVM.openProductRequestView();
     }
+
     @FXML
-    void onAddProductRequestClicked (ActionEvent event)
-    {
+    void onAddProductRequestClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
+        if (selectedItem == null || requestQtyField.textProperty().getValue().isEmpty()) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
             warningAlert.setTitle("Warning");
-            warningAlert.setHeaderText("No stock item has been selected");
+            String headerText = "";
+            if (selectedItem == null) {
+                headerText += "No stock item has been selected.";
+            }
+            if (requestQtyField.textProperty().getValue().isEmpty()) {
+                if(headerText.equals(""))
+                {
+                    headerText += "Field cannot be empty.";
+                }
+                else
+                {
+                    headerText += "\n" + "Field cannot be empty.";
+                }
+            }
+            warningAlert.setHeaderText(headerText);
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
+
         }
-        if (isValid()) {
+        else{
             inventoryMainVM.addProductRequestToList(selectedItem);
         }
 
@@ -183,37 +191,13 @@ public class InventoryMainView {
         inventoryMainVM.openSalesView();
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event)
-    {
+    @FXML
+    void onDeliveryClicked(ActionEvent event) {
         inventoryMainVM.openDeliveryView();
     }
 
-    private boolean isValid() {
-        boolean validQty, emptyQty = false;
-        if (requestQtyField.textProperty().getValue().isEmpty()) {
-            emptyQty = true;
-            emptyQuantity.setVisible(true);
-        } else {
-            emptyQty = false;
-            emptyQuantity.setVisible(false);
-        }
-
-        if (!inventoryMainVM.onlyNumbersQuantity() && !emptyQty) {
-            validQty = false;
-            errorQuantityLabel.setVisible(true);
-        } else {
-            validQty = true;
-            errorQuantityLabel.setVisible(false);
-        }
-
-        if (validQty && !emptyQty) {
-            return true;
-        }
-        return false;
-    }
-
-    @FXML void onSellClicked(ActionEvent event)
-    {
+    @FXML
+    void onSellClicked(ActionEvent event) {
         selectedItem = stockItemTable.getSelectionModel().getSelectedItem();
         if (selectedItem == null) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
@@ -222,6 +206,6 @@ public class InventoryMainView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        inventoryMainVM.sellStockItem(selectedItem);
+        inventoryMainVM.addToSales(selectedItem);
     }
 }

@@ -35,7 +35,7 @@ public class ProductRequestVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("AddProductRequest", this::addProductRequest);
+        dataModel.addListener("AddProductRequestView", this::addProductRequest);
         quantity = new SimpleStringProperty();
     }
 
@@ -92,7 +92,7 @@ public class ProductRequestVM {
      */
     public void sendProductRequest() {
 
-        dataModel.sendProductRequest();
+        dataModel.sendProductRequest("RT");
     }
 
     public void openProductRequestView() {

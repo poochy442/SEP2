@@ -3,6 +3,7 @@ package view.retailer.main;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,9 +19,17 @@ import viewmodel.retailer.main.MainVM;
  */
 
 public class MainView {
-    private MainVM mainVM;
+
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    PieChart pieChart;
+
+    private PieChart.Data costOfGoods = new PieChart.Data("costOfGoods", 0);
+    private PieChart.Data profit = new PieChart.Data("profit", 0);
+    private PieChart.Data operationalCost = new PieChart.Data("operationalCost", 0);
+    private MainVM mainVM;
 
     /**
      * Creates a MainView.
@@ -36,6 +45,9 @@ public class MainView {
      */
     public void init(MainVM mainVM) {
         this.mainVM = mainVM;
+//        costOfGoods.pieValueProperty().bind(viewModel.xProperty());
+//        profit.pieValueProperty().bind(viewModel.yProperty());
+//        operationalCost.pieValueProperty().bind(viewModel.zProperty());
     }
 
     @FXML

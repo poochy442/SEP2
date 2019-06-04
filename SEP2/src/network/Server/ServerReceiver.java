@@ -83,8 +83,9 @@ public class ServerReceiver implements Runnable {
 
                         break;
                     case Packet.RequestOperation:
-                        int requestID = dataBaseModel.requestCountQuery();
-                        dataBaseModel.setRequestStatus(requestID, clientNo, "In progress");
+                        String departmentID1 =json;
+                        String requestID = ""+dataBaseModel.requestProductMaxID(departmentID1);
+                        dataBaseModel.setRequestStatus(departmentID1,requestID, clientNo, "Complete");
                         break;
                     case Packet.EmployeeQuery:
                         String departmentID = json;
@@ -118,16 +119,18 @@ public class ServerReceiver implements Runnable {
                         System.out.println("ServerReceiver: SalesQuery");
                         break;
                     case Packet.addProductRequest:
+                        ProductRequest productRequest = gson.fromJson(json, ProductRequest.class);
+                        String department = productRequest.getStockItem().getLocation();
 
-                        int departmentid = dataBaseModel.requestProductMaxID("RT");
+                        int departmentid = dataBaseModel.requestProductMaxID(department);
+
                         if (departmentid == 0) {
                             departmentid = dataBaseModel.requestCountQuery();
-                        }
-                        ProductRequest productRequest = gson.fromJson(json, ProductRequest.class);
-                        if (departmentid == 0) {
+
                             dataBaseModel.addRequestToDataBase(productRequest.getStockItem().getLocation(), clientNo);
                             departmentid++;
                         }
+
 
                         System.out.println(dataBaseModel.addRequestItemToDatabase(productRequest, departmentid, clientNo));
                         break;

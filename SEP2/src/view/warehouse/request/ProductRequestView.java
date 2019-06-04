@@ -101,6 +101,7 @@ public class ProductRequestView {
     @FXML
     void onSendRequestClicked(ActionEvent event) {
         productRequestVM.sendProductRequest();
+
     }
 
     @FXML

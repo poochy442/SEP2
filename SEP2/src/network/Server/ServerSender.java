@@ -51,8 +51,17 @@ public class ServerSender implements Runnable {
         dataBaseModel.addListener("SalesQuery", this::sendSalesList);
         dataBaseModel.addListener("NewEmployee",this::newEmployee);
         dataBaseModel.addListener("RequestQuery",this::sendRequestList);
+        dataBaseModel.addListener("RequestRefresh",this::requestRefresh);
         System.out.println("newemployeelistener");
 
+    }
+
+    private void requestRefresh(PropertyChangeEvent propertyChangeEvent) {
+        Gson gson = new Gson();
+        String json = "";
+        Packet packet = new Packet(Packet.requestRefresh,json);
+        addToQueue(packet);
+        System.out.println("ServerSender: requestRefresh sent");
     }
 
     private void sendRequestList(PropertyChangeEvent propertyChangeEvent) {

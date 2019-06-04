@@ -55,8 +55,6 @@ public class InventoryMainHQView {
     private TableColumn<Integer, StockItem> maxStockCol;
 
     @FXML
-    private TableColumn<String, StockItem> locationCol;
-    @FXML
     private AnchorPane anchorPane;
 
     private InventoryMainHQVM inventoryMainHQVM;
@@ -85,7 +83,6 @@ public class InventoryMainHQView {
         expiryDateCol.setCellValueFactory(new PropertyValueFactory<>("expiryDate"));
         minStockCol.setCellValueFactory(new PropertyValueFactory<>("minStock"));
         maxStockCol.setCellValueFactory(new PropertyValueFactory<>("maxStock"));
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("location"));
     }
 
 
@@ -126,7 +123,7 @@ public class InventoryMainHQView {
             warningAlert.setContentText("Press ok to continue");
             warningAlert.showAndWait();
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete " + " ?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Are you sure you want to delete the stock item with ID: " + selectedItem.getId() + "?");
         alert.setContentText("Press ok to continue");
@@ -145,16 +142,26 @@ public class InventoryMainHQView {
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-
+        inventoryMainHQVM.openInventoryMainHQView();
     }
 
     @FXML
     void onRetailerClicked(MouseEvent event) {
-
+        inventoryMainHQVM.openMainRTView();
     }
 
     @FXML
     void onWarehouseClicked(MouseEvent event) {
-        inventoryMainHQVM.openInventoryMainWHView();
+        inventoryMainHQVM.openMainWHView();
+    }
+
+    @FXML void onDeliveryClicked(ActionEvent event)
+    {
+        inventoryMainHQVM.openDeliveryView();
+    }
+
+    @FXML void onHQClicked(MouseEvent event)
+    {
+        inventoryMainHQVM.openMainView();
     }
 }

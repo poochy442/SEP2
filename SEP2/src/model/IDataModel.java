@@ -23,7 +23,7 @@ public interface IDataModel {
 
     void setStockItemList(StockItemList stockItemList1);
 
-    void sendProductRequest();
+    void sendProductRequest(String department);
 
     void removeStockItemWH(StockItem stockItem);
 
@@ -50,4 +50,10 @@ public interface IDataModel {
     void removeProductRequest(ProductRequest selectedItem);
 
     void editProductRequest(ProductRequest selectedItem, int quantity);
+
+    void loadRequestsFromDB(String departmentID);
+
+    void setRequestList (ProductRequestList productRequestList);
+
+    void setSalesList (StockItemList salesList);
 }

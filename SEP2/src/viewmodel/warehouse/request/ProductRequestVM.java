@@ -35,7 +35,7 @@ public class ProductRequestVM {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("AddProductRequest", this::addProductRequest);
+        dataModel.addListener("AddProductRequestView", this::addProductRequest);
         quantity = new SimpleStringProperty();
 
     }
@@ -50,7 +50,7 @@ public class ProductRequestVM {
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void sendProductRequest(PropertyChangeEvent evt) {
-        productRequests.add((ProductRequest) evt.getNewValue());
+        dataModel.sendProductRequest("WH");
     }
 
     /**
@@ -97,7 +97,7 @@ public class ProductRequestVM {
      */
     public void sendProductRequest() {
 
-        dataModel.sendProductRequest();
+        dataModel.sendProductRequest("WH");
     }
 
     public void openProductRequestView() {
