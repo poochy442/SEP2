@@ -1,6 +1,5 @@
 package viewmodel.retailer.delivery;
 
-import javafx.collections.FXCollections;
 import model.IDataModel;
 import view.retailer.ViewHandler;
 
@@ -15,82 +14,81 @@ import java.beans.PropertyChangeEvent;
  * @author Dave Joe Lê
  */
 
-public class DeliveryMainVM {
+public class DeliveryItemsVM {
     private IDataModel dataModel;
-    private ObservableList<DeliveryList> deliveryLists;
+    private ObservableList<Delivery> deliveries;
     private ViewHandler viewHandler;
 
     /**
      * Creates an EmployeeMainVM with the specified information and adds the needed Listeners.
-     *
-     * @param dataModel   The {@link model.DataModel} to be used.
+     * @param dataModel The {@link model.DataModel} to be used.
      * @param viewHandler The {@link ViewHandler} to be used.
      */
-    public DeliveryMainVM(IDataModel dataModel, ViewHandler viewHandler) {
+    public DeliveryItemsVM(IDataModel dataModel, ViewHandler viewHandler)
+    {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
-        deliveryLists = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
-        dataModel.addListener("", this::addDeliveryListToClient);
+        deliveries = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
+        dataModel.addListener("", this::addDeliveryToClient);
 
     }
 
-    private void addDeliveryListToClient(PropertyChangeEvent evt) {
+    private void addDeliveryToClient(PropertyChangeEvent propertyChangeEvent) {
     }
 
     /**
      * The method called by the Listener added at {@link this#DeliveryMainVM(IDataModel, ViewHandler)} (IDataModel, ViewHandler)}.
      * This method adds the Employee stored in the {@link PropertyChangeEvent} data.
-     *
      * @param The {@link PropertyChangeEvent} that caused the Listener to call this method.
-     *            <p>
-     *            /**
-     *            Gets the {@link DeliveryList}s stored.
-     * @return The {@link DeliveryList}s stored.
+
+    /**
+     * Gets the {@link Delivery}s stored.
+     * @return The {@link Delivery}s stored.
      */
-    public ObservableList<DeliveryList> getDeliveryLists() {
-        return deliveryLists;
+    public ObservableList<Delivery> getDeliveries()
+    {
+        return deliveries;
     }
 
     /**
      * This method opens the main view.
      */
-    public void openMainView() {
+    public void openMainView()
+    {
         viewHandler.openMainView();
     }
 
     /**
      * This method opens the main Inventory view.
      */
-    public void openInventoryView() {
+    public void openInventoryView()
+    {
         viewHandler.openInventoryMainView();
     }
 
     /**
      * This method opens the add Employee view.
      */
-    public void openEmployeeAddView() {
+    public void openEmployeeAddView()
+    {
         viewHandler.openEmployeeAddView();
     }
 
     /**
-     * This method removes an {@link DeliveryList} from the List.
-     *
-     * @param e The {@link DeliveryList} to be removed.
+     * This method removes an {@link Delivery} from the List.
+     * @param e The {@link Delivery} to be removed.
      */
 
-    public void openProductRequestView() {
-        viewHandler.openProductRequestView();
+    public void openProductRequestView() {viewHandler.openProductRequestView();
     }
 
     public void openDeliveryClicked() {
         viewHandler.openDeliveryMainView();
     }
 
-    public void openSalesView() {
-        viewHandler.openSalesView();
+    public void openSalesView() {viewHandler.openSalesView();
     }
 
-    public void openEmployeeMainView() {
-        viewHandler.openEmployeeMainView();
+    public void openEmployeeMainView() {viewHandler.openEmployeeMainView();
     }
 }

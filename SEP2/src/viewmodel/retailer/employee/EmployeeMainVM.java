@@ -34,7 +34,7 @@ public class EmployeeMainVM {
         employees = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         for(int i=0;i<dataModel.getEmployeeList().size();i++)
         {
-            employees.add(dataModel.getEmployeeList().get(i));
+            employees.add(dataModel.getEmployeeList().get(i)); //TODO: Do we need this
         }
         dataModel.addListener("NewEmployeeFromUser", this::addEmployeeToClient);
         dataModel.addListener("NewEmployeeFromServer",this::addEmployeeToClient);

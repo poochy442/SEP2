@@ -244,5 +244,5 @@ public class ViewHandler {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-}
+
 }
