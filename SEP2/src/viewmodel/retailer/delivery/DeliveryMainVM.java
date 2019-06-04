@@ -1,6 +1,8 @@
 package viewmodel.retailer.delivery;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import model.DeliveryList;
 import model.IDataModel;
 import view.retailer.ViewHandler;
 
@@ -41,7 +43,7 @@ public class DeliveryMainVM {
      * The method called by the Listener added at {@link this#DeliveryMainVM(IDataModel, ViewHandler)} (IDataModel, ViewHandler)}.
      * This method adds the Employee stored in the {@link PropertyChangeEvent} data.
      *
-     * @param The {@link PropertyChangeEvent} that caused the Listener to call this method.
+     * @param {@link PropertyChangeEvent} that caused the Listener to call this method.
      *            <p>
      *            /**
      *            Gets the {@link DeliveryList}s stored.
@@ -75,7 +77,7 @@ public class DeliveryMainVM {
     /**
      * This method removes an {@link DeliveryList} from the List.
      *
-     * @param e The {@link DeliveryList} to be removed.
+     * @param {@link DeliveryList} to be removed.
      */
 
     public void openProductRequestView() {
