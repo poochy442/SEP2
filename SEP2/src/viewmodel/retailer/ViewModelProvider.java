@@ -3,6 +3,7 @@ package viewmodel.retailer;
 import javafx.stage.Stage;
 import model.IDataModel;
 import view.retailer.ViewHandler;
+import viewmodel.retailer.delivery.DeliveryMainVM;
 import viewmodel.retailer.employee.EmployeeAddVM;
 import viewmodel.retailer.employee.EmployeeMainVM;
 import viewmodel.retailer.inventory.InventoryAddVM;
@@ -31,6 +32,7 @@ public class ViewModelProvider {
     private EmployeeAddVM employeeAddVM;
     private ProductRequestVM productRequestVM;
     private SalesVM salesVM;
+    private DeliveryMainVM deliveryMainVM;
 
     /**
      * Creates a ViewModelProvider with the specified information and instantiates all the required fields.
@@ -47,6 +49,7 @@ public class ViewModelProvider {
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
         productRequestVM = new ProductRequestVM(dataModel, viewHandler);
         salesVM = new SalesVM(dataModel,viewHandler);
+        deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
     }
 
     /**
@@ -120,5 +123,8 @@ public class ViewModelProvider {
 
     public SalesVM getSalesVM() {
         return salesVM;
+    }
+
+    public DeliveryMainVM getDeliveryMainVM() {return deliveryMainVM;
     }
 }
