@@ -695,7 +695,7 @@ public class DataBaseModel {
         try {
             String salesSQLQuery =
                     "SELECT  quantitySold,productID,name,price FROM \"Sep2\".sales " +
-                            " LEFT JOIN \"Sep2\".stockItem on stockItem.id = sales.productID;";
+                            " LEFT JOIN \"Sep2\".stockItem on stockItem.id = sales.productID and stockitem.location = 'RT';";
             PreparedStatement salesQuery = connection.prepareStatement(salesSQLQuery);
             ResultSet resultSet = salesQuery.executeQuery();
 

@@ -324,6 +324,12 @@ public class DataModel implements IDataModel {
     @Override
     public void setSalesList(StockItemList salesList) {
         this.sales=salesList;
+
+        for (int i=0;i<salesList.size();i++)
+        {
+            System.out.println(salesList.get(i).getName());
+        }
+
         int costOfGoods = 0, profit = 0, operationalCost = 0;
         for(int i =0; i < salesList.size(); i++)
         {
@@ -333,6 +339,13 @@ public class DataModel implements IDataModel {
         }
         propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
     }
+
+    @Override
+    public void loadSalesFromDB(String departmentID) {
+
+
+    }
+
     /**
      * Sets the stored {@link StockItemList} equal to the passed {@link StockItemList}.
      *
