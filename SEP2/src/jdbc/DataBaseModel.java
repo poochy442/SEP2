@@ -506,15 +506,17 @@ public class DataBaseModel {
         return Integer.parseInt(maxID);
     }
 
-    public boolean setRequestStatus(int requestID, int clientNo, String status) {
+    public boolean setRequestStatus(String department, String requestID, int clientNo, String status) {
         try {
             String sql = "UPDATE \"Sep2\".request " +
                     "SET status = '" + status + "' " +
                     "WHERE requestid ='" + requestID + "';";
             PreparedStatement setRequestStatus = connection.prepareStatement(sql);
             setRequestStatus.executeUpdate();
-            changeSupport.firePropertyChange("RequestInProgress", null, null);
-            addRequestToDataBase("RT", clientNo);
+            requestTransaction(clientNo,requestID,department);
+            changeSupport.firePropertyChange("CompleteRequest", null, null);
+            addRequestToDataBase(department, clientNo);
+
             //todo fix manual input
             return true;
         } catch (SQLException e) {
@@ -531,7 +533,6 @@ public class DataBaseModel {
             itemListInsertStatement.setString(2, productRequest.getProductId());
             itemListInsertStatement.setInt(3, productRequest.getQuantity());
             itemListInsertStatement.executeUpdate();
-
 
             return true;
 
@@ -739,8 +740,8 @@ public class DataBaseModel {
                             "from \"Sep2\".request " +
                             "join \"Sep2\".itemrequest on request.requestid = itemrequest.requestid " +
                             "join \"Sep2\".stockitem on itemrequest.itemid = stockitem.id " +
-                            "and itemrequest.requestid = (select count(*) from \"Sep2\".request)::VARCHAR(10)" +
-                            "and request.status = 'Null';";
+                            "and itemrequest.requestid = (select max(requestid) from \"Sep2\".request)::VARCHAR(10)" +
+                            "and request.status = 'Null'   and stockitem.location = '" + departmentID + "';";
             PreparedStatement requestQuery = connection.prepareStatement(SQLQuery);
             ResultSet resultSet = requestQuery.executeQuery();
 
@@ -768,6 +769,55 @@ public class DataBaseModel {
             changeSupport.firePropertyChange("RequestQuery", clientNo, requestList);
             resultSet.close();
             requestQuery.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void requestTransaction(int clientNo, String requestID, String requestedfrom) {
+        ArrayList<Object[]> results = new ArrayList<>();
+        StockItemList salesList = new StockItemList();
+        try {
+            String sql =
+                    "select itemid,quantity from \"Sep2\".request join \"Sep2\".itemrequest " +
+                            "on request.requestid = itemrequest.requestid " +
+                            "and requestedfrom ='" + requestedfrom + "' and request.requestid='" + requestID + "';";
+            PreparedStatement transaction = connection.prepareStatement(sql);
+            ResultSet resultSet = transaction.executeQuery();
+            String sendFrom = "";
+            if (requestedfrom.equals("WH")) {
+                sendFrom = "HQ";
+            } else sendFrom = "WH";
+
+
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+
+            }
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String itemID = row[0].toString();
+                int quantityRequested = (int) row[1];
+
+                sql = "update \"Sep2\".stockitem set quantity = quantity-" + quantityRequested + " where id ='" + itemID + "' and location ='" + sendFrom + "';";
+                transaction = connection.prepareStatement(sql);
+                transaction.executeUpdate();
+                sql = "update \"Sep2\".stockitem set quantity = quantity+" + quantityRequested + " where id ='" + itemID + "' and location ='" + requestedfrom + "';";
+                transaction = connection.prepareStatement(sql);
+                transaction.executeUpdate();
+
+            }
+            //todo update all clients new data
+            changeSupport.firePropertyChange("RequestRefresh", 0, clientNo);
+            resultSet.close();
+            transaction.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

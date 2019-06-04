@@ -41,7 +41,9 @@ public class InventoryMainVM {
         dataModel.addListener("NewItemFromUser",this::addStockItemToClient);
         requestQty = new SimpleStringProperty();
         sellQty = new SimpleStringProperty();
+
     }
+
 
     /**
      * Adds a stock item to the List using the information stored in the {@link PropertyChangeEvent} passed.
@@ -134,7 +136,7 @@ public class InventoryMainVM {
 
     public void addProductRequestToList(StockItem selectedItem) {
         ProductRequest productRequest = new ProductRequest(selectedItem, Integer.parseInt(requestQty.getValue()));
-        dataModel.addToProductRequest(productRequest, false);
+        dataModel.addToProductRequest(productRequest, true);
         requestQty.setValue("");
     }
 
