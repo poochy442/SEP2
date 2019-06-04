@@ -43,7 +43,7 @@
             </Pane>
          </top>
          <center>
-            <PieChart BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="779.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
