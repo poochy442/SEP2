@@ -513,7 +513,7 @@ public class DataBaseModel {
                     "WHERE requestid ='" + requestID + "';";
             PreparedStatement setRequestStatus = connection.prepareStatement(sql);
             setRequestStatus.executeUpdate();
-            requestTransaction(clientNo,requestID,department);
+            requestTransaction(clientNo, requestID, department);
             changeSupport.firePropertyChange("CompleteRequest", null, null);
             addRequestToDataBase(department, clientNo);
 
@@ -825,20 +825,21 @@ public class DataBaseModel {
 
     }
 
-    public void deliveriesQuery(String departmentID) {
+    public void deliveriesQuery(String departmentID, int clientNo) {
         ArrayList<Object[]> results = new ArrayList<>();
-        StockItemList salesList = new StockItemList();
+        DeliveryList deliveryList = new DeliveryList();
+        ProductRequestList productRequestList = new ProductRequestList();
         try {
-            String sql =
-                    "select itemid,quantity from \"Sep2\".request join \"Sep2\".itemrequest " +
-                            "on request.requestid = itemrequest.requestid " +
-                            "and requestedfrom ='" + requestedfrom + "' and request.requestid='" + requestID + "';";
-            PreparedStatement transaction = connection.prepareStatement(sql);
-            ResultSet resultSet = transaction.executeQuery();
-            String sendFrom = "";
-            if (requestedfrom.equals("WH")) {
-                sendFrom = "HQ";
-            } else sendFrom = "WH";
+            String sql = "";
+            if (departmentID.equals("RT")) {
+                sql =
+                        "SELECT * FROM \"Sep2\".request where requestedFrom ='" + departmentID + "';";
+            } else {
+                sql = "SELECT * FROM \"Sep2\".request;";
+            }
+
+            PreparedStatement deliveriesQuery = connection.prepareStatement(sql);
+            ResultSet resultSet = deliveriesQuery.executeQuery();
 
 
             while (resultSet.next()) {
@@ -852,21 +853,45 @@ public class DataBaseModel {
             }
             for (int i = 0; i < results.size(); i++) {
                 Object[] row = results.get(i);
-                String itemID = row[0].toString();
-                int quantityRequested = (int) row[1];
+                String requestID = row[0].toString();
+                String requestedFrom = row[1].toString();
+                String status = row[2].toString();
+                Delivery delivery = new Delivery(requestID, requestedFrom, status);
+                deliveryList.addDelivery(delivery);
+            }
 
-                sql = "update \"Sep2\".stockitem set quantity = quantity-" + quantityRequested + " where id ='" + itemID + "' and location ='" + sendFrom + "';";
-                transaction = connection.prepareStatement(sql);
-                transaction.executeUpdate();
-                sql = "update \"Sep2\".stockitem set quantity = quantity+" + quantityRequested + " where id ='" + itemID + "' and location ='" + requestedfrom + "';";
-                transaction = connection.prepareStatement(sql);
-                transaction.executeUpdate();
+
+            sql = "select request.requestid, itemid, name ,itemrequest.quantity from \"Sep2\".request join \"Sep2\".itemrequest" +
+                    " on request.requestid = itemrequest.requestid join \"Sep2\".stockitem" +
+                    " on stockitem.id =itemrequest.itemid and stockitem.location ='HQ'";
+            deliveriesQuery = connection.prepareStatement(sql);
+            resultSet = deliveriesQuery.executeQuery();
+
+            results = new ArrayList<>();
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
 
             }
-            //todo update all clients new data
-            changeSupport.firePropertyChange("RequestRefresh", 0, clientNo);
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String requestID = row[0].toString();
+                String itemID = row[1].toString();
+                String name = row[2].toString();
+                int quantity = (int) row[3];
+                StockItem stockItem = new StockItem(name, itemID, 0, 0, false, null, 0, 0, "DataBaseModel");
+                ProductRequest productRequest = new ProductRequest(stockItem, quantity);
+                productRequestList.addRequestToList(productRequest);
+                deliveryList.addRequestToDelivery(productRequest, requestID);
+            }
+
+            changeSupport.firePropertyChange("DeliveriesQuery",clientNo,deliveryList);
             resultSet.close();
-            transaction.close();
+            deliveriesQuery.close();
 
         } catch (SQLException e) {
             e.printStackTrace();

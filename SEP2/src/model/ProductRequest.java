@@ -13,7 +13,7 @@ package model;
 
 public class ProductRequest {
     private int quantity;
-    private String productId; //TODO: What for?
+    private String productId;
     private StockItem stockItem;
 
     /**
@@ -26,6 +26,15 @@ public class ProductRequest {
         this.quantity = quantity;
         this.stockItem=stockItem;
 
+    }
+
+    @Override
+    public String toString() {
+        return "ProductRequest{" +
+                "quantity=" + quantity +
+                ", productId='" + productId + '\'' +
+                ", stockItem=" + stockItem.getName() +
+                '}';
     }
 
     /**

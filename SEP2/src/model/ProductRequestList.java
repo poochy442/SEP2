@@ -62,4 +62,10 @@ public class ProductRequestList {
         return requestList.get(i);
     }
 
+    @Override
+    public String toString() {
+        return "ProductRequestList{" +
+                "requestList=" + requestList +
+                '}';
+    }
 }

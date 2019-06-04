@@ -2,10 +2,7 @@ package network.Server;
 
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
-import model.Employee;
-import model.EmployeeList;
-import model.ProductRequestList;
-import model.StockItemList;
+import model.*;
 import network.Packet;
 
 import java.beans.PropertyChangeEvent;
@@ -52,7 +49,22 @@ public class ServerSender implements Runnable {
         dataBaseModel.addListener("NewEmployee",this::newEmployee);
         dataBaseModel.addListener("RequestQuery",this::sendRequestList);
         dataBaseModel.addListener("RequestRefresh",this::requestRefresh);
+        dataBaseModel.addListener("DeliveriesQuery",this::sendDeliveriesList);
         System.out.println("newemployeelistener");
+
+    }
+
+    private void sendDeliveriesList(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo==(int) propertyChangeEvent.getOldValue())
+        {
+            DeliveryList deliveryList = (DeliveryList) propertyChangeEvent.getNewValue();
+            Gson gson = new Gson();
+            String json = gson.toJson(deliveryList);
+            Packet packet = new Packet(Packet.deliveriesQuery,json);
+            addToQueue(packet);
+            System.out.println("ServerSender: sendDeliveriesList");
+        }
+
 
     }
 

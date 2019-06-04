@@ -16,6 +16,16 @@ public class Delivery {
         return requestid;
     }
 
+    @Override
+    public String toString() {
+        return "Delivery{" +
+                "requestid='" + requestid + '\'' +
+                ", requestedFrom='" + requestedFrom + '\'' +
+                ", status='" + status + '\'' +
+                ", productList=" + productList +
+                '}';
+    }
+
     public void setRequestid(String requestid) {
         this.requestid = requestid;
     }

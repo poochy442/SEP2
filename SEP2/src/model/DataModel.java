@@ -29,6 +29,7 @@ public class DataModel implements IDataModel {
     private ProductRequestList productRequestList;
     private Counter counter;
     private StockItemList sales;
+    private DeliveryList deliveryList;
 
     /**
      * Creates a DataModel and instantiate all the fields.
@@ -40,6 +41,7 @@ public class DataModel implements IDataModel {
         productRequestList = new ProductRequestList();
         counter = new Counter(this);
         sales = new StockItemList();
+        deliveryList = new DeliveryList();
     }
 
     /**
@@ -343,6 +345,11 @@ public class DataModel implements IDataModel {
     @Override
     public void loadDeliveriesListFromDB(String departmentID) {
         propertyChangeSupport.firePropertyChange("DeliveriesQuery",0,departmentID);
+    }
+
+    @Override
+    public void setDeliveryList(DeliveryList deliveryList) {
+        this.deliveryList=deliveryList;
     }
 
 

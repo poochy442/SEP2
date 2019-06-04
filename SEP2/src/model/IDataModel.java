@@ -57,4 +57,6 @@ public interface IDataModel {
 
     void setSalesList (StockItemList salesList);
     void loadDeliveriesListFromDB (String departmentID);
+
+    void setDeliveryList(DeliveryList deliveryList);
 }

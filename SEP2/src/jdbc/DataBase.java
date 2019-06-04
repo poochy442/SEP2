@@ -21,6 +21,6 @@ public class DataBase {
 //        System.out.println(dataBaseModel.setRequestStatus(productRequestList,1));
 //        System.out.println(productRequestList.Size());
 //        System.out.println(dataBaseModel.deleteItemByIdAndDepartment("1234","WH",1));
-        dataBaseModel.requestTransaction(1,"1","RT");
+        dataBaseModel.deliveriesQuery("RT",1);
     }
 }
