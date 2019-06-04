@@ -114,4 +114,7 @@ public class ProductRequestVM {
 
     public void openSalesView() {viewHandler.openSalesView();
     }
+
+    public void openDeliveryView() {viewHandler.openDeliveryMainView();
+    }
 }

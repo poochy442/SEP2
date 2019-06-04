@@ -74,7 +74,7 @@ public class MainVM {
         viewHandler.openSalesView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainView();
     }
 
     public IntegerProperty costOfGoodsProperty() {

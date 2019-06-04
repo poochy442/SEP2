@@ -93,7 +93,7 @@ public class EmployeeMainVM {
     public void openProductRequestView() {viewHandler.openProductRequestView();
     }
 
-    public void openDeliveryClicked() {
+    public void openDeliveryClicked() {viewHandler.openDeliveryMainView();
     }
 
     public void openSalesView() {viewHandler.openSalesView();

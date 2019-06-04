@@ -79,7 +79,7 @@ public class DeliveryItemsVM {
 
     /**
      * This method removes an {@link Delivery} from the List.
-     * @param The {@link Delivery} to be removed.
+     * @param {@link Delivery} to be removed.
      */
 
     public void openProductRequestView() {viewHandler.openProductRequestView();
@@ -93,5 +93,8 @@ public class DeliveryItemsVM {
     }
 
     public void openEmployeeMainView() {viewHandler.openEmployeeMainView();
+    }
+
+    public void goBack() {viewHandler.openDeliveryMainView();
     }
 }

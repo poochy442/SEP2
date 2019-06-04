@@ -37,7 +37,7 @@ public class DeliveryMainView {
     private DeliveryList selectedDeliveryList;
 
     /**
-     * Creates an EmployeeMainView.
+     * Creates an DeliveryMainView.
      */
     public DeliveryMainView() {
 
@@ -51,7 +51,7 @@ public class DeliveryMainView {
     public void init(DeliveryMainVM deliveryMainVM) {
         this.deliveryMainVM = deliveryMainVM;
         deliveryListTableView.setItems(deliveryMainVM.getDeliveryLists());
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
     @FXML
@@ -94,5 +94,10 @@ public class DeliveryMainView {
     @FXML
     void onSalesClicked(ActionEvent event) {
         deliveryMainVM.openSalesView();
+    }
+
+    @FXML void onOpenDeliveryItemClicked(ActionEvent event)
+    {
+        deliveryMainVM.openDeliveryItemsView();
     }
 }

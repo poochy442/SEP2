@@ -95,4 +95,7 @@ public class DeliveryMainVM {
     public void openEmployeeMainView() {
         viewHandler.openEmployeeMainView();
     }
+
+    public void openDeliveryItemsView() {viewHandler.openDeliveryItemsView();
+    }
 }

@@ -126,7 +126,7 @@ public class EmployeeAddVM {
     public void openProductRequestView() {viewHandler.openProductRequestView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainView();
 
     }
 

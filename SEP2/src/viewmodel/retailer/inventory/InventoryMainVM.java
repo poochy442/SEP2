@@ -127,7 +127,7 @@ public class InventoryMainVM {
     public void openInventoryMainView() {viewHandler.openInventoryMainView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainView();
     }
 
     public void addProductRequestToList(StockItem selectedItem) {

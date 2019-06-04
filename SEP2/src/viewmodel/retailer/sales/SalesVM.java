@@ -78,7 +78,7 @@ public class SalesVM {
         viewHandler.openProductRequestView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainView();
     }
 
     public void openSalesView() {viewHandler.openSalesView();

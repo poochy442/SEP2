@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.retailer.delivery.DeliveryItemsView;
 import view.retailer.delivery.DeliveryMainView;
 import view.retailer.employee.EmployeeAddView;
 import view.retailer.employee.EmployeeMainView;
@@ -245,4 +246,24 @@ public class ViewHandler {
         primaryStage.show();
     }
 
+    public void openDeliveryItemsView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("delivery/DeliveryItems.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryItemsView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryItemsVM());
+        primaryStage.setTitle("Delivery item");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
 }
