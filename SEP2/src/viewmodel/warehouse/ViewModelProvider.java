@@ -9,6 +9,7 @@ import viewmodel.warehouse.employee.EmployeeAddVM;
 import viewmodel.warehouse.employee.EmployeeMainVM;
 import viewmodel.warehouse.inventory.InventoryAddVM;
 import viewmodel.warehouse.inventory.InventoryMainVM;
+import viewmodel.warehouse.messenger.MessengerVM;
 import viewmodel.warehouse.request.ProductRequestVM;
 import viewmodel.warehouse.main.MainVM;
 
@@ -32,6 +33,7 @@ public class ViewModelProvider {
     private ProductRequestVM productRequestVM;
     private DeliveryMainVM deliveryMainVM;
     private DeliveryItemsVM deliveryItemsVM;
+    private MessengerVM messengerVM;
 
     /**
      * Creates a ViewModelProvider with the specified information and instantiates all the required fields.
@@ -39,15 +41,6 @@ public class ViewModelProvider {
      */
     public ViewModelProvider(IDataModel dataModel) {
         this.dataModel = dataModel;
-        viewHandler = new ViewHandler(new Stage(), this);
-        mainVM = new MainVM(dataModel, viewHandler);
-        inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
-        inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
-        employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
-        employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
-        productRequestVM = new ProductRequestVM(dataModel, viewHandler);
-        deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
-        deliveryItemsVM = new DeliveryItemsVM(dataModel, viewHandler);
     }
 
     /**
@@ -101,14 +94,15 @@ public class ViewModelProvider {
      * @param viewHandler The {@link ViewHandler} to be used.
      */
     public void instantiateViewModels(ViewHandler viewHandler) {
+        mainVM = new MainVM(dataModel, viewHandler);
+        inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
+        inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
         employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
         employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
-        mainVM = new MainVM(dataModel, viewHandler);
-        inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
-        inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
         productRequestVM = new ProductRequestVM(dataModel, viewHandler);
         deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
         deliveryItemsVM = new DeliveryItemsVM(dataModel, viewHandler);
+        messengerVM = new MessengerVM(dataModel, viewHandler);
     }
 
     public DeliveryMainVM getDeliveryMainVM() {return deliveryMainVM;
@@ -117,6 +111,11 @@ public class ViewModelProvider {
     public DeliveryItemsVM getDeliveryItemsVM()
     {
         return deliveryItemsVM;
+    }
+
+    public MessengerVM getMessengerVM()
+    {
+        return messengerVM;
     }
 
 

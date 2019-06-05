@@ -192,4 +192,8 @@ public class ProductRequestView {
             productRequestVM.removeProductRequest(selectedItem);
         }
     }
+
+    @FXML void onMessengerClicked(MouseEvent event) {
+        productRequestVM.openMessengerView();
+    }
 }

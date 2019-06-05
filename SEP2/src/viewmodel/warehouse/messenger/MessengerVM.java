@@ -1,7 +1,15 @@
-package viewmodel.warehouse.main;
+package viewmodel.warehouse.messenger;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.IDataModel;
+import model.Message;
 import view.warehouse.ViewHandler;
+
+import java.beans.PropertyChangeEvent;
+import java.sql.Timestamp;
 
 /**
  * The main viewmodel Class for the Warehouse.
@@ -12,19 +20,36 @@ import view.warehouse.ViewHandler;
  * @author Dave Joe Lê
  */
 
-public class MainVM {
+public class MessengerVM {
 
     private IDataModel dataModel;
     private ViewHandler viewHandler;
+    private ObservableList<Message> messages;
+    private StringProperty txtMsg;
 
     /**
      * Creates a MainVM with the specified information
      * @param dataModel The {@link model.DataModel} to be used.
      * @param viewHandler The {@link ViewHandler} to be used.
      */
-    public MainVM(IDataModel dataModel, ViewHandler viewHandler) {
+    public MessengerVM(IDataModel dataModel, ViewHandler viewHandler) {
         this.dataModel = dataModel;
         this.viewHandler = viewHandler;
+        messages = FXCollections.observableArrayList();
+        txtMsg = new SimpleStringProperty();
+        dataModel.addListener("SendMessage", this::addMessage);
+    }
+
+    private void addMessage(PropertyChangeEvent evt) {
+        messages.add((Message) evt.getNewValue());
+    }
+
+    public ObservableList<Message> getMessages() {
+        return messages;
+    }
+
+    public StringProperty txtMsgProperty() {
+        return txtMsg;
     }
 
     /**
@@ -56,6 +81,9 @@ public class MainVM {
     public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
     }
 
-    public void openMessengerView() {viewHandler.openMessengerView();
+    public void sendMessage() {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        Message message = new Message(txtMsg.getValue(), timestamp, "WH");
+        dataModel.sendMessage(message);
     }
 }

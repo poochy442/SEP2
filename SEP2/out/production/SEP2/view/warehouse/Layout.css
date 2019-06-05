@@ -13,7 +13,7 @@
     -fx-text-fill: white;
 }
 
-#close:hover, #minimize:hover, #settings:hover, #help:hover {
+#close:hover, #minimize:hover, #settings:hover, #help:hover, #messenger:hover {
     -fx-scale-x: 1.15;
     -fx-scale-y: 1.15;
 }

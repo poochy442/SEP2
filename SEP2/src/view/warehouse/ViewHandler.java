@@ -13,6 +13,7 @@ import view.warehouse.employee.EmployeeAddView;
 import view.warehouse.employee.EmployeeMainView;
 import view.warehouse.inventory.InventoryAddView;
 import view.warehouse.inventory.InventoryMainView;
+import view.warehouse.messenger.MessengerView;
 import view.warehouse.request.ProductRequestView;
 import view.warehouse.main.MainView;
 import viewmodel.warehouse.ViewModelProvider;
@@ -239,6 +240,28 @@ public class ViewHandler {
         DeliveryItemsView view = loader.getController();
         view.init(viewModelProvider.getDeliveryItemsVM());
         primaryStage.setTitle("Delivery item");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openMessengerView()
+    {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("messenger/Messenger.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        MessengerView view = loader.getController();
+        view.init(viewModelProvider.getMessengerVM());
+        primaryStage.setTitle("Messenger");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

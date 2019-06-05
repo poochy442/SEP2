@@ -135,4 +135,7 @@ public class InventoryMainVM {
 
     public void openDeliveryView() {viewHandler.openDeliveryMainView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

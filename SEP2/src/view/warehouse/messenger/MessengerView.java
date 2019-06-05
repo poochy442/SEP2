@@ -1,12 +1,16 @@
-package view.warehouse.main;
+package view.warehouse.messenger;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import viewmodel.warehouse.main.MainVM;
+import model.Message;
+import viewmodel.warehouse.messenger.MessengerVM;
 
 /**
  * The main view Class for the Warehouse.
@@ -17,45 +21,57 @@ import viewmodel.warehouse.main.MainVM;
  * @author Dave Joe Lê
  */
 
-public class MainView {
-    private MainVM mainVM;
+public class MessengerView {
+    private MessengerVM messengerVM;
+
     @FXML
     private AnchorPane anchorPane;
+
+    @FXML
+    private ListView<Message> chatBox;
+
+
+    @FXML
+    private TextArea txtMsg;
 
     /**
      * Creates a MainView.
      */
-    public MainView() {
+    public MessengerView() {
 
     }
 
     /**
      * An init method instantiating all the required fields.
-     * @param mainVM The {@link MainVM} viewmodel to be used.
+     *
+     * @param messengerVM The {@link MessengerVM} viewmodel to be used.
      */
-    public void init(MainVM mainVM) {
-        this.mainVM = mainVM;
+    public void init(MessengerVM messengerVM) {
+        this.messengerVM = messengerVM;
+        chatBox.setItems(messengerVM.getMessages());
+        txtMsg.textProperty().bindBidirectional(messengerVM.txtMsgProperty());
+        ;
     }
 
     @FXML
     void onEmployeeClicked(ActionEvent event) {
-        mainVM.openEmployeeMainView();
+        messengerVM.openEmployeeMainView();
     }
 
     @FXML
     void onInventoryClicked(ActionEvent event) {
-        mainVM.openInventoryMainView();
+        messengerVM.openInventoryMainView();
 
     }
 
     @FXML
     void onProductRequestClicked(ActionEvent event) {
-        mainVM.openProductRequestView();
+        messengerVM.openProductRequestView();
     }
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-        mainVM.openMainView();
+        messengerVM.openMainView();
     }
 
     @FXML
@@ -70,15 +86,12 @@ public class MainView {
     }
 
     @FXML
-    void onDeliveryClicked(ActionEvent event)
+    void onDeliveryClicked(ActionEvent event) {
+        messengerVM.openDeliveryMainView();
+    }
+
+    @FXML void onSendMessageClicked(ActionEvent event)
     {
-        mainVM.openDeliveryMainView();
+        messengerVM.sendMessage();
     }
-
-    @FXML void onMessengerClicked(MouseEvent event) {
-        mainVM.openMessengerView();
-    }
-
 }
-
-
