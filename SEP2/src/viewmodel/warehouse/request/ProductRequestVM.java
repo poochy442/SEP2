@@ -62,15 +62,6 @@ public class ProductRequestVM {
     }
 
     /**
-     * Sends a Product Request to the Server with the information in the {@link PropertyChangeEvent} passed.
-     *
-     * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
-     */
-    private void sendProductRequest(PropertyChangeEvent evt) {
-        dataModel.sendProductRequest("WH");
-    }
-
-    /**
      * Gets the quantity {@link StringProperty}.
      *
      * @return The quantity {@link StringProperty}.
@@ -113,7 +104,8 @@ public class ProductRequestVM {
      * Sends the product request to the {@link model.DataModel}.
      */
     public void sendProductRequest() {
-
+        ProductRequestList productRequestList = new ProductRequestList();
+        productRequestList.addRequestToList(productRequests.get(i));
         dataModel.sendProductRequest("WH");
     }
 
