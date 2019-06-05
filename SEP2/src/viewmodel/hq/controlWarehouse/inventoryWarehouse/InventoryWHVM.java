@@ -39,10 +39,7 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
 
     private void loadList(PropertyChangeEvent evt) {
         StockItemList stockItemList = (StockItemList) evt.getNewValue();
-        for(int j = 0; j < stockItems.size(); j++)
-        {
-            stockItems.remove(j);
-        }
+        stockItems.removeAll(stockItems);
         for(int i = 0; i < stockItemList.size(); i++)
         {
             stockItems.add(stockItemList.get(i));

@@ -40,10 +40,7 @@ public class DeliveryMainWHVM {
 
     private void loadList(PropertyChangeEvent evt) {
         DeliveryList deliveryList = (DeliveryList) evt.getNewValue();
-        for(int j = 0; j < deliveries.size(); j++)
-        {
-            deliveries.remove(j);
-        }
+        deliveries.removeAll(deliveries);
         for(int i = 0; i < deliveryList.size(); i++)
         {
             deliveries.add(deliveryList.get(i));

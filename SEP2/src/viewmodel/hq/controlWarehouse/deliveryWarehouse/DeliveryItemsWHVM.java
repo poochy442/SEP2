@@ -39,6 +39,7 @@ public class DeliveryItemsWHVM {
 
     private void openDelivery(PropertyChangeEvent evt) {
         Delivery delivery = (Delivery)evt.getNewValue();
+        productRequests.removeAll(productRequests);
         for(int i = 0; i < delivery.getProductList().size(); i++)
         {
             productRequests.add(delivery.getProductList().getProductRequest(i));

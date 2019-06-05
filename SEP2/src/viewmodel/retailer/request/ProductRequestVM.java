@@ -43,10 +43,7 @@ public class ProductRequestVM {
 
     private void loadList(PropertyChangeEvent evt) {
         ProductRequestList productRequestList = (ProductRequestList) evt.getNewValue();
-        for(int j = 0; j < productRequests.size(); j++)
-        {
-            productRequests.remove(j);
-        }
+        productRequests.removeAll(productRequests);
         for(int i = 0; i < productRequestList.size(); i++)
         {
             productRequests.add(productRequestList.getProductRequest(i));

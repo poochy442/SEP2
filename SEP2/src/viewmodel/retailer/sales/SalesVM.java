@@ -40,10 +40,7 @@ public class SalesVM {
 
     private void loadList(PropertyChangeEvent evt) {
         StockItemList stockItemList = (StockItemList) evt.getNewValue();
-        for(int j = 0; j < sales.size(); j++)
-        {
-            sales.remove(j);
-        }
+        sales.removeAll(sales);
         for(int i = 0; i < stockItemList.size(); i++)
         {
             sales.add(stockItemList.get(i));

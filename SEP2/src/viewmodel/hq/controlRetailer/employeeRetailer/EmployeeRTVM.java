@@ -25,9 +25,7 @@ public class EmployeeRTVM {
 
     private void loadList(PropertyChangeEvent evt) {
         EmployeeList employeeList = (EmployeeList) evt.getNewValue();
-        for (int j = 0; j < employees.size(); j++) {
-            employees.remove(j);
-        }
+        employees.removeAll(employees);
         for (int i = 0; i < employeeList.size(); i++) {
             employees.add(employeeList.get(i));
         }

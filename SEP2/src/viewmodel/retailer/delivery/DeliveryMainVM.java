@@ -2,12 +2,11 @@ package viewmodel.retailer.delivery;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Delivery;
-import model.DeliveryList;
-import model.IDataModel;
+import model.*;
 import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
+import java.util.Date;
 
 /**
  * This is the viewmodel Class for the main Employye view.
@@ -36,14 +35,19 @@ public class DeliveryMainVM {
         dataModel.addListener("", this::addDeliveryToClient);
         dataModel.addListener("NewDeliveryList",this::loadList);
 
+
+        DeliveryList deliveryList = new DeliveryList();
+        StockItem stockItem = new StockItem("LOL", "ID", 5, 10, true, new Date(), 7, 9, "RT");
+        ProductRequest productRequest = new ProductRequest(stockItem, 10);
+        deliveryList.addRequestToDelivery(productRequest, "RequestID");
+        Delivery delivery = new Delivery("Hardcoded", "DeliveryMainVM", "test", new Date());
+        delivery.addToDelivery(productRequest);
+        deliveries.add(delivery);
     }
 
     private void loadList(PropertyChangeEvent evt) {
         DeliveryList deliveryList = (DeliveryList) evt.getNewValue();
-        for(int j = 0; j < deliveries.size(); j++)
-        {
-            deliveries.remove(j);
-        }
+        deliveries.removeAll(deliveries);
         for(int i = 0; i < deliveryList.size(); i++)
         {
             deliveries.add(deliveryList.get(i));
@@ -104,7 +108,7 @@ public class DeliveryMainVM {
     }
 
     public void openDeliveryItemsView(Delivery delivery) {
-        viewHandler.openDeliveryItemsView();
         dataModel.openDelivery(delivery);
+        viewHandler.openDeliveryItemsView();
     }
 }

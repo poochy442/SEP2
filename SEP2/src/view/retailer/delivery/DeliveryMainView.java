@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -66,6 +67,17 @@ public class DeliveryMainView {
         statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
         totalItemsCol.setCellValueFactory(new PropertyValueFactory<>("totalItems"));
+
+        deliveryTableView.setRowFactory( tv -> {
+            TableRow<Delivery> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    Delivery rowData = row.getItem();
+                    deliveryMainVM.openDeliveryItemsView(rowData);
+                }
+            });
+            return row ;
+        });
     }
 
     @FXML
