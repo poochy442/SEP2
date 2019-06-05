@@ -104,8 +104,6 @@ public class ProductRequestVM {
      * Sends the product request to the {@link model.DataModel}.
      */
     public void sendProductRequest() {
-        ProductRequestList productRequestList = new ProductRequestList();
-        productRequestList.addRequestToList(productRequests.get(i));
         dataModel.sendProductRequest("WH");
     }
 

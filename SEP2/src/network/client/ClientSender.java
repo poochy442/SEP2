@@ -56,7 +56,7 @@ public class ClientSender implements Runnable {
     }
 
     private void messageQuery(PropertyChangeEvent propertyChangeEvent) {
-        Packet p1 = new Packet(Packet.messageQuery, (String) propertyChangeEvent.getNewValue());
+        Packet p1 = new Packet(Packet.messageQuery, "");
         addToQueue(p1);
         System.out.println("ClientSender : MessageQuery");
 
