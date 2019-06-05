@@ -28,9 +28,6 @@ public class EmployeeAddView {
     private TextField lastNameField;
 
     @FXML
-    private TextField iDField;
-
-    @FXML
     private AnchorPane anchorPane;
 
     @FXML
@@ -61,7 +58,6 @@ public class EmployeeAddView {
         this.employeeAddVM = employeeAddVM;
         firstNameField.textProperty().bindBidirectional(employeeAddVM.firstNameProperty());
         lastNameField.textProperty().bindBidirectional(employeeAddVM.lastNameProperty());
-        iDField.textProperty().bindBidirectional(employeeAddVM.idProperty());
     }
 
 
