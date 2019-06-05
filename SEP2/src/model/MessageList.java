@@ -19,6 +19,7 @@ public class MessageList {
     public MessageList() {
         messageList = new ArrayList<>();
     }
+
     public void addMessage(Message message)
     {
         messageList.add(message);
@@ -28,5 +29,15 @@ public class MessageList {
         return messageList.get(index);
     }
 
+    public int size() {
 
+        return messageList.size();
+    }
+
+    @Override
+    public String toString() {
+        return "MessageList{" +
+                "messageList=" + messageList +
+                '}';
+    }
 }

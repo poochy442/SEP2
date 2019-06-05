@@ -78,7 +78,6 @@ public class DataModel implements IDataModel {
         propertyChangeSupport.firePropertyChange("NewEmployeeFromServer", null, e);
     }
 
-    // TODO: JAVADOC
     @Override
     public void addListener(String evt, PropertyChangeListener listener) {
         propertyChangeSupport.addPropertyChangeListener(evt, listener);
@@ -390,7 +389,13 @@ public class DataModel implements IDataModel {
     @Override
     public void setMessageList(MessageList messages) {
 
+        System.out.println("MESSAGELIST TRIGGERED");
         this.messages = messages;
+
+        for (int i=0;i<messages.size();i++)
+        {
+            System.out.println(messages.getMessage(i).toString());
+        }
     }
 
     @Override

@@ -72,9 +72,6 @@ public class ServerReceiver implements Runnable {
                     case Packet.EmployeeOperation:
                         Employee employee = (Employee) gson.fromJson(json, Employee.class);
                         System.out.println("ServerReceiver: employee stored to database = " + dataBaseModel.addEmployeeToDataBase(employee, clientNo));
-
-                        ;
-                        // TODO: change to view event
                         break;
                     case Packet.StockOperation:
                         StockItem stockItem = (StockItem) gson.fromJson(json, StockItem.class);
@@ -143,8 +140,11 @@ public class ServerReceiver implements Runnable {
 
                         Message message = gson.fromJson(json, Message.class);
                         dataBaseModel.addMessage(message, clientNo);
+                        break;
+
                     case Packet.messageQuery:
                         dataBaseModel.messageQuery(clientNo);
+                        break;
 
                 }
             } catch (Exception e) {

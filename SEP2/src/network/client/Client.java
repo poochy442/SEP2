@@ -1,9 +1,12 @@
 package network.client;
 
 import model.IDataModel;
+import model.Message;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * The Client class of our Client/Server infrastructure.
@@ -18,19 +21,20 @@ import java.net.Socket;
 public class Client implements Runnable {
 
     private final int PORT = 5678;
-    private String HOST,departmentID;
+    private String HOST, departmentID;
     private IDataModel dataModel;
 
 
     /**
      * Creates a Client connection to the given host and using the given {@link model.DataModel}.
-     * @param HOST The IP Adress of the server the Client needs to connect to
+     *
+     * @param HOST      The IP Adress of the server the Client needs to connect to
      * @param dataModel The DataModel for the Client to use.
      */
-    public Client(String HOST, IDataModel dataModel,String departmentID) {
+    public Client(String HOST, IDataModel dataModel, String departmentID) {
         this.HOST = HOST;
         this.dataModel = dataModel;
-        this.departmentID=departmentID;
+        this.departmentID = departmentID;
     }
 
     /**
@@ -55,13 +59,13 @@ public class Client implements Runnable {
         dataModel.loadItemListFromDB(departmentID);
         dataModel.loadRequestsFromDB(departmentID);
         dataModel.loadMessagesFromDB();
-        if (departmentID.equals("RT"))
-        {
+
+        if (departmentID.equals("RT")) {
             dataModel.loadSalesFromDB();
         }
 
         System.out.println("Client Refresh employee list");
-        ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel,departmentID);
+        ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel, departmentID);
         Thread t2 = new Thread(clientReceiver);
         t2.start();
     }

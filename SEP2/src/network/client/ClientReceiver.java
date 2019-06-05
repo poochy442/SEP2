@@ -31,10 +31,10 @@ public class ClientReceiver implements Runnable {
      * @param socket    The {@link Socket} to use.
      * @param dataModel The {@link model.DataModel} to use.
      */
-    public ClientReceiver(Socket socket, IDataModel dataModel,String departmentID) {
+    public ClientReceiver(Socket socket, IDataModel dataModel, String departmentID) {
         this.socket = socket;
         this.dataModel = dataModel;
-        this.departmentID=departmentID;
+        this.departmentID = departmentID;
     }
 
     /**
@@ -63,14 +63,13 @@ public class ClientReceiver implements Runnable {
                 switch (packet.getOperation()) {
                     case Packet.EmployeeOperation:
                         Employee employee = (Employee) gson.fromJson(json, Employee.class);
-                            dataModel.addEmployeeFromServer(employee);
+                        dataModel.addEmployeeFromServer(employee);
                         break;
                     case Packet.StockResponseOperation:
                         StockItemList stockItemList = (StockItemList) gson.fromJson(json, StockItemList.class);
                         for (int i = 0; i < stockItemList.size(); i++) {
                             dataModel.addItemFromServer(stockItemList.get(i));
                         }
-                        // TODO: Fix back/forth firing of responses
                         break;
                     case Packet.EmployeeQuery:
                         EmployeeList employeeList1 = (EmployeeList) gson.fromJson(json, EmployeeList.class);
@@ -95,7 +94,7 @@ public class ClientReceiver implements Runnable {
                         dataModel.setSalesList(stockItemList2);
                         break;
                     case Packet.requestQuery:
-                        ProductRequestList requestList = (ProductRequestList) gson.fromJson(json,ProductRequestList.class);
+                        ProductRequestList requestList = (ProductRequestList) gson.fromJson(json, ProductRequestList.class);
 //                        for (int i=0;i<requestList.Size();i++)
 //                        {
 //                            dataModel.addToProductRequest(requestList.getProductRequest(i),false);
@@ -106,17 +105,21 @@ public class ClientReceiver implements Runnable {
                         dataModel.loadItemListFromDB(departmentID);
                         dataModel.loadRequestsFromDB(departmentID);
                         if (departmentID.equals("RT"))
-                        dataModel.loadSalesFromDB();
+                            dataModel.loadSalesFromDB();
+                        break;
 
                     case Packet.deliveriesQuery:
-                        DeliveryList deliveryList = (DeliveryList) gson.fromJson(json,DeliveryList.class);
+                        DeliveryList deliveryList = (DeliveryList) gson.fromJson(json, DeliveryList.class);
                         dataModel.setDeliveryList(deliveryList);
+                        break;
                     case Packet.message:
-                         Message message = (Message) gson.fromJson(json,Message.class);
-                         dataModel.addMessage(message);
+                        Message message = (Message) gson.fromJson(json, Message.class);
+                        dataModel.addMessage(message);
+                        break;
                     case Packet.messageQuery:
-                        MessageList messages = gson.fromJson(json,MessageList.class);
+                        MessageList messages = gson.fromJson(json, MessageList.class);
                         dataModel.setMessageList(messages);
+                        break;
 
                 }
 

@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DataBaseModel {
@@ -43,7 +44,7 @@ public class DataBaseModel {
 
     private PreparedStatement prepareAddMessage() {
         String preparedSql = "INSERT INTO \"Sep2\".chatlog (message,time,senderID) " +
-                "SELECT * FROM (SELECT ?,?,?) ;";
+                "SELECT * FROM (SELECT ?,?::TIMESTAMP,?) AS TMP;";
         addMessage = null;
 
         try {
@@ -171,7 +172,8 @@ public class DataBaseModel {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".Request (" +
                 " RequestID varchar(6) NOT NULL PRIMARY KEY ," +
                 "requestedFrom varchar(10) NOT NULL," +
-                " status varchar(30) NOT NULL" +
+                " status varchar(30) NOT NULL, " +
+                " time timestamp" +
 
                 ");";
         try {
@@ -463,8 +465,8 @@ public class DataBaseModel {
 
 
     public PreparedStatement prepareInsertRequest() {
-        String preparedSql = "INSERT INTO \"Sep2\".request (requestID,requestedFrom,status) " +
-                "SELECT * FROM (SELECT ?,?,?) AS tmp " +
+        String preparedSql = "INSERT INTO \"Sep2\".request (requestID,requestedFrom,status,time) " +
+                "SELECT * FROM (SELECT ?,?,?,?::timestamp) AS tmp " +
                 "WHERE NOT EXISTS (SELECT requestID FROM \"Sep2\".request " +
                 "WHERE requestID = ?) LIMIT 1;";
         requestInsertStatement = null;
@@ -480,11 +482,14 @@ public class DataBaseModel {
 
     public int addRequestToDataBase(String requestedFrom, int clientNo) {
         try {
+            Date date = new Date();
+            Timestamp timestamp = new java.sql.Timestamp(date.getTime());
             int count = requestCountQuery() + 1;
             requestInsertStatement.setString(1, "" + count);
             requestInsertStatement.setString(2, requestedFrom);
             requestInsertStatement.setString(3, "Null");
-            requestInsertStatement.setString(4, "" + count);
+            requestInsertStatement.setTimestamp(4,timestamp);
+            requestInsertStatement.setString(5, "" + count);
             requestInsertStatement.executeUpdate();
             return count;
 
@@ -885,8 +890,9 @@ public class DataBaseModel {
                 String requestID = row[0].toString();
                 String requestedFrom = row[1].toString();
                 String status = row[2].toString();
-                Date date = new Date();
-                Delivery delivery = new Delivery(requestID, requestedFrom, status, date); //TODO: needs date
+                Timestamp timestamp = (Timestamp)row[3];
+
+                Delivery delivery = new Delivery(requestID, requestedFrom, status, timestamp);
                 deliveryList.addDelivery(delivery);
             }
 
@@ -933,16 +939,14 @@ public class DataBaseModel {
             addMessage.setString(1, message.getMessage());
             addMessage.setTimestamp(2, message.getTimestamp());
             addMessage.setString(3, message.getDepartmentID());
-            addSale.executeUpdate();
-            changeSupport.firePropertyChange("NewMessage",clientNo,message);
+            addMessage.executeUpdate();
+            changeSupport.firePropertyChange("NewMessage", clientNo, message);
             return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-
-
 
 
     }
@@ -967,15 +971,13 @@ public class DataBaseModel {
             for (int i = 0; i < results.size(); i++) {
                 Object[] row = results.get(i);
                 String message = row[0].toString();
-                Timestamp timestamp = (Timestamp)row[1];
+                Timestamp timestamp = (Timestamp) row[1];
                 String senderID = row[2].toString();
-                Message message1 = new Message(message,timestamp,senderID);
+                Message message1 = new Message(message, timestamp, senderID);
                 messages.addMessage(message1);
-
-
-
             }
-            //todo update all clients new data
+
+
             changeSupport.firePropertyChange("MessageQuery", clientNo, messages);
             resultSet.close();
             messageQuery.close();

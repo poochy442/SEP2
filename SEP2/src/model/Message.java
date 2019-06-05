@@ -36,4 +36,13 @@ public class Message {
     public void setDepartmentID(String departmentID) {
         this.departmentID = departmentID;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "message='" + message + '\'' +
+                ", timestamp=" + timestamp +
+                ", departmentID='" + departmentID + '\'' +
+                '}';
+    }
 }
