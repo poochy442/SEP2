@@ -115,12 +115,12 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     public void openInventoryMainHQView() { viewHandler.openInventoryMainHQView();
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMainRTView() {viewHandler.openMainRTView();
     }
 
     public void openMainWHView() {viewHandler.openMainWHView();
+    }
+
+    public void openDeliveryView() {
     }
 }
