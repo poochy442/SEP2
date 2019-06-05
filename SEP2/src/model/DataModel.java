@@ -383,6 +383,9 @@ public class DataModel implements IDataModel {
     public void addMessage(Message message) {
         messages.addMessage(message);
         System.out.println("DataModel:  addMessage() -> "+message.getMessage());
+        propertyChangeSupport.firePropertyChange("AddMessageView",null,message);
+
+
     }
 
     @Override

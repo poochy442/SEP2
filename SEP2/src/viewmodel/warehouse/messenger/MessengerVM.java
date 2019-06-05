@@ -38,7 +38,7 @@ public class MessengerVM {
         this.viewHandler = viewHandler;
         messages = FXCollections.observableArrayList();
         txtMsg = new SimpleStringProperty();
-        dataModel.addListener("SendMessage", this::addMessage);
+        dataModel.addListener("AddMessageView", this::addMessage);
         dataModel.addListener("NewMessageList", this::loadList);
     }
 
