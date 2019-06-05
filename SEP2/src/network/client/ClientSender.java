@@ -48,9 +48,26 @@ public class ClientSender implements Runnable {
         dataModel.addListener("AddSale", this::addSale);
         dataModel.addListener("SalesQuery", this::salesQuery);
         dataModel.addListener("AddProductRequest", this::addRequest);
-        dataModel.addListener("RequestQuery",this::triggerRequestQuery);
-        dataModel.addListener("DeliveriesQuery",this::triggerDeliveriesQuery);
+        dataModel.addListener("RequestQuery", this::triggerRequestQuery);
+        dataModel.addListener("DeliveriesQuery", this::triggerDeliveriesQuery);
+        dataModel.addListener("SendMessage", this::sendMessage);
+        dataModel.addListener("MessagesQuery",this::messageQuery);
         queue = new LinkedList<>();
+    }
+
+    private void messageQuery(PropertyChangeEvent propertyChangeEvent) {
+        Packet p1 = new Packet(Packet.messageQuery, (String) propertyChangeEvent.getNewValue());
+        addToQueue(p1);
+        System.out.println("ClientSender : MessageQuery");
+
+    }
+
+    private void sendMessage(PropertyChangeEvent propertyChangeEvent) {
+        Message message = (Message) propertyChangeEvent.getNewValue();
+        Gson gson = new Gson();
+        String json = gson.toJson(message);
+        Packet packet = new Packet(Packet.message, json);
+        addToQueue(packet);
     }
 
     private void triggerDeliveriesQuery(PropertyChangeEvent propertyChangeEvent) {

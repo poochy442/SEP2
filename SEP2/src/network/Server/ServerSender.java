@@ -9,6 +9,7 @@ import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -50,7 +51,37 @@ public class ServerSender implements Runnable {
         dataBaseModel.addListener("RequestQuery",this::sendRequestList);
         dataBaseModel.addListener("RequestRefresh",this::requestRefresh);
         dataBaseModel.addListener("DeliveriesQuery",this::sendDeliveriesList);
+        dataBaseModel.addListener("NewMessage",this::sendMessage);
+        dataBaseModel.addListener("MessageQuery",this::sendMesageList);
         System.out.println("newemployeelistener");
+
+    }
+
+    private void sendMesageList(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo==(int)propertyChangeEvent.getOldValue())
+        {
+            MessageList messages = (MessageList)propertyChangeEvent.getNewValue();
+            Gson gson = new Gson();
+            String json =gson.toJson(messages);
+            Packet packet = new Packet(Packet.messageQuery,json);
+            addToQueue(packet);
+            System.out.println("ServerSender: sendMessageList");
+        }
+
+    }
+
+    private void sendMessage(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo!= (int) propertyChangeEvent.getOldValue())
+        {
+            Message message =(Message) propertyChangeEvent.getNewValue();
+            Gson gson = new Gson();
+            String json = gson.toJson(message);
+            Packet packet = new Packet(Packet.message,json);
+            addToQueue(packet);
+
+            System.out.println("ServerSender : sendMessage");
+        }
+
 
     }
 

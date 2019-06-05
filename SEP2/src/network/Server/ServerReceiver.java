@@ -83,9 +83,9 @@ public class ServerReceiver implements Runnable {
 
                         break;
                     case Packet.RequestOperation:
-                        String departmentID1 =json;
-                        String requestID = ""+dataBaseModel.requestProductMaxID(departmentID1);
-                        dataBaseModel.setRequestStatus(departmentID1,requestID, clientNo, "Complete");
+                        String departmentID1 = json;
+                        String requestID = "" + dataBaseModel.requestProductMaxID(departmentID1);
+                        dataBaseModel.setRequestStatus(departmentID1, requestID, clientNo, "Complete");
                         break;
                     case Packet.EmployeeQuery:
                         String departmentID = json;
@@ -137,7 +137,15 @@ public class ServerReceiver implements Runnable {
                     case Packet.requestQuery:
                         dataBaseModel.requestQuery(clientNo, json);
                     case Packet.deliveriesQuery:
-                        dataBaseModel.deliveriesQuery(json,clientNo);
+                        dataBaseModel.deliveriesQuery(json, clientNo);
+                        break;
+                    case Packet.message:
+
+                        Message message = gson.fromJson(json, Message.class);
+                        dataBaseModel.addMessage(message, clientNo);
+                    case Packet.messageQuery:
+                        dataBaseModel.messageQuery(clientNo);
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();

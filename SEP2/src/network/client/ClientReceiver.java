@@ -111,6 +111,12 @@ public class ClientReceiver implements Runnable {
                     case Packet.deliveriesQuery:
                         DeliveryList deliveryList = (DeliveryList) gson.fromJson(json,DeliveryList.class);
                         dataModel.setDeliveryList(deliveryList);
+                    case Packet.message:
+                         Message message = (Message) gson.fromJson(json,Message.class);
+                         dataModel.addMessage(message);
+                    case Packet.messageQuery:
+                        MessageList messages = gson.fromJson(json,MessageList.class);
+                        dataModel.setMessageList(messages);
 
                 }
 

@@ -2,6 +2,7 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 
 /**
  * <h1>The Model class from the MVVM patterns.</h1>
@@ -30,6 +31,7 @@ public class DataModel implements IDataModel {
     private Counter counter;
     private StockItemList sales;
     private DeliveryList deliveryList;
+    private MessageList messages;
 
     /**
      * Creates a DataModel and instantiate all the fields.
@@ -42,6 +44,7 @@ public class DataModel implements IDataModel {
         counter = new Counter(this);
         sales = new StockItemList();
         deliveryList = new DeliveryList();
+        messages = new MessageList();
     }
 
     /**
@@ -121,6 +124,7 @@ public class DataModel implements IDataModel {
     @Override
     public void sendProductRequest(String department) {
         propertyChangeSupport.firePropertyChange("SendProductRequest", null, department);
+
     }
 
     /**
@@ -369,4 +373,29 @@ public class DataModel implements IDataModel {
 
         propertyChangeSupport.firePropertyChange("NewEmployeeList", null, employeeList);
     }
+    @Override
+    public void sendMessage(Message message)
+    {
+        propertyChangeSupport.firePropertyChange("SendMessage",null,message);
+        addMessage(message);
+    }
+
+    @Override
+    public void addMessage(Message message) {
+        messages.addMessage(message);
+        System.out.println("DataModel:  addMessage() -> "+message.getMessage());
+        //todo notify view
+    }
+
+    @Override
+    public void setMessageList(MessageList messages) {
+
+        this.messages = messages;
+    }
+
+    @Override
+    public void loadMessagesFromDB() {
+        propertyChangeSupport.firePropertyChange("MessagesQuery",0,1);
+    }
+
 }

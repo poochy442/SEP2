@@ -1,6 +1,7 @@
 package model;
 
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 
 public interface IDataModel {
     void addEmployeeFromUser(Employee e);
@@ -61,4 +62,8 @@ public interface IDataModel {
     void loadDeliveriesListFromDB (String departmentID);
 
     void setDeliveryList(DeliveryList deliveryList);
+    void sendMessage (Message message);
+    void addMessage(Message message);
+    void setMessageList(MessageList messages);
+    void loadMessagesFromDB ();
 }

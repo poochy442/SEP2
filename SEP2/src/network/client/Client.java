@@ -54,6 +54,7 @@ public class Client implements Runnable {
         dataModel.loadEmployeeListFromDB(departmentID);
         dataModel.loadItemListFromDB(departmentID);
         dataModel.loadRequestsFromDB(departmentID);
+        dataModel.loadMessagesFromDB();
         if (departmentID.equals("RT"))
         {
             dataModel.loadSalesFromDB();

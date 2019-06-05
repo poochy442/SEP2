@@ -9,17 +9,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class DataBaseModel {
-    Connection connection;
-    PreparedStatement departmentInsertStatement;
-    PreparedStatement employeeInsertStatement;
-    PreparedStatement employeeQuery;
-    PreparedStatement stockItemInsertStatement;
-    PreparedStatement stockItemQuery;
-    PreparedStatement requestInsertStatement;
-    PreparedStatement itemListInsertStatement;
-    PreparedStatement deleteItemByIDandDep;
-    PreparedStatement deleteEmployee;
-    PreparedStatement addSale;
+    private Connection connection;
+    private PreparedStatement departmentInsertStatement;
+    private PreparedStatement employeeInsertStatement;
+    private PreparedStatement employeeQuery;
+    private PreparedStatement stockItemInsertStatement;
+    private PreparedStatement stockItemQuery;
+    private PreparedStatement requestInsertStatement;
+    private PreparedStatement itemListInsertStatement;
+    private PreparedStatement deleteItemByIDandDep;
+    private PreparedStatement deleteEmployee;
+    private PreparedStatement addSale;
+    private PreparedStatement addMessage;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
@@ -35,8 +36,22 @@ public class DataBaseModel {
         deleteEmployee = prepareDeleteEmployee();
         employeeQuery = prepareEmployeeQuery();
         addSale = prepareAddSale();
+        addMessage = prepareAddMessage();
 
 
+    }
+
+    private PreparedStatement prepareAddMessage() {
+        String preparedSql = "INSERT INTO \"Sep2\".chatlog (message,time,senderID) " +
+                "SELECT * FROM (SELECT ?,?,?) ;";
+        addMessage = null;
+
+        try {
+            addMessage = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return addMessage;
     }
 
     //ServerSender Listens to DataBase Model
@@ -556,8 +571,6 @@ public class DataBaseModel {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-
-
         }
 
 
@@ -909,6 +922,63 @@ public class DataBaseModel {
             changeSupport.firePropertyChange("DeliveriesQuery", clientNo, deliveryList);
             resultSet.close();
             deliveriesQuery.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean addMessage(Message message, int clientNo) {
+        try {
+            addMessage.setString(1, message.getMessage());
+            addMessage.setTimestamp(2, message.getTimestamp());
+            addMessage.setString(3, message.getDepartmentID());
+            addSale.executeUpdate();
+            changeSupport.firePropertyChange("NewMessage",clientNo,message);
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
+
+
+    }
+
+    public void messageQuery(int clientNo) {
+        ArrayList<Object[]> results = new ArrayList<>();
+        MessageList messages = new MessageList();
+        try {
+            String sql =
+                    "select * from \"Sep2\".chatlog;";
+            PreparedStatement messageQuery = connection.prepareStatement(sql);
+            ResultSet resultSet = messageQuery.executeQuery();
+            while (resultSet.next()) {
+                Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
+                for (int i = 0; i < row.length; i++) {
+                    row[i] = resultSet.getObject(i + 1);
+                }
+                results.add(row);
+
+
+            }
+            for (int i = 0; i < results.size(); i++) {
+                Object[] row = results.get(i);
+                String message = row[0].toString();
+                Timestamp timestamp = (Timestamp)row[1];
+                String senderID = row[2].toString();
+                Message message1 = new Message(message,timestamp,senderID);
+                messages.addMessage(message1);
+
+
+
+            }
+            //todo update all clients new data
+            changeSupport.firePropertyChange("MessageQuery", clientNo, messages);
+            resultSet.close();
+            messageQuery.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
