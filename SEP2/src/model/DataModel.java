@@ -395,6 +395,7 @@ public class DataModel implements IDataModel {
         {
             System.out.println(messages.getMessage(i).toString());
         }
+        propertyChangeSupport.firePropertyChange("NewMessageList", null, messages);
     }
 
     @Override

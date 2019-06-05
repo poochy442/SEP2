@@ -60,7 +60,7 @@ public class Message {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(timestamp.getTime());
         String timeString = format.format(date);
-
-        return timeString + " - " + user + ": " + "\n" + message;
+        String parsedStr = message.replaceAll("(.{200})", "$1\n");
+        return timeString + " - " + user + ": " + "\n" + parsedStr;
     }
 }

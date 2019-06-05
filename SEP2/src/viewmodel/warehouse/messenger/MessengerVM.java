@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.IDataModel;
 import model.Message;
+import model.MessageList;
 import view.warehouse.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
@@ -38,6 +39,16 @@ public class MessengerVM {
         messages = FXCollections.observableArrayList();
         txtMsg = new SimpleStringProperty();
         dataModel.addListener("SendMessage", this::addMessage);
+        dataModel.addListener("NewMessageList", this::loadList);
+    }
+
+    private void loadList(PropertyChangeEvent evt) {
+        MessageList messageList = (MessageList) evt.getNewValue();
+        messages.removeAll(messages);
+        for(int i = 0; i < messageList.size(); i++)
+        {
+            messages.add(messageList.getMessage(i));
+        }
     }
 
     private void addMessage(PropertyChangeEvent evt) {
