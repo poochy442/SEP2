@@ -62,6 +62,7 @@ public class DataModel implements IDataModel {
     public void addEmployeeFromUser(Employee e) {
         employeeList.add(e);
         propertyChangeSupport.firePropertyChange("NewEmployeeFromUser", null, e);
+        propertyChangeSupport.firePropertyChange("NewEmployeeFromServer", null, e);
     }
 
     /**

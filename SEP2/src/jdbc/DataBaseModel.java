@@ -275,9 +275,17 @@ public class DataBaseModel {
         ArrayList<Object[]> results = new ArrayList<>();
         EmployeeList employeeList = new EmployeeList();
         try {
+            ResultSet resultSet = null;
+            if (!departmentID.equals("HQ")) {
+                employeeQuery.setString(1, departmentID);
+                resultSet = employeeQuery.executeQuery();
+            } else {
+                String sql = "SELECT * FROM \"Sep2\".employee;";
+                PreparedStatement employee = connection.prepareStatement(sql);
+                resultSet = employee.executeQuery();
 
-            employeeQuery.setString(1, departmentID);
-            ResultSet resultSet = employeeQuery.executeQuery();
+            }
+
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
                 for (int i = 0; i < row.length; i++) {
@@ -315,9 +323,16 @@ public class DataBaseModel {
         ArrayList<Object[]> results = new ArrayList<>();
         StockItemList stockItemList = new StockItemList();
         try {
+            ResultSet resultSet = null;
+            if (!departmentID.equals("HQ")) {
+                stockItemQuery.setString(1, departmentID);
+                resultSet = stockItemQuery.executeQuery();
+            } else {
+                String sql = "SELECT * FROM \"Sep2\".stockitem;";
+                PreparedStatement itemQuery = connection.prepareStatement(sql);
+                resultSet = itemQuery.executeQuery();
+            }
 
-            stockItemQuery.setString(1, departmentID);
-            ResultSet resultSet = stockItemQuery.executeQuery();
             while (resultSet.next()) {
                 Object[] row = new Object[resultSet.getMetaData().getColumnCount()];
                 for (int i = 0; i < row.length; i++) {
@@ -891,7 +906,7 @@ public class DataBaseModel {
                 deliveryList.addRequestToDelivery(productRequest, requestID);
             }
 
-            changeSupport.firePropertyChange("DeliveriesQuery",clientNo,deliveryList);
+            changeSupport.firePropertyChange("DeliveriesQuery", clientNo, deliveryList);
             resultSet.close();
             deliveriesQuery.close();
 
