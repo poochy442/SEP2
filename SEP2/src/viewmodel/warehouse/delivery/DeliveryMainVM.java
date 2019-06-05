@@ -41,7 +41,10 @@ public class DeliveryMainVM {
         DeliveryList deliveryList = (DeliveryList) evt.getNewValue();
         deliveries.removeAll(deliveries);
         for (int i = 0; i < deliveryList.size(); i++) {
-            deliveries.add(deliveryList.get(i));
+            if(deliveryList.get(i).getRequestedFrom().equals("WH") || deliveryList.get(i).getRequestedFrom().equals("RT"))
+            {
+                deliveries.add(deliveryList.get(i));
+            }
         }
     }
 

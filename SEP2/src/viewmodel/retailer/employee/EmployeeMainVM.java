@@ -47,7 +47,10 @@ public class EmployeeMainVM {
         employees.removeAll(employees);
         for(int i = 0; i < employeeList.size(); i++)
         {
-            employees.add(employeeList.get(i));
+            if (employeeList.get(i).getDepartmentID().equals("RT"))
+            {
+                employees.add(employeeList.get(i));
+            }
         }
     }
 
@@ -57,7 +60,11 @@ public class EmployeeMainVM {
      * @param evt The {@link PropertyChangeEvent} that caused the Listener to call this method.
      */
     private void addEmployeeToClient(PropertyChangeEvent evt) {
-        employees.add((Employee) evt.getNewValue());
+        Employee employee = (Employee) evt.getNewValue();
+        if(employee.getDepartmentID().equals("RT"))
+        {
+            employees.add(employee);
+        }
     }
 
     /**

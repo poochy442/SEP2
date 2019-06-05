@@ -42,12 +42,19 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
         EmployeeList employeeList = (EmployeeList) evt.getNewValue();
         employees.removeAll(employees);
         for (int i = 0; i < employeeList.size(); i++) {
-            employees.add(employeeList.get(i));
+            if(employeeList.get(i).getDepartmentID().equals("WH"))
+            {
+                employees.add(employeeList.get(i));
+            }
         }
     }
 
     private void addEmployeeToClient(PropertyChangeEvent evt) {
-        employees.add((Employee) evt.getNewValue());
+        Employee employee = (Employee) evt.getNewValue();
+        if(employee.getDepartmentID().equals("WH"))
+        {
+            employees.add(employee);
+        }
     }
 
     /**

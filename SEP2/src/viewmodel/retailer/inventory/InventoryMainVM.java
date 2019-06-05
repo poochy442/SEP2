@@ -50,7 +50,10 @@ public class InventoryMainVM {
         stockItems.removeAll(stockItems);
         for(int i = 0; i < stockItemList.size(); i++)
         {
-            stockItems.add(stockItemList.get(i));
+            if(stockItemList.get(i).getLocation().equals("RT"))
+            {
+                stockItems.add(stockItemList.get(i));
+            }
         }
     }
 
@@ -59,7 +62,11 @@ public class InventoryMainVM {
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void addStockItemToClient(PropertyChangeEvent evt) {
-        stockItems.add((StockItem) evt.getNewValue());
+        StockItem stockItem = (StockItem) evt.getNewValue();
+        if(stockItem.getLocation().equals("RT"))
+        {
+            stockItems.add(stockItem);
+        }
     }
 
     /**

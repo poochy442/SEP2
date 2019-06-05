@@ -42,7 +42,10 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
         EmployeeList employeeList = (EmployeeList) evt.getNewValue();
         employees.removeAll(employees);
         for (int i = 0; i < employeeList.size(); i++) {
-            employees.add(employeeList.get(i));
+            if(employeeList.get(i).getDepartmentID().equals("HQ"))
+            {
+                employees.add(employeeList.get(i));
+            }
         }
     }
 
@@ -52,7 +55,11 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
      * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
      */
     private void addEmployeeToClient(PropertyChangeEvent evt) {
-        employees.add((Employee) evt.getNewValue());
+        Employee employee = (Employee) evt.getNewValue();
+        if(employee.getDepartmentID().equals("HQ"))
+        {
+            employees.add(employee);
+        }
     }
 
     /**
@@ -88,9 +95,6 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
     public void openInventoryMainHQView() {viewHandler.openInventoryMainHQView();
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMainRTView() {viewHandler.openMainRTView();
     }
 
@@ -98,5 +102,8 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
     }
 
     public void openEmployeeMainHQView() {viewHandler.openEmployeeMainHQView();
+    }
+
+    public void openDeliveryView() {
     }
 }

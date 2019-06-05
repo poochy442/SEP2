@@ -46,21 +46,19 @@ public class ProductRequestVM {
         productRequests.removeAll(productRequests);
         for(int i = 0; i < productRequestList.size(); i++)
         {
-            productRequests.add(productRequestList.getProductRequest(i));
+            if (productRequestList.getProductRequest(i).getStockItem().getLocation().equals("WH"))
+            {
+                productRequests.add(productRequestList.getProductRequest(i));
+            }
         }
     }
 
     private void addProductRequest(PropertyChangeEvent evt) {
-        productRequests.add((ProductRequest) evt.getNewValue());
-    }
-
-    /**
-     * Sends a Product Request to the Server with the information in the {@link PropertyChangeEvent} passed.
-     *
-     * @param evt The {@link PropertyChangeEvent} that caused this method to be called.
-     */
-    private void sendProductRequest(PropertyChangeEvent evt) {
-        dataModel.sendProductRequest("WH");
+        ProductRequest productRequest = (ProductRequest) evt.getNewValue();
+        if(productRequest.getStockItem().getLocation().equals("WH"))
+        {
+            productRequests.add((productRequest));
+        }
     }
 
     /**
@@ -106,7 +104,8 @@ public class ProductRequestVM {
      * Sends the product request to the {@link model.DataModel}.
      */
     public void sendProductRequest() {
-
+        ProductRequestList productRequestList = new ProductRequestList();
+        productRequestList.addRequestToList(productRequests.get(i));
         dataModel.sendProductRequest("WH");
     }
 
