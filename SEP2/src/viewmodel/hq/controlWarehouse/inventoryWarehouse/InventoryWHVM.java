@@ -42,12 +42,19 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         stockItems.removeAll(stockItems);
         for(int i = 0; i < stockItemList.size(); i++)
         {
-            stockItems.add(stockItemList.get(i));
+            if(stockItemList.get(i).getLocation().equals("WH"))
+            {
+                stockItems.add(stockItemList.get(i));
+            }
         }
     }
 
     private void addStockItemToClient(PropertyChangeEvent evt) {
-        stockItems.add((StockItem) evt.getNewValue());
+        StockItem stockItem = (StockItem) evt.getNewValue();
+        if(stockItem.getLocation().equals("WH"))
+        {
+            stockItems.add(stockItem);
+        }
     }
     /**
      * Gets the {@link StockItem}s stored.

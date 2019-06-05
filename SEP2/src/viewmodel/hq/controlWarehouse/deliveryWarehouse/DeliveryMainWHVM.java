@@ -43,6 +43,7 @@ public class DeliveryMainWHVM {
         deliveries.removeAll(deliveries);
         for(int i = 0; i < deliveryList.size(); i++)
         {
+            if(deliveryList.get(i).getRequestedFrom().equals("RT") || deliveryList.get(i).getRequestedFrom().equals("WH"))
             deliveries.add(deliveryList.get(i));
         }
     }

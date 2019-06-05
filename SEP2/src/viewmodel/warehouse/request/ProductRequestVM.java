@@ -46,12 +46,19 @@ public class ProductRequestVM {
         productRequests.removeAll(productRequests);
         for(int i = 0; i < productRequestList.size(); i++)
         {
-            productRequests.add(productRequestList.getProductRequest(i));
+            if (productRequestList.getProductRequest(i).getStockItem().getLocation().equals("WH"))
+            {
+                productRequests.add(productRequestList.getProductRequest(i));
+            }
         }
     }
 
     private void addProductRequest(PropertyChangeEvent evt) {
-        productRequests.add((ProductRequest) evt.getNewValue());
+        ProductRequest productRequest = (ProductRequest) evt.getNewValue();
+        if(productRequest.getStockItem().getLocation().equals("WH"))
+        {
+            productRequests.add((productRequest));
+        }
     }
 
     /**
