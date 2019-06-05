@@ -25,7 +25,6 @@ import viewmodel.retailer.sales.SalesVM;
 
 public class ViewModelProvider {
     private IDataModel dataModel;
-    private ViewHandler viewHandler;
     private MainVM mainVM;
     private InventoryMainVM inventoryMainVM;
     private InventoryAddVM inventoryAddVM;
@@ -43,16 +42,6 @@ public class ViewModelProvider {
      */
     public ViewModelProvider(IDataModel dataModel) {
         this.dataModel = dataModel;
-        viewHandler = new ViewHandler(new Stage(), this);
-        mainVM = new MainVM(dataModel, viewHandler);
-        inventoryAddVM = new InventoryAddVM(dataModel, viewHandler);
-        inventoryMainVM = new InventoryMainVM(dataModel, viewHandler);
-        employeeMainVM = new EmployeeMainVM(dataModel, viewHandler);
-        employeeAddVM = new EmployeeAddVM(dataModel, viewHandler);
-        productRequestVM = new ProductRequestVM(dataModel, viewHandler);
-        salesVM = new SalesVM(dataModel,viewHandler);
-        deliveryMainVM = new DeliveryMainVM(dataModel, viewHandler);
-        deliveryItemsVM = new DeliveryItemsVM(dataModel, viewHandler);
     }
 
     /**

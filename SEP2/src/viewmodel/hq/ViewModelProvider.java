@@ -2,9 +2,13 @@ package viewmodel.hq;
 
 import model.IDataModel;
 import view.hq.ViewHandler;
+import viewmodel.hq.controlRetailer.deliveryRetailer.DeliveryItemsRTVM;
+import viewmodel.hq.controlRetailer.deliveryRetailer.DeliveryMainRTVM;
 import viewmodel.hq.controlRetailer.employeeRetailer.EmployeeRTVM;
 import viewmodel.hq.controlRetailer.inventoryRetailer.InventoryRTVM;
 import viewmodel.hq.controlRetailer.mainRetailer.MainRTVM;
+import viewmodel.hq.controlWarehouse.deliveryWarehouse.DeliveryItemsWHVM;
+import viewmodel.hq.controlWarehouse.deliveryWarehouse.DeliveryMainWHVM;
 import viewmodel.hq.controlWarehouse.employeeWarehouse.EmployeeWHVM;
 import viewmodel.hq.controlWarehouse.inventoryWarehouse.InventoryWHVM;
 import viewmodel.hq.controlWarehouse.mainWarehouse.MainWHVM;
@@ -38,6 +42,10 @@ public class ViewModelProvider {
     private InventoryRTVM inventoryRTVM;
     private MainWHVM mainWHVM;
     private MainRTVM mainRTVM;
+    private DeliveryItemsWHVM deliveryItemsWHVM;
+    private DeliveryMainWHVM deliveryMainWHVM;
+    private DeliveryMainRTVM deliveryMainRTVM;
+    private DeliveryItemsRTVM deliveryItemsRTVM;
 
     /**
      * Creates a ViewModelProvider with the specified information
@@ -164,7 +172,25 @@ public class ViewModelProvider {
         inventoryRTVM = new InventoryRTVM(dataModel, viewHandler);
         mainRTVM = new MainRTVM(dataModel, viewHandler);
         mainWHVM = new MainWHVM(dataModel, viewHandler);
+        deliveryItemsWHVM = new DeliveryItemsWHVM(dataModel, viewHandler);
+        deliveryMainWHVM = new DeliveryMainWHVM(dataModel, viewHandler);
+        deliveryItemsRTVM = new DeliveryItemsRTVM(dataModel, viewHandler);
+        deliveryMainRTVM = new DeliveryMainRTVM(dataModel, viewHandler);
     }
 
+    public DeliveryItemsWHVM getDeliveryItemsWHVM() {
+        return deliveryItemsWHVM;
+    }
 
+    public DeliveryMainWHVM getDeliveryMainWHVM() {
+        return deliveryMainWHVM;
+    }
+
+    public DeliveryMainRTVM getDeliveryMainRTVM() {
+        return deliveryMainRTVM;
+    }
+
+    public DeliveryItemsRTVM getDeliveryItemsRTVM() {
+        return deliveryItemsRTVM;
+    }
 }

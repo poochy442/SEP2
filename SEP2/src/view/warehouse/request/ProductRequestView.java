@@ -122,7 +122,7 @@ public class ProductRequestView {
 
     @FXML void onDeliveryClicked(ActionEvent event)
     {
-
+        productRequestVM.openDeliveryMainView();
     }
 
     @FXML

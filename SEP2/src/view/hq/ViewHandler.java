@@ -7,9 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.hq.controlRetailer.deliveryRetailer.DeliveryItemsRTView;
+import view.hq.controlRetailer.deliveryRetailer.DeliveryMainRTView;
 import view.hq.controlRetailer.employeeRetailer.EmployeeMainRTView;
 import view.hq.controlRetailer.inventoryRetailer.InventoryMainRTView;
 import view.hq.controlRetailer.mainRetailer.MainRTView;
+import view.hq.controlWarehouse.deliveryWarehouse.DeliveryItemsWHView;
+import view.hq.controlWarehouse.deliveryWarehouse.DeliveryMainWHView;
 import view.hq.controlWarehouse.employeeWarehouse.EmployeeMainWHView;
 import view.hq.controlWarehouse.inventoryWarehouse.InventoryMainWHView;
 import view.hq.controlWarehouse.mainWarehouse.MainWHView;
@@ -301,6 +305,90 @@ public class ViewHandler {
         MainRTView view = loader.getController();
         view.init(viewModelProvider.getMainRTVM());
         primaryStage.setTitle("Retailer Dashboard");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryMainWHView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlWarehouse/deliveryWarehouse/DeliveryMainWH.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryMainWHView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryMainWHVM());
+        primaryStage.setTitle("WH Deliveries");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryItemsWHView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlWarehouse/deliveryWarehouse/DeliveryItemsWH.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryItemsWHView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryItemsWHVM());
+        primaryStage.setTitle("WH Delivery information");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryItemsRTView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlRetailer/deliveryRetailer/DeliveryItemsRT.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryItemsRTView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryItemsRTVM());
+        primaryStage.setTitle("Retailer Delivery information");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openDeliveryMainRTView() {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("controlRetailer/deliveryRetailer/DeliveryMainRT.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        DeliveryMainRTView view = loader.getController();
+        view.init(viewModelProvider.getDeliveryMainRTVM());
+        primaryStage.setTitle("Retailer Deliveries");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

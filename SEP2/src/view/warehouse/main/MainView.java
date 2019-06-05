@@ -72,7 +72,7 @@ public class MainView {
     @FXML
     void onDeliveryClicked(ActionEvent event)
     {
-
+        mainVM.openDeliveryMainView();
     }
 
 }

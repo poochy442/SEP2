@@ -15,7 +15,7 @@ public class MainRTVM {
     public void openMainView() {viewHandler.openMainHQView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainRTView();
     }
 
     public void openMainWHView() {

@@ -76,7 +76,7 @@ public class EmployeeRTVM {
         dataModel.removeEmployeeHQ(e);
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainRTView();
     }
 
     public void openMainRTView() {

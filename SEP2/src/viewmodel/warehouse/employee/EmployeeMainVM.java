@@ -102,4 +102,7 @@ public class EmployeeMainVM {
 
     public void openProductRequestView() {viewHandler.openProductRequestView();
     }
+
+    public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
+    }
 }

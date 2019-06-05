@@ -94,7 +94,7 @@ public class InventoryRTVM {
         dataModel.removeStockItemHQ(stockItem);
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainRTView();
     }
 
     public void openMainRTView() {viewHandler.openMainRTView();

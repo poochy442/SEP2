@@ -47,7 +47,7 @@ public class DeliveryMainView {
     private Delivery selectedDelivery;
 
     /**
-     * Creates an DeliveryMainView.
+     * Creates an DeliveryMainRTView.
      */
     public DeliveryMainView() {
 

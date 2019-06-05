@@ -44,7 +44,7 @@ public class DeliveryItemsView {
     private DeliveryItemsVM deliveryItemsVM;
 
     /**
-     * Creates an DeliveryMainView.
+     * Creates an DeliveryMainRTView.
      */
     public DeliveryItemsView() {
 

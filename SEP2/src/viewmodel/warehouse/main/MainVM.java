@@ -52,4 +52,7 @@ public class MainVM {
 
     public void openMainView() {viewHandler.openMainView();
     }
+
+    public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
+    }
 }

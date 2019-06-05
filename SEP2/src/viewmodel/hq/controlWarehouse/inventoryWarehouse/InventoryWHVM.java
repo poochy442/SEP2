@@ -63,7 +63,7 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
     /**
      * This method opens the main view.
      */
-    public void openMainView() {
+    public void openMainView() {viewHandler.openMainWHView();
 
     }
 
@@ -87,7 +87,7 @@ public class InventoryWHVM { //This class is to display inventoryStockList from 
         viewHandler.openInventoryMainWHView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainWHView();
     }
 
     public void openMainRTView() {viewHandler.openMainRTView();

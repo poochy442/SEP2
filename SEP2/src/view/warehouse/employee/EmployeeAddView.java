@@ -112,7 +112,7 @@ public class EmployeeAddView {
 
     @FXML void onDeliveryClicked(ActionEvent event)
     {
-
+        employeeAddVM.openDeliveryMainView();
     }
 
     private boolean isEverythingValid() {

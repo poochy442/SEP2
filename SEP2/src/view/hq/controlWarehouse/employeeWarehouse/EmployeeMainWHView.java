@@ -65,7 +65,7 @@ public class EmployeeMainWHView {
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-
+        employeeWHVM.openMainWHView();
     }
 
     @FXML void onDeliveryClicked(ActionEvent event)

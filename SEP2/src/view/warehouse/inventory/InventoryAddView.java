@@ -140,7 +140,7 @@ public class InventoryAddView {
 
     @FXML void onDeliveryClicked(ActionEvent event)
     {
-
+        inventoryAddVM.openDeliveryMainView();
     }
 
     @FXML

@@ -274,4 +274,7 @@ public class InventoryAddVM {
 
     public void openProductRequestView() {viewHandler.openProductRequestView();
     }
+
+    public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
+    }
 }

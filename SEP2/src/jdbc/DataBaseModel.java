@@ -6,6 +6,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DataBaseModel {
     Connection connection;
@@ -856,7 +857,8 @@ public class DataBaseModel {
                 String requestID = row[0].toString();
                 String requestedFrom = row[1].toString();
                 String status = row[2].toString();
-                Delivery delivery = new Delivery(requestID, requestedFrom, status); //TODO: needs date
+                Date date = new Date();
+                Delivery delivery = new Delivery(requestID, requestedFrom, status, date); //TODO: needs date
                 deliveryList.addDelivery(delivery);
             }
 

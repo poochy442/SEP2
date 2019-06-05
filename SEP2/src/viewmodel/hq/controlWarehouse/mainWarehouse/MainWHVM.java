@@ -19,7 +19,7 @@ public class MainWHVM {
     public void openMainView() {viewHandler.openMainHQView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainWHView();
     }
 
     public void openMainWHView() {

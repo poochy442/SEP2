@@ -82,7 +82,7 @@ public class EmployeeWHVM { //This class is to display employeeList from warehou
         viewHandler.openEmployeeMainWHView();
     }
 
-    public void openDeliveryView() {
+    public void openDeliveryView() {viewHandler.openDeliveryMainWHView();
     }
 
     public void openMainRTView() {

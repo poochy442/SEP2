@@ -129,4 +129,7 @@ public class ProductRequestVM {
     public boolean onlyNumbersQuantity() {
         return dataModel.onlyNumbers(quantity.getValue());
     }
+
+    public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
+    }
 }

@@ -79,11 +79,6 @@ public class EmployeeMainRTView {
     }
 
     @FXML
-    void onHQClicked(MouseEvent event) {
-        employeeRTVM.openMainHQView();
-    }
-
-    @FXML
     void onInventoryClicked(ActionEvent event) {
         employeeRTVM.openInventoryRTView();
     }
@@ -92,6 +87,11 @@ public class EmployeeMainRTView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML
+    void onHQClicked(MouseEvent event) {
+        employeeRTVM.openMainHQView();
     }
 
     @FXML

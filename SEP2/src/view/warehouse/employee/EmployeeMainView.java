@@ -134,6 +134,6 @@ public class EmployeeMainView {
 
     @FXML void onDeliveryClicked(ActionEvent event)
     {
-
+        employeeMainVM.openDeliveryMainView();
     }
 }
