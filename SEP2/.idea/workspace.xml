@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e028962-3288-40ad-ba9b-cc8e4c16ec07" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/model/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/model/DataModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlRetailer/deliveryRetailer/DeliveryMainRTView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlRetailer/deliveryRetailer/DeliveryMainRTView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/deliveryWarehouse/DeliveryMainWHView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/hq/controlWarehouse/deliveryWarehouse/DeliveryMainWHView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/delivery/DeliveryMainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/view/warehouse/delivery/DeliveryMainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/deliveryRetailer/DeliveryItemsRTVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/deliveryRetailer/DeliveryItemsRTVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/deliveryRetailer/DeliveryMainRTVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/deliveryRetailer/DeliveryMainRTVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/employeeRetailer/EmployeeRTVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/employeeRetailer/EmployeeRTVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/inventoryRetailer/InventoryRTVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlRetailer/inventoryRetailer/InventoryRTVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/deliveryWarehouse/DeliveryItemsWHVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/deliveryWarehouse/DeliveryItemsWHVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/deliveryWarehouse/DeliveryMainWHVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/deliveryWarehouse/DeliveryMainWHVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/employeeWarehouse/EmployeeWHVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/employeeWarehouse/EmployeeWHVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/inventoryWarehouse/InventoryWHVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/controlWarehouse/inventoryWarehouse/InventoryWHVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/hq/employee/EmployeeMainHQVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/hq/employee/EmployeeMainHQVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/hq/inventory/InventoryMainHQVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/hq/hq/inventory/InventoryMainHQVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/delivery/DeliveryMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/delivery/DeliveryMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/employee/EmployeeMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/employee/EmployeeMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/inventory/InventoryMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/inventory/InventoryMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/request/ProductRequestVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/request/ProductRequestVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/sales/SalesVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/retailer/sales/SalesVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/delivery/DeliveryItemsVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/delivery/DeliveryItemsVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/delivery/DeliveryMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/delivery/DeliveryMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/employee/EmployeeMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/employee/EmployeeMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryMainVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/inventory/InventoryMainVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/request/ProductRequestVM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/viewmodel/warehouse/request/ProductRequestVM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/DataBaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DataModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="1e028962-3288-40ad-ba9b-cc8e4c16ec07" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,33 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/DataModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="225" column="63" selection-start-line="225" selection-start-column="50" selection-end-line="225" selection-end-column="63" />
-              <folding>
-                <element signature="e#3300#3301#0" expanded="true" />
-                <element signature="e#3336#3337#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="91" column="45" lean-forward="true" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
+        <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="332" column="53" selection-start-line="332" selection-start-column="53" selection-end-line="332" selection-end-column="53" />
+            <state relative-caret-position="255">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -93,10 +43,10 @@
       <find>delive</find>
       <find>openDeli</find>
       <find>newemployeefromserver</find>
-      <find>loademployee</find>
       <find>EmployeeQuery</find>
       <find>load</find>
       <find>stockitem</find>
+      <find>loademployee</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,6 +141,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SEP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -199,7 +156,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559725840363" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559726209406" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view/hq/controlRetailer" />
   </component>
   <component name="RecentsManager">
@@ -223,7 +180,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunApplicationHQ">
+  <component name="RunManager" selected="Application.RunApplicationWH">
+    <configuration name="RunApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RunApplication" />
+      <module name="SEP2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunApplicationHQ" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="RunApplicationHQ" />
       <module name="SEP2" />
@@ -260,10 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunApplicationHQ" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.RunApplicationRT" />
         <item itemvalue="Application.RunApplicationWH" />
+        <item itemvalue="Application.RunApplication" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.RunApplicationHQ" />
+        <item itemvalue="Application.RunApplicationRT" />
       </list>
     </recent_temporary>
   </component>
@@ -744,17 +709,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RunApplicationRT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="91" column="45" lean-forward="true" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3355">
+          <caret line="332" column="53" selection-start-line="332" selection-start-column="53" selection-end-line="332" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -769,17 +741,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Server/ServerReceiver.java">
+    <entry file="file://$PROJECT_DIR$/src/network/Server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="91" column="45" lean-forward="true" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jdbc/DataBaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="332" column="53" selection-start-line="332" selection-start-column="53" selection-end-line="332" selection-end-column="53" />
+        <state relative-caret-position="255">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
