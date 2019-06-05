@@ -128,4 +128,7 @@ public class EmployeeAddVM {
 
     public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

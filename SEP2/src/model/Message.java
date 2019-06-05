@@ -1,6 +1,9 @@
 package model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class Message {
     private String message;
@@ -37,12 +40,27 @@ public class Message {
         this.departmentID = departmentID;
     }
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "message='" + message + '\'' +
-                ", timestamp=" + timestamp +
-                ", departmentID='" + departmentID + '\'' +
-                '}';
+    public String toString()
+    {
+        String s = "";
+        String user = "";
+        if(departmentID.equals("WH"))
+        {
+            user = "Warehouse manager";
+        }
+        else if(departmentID.equals("RT"))
+        {
+            user = "Retailer manager";
+        }
+        else
+        {
+            user = "Headquarter manager";
+        }
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date date = new Date(timestamp.getTime());
+        String timeString = format.format(date);
+
+        return timeString + " - " + user + ": " + "\n" + message;
     }
 }

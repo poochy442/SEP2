@@ -375,15 +375,14 @@ public class DataModel implements IDataModel {
     @Override
     public void sendMessage(Message message)
     {
-        propertyChangeSupport.firePropertyChange("SendMessage",null,message);
         addMessage(message);
+        propertyChangeSupport.firePropertyChange("SendMessage",null,message);
     }
 
     @Override
     public void addMessage(Message message) {
         messages.addMessage(message);
         System.out.println("DataModel:  addMessage() -> "+message.getMessage());
-        //todo notify view
     }
 
     @Override

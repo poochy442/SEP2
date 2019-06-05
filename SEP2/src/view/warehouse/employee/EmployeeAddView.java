@@ -152,4 +152,8 @@ public class EmployeeAddView {
         }
         return false;
     }
+
+    @FXML void onMessengerClicked(MouseEvent event) {
+        employeeAddVM.openMessengerView();
+    }
 }

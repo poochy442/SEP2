@@ -202,4 +202,8 @@ public class InventoryMainView {
         return false;
     }
 
+    @FXML void onMessengerClicked(MouseEvent event) {
+        inventoryMainVM.openMessengerView();
+    }
+
 }

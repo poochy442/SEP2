@@ -126,4 +126,7 @@ public class ProductRequestVM {
 
     public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }
