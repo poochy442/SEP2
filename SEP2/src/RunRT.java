@@ -20,7 +20,7 @@ public class RunRT extends Application {
         ViewHandler vh = new ViewHandler(stage, vmp);
         vh.start();
         // Give a argument to the client to reference which data to load
-        Client client = new Client("localhost", dataModel,"RT");
+        Client client = new Client("192.168.43.206", dataModel,"RT");
         client.run();
 
     }

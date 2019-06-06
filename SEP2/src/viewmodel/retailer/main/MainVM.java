@@ -35,7 +35,9 @@ public class MainVM {
         profit = new SimpleIntegerProperty();
         operationalCost = new SimpleIntegerProperty();
         dataModel.addListener("PieChartUpdate",this::pieChartUpdate);
+        dataModel.addListener("PieChartLoad",this::pieChartUpdate);
     }
+
 
     private void pieChartUpdate(PropertyChangeEvent evt) {
         Platform.runLater(()-> {

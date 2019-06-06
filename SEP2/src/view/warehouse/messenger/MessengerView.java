@@ -51,6 +51,7 @@ public class MessengerView {
         this.messengerVM = messengerVM;
         chatBox.setItems(messengerVM.getMessages());
         txtMsg.textProperty().bindBidirectional(messengerVM.txtMsgProperty());
+        chatBox.scrollTo(chatBox.getItems().size());
     }
 
     @FXML
@@ -92,6 +93,7 @@ public class MessengerView {
     @FXML
     void onSendMessageClicked(MouseEvent event) {
         messengerVM.sendMessage();
+        chatBox.scrollTo(chatBox.getItems().size());
     }
 
 
