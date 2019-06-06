@@ -346,7 +346,7 @@ public class DataModel implements IDataModel {
 
         for (int i=0;i<salesList.size();i++)
         {
-            System.out.println(salesList.get(i).getName());
+            System.out.println("SALES: " + salesList.get(i).getName() + " QUANTITY: " + salesList.get(i).getQuantity() + " PRICE: " + salesList.get(i).getPrice());
         }
 
         int costOfGoods = 0, profit = 0, operationalCost = 0;
@@ -354,7 +354,7 @@ public class DataModel implements IDataModel {
         {
             costOfGoods += (salesList.get(i).getPrice()/2) * salesList.get(i).getQuantity();
             operationalCost += salesList.get(i).getQuantity();
-            profit += (costOfGoods - operationalCost);
+            profit += (salesList.get(i).getPrice()/2) * salesList.get(i).getQuantity() - salesList.get(i).getQuantity();
         }
         propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
         propertyChangeSupport.firePropertyChange("NewSalesList", null, salesList);
@@ -385,8 +385,6 @@ public class DataModel implements IDataModel {
         messages.addMessage(message);
         System.out.println("DataModel:  addMessage() -> "+message.getMessage());
         propertyChangeSupport.firePropertyChange("AddMessageView",null,message);
-
-
     }
 
     @Override

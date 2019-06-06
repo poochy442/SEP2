@@ -34,15 +34,6 @@ public class DeliveryMainVM {
         deliveries = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("", this::addDeliveryToClient);
         dataModel.addListener("NewDeliveryList",this::loadList);
-
-
-        DeliveryList deliveryList = new DeliveryList();
-        StockItem stockItem = new StockItem("LOL", "ID", 5, 10, true, new Date(), 7, 9, "RT");
-        ProductRequest productRequest = new ProductRequest(stockItem, 10);
-        deliveryList.addRequestToDelivery(productRequest, "RequestID");
-        Delivery delivery = new Delivery("Hardcoded", "DeliveryMainVM", "test", new Date());
-        delivery.addToDelivery(productRequest);
-        deliveries.add(delivery);
     }
 
     private void loadList(PropertyChangeEvent evt) {
