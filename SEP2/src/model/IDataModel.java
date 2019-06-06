@@ -20,7 +20,7 @@ public interface IDataModel {
 
     void loadEmployeeListFromDB(String departmentID);
 
-    void loadItemListFromDB(String departmentID);
+    void loadItemListFromDB();
 
     void openDelivery(Delivery delivery);
 

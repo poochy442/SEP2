@@ -102,7 +102,7 @@ public class ClientReceiver implements Runnable {
                         dataModel.setRequestList(requestList);
                         break;
                     case Packet.requestRefresh:
-                        dataModel.loadItemListFromDB(departmentID);
+                        dataModel.loadItemListFromDB();
                         dataModel.loadRequestsFromDB(departmentID);
                         if (departmentID.equals("RT"))
                             dataModel.loadSalesFromDB();
@@ -125,6 +125,9 @@ public class ClientReceiver implements Runnable {
                         dataModel.addItemFromServer(stockItem);
                     case Packet.employeeUpdate:
                         dataModel.loadEmployeeListFromDB(json);
+                        break;
+                    case Packet.itemUpdate:
+                        dataModel.loadItemListFromDB();
                         break;
 
                 }

@@ -601,7 +601,9 @@ public class DataBaseModel {
             deleteItemByIDandDep.setString(1, id);
             deleteItemByIDandDep.setString(2, department);
             deleteItemByIDandDep.executeUpdate();
+            changeSupport.firePropertyChange("ItemRefresh",clientNo,department);
             return true;
+
 
         } catch (SQLException e) {
             e.printStackTrace();

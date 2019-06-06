@@ -57,7 +57,7 @@ public class Client implements Runnable {
         t1.start();
         dataModel.setDepartment(departmentID);
         dataModel.loadEmployeeListFromDB(departmentID);
-        dataModel.loadItemListFromDB(departmentID);
+        dataModel.loadItemListFromDB();
         dataModel.loadRequestsFromDB(departmentID);
         dataModel.loadMessagesFromDB();
 

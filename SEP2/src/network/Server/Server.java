@@ -17,7 +17,7 @@ import java.net.Socket;
  * @author Dave Joe Lê
  */
 
-public class Server {
+public class    Server {
 
     private static int PORT = 5678;
 
@@ -36,7 +36,6 @@ public class Server {
 
         while (true) {
             Socket socket = welcomeSocket.accept();
-
             ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel,i);
             ServerSender serverSender = new ServerSender(socket,dataBaseModel,i);
             Thread t2 = new Thread(serverSender);
