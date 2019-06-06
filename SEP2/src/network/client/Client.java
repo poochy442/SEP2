@@ -55,6 +55,7 @@ public class Client implements Runnable {
         ClientSender clientSender = new ClientSender(socket, dataModel);
         Thread t1 = new Thread(clientSender);
         t1.start();
+        dataModel.setDepartment(departmentID);
         dataModel.loadEmployeeListFromDB(departmentID);
         dataModel.loadItemListFromDB(departmentID);
         dataModel.loadRequestsFromDB(departmentID);

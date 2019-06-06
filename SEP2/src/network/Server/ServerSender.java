@@ -54,8 +54,18 @@ public class ServerSender implements Runnable {
         dataBaseModel.addListener("NewMessage",this::sendMessage);
         dataBaseModel.addListener("MessageQuery",this::sendMesageList);
         dataBaseModel.addListener("NewItem",this::newItem);
+        dataBaseModel.addListener("UpdateEmployee",this::notifyEmployeQuery);
         System.out.println("newemployeelistener");
 
+    }
+
+    private void notifyEmployeQuery(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo!=(int)propertyChangeEvent.getOldValue())
+        {
+            Packet packet = new Packet(Packet.employeeUpdate,(String)propertyChangeEvent.getNewValue());
+            addToQueue(packet);
+
+        }
     }
 
     private void newItem(PropertyChangeEvent propertyChangeEvent) {

@@ -568,6 +568,7 @@ public class DataBaseModel {
             itemListInsertStatement.setString(1, "" + requestID);
             itemListInsertStatement.setString(2, productRequest.getProductId());
             itemListInsertStatement.setInt(3, productRequest.getQuantity());
+            System.out.println(productRequest.getQuantity()+"--------------------");
             itemListInsertStatement.executeUpdate();
 
             return true;
@@ -639,13 +640,14 @@ public class DataBaseModel {
         return deleteEmployee;
     }
 
-    public boolean deleteEmployee(Employee employee) {
+    public boolean deleteEmployee(Employee employee,int clientNo) {
         try {
 
 
             deleteEmployee.setString(1, employee.getId());
             deleteEmployee.executeUpdate();
 
+            changeSupport.firePropertyChange("UpdateEmployee",clientNo,employee.getDepartmentID());
             return true;
 
         } catch (SQLException e) {
