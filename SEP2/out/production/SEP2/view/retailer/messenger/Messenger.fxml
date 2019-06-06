@@ -40,7 +40,7 @@
             </Pane>
          </top>
          <center>
-            <ListView fx:id="chatBox" fixedCellSize="0.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="628.0" prefWidth="941.0" BorderPane.alignment="CENTER">
+            <ListView fx:id="chatBox" fixedCellSize="0.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.8" prefHeight="628.0" prefWidth="941.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="85.0" left="269.0" right="10.0" top="74.0" />
                </BorderPane.margin>
@@ -230,11 +230,6 @@
             </Label>
          </children>
       </Pane>
-      <TextArea fx:id="txtMsg" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="40.0" prefWidth="240.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="100.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextArea>
       <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#onSendMessageClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="45.0">
          <image>
             <Image url="@../../warehouse/pictures/right-arrow.png" />
@@ -243,5 +238,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <TextArea fx:id="txtMsg" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" prefHeight="0.0" prefWidth="240.0" promptText="Let's chat..." style="-fx-border-width: 0px 0px 2px 0px;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
    </children>
 </AnchorPane>

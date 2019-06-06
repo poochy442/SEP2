@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import model.Message;
 import viewmodel.hq.hq.messenger.MessengerVM;
 
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * The main view Class for the Headquarters.
  *
@@ -65,7 +67,9 @@ public class MessengerView {
         this.messengerVM = messengerVM;
         chatBox.setItems(messengerVM.getMessages());
         txtMsg.textProperty().bindBidirectional(messengerVM.txtMsgProperty());
-        align();
+        if(chatBox.getItems().size() > 0){
+            align(chatBox.getItems().size() - 1);
+        }
     }
 
     @FXML
@@ -102,20 +106,26 @@ public class MessengerView {
     @FXML
     void onSendMessageClicked(MouseEvent event) {
         messengerVM.sendMessage();
-        align();
+        if(chatBox.getItems().size() > 0){
+            align(chatBox.getItems().size() - 1);
+        }
     }
 
-    private void align() {
-        for (int i = 0; i < chatBox.getItems().size(); i++) {  //TODO: Checking first element
-            if (chatBox.getItems().get(i).getDepartmentID().equals("HQ")) {
-                getListCell(chatBox, i).setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-                getListCell(chatBox, i).setStyle("-fx-border-width: 7px 305px 7px 0px;");
-                getListCell(chatBox, i).setStyle("-fx-background-color: #F9F9F9;");
-            } else {
-                getListCell(chatBox, i).setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-                getListCell(chatBox, i).setStyle("-fx-border-width: 7px 5px 7px 300px;");
-                getListCell(chatBox, i).setStyle("-fx-background-color: #FFFFFF;");
-            }
+    private void align(int i) {
+        Cell workingCell = null;
+        try {
+            workingCell = (Cell) chatBox.lookupAll(".cell").toArray()[i];
+        if (chatBox.getItems().get(i).getDepartmentID().equals("HQ")) {
+            workingCell.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+            workingCell.setStyle("-fx-border-width: 7px 305px 7px 0px;");
+            workingCell.setStyle("-fx-background-color: #F9F9F9;");
+        } else {
+            workingCell.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+            workingCell.setStyle("-fx-border-width: 7px 5px 7px 300px;");
+            workingCell.setStyle("-fx-background-color: #FFFFFF;");
+        }
+        } catch (RuntimeException e){
+            e.getCause();
         }
     }
 
