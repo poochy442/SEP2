@@ -67,12 +67,10 @@ public class ServerSender implements Runnable {
     }
 
     private void itemRefresh(PropertyChangeEvent propertyChangeEvent) {
-        if (clientNo!=(int)propertyChangeEvent.getOldValue())
-        {
+
             Packet packet = new Packet(Packet.itemUpdate,(String)propertyChangeEvent.getNewValue());
             addToQueue(packet);
 
-        }
     }
 
 

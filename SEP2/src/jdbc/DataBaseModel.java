@@ -39,7 +39,7 @@ public class DataBaseModel {
         employeeQuery = prepareEmployeeQuery();
         addSale = prepareAddSale();
         addMessage = prepareAddMessage();
-        deleteSale= prepareDeleteSale();
+        deleteSale = prepareDeleteSale();
 
 
     }
@@ -424,7 +424,7 @@ public class DataBaseModel {
             stockItemInsertStatement.setString(8, department);
 
             stockItemInsertStatement.executeUpdate();
-            changeSupport.firePropertyChange("NewItem",clientNo,stockItem);
+            changeSupport.firePropertyChange("NewItem", clientNo, stockItem);
             return true;
 
 
@@ -570,7 +570,7 @@ public class DataBaseModel {
             itemListInsertStatement.setString(1, "" + requestID);
             itemListInsertStatement.setString(2, productRequest.getProductId());
             itemListInsertStatement.setInt(3, productRequest.getQuantity());
-            System.out.println(productRequest.getQuantity()+"--------------------");
+            System.out.println(productRequest.getQuantity() + "--------------------");
             itemListInsertStatement.executeUpdate();
 
             return true;
@@ -603,7 +603,7 @@ public class DataBaseModel {
             deleteItemByIDandDep.setString(1, id);
             deleteItemByIDandDep.setString(2, department);
             deleteItemByIDandDep.executeUpdate();
-            changeSupport.firePropertyChange("ItemRefresh",clientNo,department);
+            changeSupport.firePropertyChange("ItemRefresh", clientNo, department);
             return true;
 
 
@@ -645,14 +645,14 @@ public class DataBaseModel {
         return deleteEmployee;
     }
 
-    public boolean deleteEmployee(Employee employee,int clientNo) {
+    public boolean deleteEmployee(Employee employee, int clientNo) {
         try {
 
 
             deleteEmployee.setString(1, employee.getId());
             deleteEmployee.executeUpdate();
 
-            changeSupport.firePropertyChange("UpdateEmployee",clientNo,employee.getDepartmentID());
+            changeSupport.firePropertyChange("UpdateEmployee", clientNo, employee.getDepartmentID());
             return true;
 
         } catch (SQLException e) {
@@ -701,23 +701,19 @@ public class DataBaseModel {
 
     public PreparedStatement prepareAddSale() {
         String preparedSql = "INSERT INTO \"Sep2\".sales (productID, quantitySold) " +
-                "SELECT * FROM (SELECT ?,?) AS tmp ;";
-
+                "SELECT * FROM (SELECT ?,?) AS tmp " +
+                "WHERE NOT EXISTS (SELECT productID FROM \"Sep2\".sales " +
+                "WHERE  productID = ?) LIMIT 1;";
         addSale = null;
 
         try {
             addSale = connection.prepareStatement(preparedSql);
         } catch (SQLException e) {
             e.printStackTrace();
-            preparedSql ="update \"Sep2\".sales set productid = ?  where quantitysold =quantitysold + ?";
-            try {
-                addSale=connection.prepareStatement(preparedSql);
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
         }
         return addSale;
     }
+
     public PreparedStatement prepareDeleteSale() {
         String preparedSql = "delete from \"Sep2\".stockitem where id = ? and location = ? " +
                 "SELECT * FROM (SELECT ?,?) AS tmp ;";
@@ -736,21 +732,38 @@ public class DataBaseModel {
         try {
             addSale.setString(1, stockItem.getId());
             addSale.setInt(2, stockItem.getQuantity());
-            changeSupport.firePropertyChange("SalesRefresh",0,clientNo);
+            addSale.setString(3, stockItem.getId());
+            changeSupport.firePropertyChange("SalesRefresh", 0, clientNo);
             addSale.executeUpdate();
 
             String sql = "update \"Sep2\".stockitem set quantity = quantity-" + stockItem.getQuantity() + " where id ='" + stockItem.getId() + "' and location ='" + stockItem.getLocation() + "';";
             addSale = connection.prepareStatement(sql);
             addSale.executeUpdate();
 
-            changeSupport.firePropertyChange("ItemRefresh",clientNo,"RT");
-            
+            changeSupport.firePropertyChange("ItemRefresh", clientNo, "RT");
 
 
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+
+
+            System.out.println( new Exception("Item already exists update has been performed"));
+            String sql = "update \"Sep2\".sales set quantitysold = quantitysold +" +
+                    stockItem.getQuantity() + " where productid ='" +
+                    stockItem.getId() + "'; ";
+            try {
+                PreparedStatement update = connection.prepareStatement(sql);
+                update.executeUpdate();
+                changeSupport.firePropertyChange("SalesRefresh", 0, clientNo);
+                String SQL = "update \"Sep2\".stockitem set quantity = quantity-" + stockItem.getQuantity() + " where id ='" + stockItem.getId() + "' and location ='" + stockItem.getLocation() + "';";
+                addSale = connection.prepareStatement(SQL);
+                addSale.executeUpdate();
+                changeSupport.firePropertyChange("ItemRefresh", clientNo, "RT");
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+
             return false;
         }
 
