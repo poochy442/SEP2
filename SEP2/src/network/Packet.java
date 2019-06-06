@@ -16,6 +16,7 @@ import java.io.Serializable;
 public class Packet implements Serializable {
 
     public static final String messageQuery = "MessageQuery";
+    public static final String employeeUpdate ="EmployeeUpdate";
     private String operation, Json;
     /**
      * The Employee operation {@link String}.

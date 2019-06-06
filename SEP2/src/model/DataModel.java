@@ -32,6 +32,7 @@ public class DataModel implements IDataModel {
     private StockItemList sales;
     private DeliveryList deliveryList;
     private MessageList messages;
+    private String department;
 
     /**
      * Creates a DataModel and instantiate all the fields.
@@ -45,6 +46,7 @@ public class DataModel implements IDataModel {
         sales = new StockItemList();
         deliveryList = new DeliveryList();
         messages = new MessageList();
+        department="";
     }
 
     /**
@@ -225,7 +227,7 @@ public class DataModel implements IDataModel {
      */
     @Override
     public void loadEmployeeListFromDB(String departmentID) {
-        propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, departmentID);
+        propertyChangeSupport.firePropertyChange("EmployeeQuery", 0, department);
         System.out.println("DataModel refresh Employee list query");
     }
 
@@ -404,6 +406,11 @@ public class DataModel implements IDataModel {
     @Override
     public void loadMessagesFromDB() {
         propertyChangeSupport.firePropertyChange("MessagesQuery",0,1);
+    }
+
+    @Override
+    public void setDepartment(String departmentID) {
+        this.department=departmentID;
     }
 
 }

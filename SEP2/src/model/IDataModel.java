@@ -66,4 +66,5 @@ public interface IDataModel {
     void addMessage(Message message);
     void setMessageList(MessageList messages);
     void loadMessagesFromDB ();
+    void setDepartment(String departmentID);
 }

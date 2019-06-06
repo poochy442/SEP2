@@ -123,6 +123,8 @@ public class ClientReceiver implements Runnable {
                     case Packet.StockOperation:
                         StockItem stockItem = gson.fromJson(json,StockItem.class);
                         dataModel.addItemFromServer(stockItem);
+                    case Packet.employeeUpdate:
+                        dataModel.loadEmployeeListFromDB(json);
 
                 }
 
