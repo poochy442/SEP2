@@ -44,6 +44,9 @@ public class DataBaseModel {
 
     }
 
+
+
+
     private PreparedStatement prepareAddMessage() {
         String preparedSql = "INSERT INTO \"Sep2\".chatlog (message,time,senderID) " +
                 "SELECT * FROM (SELECT ?,?::TIMESTAMP,?) AS TMP;";
@@ -748,7 +751,7 @@ public class DataBaseModel {
         } catch (SQLException e) {
 
 
-            System.out.println( new Exception("Item already exists update has been performed"));
+            System.out.println(new Exception("Item already exists update has been performed"));
             String sql = "update \"Sep2\".sales set quantitysold = quantitysold +" +
                     stockItem.getQuantity() + " where productid ='" +
                     stockItem.getId() + "'; ";

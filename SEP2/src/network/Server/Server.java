@@ -1,6 +1,7 @@
 package network.Server;
 
 import jdbc.DataBaseModel;
+import jdbc.ReadWrite;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -32,6 +33,7 @@ public class    Server {
             ServerSocket welcomeSocket = new ServerSocket(PORT);
         System.out.println("Starting server...");
         DataBaseModel dataBaseModel = new DataBaseModel();
+        ReadWrite readWrite = new ReadWrite(dataBaseModel);
         int i=1;
 
         while (true) {
