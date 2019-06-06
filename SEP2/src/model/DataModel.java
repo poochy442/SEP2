@@ -326,19 +326,19 @@ public class DataModel implements IDataModel {
     public void setStockItemList(StockItemList stockItemList) {
         this.stockItemList = stockItemList;
         System.out.println("DataModel: ItemList Received from server and stored");
-        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList); //TODO: Is the oldValue null?
+        propertyChangeSupport.firePropertyChange("NewStockItemList", null, stockItemList);
     }
 
     @Override
     public void setDeliveryList(DeliveryList deliveryList) {
         this.deliveryList = deliveryList;
-        propertyChangeSupport.firePropertyChange("NewDeliveryList", null, deliveryList); //TODO: Is the oldValue null?
+        propertyChangeSupport.firePropertyChange("NewDeliveryList", null, deliveryList);
     }
 
     @Override
     public void setRequestList(ProductRequestList productRequestList) {
         this.productRequestList = productRequestList;
-        propertyChangeSupport.firePropertyChange("NewRequestList", null, productRequestList); //TODO: Is the oldValue null?
+        propertyChangeSupport.firePropertyChange("NewRequestList", null, productRequestList);
     }
 
     @Override
@@ -358,7 +358,7 @@ public class DataModel implements IDataModel {
             profit += (costOfGoods - operationalCost);
         }
         propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
-        propertyChangeSupport.firePropertyChange("NewSalesList", null, salesList); //TODO: Is the oldValue null?
+        propertyChangeSupport.firePropertyChange("NewSalesList", null, salesList);
     }
 
     /**

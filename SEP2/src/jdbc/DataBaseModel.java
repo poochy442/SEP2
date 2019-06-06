@@ -733,8 +733,8 @@ public class DataBaseModel {
             addSale.setString(1, stockItem.getId());
             addSale.setInt(2, stockItem.getQuantity());
             addSale.setString(3, stockItem.getId());
-            changeSupport.firePropertyChange("SalesRefresh", 0, clientNo);
             addSale.executeUpdate();
+            changeSupport.firePropertyChange("SalesRefresh", 0, clientNo);
 
             String sql = "update \"Sep2\".stockitem set quantity = quantity-" + stockItem.getQuantity() + " where id ='" + stockItem.getId() + "' and location ='" + stockItem.getLocation() + "';";
             addSale = connection.prepareStatement(sql);
