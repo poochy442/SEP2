@@ -701,15 +701,20 @@ public class DataBaseModel {
 
     public PreparedStatement prepareAddSale() {
         String preparedSql = "INSERT INTO \"Sep2\".sales (productID, quantitySold) " +
-                "SELECT * FROM (SELECT ?,?) AS tmp " +
-                "WHERE NOT EXISTS (SELECT productID FROM \"Sep2\".sales " +
-                "WHERE  productID = ?) LIMIT 1;";
+                "SELECT * FROM (SELECT ?,?) AS tmp ;";
+
         addSale = null;
 
         try {
             addSale = connection.prepareStatement(preparedSql);
         } catch (SQLException e) {
             e.printStackTrace();
+            preparedSql ="update \"Sep2\".sales set productid = ?  where quantitysold =quantitysold + ?";
+            try {
+                addSale=connection.prepareStatement(preparedSql);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
         }
         return addSale;
     }
@@ -731,7 +736,6 @@ public class DataBaseModel {
         try {
             addSale.setString(1, stockItem.getId());
             addSale.setInt(2, stockItem.getQuantity());
-            addSale.setString(3, stockItem.getId());
             changeSupport.firePropertyChange("SalesRefresh",0,clientNo);
             addSale.executeUpdate();
 
@@ -740,6 +744,7 @@ public class DataBaseModel {
             addSale.executeUpdate();
 
             changeSupport.firePropertyChange("ItemRefresh",clientNo,"RT");
+            
 
 
             return true;
