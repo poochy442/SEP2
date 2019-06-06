@@ -44,6 +44,9 @@ public class DataBaseModel {
 
     }
 
+
+
+
     private PreparedStatement prepareAddMessage() {
         String preparedSql = "INSERT INTO \"Sep2\".chatlog (message,time,senderID) " +
                 "SELECT * FROM (SELECT ?,?::TIMESTAMP,?) AS TMP;";
@@ -664,14 +667,11 @@ public class DataBaseModel {
     }
 
     public void createSalesTable() {
-        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".sales (" +
-                "   saleID varchar(10) NOT NULL ," +
-                "itemID varchar(30)  ," +
-                "name varchar(30)  ," +
-                "quantitySold int" +
-                " CONSTRAINT salesPK PRIMARY KEY (SaleID, itemID)," +
-                " FOREIGN KEY (SaleID) REFERENCES \"Sep2\".salesList(SaleID)," +
-                " FOREIGN KEY (itemID) REFERENCES \"Sep2\".stockItem(ID) " +
+        String sql = "CREATE TABLE IF NOT EXISTS \"Sep2\".sales (" +
+                "productID varchar(30) NOT NULL , " +
+                "quantitySold int," +
+                "CONSTRAINT salesPK PRIMARY KEY (productID)," +
+                "FOREIGN KEY (productID) REFERENCES \"Sep2\".stockItem(id)" +
                 ");";
         try {
             Statement statement = connection.createStatement();
@@ -748,7 +748,7 @@ public class DataBaseModel {
         } catch (SQLException e) {
 
 
-            System.out.println( new Exception("Item already exists update has been performed"));
+            System.out.println(new Exception("Item already exists update has been performed"));
             String sql = "update \"Sep2\".sales set quantitysold = quantitysold +" +
                     stockItem.getQuantity() + " where productid ='" +
                     stockItem.getId() + "'; ";

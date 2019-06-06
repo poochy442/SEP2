@@ -299,7 +299,7 @@ public class DataModel implements IDataModel {
     public void editProductRequest(ProductRequest selectedItem, int quantity) {
         int oldQuantity = selectedItem.getQuantity();
         selectedItem.setQuantity(quantity);
-        propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DB
+        propertyChangeSupport.firePropertyChange("EditProductRequest", oldQuantity, quantity); //TODO: Edit in DBs
     }
 
     @Override

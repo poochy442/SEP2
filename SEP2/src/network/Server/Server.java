@@ -1,6 +1,7 @@
 package network.Server;
 
 import jdbc.DataBaseModel;
+import jdbc.ReadWrite;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -32,11 +33,12 @@ public class    Server {
             ServerSocket welcomeSocket = new ServerSocket(PORT);
         System.out.println("Starting server...");
         DataBaseModel dataBaseModel = new DataBaseModel();
+        ReadWrite readWrite = new ReadWrite(dataBaseModel);
         int i=1;
 
         while (true) {
             Socket socket = welcomeSocket.accept();
-            ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel,i);
+            ServerReceiver serverReceiver = new ServerReceiver(socket,readWrite,i);
             ServerSender serverSender = new ServerSender(socket,dataBaseModel,i);
             Thread t2 = new Thread(serverSender);
             Thread t1 = new Thread(serverReceiver);
