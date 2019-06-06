@@ -76,11 +76,6 @@ public class MainView {
         mainVM.openMainWHView();
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event)
-    {
-        mainVM.openDeliveryView();
-    }
-
     @FXML void onHQClicked(MouseEvent event)
     {
         mainVM.openMainView();

@@ -24,7 +24,6 @@ public class ProductRequestVM {
     private IDataModel dataModel;
     private ObservableList<ProductRequest> productRequests;
     private ViewHandler viewHandler;
-    private StringProperty quantity;
 
     /**
      * Creates a SalesVM with the specified information and adds the required listeners.
@@ -38,7 +37,6 @@ public class ProductRequestVM {
         productRequests = FXCollections.observableArrayList(); // = new ObservableListWrapper<>(new ArrayList<>());
         dataModel.addListener("AddProductRequestView", this::addProductRequest);
         dataModel.addListener("NewRequestList", this::loadList);
-        quantity = new SimpleStringProperty();
     }
 
     private void loadList(PropertyChangeEvent evt) {
@@ -76,15 +74,6 @@ public class ProductRequestVM {
     }
 
     /**
-     * Gets the quantity {@link StringProperty}.
-     *
-     * @return The quantity {@link StringProperty}.
-     */
-    public StringProperty quantityProperty() {
-        return quantity;
-    }
-
-    /**
      * This method opens the main view.
      */
     public void openMainView() {
@@ -115,15 +104,6 @@ public class ProductRequestVM {
 
     public void openProductRequestView() {
         viewHandler.openProductRequestView();
-    }
-
-    public void editProductRequest(ProductRequest selectedItem) {
-        dataModel.editProductRequest(selectedItem, Integer.parseInt(quantity.getValue()));
-        quantity.setValue("");
-    }
-
-    public boolean onlyNumbersQuantity() {
-        return dataModel.onlyNumbers(quantity.getValue());
     }
 
     public void removeProductRequest(ProductRequest selectedItem) {

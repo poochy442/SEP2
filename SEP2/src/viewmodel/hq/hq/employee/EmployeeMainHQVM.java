@@ -104,9 +104,6 @@ public class EmployeeMainHQVM { //This class is to display employeeList of HQ
     public void openEmployeeMainHQView() {viewHandler.openEmployeeMainHQView();
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMessengerView() {viewHandler.openMessengerView();
     }
 }

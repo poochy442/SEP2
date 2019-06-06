@@ -143,10 +143,6 @@ public class EmployeeMainHQView {
         employeeMainHQVM.openMainView();
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event) {
-        employeeMainHQVM.openDeliveryView();
-    }
-
     @FXML void onMessengerClicked(MouseEvent event)
     {
         employeeMainHQVM.openMessengerView();

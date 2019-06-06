@@ -158,11 +158,6 @@ public class EmployeeAddHQView {
         return false;
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event)
-    {
-        employeeAddHQVM.openDeliveryView();
-    }
-
     @FXML void onMessengerClicked(MouseEvent event)
     {
         employeeAddHQVM.openMessengerView();
