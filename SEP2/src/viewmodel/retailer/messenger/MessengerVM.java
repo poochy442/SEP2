@@ -98,4 +98,7 @@ public class MessengerVM {
 
     public void openSalesMainView() {viewHandler.openSalesView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }
