@@ -15,6 +15,7 @@ public class ReadWrite {
 
     public ReadWrite(DataBaseModel dataBaseModel) {
         activeReaders = activeWriters = waitingWriters = 0;
+        this.dataBaseModel = dataBaseModel;
     }
 
     public synchronized void acquireRead() {
@@ -121,7 +122,6 @@ public class ReadWrite {
     }
 
     public void read(Packet packet, int clientNo) {
-        Gson gson = new Gson();
         String json = packet.getJson();
         switch (packet.getOperation()) {
 

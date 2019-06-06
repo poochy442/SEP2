@@ -2,6 +2,7 @@ package Testing;
 
 import com.google.gson.Gson;
 import jdbc.DataBaseModel;
+import jdbc.ReadWrite;
 import model.Employee;
 import model.EmployeeList;
 import network.Packet;
@@ -23,6 +24,7 @@ public class ServerReceiverTest {
     ServerReceiver receiver;
     Thread t1;
 
+
     @Before
     public void setUp() throws Exception {
         // We set up a Server and connect it with a Client, then setup a DataBaseModel to instantiate the ServerReceiver
@@ -31,7 +33,8 @@ public class ServerReceiverTest {
         ServerSocket welcomeSocket = new ServerSocket(1111);
         socket = new Socket("localhost", 1111);
         DataBaseModel dataBaseModel = new DataBaseModel();
-        receiver = new ServerReceiver(welcomeSocket.accept(), dataBaseModel,1);
+        ReadWrite readWrite = new ReadWrite(dataBaseModel);
+        receiver = new ServerReceiver(welcomeSocket.accept(), readWrite,1);
         t1 = new Thread(receiver);
         t1.start();
     }

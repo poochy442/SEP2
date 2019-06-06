@@ -38,7 +38,7 @@ public class    Server {
 
         while (true) {
             Socket socket = welcomeSocket.accept();
-            ServerReceiver serverReceiver = new ServerReceiver(socket,dataBaseModel,i);
+            ServerReceiver serverReceiver = new ServerReceiver(socket,readWrite,i);
             ServerSender serverSender = new ServerSender(socket,dataBaseModel,i);
             Thread t2 = new Thread(serverSender);
             Thread t1 = new Thread(serverReceiver);
