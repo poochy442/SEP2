@@ -22,6 +22,7 @@ public class DataBaseModel {
     private PreparedStatement deleteEmployee;
     private PreparedStatement addSale;
     private PreparedStatement addMessage;
+    private PreparedStatement deleteSale;
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
@@ -38,6 +39,7 @@ public class DataBaseModel {
         employeeQuery = prepareEmployeeQuery();
         addSale = prepareAddSale();
         addMessage = prepareAddMessage();
+        deleteSale= prepareDeleteSale();
 
 
     }
@@ -614,6 +616,7 @@ public class DataBaseModel {
 
     }
 
+
     public PreparedStatement prepareDeleteItemFromWH() {
         String preparedSql = "DELETE FROM \"Sep2\".stockitem " +
                 "where id = ? and location = ? ;";
@@ -710,14 +713,35 @@ public class DataBaseModel {
         }
         return addSale;
     }
+    public PreparedStatement prepareDeleteSale() {
+        String preparedSql = "delete from \"Sep2\".stockitem where id = ? and location = ? " +
+                "SELECT * FROM (SELECT ?,?) AS tmp ;";
+
+        deleteSale = null;
+
+        try {
+            deleteSale = connection.prepareStatement(preparedSql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return deleteSale;
+    }
 
     public boolean addSaleToDataBase(StockItem stockItem, int clientNo) {
         try {
             addSale.setString(1, stockItem.getId());
             addSale.setInt(2, stockItem.getQuantity());
             addSale.setString(3, stockItem.getId());
-            addSale.executeUpdate();
             changeSupport.firePropertyChange("SalesRefresh",0,clientNo);
+            addSale.executeUpdate();
+
+            String sql = "update \"Sep2\".stockitem set quantity = quantity-" + stockItem.getQuantity() + " where id ='" + stockItem.getId() + "' and location ='" + stockItem.getLocation() + "';";
+            addSale = connection.prepareStatement(sql);
+            addSale.executeUpdate();
+
+            changeSupport.firePropertyChange("ItemRefresh",clientNo,"RT");
+
+
             return true;
 
         } catch (SQLException e) {
