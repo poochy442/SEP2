@@ -16,6 +16,8 @@ public interface IDataModel {
 
     EmployeeList getEmployeeList();
 
+    StockItemList getStockItemList();
+
     void setEmployeeList(EmployeeList employeeList);
 
     void loadEmployeeListFromDB(String departmentID);

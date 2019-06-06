@@ -1,5 +1,6 @@
 package network.client;
 
+import model.Counter;
 import model.IDataModel;
 import model.Message;
 
@@ -64,6 +65,8 @@ public class Client implements Runnable {
         if (departmentID.equals("RT")) {
             dataModel.loadSalesFromDB();
         }
+
+        Counter.setupCounter(dataModel.getStockItemList().size(), dataModel.getEmployeeList().size());
 
         System.out.println("Client Refresh employee list");
         ClientReceiver clientReceiver = new ClientReceiver(socket, dataModel, departmentID);

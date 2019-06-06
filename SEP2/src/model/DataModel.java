@@ -28,7 +28,6 @@ public class DataModel implements IDataModel {
      * The stored list of Product Requests.
      */
     private ProductRequestList productRequestList;
-    private Counter counter;
     private StockItemList sales;
     private DeliveryList deliveryList;
     private MessageList messages;
@@ -42,7 +41,6 @@ public class DataModel implements IDataModel {
         propertyChangeSupport = new PropertyChangeSupport(this);
         stockItemList = new StockItemList();
         productRequestList = new ProductRequestList();
-        counter = new Counter(this);
         sales = new StockItemList();
         deliveryList = new DeliveryList();
         messages = new MessageList();
@@ -63,6 +61,7 @@ public class DataModel implements IDataModel {
      *
      * @param e {@link Employee} to be stored.
      */
+
     @Override
     public void addEmployeeFromUser(Employee e) {
         employeeList.add(e);
@@ -181,7 +180,7 @@ public class DataModel implements IDataModel {
      */
     @Override
     public String getIDEmployee() {
-        String id = counter.getIDEmployee();
+        String id = Counter.getIDEmployee();
         return id;
     }
 
@@ -192,7 +191,7 @@ public class DataModel implements IDataModel {
      */
     @Override
     public String getIDStockItem() {
-        String id = counter.getIDStockItem();
+        String id = Counter.getIDStockItem();
         return id;
     }
 

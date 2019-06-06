@@ -15,30 +15,23 @@ public class Counter {
     /**
      * The counter for Stock Items
      */
-    private int counterStockItem;
+    private static int counterStockItem = 0;
     /**
      * The counter for Employees
      */
-    private int counterEmployee;
-    private DataModel dataModel;
+    private static int counterEmployee = 0;
 
-    /**
-     * Creates a Counter using the specified DataModel
-     * @param dataModel the DataModel the Counter will use
-     */
-    public Counter(DataModel dataModel)
-    {
-        this.dataModel = dataModel;
-        counterStockItem = 0;
-        counterEmployee = 0;
+    public static void setupCounter(int stockItemMaxId, int employeeMaxID){
+        counterStockItem = stockItemMaxId + 1;
+        counterEmployee = employeeMaxID + 1;
     }
 
-    private void incrementEmployee()
+    private static synchronized void incrementEmployee()
     {
         counterEmployee++;
     }
 
-    private void incrementStockItem()
+    private static synchronized void incrementStockItem()
     {
         counterStockItem++;
     }
@@ -47,15 +40,11 @@ public class Counter {
      * Increments the counter for the Employee and returns an ID using that value
      * @return The created Employee ID
      */
-    public String getIDEmployee()
+    public static String getIDEmployee()
     {
         char fill = '0';
-        int id = -1;
-        for(int i = 0; i < dataModel.getEmployeeList().size(); i++)
-        {
-            id = i;
-        }
-        id++;
+        int id = counterEmployee;
+        incrementEmployee();
         String finalID = new String(new char[6]).replace('\0', fill) + id;
         return finalID;
     }
@@ -64,15 +53,11 @@ public class Counter {
      * Increments the counter for the Employee and returns an ID using that value
      * @return The created Stock Item ID
      */
-    public String getIDStockItem()
+    public static String getIDStockItem()
     {
         char fill = '0';
-        int id = -1;
-        for(int i = 0; i < dataModel.getStockItemList().size(); i++)
-        {
-            id = i;
-        }
-        id++;
+        int id = counterStockItem;
+        incrementStockItem();
         String finalID = new String(new char[6]).replace('\0', fill) + id;
         return finalID;
     }
