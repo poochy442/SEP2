@@ -45,8 +45,6 @@ public class DataBaseModel {
     }
 
 
-
-
     private PreparedStatement prepareAddMessage() {
         String preparedSql = "INSERT INTO \"Sep2\".chatlog (message,time,senderID) " +
                 "SELECT * FROM (SELECT ?,?::TIMESTAMP,?) AS TMP;";
@@ -134,13 +132,13 @@ public class DataBaseModel {
     //Creates empty StockItem table
     public void createStockItemTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".StockItem (" +
-                "   id varchar(30) NOT NULL PRIMARY KEY," +
+                "   id varchar(30) NOT NULL," +
                 "name varchar(30) NOT NULL ," +
                 " quantity int NOT NULL," +
                 "price int NOT NULL," +
                 "expiryDate Date, " +
-                "location varchar(30) NOT NULL" +
-
+                "location varchar(30) NOT NULL REFERENCES \"Sep2\".department(departmentid)," +
+                "PRIMARY KEY (id, location)" +
                 ");";
         try {
             Statement statement = connection.createStatement();
@@ -670,8 +668,7 @@ public class DataBaseModel {
         String sql = "CREATE TABLE IF NOT EXISTS \"Sep2\".sales (" +
                 "productID varchar(30) NOT NULL , " +
                 "quantitySold int," +
-                "CONSTRAINT salesPK PRIMARY KEY (productID)," +
-                "FOREIGN KEY (productID) REFERENCES \"Sep2\".stockItem(id)" +
+                "CONSTRAINT salesPK PRIMARY KEY (productID)" +
                 ");";
         try {
             Statement statement = connection.createStatement();
@@ -685,9 +682,9 @@ public class DataBaseModel {
 
     public void createSalesListTable() {
         String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".salesList (" +
-                "   saleID varchar(10) NOT NULL PRIMARY KEY ," +
-                "DateOfSale DATE  , " +
-                " status varchar(30) " +
+                " saleID varchar(10) NOT NULL PRIMARY KEY ," +
+                "DateOfSale DATE, " +
+                "status varchar(30) " +
                 ");";
         try {
             Statement statement = connection.createStatement();
@@ -746,7 +743,7 @@ public class DataBaseModel {
             return true;
 
         } catch (SQLException e) {
-
+            e.printStackTrace();
 
             System.out.println(new Exception("Item already exists update has been performed"));
             String sql = "update \"Sep2\".sales set quantitysold = quantitysold +" +
@@ -1033,4 +1030,64 @@ public class DataBaseModel {
             e.printStackTrace();
         }
     }
+
+    public void createChatLogTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS\"Sep2\".chatlog (" +
+                "   Message varchar(99999)," +
+                "Time TimeStamp NOT NULL PRIMARY KEY," +
+                " SenderID varchar(30) NOT NULL);";
+        try {
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createDummyData() {
+        try {
+            String sql = "insert into \"Sep2\".stockitem values " +
+                    "('0000000', 'Banana', 5000, 4, '2019-10-01', 'HQ')," +
+                    "('0000000', 'Banana', 1000, 4, '2019-10-01', 'WH')," +
+                    "('0000000', 'Banana', 150, 4, '2019-10-01', 'RT')," +
+                    "('0000001', 'Cheese', 5000, 3, '2019-11-01', 'HQ')," +
+                    "('0000001', 'Cheese', 1000, 3, '2019-11-01', 'WH')," +
+                    "('0000001', 'Cheese', 150, 3, '2019-11-01', 'RT')," +
+                    "('0000002', 'Wine', 5000, 10, '2020-01-01', 'HQ')," +
+                    "('0000002', 'Wine', 1000, 10, '2020-01-01', 'WH')," +
+                    "('0000002', 'Wine', 150, 10, '2020-01-01', 'RT')," +
+                    "('0000003', 'Sausages', 5000, 12, '2022-01-01', 'HQ')," +
+                    "('0000003', 'Sausages', 1000, 12, '2022-01-01', 'WH')," +
+                    "('0000003', 'Sausages', 150, 12, '2022-01-01', 'RT');";
+
+            Statement statement = connection.createStatement();
+            statement.execute(sql);
+
+            sql = "INSERT INTO \"Sep2\".employee values ('0000000','HQ','Jaume','Lopez'),\n" +
+                    " ('0000001','HQ','Keneth','Jensen'),\n" +
+                    "  ('0000002','HQ','Florin','Bordei'),\n" +
+                    "   ('0000003','HQ','Dave','Le'),\n" +
+                    "   ('0000004','WH','KenethWH','Jensen'),\n" +
+                    "  ('0000005','WH','FlorinWH','Bordei'),\n" +
+                    "   ('0000006','WH','DaveWH','Le'),\n" +
+                    "    ('0000007','WH','JaumeWH','Lopez'),\n" +
+                    "   ('0000008','RT','KenethRT','Jensen'),\n" +
+                    "  ('0000009','RT','FlorinRT','Bordei'),\n" +
+                    "   ('00000010','RT','DaveRT','Le'),\n" +
+                    "   ('0000011','RT','JaumeRT','Lopez');";
+             statement = connection.createStatement();
+            statement.execute(sql);
+            sql = "insert into \"Sep2\".sales values ('0000000',100),\n" +
+                    "('0000001',25),\n" +
+                    "('0000002',35),\n" +
+                    "('0000003',45);";
+            statement = connection.createStatement();
+            statement.execute(sql);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
