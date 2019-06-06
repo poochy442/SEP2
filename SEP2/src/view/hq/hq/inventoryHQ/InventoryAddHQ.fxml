@@ -6,9 +6,6 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -66,22 +63,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button disable="true" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Reports/Issues" textFill="#dddddd">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="deliveryButton" layoutY="276.0" mnemonicParsing="false" onAction="#onDeliveryClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Delivery" textFill="#dddddd">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                   <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="30.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../pictures/businessman.png" />
@@ -98,16 +79,6 @@
                   <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="30.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../pictures/inventory.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="30.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../pictures/issue.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="28.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../pictures/delivery.png" />
                      </image>
                   </ImageView>
                </children>
@@ -314,25 +285,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="help" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../warehouse/pictures/question.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fx:id="settings" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../warehouse/pictures/settings.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -340,39 +292,9 @@
             </HBox>
          </children>
       </Pane>
-      <MenuBar prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Delete" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Tools">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Window">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Action 1" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: #2B2B2B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <Pane prefHeight="200.0" prefWidth="50.0" style="-fx-background-color: #2B2B2B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Pane layoutY="20.0" onMouseClicked="#onHQClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #B579CF; -fx-background-radius: 5px;">
+            <Pane layoutY="50.0" onMouseClicked="#onHQClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #B579CF; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -384,7 +306,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="70.0" onMouseClicked="#onWarehouseClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
+            <Pane layoutY="105.0" onMouseClicked="#onWarehouseClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="13.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -396,7 +318,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutY="120.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
+            <Pane layoutY="160.0" onMouseClicked="#onRetailerClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-radius: 5px;">
                <children>
                   <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -263,9 +263,6 @@ public class InventoryAddHQVM {
         return true;
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMainWHView() {viewHandler.openMainWHView();
     }
 

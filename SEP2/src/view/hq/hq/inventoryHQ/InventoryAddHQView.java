@@ -216,11 +216,6 @@ public class InventoryAddHQView {
         return false;
     }
 
-    @FXML void onDeliveryClicked(ActionEvent event)
-    {
-        inventoryAddHQVM.openDeliveryView();
-    }
-
     @FXML void onMessengerClicked(MouseEvent event)
     {
         inventoryAddHQVM.openMessengerView();

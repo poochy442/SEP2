@@ -94,11 +94,6 @@ public class MessengerView {
     }
 
     @FXML
-    void onDeliveryClicked(ActionEvent event) {
-        messengerVM.openDeliveryView();
-    }
-
-    @FXML
     void onHQClicked(MouseEvent event) {
         messengerVM.openMainView();
     }
@@ -132,6 +127,11 @@ public class MessengerView {
     private Cell getListCell(ListView list, int index) {
         Object[] cells = list.lookupAll(".cell").toArray();
         return (Cell) cells[index];
+    }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        messengerVM.openMessengerView();
     }
 
 }

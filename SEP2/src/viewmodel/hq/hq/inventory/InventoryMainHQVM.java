@@ -99,9 +99,6 @@ public class InventoryMainHQVM {
         dataModel.removeStockItemHQ(stockItem); //TODO: U can change it to one method requiring passing string from which entity it comes
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openInventoryMainHQView() {
         viewHandler.openInventoryMainHQView();
     }

@@ -98,4 +98,7 @@ public class MessengerVM {
         dataModel.sendMessage(message);
         txtMsg.setValue("");
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

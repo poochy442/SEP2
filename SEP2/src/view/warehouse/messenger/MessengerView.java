@@ -123,4 +123,9 @@ public class MessengerView {
         return (Cell) cells[index];
     }
 
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        messengerVM.openMessengerView();
+    }
+
 }

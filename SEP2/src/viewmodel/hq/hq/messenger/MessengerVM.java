@@ -88,12 +88,12 @@ public class MessengerVM {
         txtMsg.setValue("");
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMainWHView() {viewHandler.openMainWHView();
     }
 
     public void openMainRTView() {viewHandler.openMainRTView();
+    }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
     }
 }

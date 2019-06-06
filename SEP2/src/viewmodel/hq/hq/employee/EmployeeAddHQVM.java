@@ -121,9 +121,6 @@ public class EmployeeAddHQVM { //This class is for adding employees to EmployeeL
     public void openMainWHView() {viewHandler.openMainWHView();
     }
 
-    public void openDeliveryView() {
-    }
-
     public void openMessengerView() {viewHandler.openMessengerView();
     }
 }
