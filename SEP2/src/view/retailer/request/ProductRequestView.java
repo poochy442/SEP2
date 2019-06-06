@@ -43,15 +43,6 @@ public class ProductRequestView {
     @FXML
     private AnchorPane anchorPane;
 
-    @FXML
-    private TextField quantityField;
-
-    @FXML
-    private Label emptyQuantity;
-
-    @FXML
-    private Label errorQuantityLabel;
-
     private ProductRequestVM productRequestVM;
     private ProductRequest selectedItem;
 
@@ -89,7 +80,6 @@ public class ProductRequestView {
             }
         });
         quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        quantityField.textProperty().bindBidirectional(productRequestVM.quantityProperty());
     }
 
     @FXML
@@ -131,47 +121,6 @@ public class ProductRequestView {
     @FXML
     void onDeliveryClicked(ActionEvent event) {productRequestVM.openDeliveryView();
 
-    }
-
-    @FXML
-    void onEditQuantityClicked(ActionEvent event) {
-        selectedItem = productRequestTable.getSelectionModel().getSelectedItem();
-        if (selectedItem == null) {
-            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
-            warningAlert.setTitle("Warning");
-            warningAlert.setHeaderText("No item has been selected");
-            warningAlert.setContentText("Press ok to continue");
-            warningAlert.showAndWait();
-        }
-        if (isValid()) {
-            productRequestVM.editProductRequest(selectedItem);
-            productRequestTable.refresh();
-        }
-
-    }
-
-    private boolean isValid() {
-        boolean validQty, emptyQty = false;
-        if (quantityField.textProperty().getValue().isEmpty()) {
-            emptyQty = true;
-            emptyQuantity.setVisible(true);
-        } else {
-            emptyQty = false;
-            emptyQuantity.setVisible(false);
-        }
-
-        if (!productRequestVM.onlyNumbersQuantity() && !emptyQty) {
-            validQty = false;
-            errorQuantityLabel.setVisible(true);
-        } else {
-            validQty = true;
-            errorQuantityLabel.setVisible(false);
-        }
-
-        if (validQty && !emptyQty) {
-            return true;
-        }
-        return false;
     }
 
     @FXML
