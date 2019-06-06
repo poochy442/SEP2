@@ -23,7 +23,7 @@ public class MainView {
     private AnchorPane anchorPane;
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainView() {
 

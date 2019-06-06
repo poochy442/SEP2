@@ -2,7 +2,6 @@ package model;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Message {
@@ -61,21 +60,34 @@ public class Message {
         String timeString = format.format(date);
 
         String outputMessage = "";
-        StringBuilder sb = new StringBuilder();
-        String[] messageSplit = message.split(" ");
-        for(int i = 0; i < messageSplit.length; i++){
-            sb.append(messageSplit[i] + " ");
-            if(sb.length() >= 200){
-                sb.append("\n");
-                outputMessage += sb;
-                sb = new StringBuilder();
-            }
-            if(i == messageSplit.length){
-                outputMessage += sb;
-            }
-        }
+//        StringBuilder sb = new StringBuilder();
+//        String[] messageSplit = message.split(" ");
+//        for(int i = 0; i < messageSplit.length; i++){
+//            sb.append(messageSplit[i] + " ");
+//            if(sb.length() >= 200){
+//                sb.append("\n");
+//                outputMessage += sb;
+//                sb = new StringBuilder();
+//            }
+//            if(i == messageSplit.length){
+//                outputMessage += sb;
+//            }
+//        }
 
-        // String parsedStr = message.replaceAll("(.{200})", "$1\n");
+        if(message != null)
+        {
+        StringBuilder sb = new StringBuilder(message);
+        int pos = 0;
+        while ((pos = sb.indexOf(" ", pos + 230)) >= 0)
+        {
+            sb.setCharAt(pos, '\n');
+        }
+        outputMessage =  sb.toString();
+
         return timeString + " - " + user + ": " + "\n" + outputMessage;
+        }
+        else {
+            return timeString + " - " + user + ": ";
+        }
     }
 }

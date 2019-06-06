@@ -30,7 +30,7 @@ public class MainWHView {
     }
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainWHView()
     {

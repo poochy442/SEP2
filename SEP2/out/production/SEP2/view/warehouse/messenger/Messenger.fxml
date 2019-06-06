@@ -18,7 +18,7 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.warehouse.messenger.MessengerView">
    <children>
-      <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #E9EDF0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" BorderPane.alignment="CENTER">
                <children>
@@ -79,7 +79,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="productRequestButton" layoutY="276.0" mnemonicParsing="false" onAction="#onProductRequestClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Request" textFill="WHITE">
+                  <Button fx:id="productRequestButton" layoutY="276.0" mnemonicParsing="false" onAction="#onProductRequestClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Request" textFill="#dddddd">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -124,9 +124,9 @@
             </Pane>
          </left>
          <center>
-            <ListView fx:id="chatBox" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ListView fx:id="chatBox" fixedCellSize="0.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="628.0" prefWidth="941.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
-                  <Insets bottom="75.0" top="24.0" />
+                  <Insets bottom="85.0" left="10.0" right="10.0" top="74.0" />
                </BorderPane.margin>
             </ListView>
          </center>
@@ -201,7 +201,26 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TextArea fx:id="txtMsg" maxHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="100.0" />
-      <Button fx:id="sendMessageButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onSendMessageClicked" prefWidth="50.0" text="Send" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="35.0" />
+      <TextArea fx:id="txtMsg" maxHeight="-Infinity" prefHeight="40.0" prefWidth="240.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="100.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <ImageView fitHeight="26.0" fitWidth="26.0" onMouseClicked="#onSendMessageClicked" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="45.0">
+         <image>
+            <Image url="@../pictures/right-arrow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="941.0" style="-fx-background-color: #3498DB;" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="74.0">
+         <children>
+            <Label layoutX="50.0" layoutY="8.0" text="Messenger">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

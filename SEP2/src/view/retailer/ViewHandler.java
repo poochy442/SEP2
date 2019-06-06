@@ -14,7 +14,7 @@ import view.retailer.employee.EmployeeMainView;
 import view.retailer.inventory.InventoryAddView;
 import view.retailer.inventory.InventoryMainView;
 import view.retailer.request.ProductRequestView;
-import view.retailer.main.MainView;
+import view.retailer.main.MessengerView;
 import view.retailer.sales.SalesView;
 import viewmodel.retailer.ViewModelProvider;
 
@@ -64,7 +64,7 @@ public class ViewHandler {
     {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("main/Main.fxml"));
+        loader.setLocation(getClass().getResource("main/Messenger.fxml"));
         Parent root = null;
         try{
             root = loader.load();
@@ -73,7 +73,7 @@ public class ViewHandler {
         {
             e.printStackTrace();
         }
-        MainView view = loader.getController();
+        MessengerView view = loader.getController();
         view.init(viewModelProvider.getMainVM());
         primaryStage.setTitle("Dashboard");
 

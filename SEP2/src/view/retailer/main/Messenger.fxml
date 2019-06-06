@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.main.MainView">
+<AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.main.MessengerView">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -43,7 +43,7 @@
       </BorderPane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="779.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Button fx:id="homeButton" layoutY="76.0" mnemonicParsing="false" onAction="#onDashboardClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #1ABC9C;" text="Dashboard" textFill="WHITE">
+            <Button fx:id="homeButton" layoutY="76.0" mnemonicParsing="false" onAction="#onDashboardClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>

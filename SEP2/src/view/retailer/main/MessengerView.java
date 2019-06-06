@@ -21,7 +21,7 @@ import viewmodel.retailer.main.MainVM;
  * @author Dave Joe Lê
  */
 
-public class MainView {
+public class MessengerView {
 
     @FXML
     private AnchorPane anchorPane;
@@ -35,9 +35,9 @@ public class MainView {
     private MainVM mainVM;
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
-    public MainView() {
+    public MessengerView() {
 
     }
 

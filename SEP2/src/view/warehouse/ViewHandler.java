@@ -64,7 +64,7 @@ public class ViewHandler {
     {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("main/Main.fxml"));
+        loader.setLocation(getClass().getResource("main/Messenger.fxml"));
         Parent root = null;
         try{
             root = loader.load();

@@ -39,7 +39,7 @@ public class MessengerVM {
         this.viewHandler = viewHandler;
         messages = FXCollections.observableArrayList();
         txtMsg = new SimpleStringProperty();
-        dataModel.addListener("SendMessage", this::addMessage);
+        dataModel.addListener("AddMessageView", this::addMessage);
         dataModel.addListener("NewMessageList", this::loadList);
     }
 
@@ -97,6 +97,7 @@ public class MessengerVM {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Message message = new Message(txtMsg.getValue(), timestamp, "RT");
         dataModel.sendMessage(message);
+        txtMsg.setValue("");
     }
 
     public void openSalesView()

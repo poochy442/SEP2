@@ -38,7 +38,7 @@ public class MainView {
     }
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainView()
     {
