@@ -73,7 +73,9 @@ public class Validation {
                 // If it is not a number, it will return false, as a Character in the String is neither a number
                 // or a Letter.
 
-                if(!(name.matches("[0-9]+")) && Integer.parseInt(charString) >= 0 )
+                String c1 = c + "";
+
+                if(!(c1.matches("[0-9]+")) && Integer.parseInt(charString) >= 0 )
                 {
                     return false;
                 }
