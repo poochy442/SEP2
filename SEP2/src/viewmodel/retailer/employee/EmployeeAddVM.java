@@ -133,4 +133,7 @@ public class EmployeeAddVM {
     public void openSalesView() {
         viewHandler.openSalesView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

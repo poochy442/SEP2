@@ -3,7 +3,8 @@ package view.warehouse.messenger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.geometry.NodeOrientation;
+import javafx.scene.control.Cell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -35,7 +36,7 @@ public class MessengerView {
     private TextArea txtMsg;
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MessengerView() {
 
@@ -50,7 +51,7 @@ public class MessengerView {
         this.messengerVM = messengerVM;
         chatBox.setItems(messengerVM.getMessages());
         txtMsg.textProperty().bindBidirectional(messengerVM.txtMsgProperty());
-        ;
+        align();
     }
 
     @FXML
@@ -61,7 +62,6 @@ public class MessengerView {
     @FXML
     void onInventoryClicked(ActionEvent event) {
         messengerVM.openInventoryMainView();
-
     }
 
     @FXML
@@ -90,8 +90,29 @@ public class MessengerView {
         messengerVM.openDeliveryMainView();
     }
 
-    @FXML void onSendMessageClicked(ActionEvent event)
-    {
+    @FXML
+    void onSendMessageClicked(MouseEvent event) {
         messengerVM.sendMessage();
+        align();
     }
+
+    private void align() {
+        for (int i = 0; i < chatBox.getItems().size(); i++) {  //TODO: Checking first element
+            if (chatBox.getItems().get(i).getDepartmentID().equals("WH")) {
+                getListCell(chatBox, i).setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+                getListCell(chatBox, i).setStyle("-fx-border-width: 7px 305px 7px 0px;");
+                getListCell(chatBox, i).setStyle("-fx-background-color: #F9F9F9;");
+            } else {
+                getListCell(chatBox, i).setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+                getListCell(chatBox, i).setStyle("-fx-border-width: 7px 5px 7px 300px;");
+                getListCell(chatBox, i).setStyle("-fx-background-color: #FFFFFF;");
+            }
+        }
+    }
+
+    private Cell getListCell(ListView list, int index) {
+        Object[] cells = list.lookupAll(".cell").toArray();
+        return (Cell) cells[index];
+    }
+
 }

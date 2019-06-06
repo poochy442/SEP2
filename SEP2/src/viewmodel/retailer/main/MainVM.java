@@ -89,4 +89,10 @@ public class MainVM {
     public IntegerProperty operationalCostProperty() {
         return operationalCost;
     }
+
+    public void openMainView() {viewHandler.openMainView();
+    }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

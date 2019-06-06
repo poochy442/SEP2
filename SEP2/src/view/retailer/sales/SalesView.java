@@ -105,4 +105,9 @@ public class SalesView {
     {
         salesVM.openSalesView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        salesVM.openMessengerView();
+    }
 }

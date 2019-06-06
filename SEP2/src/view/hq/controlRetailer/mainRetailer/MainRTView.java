@@ -30,7 +30,7 @@ public class MainRTView {
     }
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainRTView()
     {

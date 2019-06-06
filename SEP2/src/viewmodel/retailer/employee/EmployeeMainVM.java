@@ -119,4 +119,7 @@ public class EmployeeMainVM {
 
     public void openEmployeeMainView() {viewHandler.openEmployeeMainView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

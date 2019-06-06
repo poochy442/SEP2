@@ -280,4 +280,7 @@ public class InventoryAddVM {
 
     public void openSalesView() {viewHandler.openSalesView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

@@ -31,4 +31,7 @@ public class MainVM {
 
     public void openMainRTView() {viewHandler.openMainRTView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

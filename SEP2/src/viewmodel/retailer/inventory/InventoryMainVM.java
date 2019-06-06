@@ -155,4 +155,7 @@ public class InventoryMainVM {
     public boolean onlyNumbersQuantity() {
         return dataModel.onlyNumbers(requestQty.getValue());
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

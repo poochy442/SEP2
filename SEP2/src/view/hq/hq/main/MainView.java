@@ -38,7 +38,7 @@ public class MainView {
     }
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainView()
     {
@@ -84,6 +84,11 @@ public class MainView {
     @FXML void onHQClicked(MouseEvent event)
     {
         mainVM.openMainView();
+    }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        mainVM.openMessengerView();
     }
 
 }

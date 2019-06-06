@@ -200,4 +200,9 @@ public class ProductRequestView {
     {
         productRequestVM.openSalesView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        productRequestVM.openMessengerView();
+    }
 }

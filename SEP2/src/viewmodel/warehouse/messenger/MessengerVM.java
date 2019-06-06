@@ -96,5 +96,6 @@ public class MessengerVM {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Message message = new Message(txtMsg.getValue(), timestamp, "WH");
         dataModel.sendMessage(message);
+        txtMsg.setValue("");
     }
 }

@@ -35,7 +35,7 @@ public class MainView {
     private MainVM mainVM;
 
     /**
-     * Creates a MainView.
+     * Creates a MessengerView.
      */
     public MainView() {
 
@@ -78,8 +78,7 @@ public class MainView {
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-
-
+        mainVM.openMainView();
     }
 
     @FXML void onDeliveryClicked(ActionEvent event)
@@ -101,6 +100,11 @@ public class MainView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        mainVM.openMessengerView();
     }
 
 }

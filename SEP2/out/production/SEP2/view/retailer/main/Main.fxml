@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
@@ -11,12 +12,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: white;" stylesheets="@../Layout.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.retailer.main.MainView">
    <children>
-      <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #E9EDF0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #F7FAFB; -fx-border-color: #E2E4E4;" BorderPane.alignment="CENTER">
                <children>
@@ -38,12 +40,16 @@
             </Pane>
          </top>
          <center>
-            <PieChart fx:id="pieChart" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="pieChart" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="80.0" left="339.0" right="80.0" top="104.0" />
+               </BorderPane.margin>
+            </PieChart>
          </center>
       </BorderPane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="779.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Button fx:id="homeButton" layoutY="76.0" mnemonicParsing="false" onAction="#onDashboardClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #1ABC9C;" text="Dashboard" textFill="WHITE">
+            <Button fx:id="homeButton" layoutY="76.0" mnemonicParsing="false" onAction="#onDashboardClicked" prefHeight="40.0" prefWidth="259.0" style="-fx-background-color: #1ABC9C;" text="Dashboard" textFill="#dddddd">
                <font>
                   <Font size="15.0" />
                </font>
@@ -197,22 +203,40 @@
       </Pane>
       <Pane layoutX="10.0" layoutY="10.0" prefHeight="75.0" prefWidth="259.0" style="-fx-background-color: #2C363B;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <children>
-            <ImageView fx:id="help" fitHeight="26.0" fitWidth="26.0" layoutX="136.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../pictures/question.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fx:id="settings" fitHeight="25.0" fitWidth="25.0" layoutX="98.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../pictures/settings.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="259.0">
+               <children>
+                  <ImageView fx:id="messenger" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#onMessengerClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../warehouse/pictures/messenger.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="help" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../warehouse/pictures/question.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fx:id="settings" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../warehouse/pictures/settings.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
          </children>
       </Pane>
    </children>

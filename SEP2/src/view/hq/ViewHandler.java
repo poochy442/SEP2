@@ -22,6 +22,7 @@ import view.hq.hq.employeeHQ.EmployeeMainHQView;
 import view.hq.hq.inventoryHQ.InventoryAddHQView;
 import view.hq.hq.inventoryHQ.InventoryMainHQView;
 import view.hq.hq.main.MainView;
+import view.hq.hq.messengerHQ.MessengerView;
 import viewmodel.hq.ViewModelProvider;
 
 import java.io.IOException;
@@ -389,6 +390,28 @@ public class ViewHandler {
         DeliveryMainRTView view = loader.getController();
         view.init(viewModelProvider.getDeliveryMainRTVM());
         primaryStage.setTitle("Retailer Deliveries");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openMessengerView()
+    {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("hq/messengerHQ/Messenger.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        MessengerView view = loader.getController();
+        view.init(viewModelProvider.getMessengerVM());
+        primaryStage.setTitle("Messenger");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

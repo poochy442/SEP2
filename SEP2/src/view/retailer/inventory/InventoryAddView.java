@@ -215,4 +215,9 @@ public class InventoryAddView {
     void onSalesClicked(ActionEvent event) {
         inventoryAddVM.openSalesView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        inventoryAddVM.openMessengerView();
+    }
 }

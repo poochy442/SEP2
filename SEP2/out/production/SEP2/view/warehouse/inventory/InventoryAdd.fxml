@@ -53,6 +53,11 @@
                         <Insets bottom="500.0" right="80.0" />
                      </StackPane.margin>
                   </Label>
+                  <Label fx:id="emptyIDLabel" prefWidth="150.0" text="Field cannot be empty" textFill="#dd4b39" visible="false">
+                     <StackPane.margin>
+                        <Insets bottom="420.0" right="80.0" />
+                     </StackPane.margin>
+                  </Label>
                   <CheckBox fx:id="canExpireCheckBox" mnemonicParsing="false" onAction="#canExpireClicked" prefWidth="80.0">
                      <StackPane.margin>
                         <Insets right="820.0" />
@@ -81,7 +86,7 @@
                         <Insets right="700.0" />
                      </StackPane.margin>
                   </Label>
-                  <Label fx:id="errorExpiryDateLabel" prefWidth="150.0" text="You need to choose expiry date" textFill="#dd4b39" visible="false">
+                  <Label fx:id="errorExpiryDateLabel" prefWidth="170.0" text="You need to choose expiry date" textFill="#dd4b39" visible="false">
                      <StackPane.margin>
                         <Insets right="80.0" top="80.0" />
                      </StackPane.margin></Label>
@@ -90,52 +95,52 @@
                         <Font size="20.0" />
                      </font>
                      <StackPane.margin>
-                        <Insets bottom="600.0" left="600.0" />
+                        <Insets bottom="600.0" left="500.0" />
                      </StackPane.margin>
                   </Label>
                   <TextField fx:id="priceField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
                      <StackPane.margin>
-                        <Insets bottom="500.0" left="850.0" />
+                        <Insets bottom="500.0" left="750.0" />
                      </StackPane.margin>
                   </TextField>
                   <Label prefWidth="80.0" text="Cost">
                      <StackPane.margin>
-                        <Insets bottom="500.0" left="530.0" />
+                        <Insets bottom="500.0" left="430.0" />
                      </StackPane.margin>
                   </Label>
                   <Label text="kr.">
                      <StackPane.margin>
-                        <Insets bottom="500.0" left="1100.0" />
+                        <Insets bottom="500.0" left="1000.0" />
                      </StackPane.margin>
                   </Label>
-                  <Label fx:id="errorPriceLabel" prefWidth="250.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
+                  <Label fx:id="errorPriceLabel" maxWidth="-Infinity" prefWidth="270.0" text="Only numbers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
                      <StackPane.margin>
-                        <Insets bottom="500.0" left="1150.0" />
+                        <Insets bottom="500.0" left="1240.0" />
                      </StackPane.margin>
                   </Label>
                   <TextField fx:id="quantityField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
                      <StackPane.margin>
-                        <Insets left="850.0" top="80.0" />
+                        <Insets left="750.0" top="80.0" />
                      </StackPane.margin>
                   </TextField>
                   <TextField fx:id="minStockField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
                      <StackPane.margin>
-                        <Insets left="850.0" top="160.0" />
+                        <Insets left="750.0" top="160.0" />
                      </StackPane.margin>
                   </TextField>
                   <TextField fx:id="maxStockField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="225.0">
                      <StackPane.margin>
-                        <Insets left="850.0" top="240.0" />
+                        <Insets left="750.0" top="240.0" />
                      </StackPane.margin>
                   </TextField>
                   <Label prefWidth="80.0" text="Min stock">
                      <StackPane.margin>
-                        <Insets left="530.0" top="160.0" />
+                        <Insets left="430.0" top="160.0" />
                      </StackPane.margin>
                   </Label>
                   <Label prefWidth="80.0" text="Max stock">
                      <StackPane.margin>
-                        <Insets left="530.0" top="240.0" />
+                        <Insets left="430.0" top="240.0" />
                      </StackPane.margin>
                   </Label>
                   <Label prefHeight="30.0" prefWidth="150.0" text="Inventory" textFill="#3498db">
@@ -143,27 +148,27 @@
                         <Font size="20.0" />
                      </font>
                      <StackPane.margin>
-                        <Insets bottom="100.0" left="600.0" />
+                        <Insets bottom="100.0" left="500.0" />
                      </StackPane.margin>
                   </Label>
                   <Label prefWidth="80.0" text="Quantity">
                      <StackPane.margin>
-                        <Insets left="530.0" top="80.0" />
+                        <Insets left="430.0" top="80.0" />
                      </StackPane.margin>
                   </Label>
-                  <Label fx:id="errorQuantityLabel" prefWidth="250.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
+                  <Label fx:id="errorQuantityLabel" maxWidth="-Infinity" prefWidth="250.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
                      <StackPane.margin>
-                        <Insets left="1150.0" top="80.0" />
+                        <Insets left="1240.0" top="80.0" />
                      </StackPane.margin>
                   </Label>
                   <Label fx:id="errorMinStockLabel" maxWidth="-Infinity" prefWidth="250.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
                      <StackPane.margin>
-                        <Insets left="1150.0" top="160.0" />
+                        <Insets left="1240.0" top="160.0" />
                      </StackPane.margin>
                   </Label>
                   <Label fx:id="errorMaxStockLabel" maxWidth="-Infinity" prefWidth="250.0" text="Only integers greater or equal to 0 are allowed" textFill="#dd4b39" visible="false">
                      <StackPane.margin>
-                        <Insets left="1150.0" top="240.0" />
+                        <Insets left="1240.0" top="240.0" />
                      </StackPane.margin>
                   </Label>
                   <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddClicked" style="-fx-background-color: white; -fx-border-color: #3498DB; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD">
