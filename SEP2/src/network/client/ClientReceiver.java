@@ -125,6 +125,7 @@ public class ClientReceiver implements Runnable {
                         dataModel.addItemFromServer(stockItem);
                     case Packet.employeeUpdate:
                         dataModel.loadEmployeeListFromDB(json);
+                        break;
 
                 }
 

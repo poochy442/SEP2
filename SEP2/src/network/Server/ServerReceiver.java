@@ -105,7 +105,7 @@ public class ServerReceiver implements Runnable {
                         break;
                     case Packet.DeleteEmployee:
                         employee = gson.fromJson(json, Employee.class);
-                        System.out.println("Employee: " + employee.getId() + " deleted = " + dataBaseModel.deleteEmployee(employee));
+                        System.out.println("Employee: " + employee.getId() + " deleted = " + dataBaseModel.deleteEmployee(employee,clientNo));
                         break;
                     case Packet.AddSale:
                         StockItem stockItem3 = gson.fromJson(json, StockItem.class);
