@@ -53,8 +53,21 @@ public class ServerSender implements Runnable {
         dataBaseModel.addListener("DeliveriesQuery",this::sendDeliveriesList);
         dataBaseModel.addListener("NewMessage",this::sendMessage);
         dataBaseModel.addListener("MessageQuery",this::sendMesageList);
+        dataBaseModel.addListener("NewItem",this::newItem);
         System.out.println("newemployeelistener");
 
+    }
+
+    private void newItem(PropertyChangeEvent propertyChangeEvent) {
+        if (clientNo != (int) propertyChangeEvent.getOldValue()) {
+            Gson gson = new Gson();
+            StockItem stockItem = ((StockItem) propertyChangeEvent.getNewValue());
+            String json = gson.toJson(stockItem);
+            Packet packet = new Packet(Packet.StockOperation, json);
+            addToQueue(packet);
+            System.out.println("ServerSender: Employee  sent");
+        }
+        System.out.println("ServerSender: "+clientNo+ " = " +(int)propertyChangeEvent.getOldValue());
     }
 
     private void sendMesageList(PropertyChangeEvent propertyChangeEvent) {

@@ -422,9 +422,9 @@ public class DataBaseModel {
             stockItemInsertStatement.setString(8, department);
 
             stockItemInsertStatement.executeUpdate();
+            changeSupport.firePropertyChange("NewItem",clientNo,stockItem);
             return true;
 
-            //todo adding Date format is not correct
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -488,7 +488,7 @@ public class DataBaseModel {
             requestInsertStatement.setString(1, "" + count);
             requestInsertStatement.setString(2, requestedFrom);
             requestInsertStatement.setString(3, "Null");
-            requestInsertStatement.setTimestamp(4,timestamp);
+            requestInsertStatement.setTimestamp(4, timestamp);
             requestInsertStatement.setString(5, "" + count);
             requestInsertStatement.executeUpdate();
             return count;
@@ -890,7 +890,7 @@ public class DataBaseModel {
                 String requestID = row[0].toString();
                 String requestedFrom = row[1].toString();
                 String status = row[2].toString();
-                Timestamp timestamp = (Timestamp)row[3];
+                Timestamp timestamp = (Timestamp) row[3];
 
                 Delivery delivery = new Delivery(requestID, requestedFrom, status, timestamp);
                 deliveryList.addDelivery(delivery);

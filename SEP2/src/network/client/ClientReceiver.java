@@ -120,6 +120,9 @@ public class ClientReceiver implements Runnable {
                         MessageList messages = gson.fromJson(json, MessageList.class);
                         dataModel.setMessageList(messages);
                         break;
+                    case Packet.StockOperation:
+                        StockItem stockItem = gson.fromJson(json,StockItem.class);
+                        dataModel.addItemFromServer(stockItem);
 
                 }
 
