@@ -717,6 +717,7 @@ public class DataBaseModel {
             addSale.setInt(2, stockItem.getQuantity());
             addSale.setString(3, stockItem.getId());
             addSale.executeUpdate();
+            changeSupport.firePropertyChange("SalesRefresh",0,clientNo);
             return true;
 
         } catch (SQLException e) {

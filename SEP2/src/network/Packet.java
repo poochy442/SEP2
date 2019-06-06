@@ -18,6 +18,7 @@ public class Packet implements Serializable {
     public static final String messageQuery = "MessageQuery";
     public static final String employeeUpdate ="EmployeeUpdate";
     public static final String itemUpdate ="ItemUpdate";
+    public static final String salesRefresh ="SalesRefresh";
     private String operation, Json;
     /**
      * The Employee operation {@link String}.

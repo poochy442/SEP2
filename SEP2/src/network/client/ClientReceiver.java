@@ -129,6 +129,8 @@ public class ClientReceiver implements Runnable {
                     case Packet.itemUpdate:
                         dataModel.loadItemListFromDB();
                         break;
+                    case Packet.salesRefresh:
+                        dataModel.loadSalesFromDB();
 
                 }
 
