@@ -21,7 +21,7 @@ import viewmodel.retailer.main.MainVM;
  * @author Dave Joe Lê
  */
 
-public class MessengerView {
+public class MainView {
 
     @FXML
     private AnchorPane anchorPane;
@@ -37,7 +37,7 @@ public class MessengerView {
     /**
      * Creates a MessengerView.
      */
-    public MessengerView() {
+    public MainView() {
 
     }
 
@@ -78,8 +78,7 @@ public class MessengerView {
 
     @FXML
     void onDashboardClicked(ActionEvent event) {
-
-
+        mainVM.openMainView();
     }
 
     @FXML void onDeliveryClicked(ActionEvent event)
@@ -101,6 +100,11 @@ public class MessengerView {
     void onMinimizeClicked(MouseEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.setIconified(true);
+    }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        mainVM.openMessengerView();
     }
 
 }

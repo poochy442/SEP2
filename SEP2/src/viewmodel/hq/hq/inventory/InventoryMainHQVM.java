@@ -111,4 +111,7 @@ public class InventoryMainHQVM {
 
     public void openMainRTView() {viewHandler.openMainRTView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

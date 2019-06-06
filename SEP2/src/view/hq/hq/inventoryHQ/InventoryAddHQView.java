@@ -220,4 +220,9 @@ public class InventoryAddHQView {
     {
         inventoryAddHQVM.openDeliveryView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        inventoryAddHQVM.openMessengerView();
+    }
 }

@@ -79,18 +79,7 @@ public class MessengerVM {
         viewHandler.openInventoryMainView();
     }
 
-    /**
-     * This method opens the Product Request view.
-     */
-    public void openProductRequestView()
-    {
-        viewHandler.openProductRequestView();
-    }
-
     public void openMainView() {viewHandler.openMainView();
-    }
-
-    public void openDeliveryMainView() {viewHandler.openDeliveryMainView();
     }
 
     public void sendMessage() {
@@ -100,8 +89,13 @@ public class MessengerVM {
         txtMsg.setValue("");
     }
 
-    public void openSalesView()
-    {
-        viewHandler.openSalesView();
+    public void openProductRequestView() {viewHandler.openProductRequestView();
+    }
+
+    public void openDeliveryView() {
+        viewHandler.openDeliveryMainView();
+    }
+
+    public void openSalesMainView() {viewHandler.openSalesView();
     }
 }

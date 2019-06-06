@@ -271,4 +271,7 @@ public class InventoryAddHQVM {
 
     public void openMainRTView() {viewHandler.openMainRTView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

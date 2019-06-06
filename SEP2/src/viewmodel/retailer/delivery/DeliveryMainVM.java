@@ -114,4 +114,7 @@ public class DeliveryMainVM {
         dataModel.openDelivery(delivery);
         viewHandler.openDeliveryItemsView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

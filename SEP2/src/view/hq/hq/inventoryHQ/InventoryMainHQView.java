@@ -164,4 +164,9 @@ public class InventoryMainHQView {
     {
         inventoryMainHQVM.openMainView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        inventoryMainHQVM.openMessengerView();
+    }
 }

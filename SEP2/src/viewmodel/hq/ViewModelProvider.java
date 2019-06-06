@@ -17,6 +17,7 @@ import viewmodel.hq.hq.employee.EmployeeMainHQVM;
 import viewmodel.hq.hq.inventory.InventoryAddHQVM;
 import viewmodel.hq.hq.inventory.InventoryMainHQVM;
 import viewmodel.hq.hq.main.MainVM;
+import viewmodel.hq.hq.messenger.MessengerVM;
 
 /**
  * The viewmodel provider for the Headquarters and it is responsible for passing the requested
@@ -46,6 +47,7 @@ public class ViewModelProvider {
     private DeliveryMainWHVM deliveryMainWHVM;
     private DeliveryMainRTVM deliveryMainRTVM;
     private DeliveryItemsRTVM deliveryItemsRTVM;
+    private MessengerVM messengerVM;
 
     /**
      * Creates a ViewModelProvider with the specified information
@@ -176,6 +178,7 @@ public class ViewModelProvider {
         deliveryMainWHVM = new DeliveryMainWHVM(dataModel, viewHandler);
         deliveryItemsRTVM = new DeliveryItemsRTVM(dataModel, viewHandler);
         deliveryMainRTVM = new DeliveryMainRTVM(dataModel, viewHandler);
+        messengerVM = new MessengerVM(dataModel, viewHandler);
     }
 
     public DeliveryItemsWHVM getDeliveryItemsWHVM() {
@@ -192,5 +195,9 @@ public class ViewModelProvider {
 
     public DeliveryItemsRTVM getDeliveryItemsRTVM() {
         return deliveryItemsRTVM;
+    }
+
+    public MessengerVM getMessengerVM() {
+        return messengerVM;
     }
 }

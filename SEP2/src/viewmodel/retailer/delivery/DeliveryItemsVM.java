@@ -96,4 +96,7 @@ public class DeliveryItemsVM {
 
     public void goBack() {viewHandler.openDeliveryMainView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

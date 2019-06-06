@@ -86,4 +86,9 @@ public class MainView {
         mainVM.openMainView();
     }
 
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        mainVM.openMessengerView();
+    }
+
 }

@@ -208,4 +208,9 @@ public class InventoryMainView {
         }
         inventoryMainVM.addToSales(selectedItem);
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        inventoryMainVM.openMessengerView();
+    }
 }

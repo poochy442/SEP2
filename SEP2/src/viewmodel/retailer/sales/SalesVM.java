@@ -94,4 +94,7 @@ public class SalesVM {
 
     public void openSalesView() {viewHandler.openSalesView();
     }
+
+    public void openMessengerView() {viewHandler.openMessengerView();
+    }
 }

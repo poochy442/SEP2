@@ -119,4 +119,9 @@ public class DeliveryItemsView {
     {
         deliveryItemsVM.goBack();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        deliveryItemsVM.openMessengerView();
+    }
 }

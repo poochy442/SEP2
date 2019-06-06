@@ -13,8 +13,9 @@ import view.retailer.employee.EmployeeAddView;
 import view.retailer.employee.EmployeeMainView;
 import view.retailer.inventory.InventoryAddView;
 import view.retailer.inventory.InventoryMainView;
+import view.retailer.messenger.MessengerView;
 import view.retailer.request.ProductRequestView;
-import view.retailer.main.MessengerView;
+import view.retailer.main.MainView;
 import view.retailer.sales.SalesView;
 import viewmodel.retailer.ViewModelProvider;
 
@@ -64,7 +65,7 @@ public class ViewHandler {
     {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("main/Messenger.fxml"));
+        loader.setLocation(getClass().getResource("main/Main.fxml"));
         Parent root = null;
         try{
             root = loader.load();
@@ -73,7 +74,7 @@ public class ViewHandler {
         {
             e.printStackTrace();
         }
-        MessengerView view = loader.getController();
+        MainView view = loader.getController();
         view.init(viewModelProvider.getMainVM());
         primaryStage.setTitle("Dashboard");
 
@@ -261,6 +262,28 @@ public class ViewHandler {
         DeliveryItemsView view = loader.getController();
         view.init(viewModelProvider.getDeliveryItemsVM());
         primaryStage.setTitle("Delivery item");
+
+        Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public void openMessengerView()
+    {
+        FXMLLoader loader = new FXMLLoader();
+
+        loader.setLocation(getClass().getResource("messenger/Messenger.fxml"));
+        Parent root = null;
+        try{
+            root = loader.load();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        MessengerView view = loader.getController();
+        view.init(viewModelProvider.getMessengerVM());
+        primaryStage.setTitle("Messenger");
 
         Scene scene = new Scene(root, screenSize.getWidth(), screenSize.getHeight());
         primaryStage.setScene(scene);

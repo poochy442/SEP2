@@ -126,4 +126,9 @@ public class DeliveryMainView {
         selectedDelivery = deliveryTableView.getSelectionModel().getSelectedItem();
         deliveryMainVM.openDeliveryItemsView(selectedDelivery);
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        deliveryMainVM.openMessengerView();
+    }
 }

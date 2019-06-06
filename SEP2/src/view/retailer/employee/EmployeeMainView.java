@@ -141,4 +141,9 @@ public class EmployeeMainView {
     {
         employeeMainVM.openSalesView();
     }
+
+    @FXML void onMessengerClicked(MouseEvent event)
+    {
+        employeeMainVM.openMessengerView();
+    }
 }
