@@ -4,9 +4,12 @@ import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import model.IDataModel;
+import model.StockItem;
+import model.StockItemList;
 import view.retailer.ViewHandler;
 
 import java.beans.PropertyChangeEvent;
+import java.util.Date;
 
 /**
  * The main viewmodel Class for the Warehouse.
@@ -42,9 +45,9 @@ public class MainVM {
     private void pieChartUpdate(PropertyChangeEvent evt) {
         Platform.runLater(()-> {
             int[] vals = (int[])evt.getNewValue();
-            costOfGoods.set(costOfGoods.getValue() + vals[0]);
-            profit.set(profit.getValue() + vals[1]);
-            operationalCost.set(operationalCost.getValue() + vals[2]);
+            costOfGoods.set(costOfGoods.get() + vals[0]);
+            profit.set(profit.get() + vals[1]);
+            operationalCost.set(operationalCost.get() + vals[2]);
         });
     }
 

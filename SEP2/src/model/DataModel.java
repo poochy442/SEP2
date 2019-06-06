@@ -354,7 +354,7 @@ public class DataModel implements IDataModel {
         {
             costOfGoods += (salesList.get(i).getPrice()/2) * salesList.get(i).getQuantity();
             operationalCost += salesList.get(i).getQuantity();
-            profit += (costOfGoods - operationalCost);
+            profit += (salesList.get(i).getPrice()/2) * salesList.get(i).getQuantity() - salesList.get(i).getQuantity();
         }
         propertyChangeSupport.firePropertyChange("PieChartLoad", null, new int[]{costOfGoods, profit, operationalCost});
         propertyChangeSupport.firePropertyChange("NewSalesList", null, salesList);
