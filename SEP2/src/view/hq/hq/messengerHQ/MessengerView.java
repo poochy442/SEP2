@@ -14,6 +14,7 @@ import model.Message;
 import viewmodel.hq.hq.messenger.MessengerVM;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * The main view Class for the Headquarters.
@@ -106,4 +107,9 @@ public class MessengerView {
         messengerVM.openMessengerView();
     }
 
+    private void scrollTo()
+    {
+        List<Message> items = chatBox.getItems();
+        int index = items.size();
+    }
 }
