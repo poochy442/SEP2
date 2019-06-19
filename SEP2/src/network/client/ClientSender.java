@@ -36,8 +36,9 @@ public class ClientSender implements Runnable {
      * @param dataModel The {@link DataModel} for the ClientSender to use.
      */
     public ClientSender(Socket socket, IDataModel dataModel) {
-        this.socket = socket;
+        dataModel.addListener("AddSale", this::addSale);
         this.dataModel = dataModel;
+        this.socket = socket;
         dataModel.addListener("NewEmployeeFromUser", this::addEmployeeListener);
         dataModel.addListener("NewItemFromUser", this::addStockItemListener);
         dataModel.addListener("EmployeeQuery", this::triggerEmployeeQuery);
@@ -45,7 +46,6 @@ public class ClientSender implements Runnable {
         dataModel.addListener("SendProductRequest", this::addRequestListener);
         dataModel.addListener("DeleteItemFromWH", this::deleteItemFromWH);
         dataModel.addListener("DeleteEmployee", this::deleteEmployee);
-        dataModel.addListener("AddSale", this::addSale);
         dataModel.addListener("SalesQuery", this::salesQuery);
         dataModel.addListener("AddProductRequest", this::addRequest);
         dataModel.addListener("RequestQuery", this::triggerRequestQuery);

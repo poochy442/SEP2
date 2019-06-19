@@ -13,10 +13,11 @@ public class Client {
         Socket socket = new Socket(HOST,PORT);
         BufferedReader in =new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-        out.println("Hello");
+        out.println("hello");
         String reply = in.readLine();
+        out.println("Jamie");
+        reply = in.readLine();
         socket.close();
-
     }
 
 }

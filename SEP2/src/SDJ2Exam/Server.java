@@ -13,7 +13,9 @@ public class Server {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
             String request = in.readLine();
-            out.println("happy to see you back");
+            out.println("name?");
+            String name = in.readLine();
+            out.println("["+name+"] is now registered");
             in.close();out.close();socket.close();
         }
     }

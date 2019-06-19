@@ -26,6 +26,8 @@ public class DataBaseModel {
     private PropertyChangeSupport changeSupport;
 
     public DataBaseModel() {
+        changeSupport = new PropertyChangeSupport(this);
+
         setConnection();
         departmentInsertStatement = prepareDepartmentStatement();
         employeeInsertStatement = prepareEmployeeStatement();
@@ -33,7 +35,6 @@ public class DataBaseModel {
         stockItemInsertStatement = prepareStockItemStatement();
         requestInsertStatement = prepareInsertRequest();
         itemListInsertStatement = prepareInsertItemListRequest();
-        changeSupport = new PropertyChangeSupport(this);
         deleteItemByIDandDep = prepareDeleteItemFromWH();
         deleteEmployee = prepareDeleteEmployee();
         employeeQuery = prepareEmployeeQuery();
