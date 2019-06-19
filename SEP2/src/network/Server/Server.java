@@ -18,7 +18,7 @@ import java.net.Socket;
  * @author Dave Joe Lê
  */
 
-public class    Server {
+public class Server {
 
     private static int PORT = 5678;
 
