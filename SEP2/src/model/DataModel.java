@@ -249,7 +249,7 @@ public class DataModel implements IDataModel {
     }
 
     @Override
-    public void addToProductRequest(ProductRequest productRequest, boolean notifyServer) {
+    public  void addToProductRequest(ProductRequest productRequest, boolean notifyServer) {
         productRequestList.addRequestToList(productRequest);
 
         if (notifyServer == true) {
